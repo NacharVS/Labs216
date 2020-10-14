@@ -6,7 +6,7 @@ namespace Labs216.MikhalevVL
 {
     class _1lab
     {
-        static void Main(string[] args)
+        static void main_from_lab1()
         {
             Console.WriteLine("What do you want to do?: 1. ax^2 - bx + c; 2. c^2 = a^2 + b^2; 3. Circumference; 4. Area of a circle; 5. Parallelepiped's Volume; 6.Amperage/Resistance/Voltage");
             int choiceOfUser = int.Parse(Console.ReadLine());
