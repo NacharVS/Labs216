@@ -4,10 +4,10 @@ namespace Labs216
 {
     class Program
     {
-        static void Main(string[] args)
-        {
+        //static void Main(string[] args)
+        //{
            
            
-        }
+        //}
     }
 }
