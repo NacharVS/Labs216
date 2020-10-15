@@ -24,6 +24,7 @@ namespace Labs216.MirasovEG
 
             for (double i = first; i <= second; i++)
             {
+                if (i==0) continue;
                 double devision = number / i;
                 Console.WriteLine($"Результат деления {number} на {i} = {devision}");
             }
