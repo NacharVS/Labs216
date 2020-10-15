@@ -6,11 +6,7 @@ namespace Labs216.MirasovEG
 {
     class DivisionByInterval
     {
-        static void Main(string[] args)
-        {
-            DivisionbyInterval();
-        }
-
+        
         static public void DivisionbyInterval()
         {
             Console.WriteLine("Enter number");
