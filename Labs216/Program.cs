@@ -2,13 +2,13 @@
 
 namespace Labs216
 {
-    class Program
+    class DivisionByIntrval
     {
         static void Main(string[] args)
         {
-            Console.Write("Ente Ur Name");
+            Console.Write("ya nichego ne ponimayu voobsche");
             string a = Console.ReadLine();
-            Console.WriteLine("Hello, "+a);
+            Console.WriteLine("hello, i need help "+a);
 
         }
     }
