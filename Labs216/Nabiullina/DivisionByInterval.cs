@@ -6,10 +6,6 @@ namespace Labs216.Nabiullina
 {
     class DivisionByInterval
     {
-       static void Main(string[] args)
-        {
-            DivisionByInterval2();
-        }
         static public void DivisionByInterval1()
         {
             Console.WriteLine("Enter a namber:");
@@ -22,9 +18,11 @@ namespace Labs216.Nabiullina
             double y = double.Parse (Console.ReadLine());
             for (double b = x; b <= y; b++ )
             {
-                double z = a / b;
-                Console.WriteLine($"{a} divided by {b} = {z}");
-
+                if (b != 0)
+                {
+                    double z = a / b;
+                    Console.WriteLine($"{a} divided by {b} = {z}");
+                }
             }
         }
         
