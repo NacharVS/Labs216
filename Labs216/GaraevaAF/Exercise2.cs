@@ -1,6 +1,5 @@
 ﻿using System;
-using System.Diagnostics.CodeAnalysis;
-using System.Security.Cryptography.X509Certificates;
+
 
 namespace Labs216.GaraevaAF
 {
@@ -19,7 +18,7 @@ namespace Labs216.GaraevaAF
             {
                 if (D > 0)
                 {
-                    D = b * b - 4 * a * c;
+                    D = (b * b) - (4 * a * c);
                     Console.WriteLine($"1) D = {b}*{b} - 4*{a}*{c} ");
                     Console.WriteLine($"D = {D}");
                     double x1 = 0;

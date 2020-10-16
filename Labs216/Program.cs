@@ -7,7 +7,7 @@ namespace Labs216
     {
         static void Main(string[] args)
         {
-            Exercise2.Exercise21();
+            Circumference.Circumference1();
         }
         
     }
