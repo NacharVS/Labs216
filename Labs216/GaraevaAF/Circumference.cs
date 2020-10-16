@@ -16,8 +16,8 @@ namespace Labs216.GaraevaAF
             {
                 if (r > 0)
                 {
-                    c = 2 * 3,14 * r;
-                    Console.WriteLine(c);
+                    c = 2 * 3.14 * r;
+                    Console.WriteLine($"{c} = 2 * 3.14 * {r}");
                 }
             }
             
