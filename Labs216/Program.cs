@@ -1,12 +1,14 @@
 ﻿using System;
+using System.Linq;
+using Labs216.Anisimov;
 
 namespace Labs216
 {
-    /*class Program
+    class Program
     {
         static void Main(string[] args)
         {
-                DivisionByInterval.divisionbyinterval();
+
         }
-    }*/
+    }
 }

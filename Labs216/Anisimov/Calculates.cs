@@ -6,43 +6,6 @@ namespace Labs216.Anisimov
 {
         class Calculates
         {
-            /*
-            static void Main(string[] args)
-            {
-                string chk = "y";
-                while (chk == "y")
-                {
-                    Console.WriteLine("What do you want to calculate? 1 -- ax^2 - bx + c || 2 -- c^2=a^2+b^2 || 3 -- circumference || 4 -- area of circle || 5 -- parallelepiped's Volume || 6 -- amperage|resistanese|voltage.");
-                    int choose = int.Parse(Console.ReadLine());
-                    switch (choose)
-                    {
-                        case 1:
-                            Calculates.QuadraticEquation();
-                            break;
-                        case 2:
-                            Calculates.PythagoreanTheorem();
-                            break;
-                        case 3:
-                            Calculates.Circumference();
-                            break;
-                        case 4:
-                            Calculates.AreaOfCircle();
-                            break;
-                        case 5:
-                            Calculates.ParallepipedVolume();
-                            break;
-                        case 6:
-                            Calculates.AmperResVolt();
-                            break;
-                        default:
-                            Console.WriteLine($"Wrong input. ({choose})");
-                            break;
-                    }
-                    Console.WriteLine("Continue? y/n");
-                    chk = Console.ReadLine();
-                }
-            }
-            */
             public static void QuadraticEquation()
             {
                 Console.WriteLine("Enter a:");
@@ -135,5 +98,39 @@ namespace Labs216.Anisimov
                 }
             }
         }
+        /*Пример вызова метода
+
+        string chk = "y";
+                while (chk == "y")
+                {
+                    Console.WriteLine("What do you want to calculate? 1 -- ax^2 - bx + c || 2 -- c^2=a^2+b^2 || 3 -- circumference || 4 -- area of circle || 5 -- parallelepiped's Volume || 6 -- amperage|resistanese|voltage.");
+                    int choose = int.Parse(Console.ReadLine());
+                    switch (choose)
+                    {
+                        case 1:
+                            Calculates.QuadraticEquation();
+                            break;
+                        case 2:
+                            Calculates.PythagoreanTheorem();
+                            break;
+                        case 3:
+                            Calculates.Circumference();
+                            break;
+                        case 4:
+                            Calculates.AreaOfCircle();
+                            break;
+                        case 5:
+                            Calculates.ParallepipedVolume();
+                            break;
+                        case 6:
+                            Calculates.AmperResVolt();
+                            break;
+                        default:
+                            Console.WriteLine($"Wrong input. ({choose})");
+                            break;
+                    }
+                    Console.WriteLine("Continue? y/n");
+                    chk = Console.ReadLine();
+                }*/
     }
 
