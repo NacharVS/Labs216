@@ -7,7 +7,7 @@ namespace Labs216.ArslanovTI
     
     class DivisionByInterval
     {
-        public static void ollo(string[] args)
+        internal static void Raz(string[] args)
         {
             Console.WriteLine("Введите число, на которое делить");
             double a = int.Parse(Console.ReadLine());
@@ -15,15 +15,21 @@ namespace Labs216.ArslanovTI
             double b = int.Parse(Console.ReadLine());
             Console.WriteLine("Введите второе число интервала");
             double c = int.Parse(Console.ReadLine());
+            
             for (double i = b; i > c; i++)
             {
                 double result = a / i;
+                if (i == 0)  
+                {
+                    Console.WriteLine("На ноль делить нельзя");  
+                }
                 Console.WriteLine(result);
             }
 
         }
 
-
-        }
+        
+        
     }
-}
+    }
+
