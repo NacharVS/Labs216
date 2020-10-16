@@ -7,7 +7,7 @@ namespace Labs216
     {
         static void Main(string[] args)
         {
-            Area_of_a_circle.Area_of_a_circle1();
+            Volume_parallelepiped_s.Volume_parallepiped_s1();
         }
         
     }
