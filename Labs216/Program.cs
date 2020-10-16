@@ -7,7 +7,7 @@ namespace Labs216
     {
         static void Main(string[] args)
         {
-            DivisionByInterval.DivisionByInterval1();
+            Labs1.voltage();
         }
     }
 }
