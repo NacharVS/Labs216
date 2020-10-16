@@ -6,10 +6,7 @@ namespace Labs216
     {
         static void Main(string[] args)
         {
-            Console.Write("Ente Ur Name");
-            string a = Console.ReadLine();
-            Console.WriteLine("Hello, "+a);
-
+           
         }
     }
 }
