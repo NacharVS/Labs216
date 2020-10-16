@@ -1,9 +1,7 @@
 ﻿using System;
 namespace Labs216.Gorchakova
 {
-    public class division_by_interval
-    {
-
+   
         public class DivisionByInterval
         {
             static public void FindMet(int a, int b)
@@ -65,5 +63,5 @@ namespace Labs216.Gorchakova
                 Console.WriteLine($"Voltage = {V}");
             }
         }
-    }
+    
 }
