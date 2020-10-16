@@ -7,7 +7,7 @@ namespace Labs216
     {
         static void Main(string[] args)
         {
-            Volume_parallelepiped_s.Volume_parallepiped_s1();
+            Physics.Physics1();
         }
         
     }
