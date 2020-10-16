@@ -1,14 +1,14 @@
 ﻿using System;
+using Labs216.Stepanov;
 
 namespace Labs216
 {
-    class DivisionByIntrval
+    class Program
     {
         static void Main(string[] args)
         {
-            Console.Write("ya nichego ne ponimayu voobsche");
-            string a = Console.ReadLine();
-            Console.WriteLine("hello, i need help "+a);
+           
+                DivisionbyInterval.DivisionByInterval();
 
         }
     }
