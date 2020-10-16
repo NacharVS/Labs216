@@ -1,4 +1,5 @@
 ﻿using System;
+using Labs216.Gabdulkhaev;
 
 namespace Labs216
 {
@@ -6,10 +7,7 @@ namespace Labs216
     {
         static void Main(string[] args)
         {
-            Console.Write("ya nichego ne ponimayu voobsche");
-            string a = Console.ReadLine();
-            Console.WriteLine("hello, i need help "+a);
-
+            DivisionByInterval.Division();
         }
     }
 }
