@@ -20,8 +20,9 @@ namespace Labs216.Stepanov
 
             for(double i = first; i <= second; i++)
             {
+                if (i == 0) continue;
                 double devision = number / i;
-                Console.WriteLine($"Division result {number} by {i} = {devision} ");
+                Console.WriteLine($"Division result {number} by {i} = {devision} ");               
             }
         }
     }   
