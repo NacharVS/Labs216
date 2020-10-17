@@ -1,5 +1,5 @@
 ﻿using System;
-using Labs216.Gabdulkhaev;
+using Labs216.Zakirov;
 
 namespace Labs216
 {
@@ -7,7 +7,7 @@ namespace Labs216
     {
         static void Main(string[] args)
         {
-            DivisionByInterval.Division();
+            DivisionByinterval.Division();
         }
     }
 }
