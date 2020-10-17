@@ -1,4 +1,5 @@
 ﻿using Labs216.GaraevaAF;
+using Labs216.Lab2;
 using System;
 
 namespace Labs216
@@ -7,7 +8,7 @@ namespace Labs216
     {
         static void Main(string[] args)
         {
-            Physics.Physics1();
+            LetterFix.LetterFix1();
         }
         
     }
