@@ -4,28 +4,31 @@ using System.Text;
 
 namespace Labs216.Shakirov
 {
-    class DivisionByInterval
+    class Program
     {
-            private static void Main(string[] args)
-            {
-                Console.WriteLine("Enter number");
-                int number = int.Parse(Console.ReadLine());
-
-                Console.WriteLine("Enter begin interval");
-                int first = int.Parse(Console.ReadLine());
-
-                Console.WriteLine("Enter end interval");
-                int second = int.Parse(Console.ReadLine());
-
-                for (int i = first; i <= second; i++)
-                {
-                    double devision = number / i;
-                    Console.WriteLine($"Результат деления {number} на {i} = {devision}");
-                }
-            }
-
+        static void Main(string[] args)
+        {
+            DivisionByInterval.divisionbyinterval();
         }
     }
+    public class DivisionByInterval
+    {
+        public static void divisionbyinterval()
+        {
+            Console.WriteLine("Enter number");
+            double numb = double.Parse(Console.ReadLine());
+            Console.WriteLine("First number of interval:");
+            double first = double.Parse(Console.ReadLine());
+            Console.WriteLine("Last numver of interval:");
+            double last = double.Parse(Console.ReadLine());
+            for (double i = first; i < last + 1; i++)
+            {
+                if (i == 0) continue;
+                Console.WriteLine($"{numb}/{i} -- {numb / i}");
+            }
+        }
+    }
+}
 
 
 
