@@ -7,8 +7,8 @@ namespace Labs216
     {
         static void Main(string[] args)
         {
-           
-                DivisionbyInterval.DivisionByInterval();
+
+            CalculationMethods.Circumference(2.2);
 
         }
     }
