@@ -11,7 +11,8 @@ namespace Labs216
             string s = Console.ReadLine();
 
 
-            StringOperations.WordCount(s);
+            StringOperations.Palindrome(s);
+
 
         }
     }
