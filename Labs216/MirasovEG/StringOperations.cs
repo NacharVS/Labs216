@@ -38,7 +38,7 @@ namespace Labs216.MirasovEG
         public static void WordCount(string s)
         {
             string[] words = s.Split(' ' , StringSplitOptions.RemoveEmptyEntries);
-            Console.WriteLine($"Количество слов в строке = {words.Length}");
+            Console.WriteLine($"Number of words per line = {words.Length}");
         }
 
 
@@ -54,9 +54,9 @@ namespace Labs216.MirasovEG
                     count += 1;
             }
             if (count == str.Length)
-                Console.WriteLine("Эта строка является палиндром ");
+                Console.WriteLine("This string is a palindrome");
             else
-                Console.WriteLine("Эта строка не является палиндром ");
+                Console.WriteLine("This string is not a palindrome");
         }
     }
 }
