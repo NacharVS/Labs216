@@ -9,7 +9,9 @@ namespace Labs216
         {
             Console.WriteLine("Enter string:");
             string s = Console.ReadLine();
-            StringOperations.OddEven(s);
+
+
+            StringOperations.WordCount(s);
 
         }
     }

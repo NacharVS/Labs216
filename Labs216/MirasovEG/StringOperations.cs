@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 
 namespace Labs216.MirasovEG
@@ -24,7 +25,15 @@ namespace Labs216.MirasovEG
                     Console.Write(str[i]);
                 
             }
+        }
+        
+        public static void WordCount(string s)
+        {
+            string[] words = s.Split(' ' , StringSplitOptions.RemoveEmptyEntries);
+            
 
+           
+            Console.WriteLine($"Количество слов в строке = {words.Length}");
         }
     }
 }
