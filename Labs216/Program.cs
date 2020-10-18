@@ -7,7 +7,7 @@ namespace Labs216
     {
         static void Main(string[] args)
         {
-            DivisionByInterval.DivisionbyInterval();
+            DivisionByInterval.KvadrantoyeUranveniye(1, -4, 3);
         }
     }
 }

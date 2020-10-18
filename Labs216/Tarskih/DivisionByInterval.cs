@@ -23,5 +23,13 @@ namespace Labs216.Tarskih
                 Console.WriteLine($"Результат деления {n} на {a} = {devision}");
             }
         }
+        public static void KvadrantoyeUranveniye(int a, int b, int c)
+        {
+            int d = b * b + 4 * a * c;
+            int d1 = (int)(Math.Sqrt(d));
+            int x1 = (-b + d1) / (a * 2);
+            int x2 = (-b - d1) / (a * 2);
+            Console.WriteLine($"X1 = {x1} X2 = {x2}");
+        }
     }
 }
