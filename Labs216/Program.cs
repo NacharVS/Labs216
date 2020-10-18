@@ -7,7 +7,7 @@ namespace Labs216
     {
         static void Main(string[] args)
         {
-            DivisionByInterval.KvadrantoyeUranveniye(1, -4, 3);
+            DivisionByInterval.Voltage(7, 5);
         }
     }
 }
