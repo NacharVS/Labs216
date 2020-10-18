@@ -6,7 +6,9 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="KhabibullinaRal\" />
+    <Compile Remove="KhabibullinaRal\**" />
+    <EmbeddedResource Remove="KhabibullinaRal\**" />
+    <None Remove="KhabibullinaRal\**" />
   </ItemGroup>
 
 </Project>

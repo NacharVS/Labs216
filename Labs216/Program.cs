@@ -1,13 +1,13 @@
 ﻿using System;
-using Labs216.Gabdulkhaev;
+using Labs216.Tarskih;
 
 namespace Labs216
 {
-    class DivisionByIntrval
+    class Program
     {
         static void Main(string[] args)
         {
-            DivisionByInterval.Division();
+            DivisionByInterval.DivisionbyInterval();
         }
     }
 }
