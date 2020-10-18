@@ -1,5 +1,6 @@
 ﻿using Labs216.GaraevaAF;
 using Labs216.Lab2;
+using Labs216.Lab3;
 using System;
 
 namespace Labs216
@@ -8,7 +9,7 @@ namespace Labs216
     {
         static void Main(string[] args)
         {
-            LetterFix.LetterFix1();
+            EvenandOdd.EvenandOdd1();
         }
         
     }
