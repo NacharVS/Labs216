@@ -10,27 +10,25 @@ namespace Labs216.MirasovEG
     {
         public static void OddEven(string s)
         {
-            char[] str = s.ToCharArray();
-
             Console.Write("Odd characters in the string: ");
 
-            for (int i = 0; i < str.Length; i++)
+            for (int i = 0; i < s.Length; i++)
             {
-                if (str[i] == ' ')
+                if (s[i] == ' ')
                     continue;
                 if (i % 2 == 0)
-                    Console.Write(str[i]);
+                    Console.Write(s[i]);
             }
 
             Console.WriteLine();
 
             Console.Write("Even characters in the string: ");
-            for (int i = 0; i < str.Length; i++)
+            for (int i = 0; i < s.Length; i++)
             {
-                if (str[i] == ' ')
+                if (s[i] == ' ')
                     continue;
                 if (i % 2 != 0)
-                    Console.Write(str[i]);
+                    Console.Write(s[i]);
                 
             }
         }
@@ -45,15 +43,13 @@ namespace Labs216.MirasovEG
         public static void Palindrome(string s)
         {
             s = s.Replace(" ", "");
-            char[] str = s.ToArray();
-            char[] reverse = str.Reverse().ToArray();
             int count = 0;
-            for (int i = 0; i < str.Length; i++)
+            for (int i = 0; i < s.Length; i++)
             {
-                if (reverse[i] == str[i])
+                if (s[i] == s[s.Length - 1 - i])
                     count += 1;
             }
-            if (count == str.Length)
+            if (count == s.Length)
                 Console.WriteLine("This string is a palindrome");
             else
                 Console.WriteLine("This string is not a palindrome");
