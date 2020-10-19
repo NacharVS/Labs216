@@ -23,5 +23,23 @@ namespace Labs216.MikhalevVL
                 surname_string = $"{value[0].ToString().ToUpper() + value.Substring(1)}";
             }
         }
+        /*LetterFix[] student = new LetterFix[5];
+                for (int i = 0; i< 5; i++)
+                {
+                    student[i] = new LetterFix();
+
+        Console.WriteLine("Enter Name:");
+                    student[i].Name = Console.ReadLine();
+
+                    Console.WriteLine("Enter Surname:");
+                    student[i].Surname = Console.ReadLine();
+                }
+
+    Console.WriteLine();
+
+                for (int i = 0; i< 5; i++)
+                {
+                    Console.WriteLine($"Student {i+1} -- {student[i].Name} {student[i].Surname}");
+                }*/
     }
 }
