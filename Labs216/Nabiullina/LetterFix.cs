@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using Labs216;
 
 namespace Labs216
 {
@@ -12,20 +13,37 @@ namespace Labs216
         {
             _name = name;
             _surname = surname;
-            
-
         }
 
+        public string Name
+        {
+            get => _name;
+            set
+            {
+                string purename = null;
+                string buff = value.Remove(0, 1);
+                purename = purename + value[0].ToString().ToUpper();
+                _name = purename + buff;
+
+            }
+        }
+        public string Surname
+        {
+            get => _surname;
+            set
+            {
+                string puresurname = null;
+                string buff = value.Remove(0, 1);
+                puresurname = puresurname + value[0].ToString().ToUpper();
+                _name = puresurname + buff;
+            }
+        }
     }
-   
+
+
+
     class LetterFix
     {
-        public static void LetterFix1(Group[] list)
-        {
-
-        }
-
-
 
     }
 }
