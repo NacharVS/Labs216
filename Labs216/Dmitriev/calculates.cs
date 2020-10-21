@@ -11,7 +11,13 @@ namespace Labs216.Dmitriev
             int D = (y * y) - (4 * x * z);
             int x1 = (-y + Convert.ToInt32(Math.Sqrt(D))) / (2 * x);
             int x2 = (-y - Convert.ToInt32(Math.Sqrt(D))) / (2 * x);
-            Console.WriteLine($"x1={x1} x2={x2}");
+            Console.WriteLine($"x1= {x1} x2= {x2}");
+        }
+        static public void PiphagorTeroem(int a, int b)
+        {
+            double c = a * a + b * b;
+            double c1 = Math.Sqrt(c);
+            Console.WriteLine($"Гипотенуза С = {c1}");
         }
     }
 }

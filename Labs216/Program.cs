@@ -7,7 +7,7 @@ namespace Labs216
     {
         static void Main(string[] args)
         {
-            calculates.QuadraticEquation(3, 5, 2);
+            calculates.PiphagorTeroem(3, 4);
 
         }
     }
