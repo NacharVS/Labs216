@@ -15,6 +15,11 @@ namespace Labs216.Garipova
         public void SetName(string newName)
         {
             newName = newName.Trim();
+            var firstLetter = newName[0];
+            var otherLetter = newName.Remove(0, 1);
+            _name = (firstLetter.ToString().ToUpper() + otherLetter);
+        }
+
 
     }
 }
