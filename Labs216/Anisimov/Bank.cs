@@ -7,13 +7,23 @@ namespace Labs216.Anisimov
 {
     class Bank
     {
-        public static void Labchek()//Медот для проверки практики
+        public static void Labchek()//Медот для проверки практики, приватность становиться бесполезной, но так проверять легче
         {
             Bank acc1 = new Bank();
             Console.WriteLine("What do you want: 1 -- Withdraw money || 2 -- Deposit money || 3 -- Check account || 4 -- Calculate deposit");
-
+            int choose = int.Parse(Console.ReadLine());
+            switch (choose)
+            {
+                case 1:
+                    break;
+                case 2:
+                    break;
+                case 3:
+                    break;
+                case 4:
+                    break;
+            }
         }
-
         private string _name;
         private string _surname;
         private string _id;
