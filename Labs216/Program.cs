@@ -7,7 +7,7 @@ namespace Labs216
     {
         static void Main(string[] args)
         {
-            calculates.Circumference( 5);
+            calculates.AreaCircle( 5);
 
         }
     }

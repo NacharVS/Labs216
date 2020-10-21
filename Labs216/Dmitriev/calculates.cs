@@ -21,9 +21,13 @@ namespace Labs216.Dmitriev
         }
         static public void Circumference(int radius)
         {
-            double C = 2 * 3.14 * radius;
+            double C = 2 * Math.PI * radius;
             Console.WriteLine($"D круга=: {C}");
-
+        }
+        static public void AreaCircle(double radius)
+        {
+            double S = Math.PI * (radius * radius);
+            Console.WriteLine($"s круга=: {S}");
         }
     }
 }
