@@ -7,7 +7,7 @@ namespace Labs216
     {
         static void Main(string[] args)
         {
-            calculates.AreaCircle( 5);
+            calculates.ParallepipedVolume(5, 10, 15);
 
         }
     }

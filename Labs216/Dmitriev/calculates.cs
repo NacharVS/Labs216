@@ -29,6 +29,11 @@ namespace Labs216.Dmitriev
             double S = Math.PI * (radius * radius);
             Console.WriteLine($"s круга=: {S}");
         }
+        static public void ParallepipedVolume(int a, int b, int c)
+        {
+            int V = a * b * c;
+            Console.WriteLine($"Объём параллепипеда равен {V}");
+        }
     }
 }
 
