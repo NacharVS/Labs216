@@ -7,8 +7,8 @@ namespace Labs216
 {
     class Group
     {
-        public string _name;
-        public string _surname;
+        private string _name;
+        private string _surname;
         public Group(string name, string surname)
         {
             _name = name;
@@ -28,7 +28,7 @@ namespace Labs216
             }
         }
         public string Surname
-        {
+        {// van
             get => _surname;
             set
             {
@@ -38,12 +38,5 @@ namespace Labs216
                 _name = puresurname + buff;
             }
         }
-    }
-
-
-
-    class LetterFix
-    {
-
     }
 }
