@@ -6,12 +6,13 @@ namespace Labs216.Garipova
 {
     class StringOprations
     {
-        public static void evenodd
-        { 
-            Console.WriteLine()
+        public static void evenodd()
+        {
+            Console.WriteLine();
 
+        }
+        public static void chototam() { }
     }
-    public static void 
-    { 
         
-}
+
+} 
