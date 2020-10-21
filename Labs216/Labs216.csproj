@@ -6,7 +6,9 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Vail\" />
+    <Compile Remove="Vail\**" />
+    <EmbeddedResource Remove="Vail\**" />
+    <None Remove="Vail\**" />
   </ItemGroup>
 
 </Project>
