@@ -21,5 +21,13 @@ namespace Labs216.Nabiullina
             _schet = schet;
 
         }
+        public string Name
+        {
+            get => _name;
+            set
+            {
+              
+            }
+        }
     }
 }

@@ -28,7 +28,7 @@ namespace Labs216
             }
         }
         public string Surname
-        {// van
+        {
             get => _surname;
             set
             {
