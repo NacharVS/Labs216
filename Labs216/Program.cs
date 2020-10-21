@@ -7,13 +7,7 @@ namespace Labs216
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Enter string:");
-            string s = Console.ReadLine();
-
-
-            StringOperations.Palindrome(s);
-
-
+            Bank.StartBank();
         }
     }
 }
