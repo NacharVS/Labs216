@@ -9,7 +9,7 @@ namespace Labs216
     {
         static void Main(string[] args)
         {
-            EvenandOdd.EvenandOdd1();
+            Palindrom.Palindrom1();
         }
         
     }
