@@ -7,7 +7,7 @@ namespace Labs216
     {
         static void Main(string[] args)
         {
-            Devisioninterval.devisioninterval();
+            calculates.QuadraticEquation(2, 9, 6);
 
         }
     }
