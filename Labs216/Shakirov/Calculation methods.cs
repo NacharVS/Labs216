@@ -20,6 +20,28 @@ namespace Labs216.Shakirov
             Console.WriteLine($"Квадрат гипотенузы = {c * c}");
         }
 
+        static public void Circumference(double radius)
+        {
+            double C = 2 * 3.14 * radius;
+            Console.WriteLine($"Длина окружности равна: {C}");
+        }
+
+        static public void AreaCircle(double radius)
+        {
+            double S = 3.14 * (radius * radius);
+            Console.WriteLine($"Площадь окружности равна");
+        }
+        static public void ParralepipedVolume(int a, int b, int c)
+        {
+            double V = a * b * c;
+            Console.WriteLine($"Объем парралепипеда");
+        }
+        static public void Amperage(int U, int R)
+        {
+            double I = U / R;
+            Console.WriteLine($"Сила тока");
+        }
 
     }
+
 }
