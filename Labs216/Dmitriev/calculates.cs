@@ -19,6 +19,12 @@ namespace Labs216.Dmitriev
             double c1 = Math.Sqrt(c);
             Console.WriteLine($"Гипотенуза С = {c1}");
         }
+        static public void Circumference(int radius)
+        {
+            double C = 2 * 3.14 * radius;
+            Console.WriteLine($"D круга=: {C}");
+
+        }
     }
 }
 

@@ -7,7 +7,7 @@ namespace Labs216
     {
         static void Main(string[] args)
         {
-            calculates.PiphagorTeroem(3, 4);
+            calculates.Circumference( 5);
 
         }
     }
