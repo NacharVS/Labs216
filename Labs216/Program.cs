@@ -8,7 +8,7 @@ namespace Labs216
     {
         static void Main(string[] args)
         {
-            Class4chek.Bank();
+            Run._Bank();
         }
     }
 }
