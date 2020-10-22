@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Labs216.Shakirov
 {
-    class LetterFix
+    class Student
     {
         private string _firstname;
         private string _name;
@@ -17,9 +17,30 @@ namespace Labs216.Shakirov
 
         public string firstname
         {
-            get { return _firstname}
+            get { return _firstname; }
 
             set
+            {
+                string purrname = null;
+                string buf = value.Remove(0, 1);
+                purrname = purrname + value[0].ToString().ToUpper();
+                firstname = purrname + buf;
+            }
+        }
+        public string name
+        {
+            get
+            {
+                return _name;
+            }
+
+            set
+            {
+                string purname = null;
+                string buff = value.Remove(0, 1);
+                purname = purname + value[0].ToString().ToUpper();
+                name = purname + buff;
+            }
         }
     }
 }
