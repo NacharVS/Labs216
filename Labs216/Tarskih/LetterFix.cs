@@ -43,11 +43,19 @@ namespace Labs216.Tarskih
     {
         public static void StartLetterFixProgramm()
         {
-            LetterFix[] Student = new LetterFix[5]
+            LetterFix[] Student = new LetterFix[5];
             for (int i = 0; i < 4; i++)
             {
+                Student[i] = new LetterFix();
                 Console.WriteLine("Введите имя");
+                Student[i].Name = Console.ReadLine();
                 Console.WriteLine("Введите фамилию");
+                Student[i].Surname = Console.ReadLine();
+            }
+            for (int i = 0; i<4; i++)
+            {
+                Console.WriteLine(Student[i].Name);
+                Console.WriteLine(Student[i].Surname);
             }
         }
             
