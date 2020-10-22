@@ -28,6 +28,12 @@ namespace Labs216.Nabiullina
             Console.WriteLine($" Even characters: {chet}");
             Console.WriteLine($" Odd characters: {nechet}");
         }
-        
+
+        static public void Lab_3_2()
+        {
+            Console.Write("Write something: ");
+
+            if 
+        }
     }
 }
