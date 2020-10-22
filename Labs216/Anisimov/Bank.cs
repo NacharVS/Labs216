@@ -7,39 +7,30 @@ namespace Labs216.Anisimov
 {
     class Bank
     {
-        public static void Labchek()//Медот для проверки практики, приватность становиться бесполезной, но так проверять легче
-        {
-            Bank acc1 = new Bank();
-            Console.WriteLine("What do you want: 1 -- Withdraw money || 2 -- Deposit money || 3 -- Check account || 4 -- Calculate deposit");
-            int choose = int.Parse(Console.ReadLine());
-            switch (choose)
-            {
-                case 1:
-                    break;
-                case 2:
-                    break;
-                case 3:
-                    break;
-                case 4:
-                    break;
-            }
-        }
         private string _name;
         private string _surname;
         private string _id;
         private static double _InterestRate = 5;
         private double _account;
-        private static int _count;
+        private static int _count = 0;
 
         public string Name
         {
             get { return _name; }
-            set { _name = value; }
+            set 
+            {
+                value = value.Trim();
+                _name = value[0].ToString().ToUpper() + value.Substring(1);
+            }
         }
         public string Surname
         {
             get { return _surname; }
-            set { _surname = value; }
+            set 
+            {
+                value = value.Trim();
+                _surname = value[0].ToString().ToUpper() + value.Substring(1);
+            }
         }
         public string Id
         {
@@ -50,15 +41,53 @@ namespace Labs216.Anisimov
             get { return _account; }
             set { _account = value; }
         }
+        private void GenId() // Удобнее менять логику генерации id
+        {
+            _id = _name + _surname + "_" + _count;
+            _count = _count + 1;
+        }
+
+
         public Bank()
         {
             Console.WriteLine("Write you name");
-            _name = Console.ReadLine();
+            Name = Console.ReadLine();
             Console.WriteLine("Write you surname");
-            _surname = Console.ReadLine();
-            _id = _name + _surname + _count;
-            _count = +1;
-            Console.WriteLine($"Hello, {_name} {_surname}, your bank account is ready, its id {_id} and you have {_account} y.e on it");//id выводиться просто для проверки что все правильно создаеться
+            Surname = Console.ReadLine();
+            GenId();
+            Console.WriteLine($"Hello, {_name} {_surname}, your bank account is ready.");
+        }
+        public void Withdraw(int value)
+        {
+            if (value > _account)
+            {
+                Console.WriteLine($"You have only {_account}");
+                return;
+            }
+            if (value <= 100000)
+            {
+                _account = _account - value;
+                Console.WriteLine($"Now your have {_account} on the bank account");
+            }
+            else Console.WriteLine("You can take more than 100 000");
+        }
+        public void Deposit(int value)
+        {
+            if (value >= 10000)
+            {
+                _account = _account + value;
+                Console.WriteLine($"Now your have {_account} on the bank account");
+            }
+            else Console.WriteLine("You can add les than 10 000");
+        }
+        public void Calculate(int year)
+        {
+            double buff = _account;
+            for (int i = 0; i < year;  i++)
+            {
+                buff = buff + buff * 5 / 100;
+            }
+            Console.WriteLine(buff);
         }
     }
 }
