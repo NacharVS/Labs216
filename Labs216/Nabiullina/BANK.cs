@@ -21,13 +21,20 @@ namespace Labs216.Nabiullina
             _schet = schet;
 
         }
-        public string Name
+         public void SetName(string newName)
+         {
+           newName = newName.Trim();
+           var firstLetter = newName[0];
+           var otherLetters = newName.Remove(0, 1);
+           _name = firstLetter.ToString().ToUpper() + otherLetters;
+         }
+        public void SetSurame(string newSurname)
         {
-            get => _name;
-            set
-            {
-              
-            }
+            newSurname = newSurname.Trim();
+            var firstLetter = newSurname[0];
+            var otherLetters = newSurname.Remove(0, 1);
+            _surname = firstLetter.ToString().ToUpper() + otherLetters;
         }
+
     }
 }

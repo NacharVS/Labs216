@@ -10,10 +10,7 @@ namespace Labs216
     {
         static void Main(string[] args)
         {
-            Group student1 = new Group("Ivan", "Loginov");
-            student1.Name = "vasiliy";
-            Console.WriteLine($" {student1.Name} {student1.Surname}");
-            
+            Lab_3.Lab_3_1();
 
             
         }
