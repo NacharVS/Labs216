@@ -10,7 +10,7 @@ namespace Labs216
     {
         static void Main(string[] args)
         {
-            Lab_3.Lab_3_1();
+            Lab_3.Lab_3_2();
 
             
         }

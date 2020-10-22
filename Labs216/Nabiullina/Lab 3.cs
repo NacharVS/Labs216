@@ -32,8 +32,20 @@ namespace Labs216.Nabiullina
         static public void Lab_3_2()
         {
             Console.Write("Write something: ");
+            string a = Console.ReadLine();
+            int c = 0;
+            string b = " ";
+            for (int i = 0; i < a.Length; i++)
+            {
+                char v = a[i];
+                
+                if (b = v)
+                {
+                    c += 1;
 
-            if 
+                }
+                Console.WriteLine(v);
+            }
         }
     }
 }
