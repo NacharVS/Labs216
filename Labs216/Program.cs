@@ -7,8 +7,10 @@ namespace Labs216
     {
         static void Main(string[] args)
         {
-            calculates.ParallepipedVolume(5, 10, 15);
+            LetterFix.private string first_name;
+                      private string last_name;
+                      private int number_Groups;
 
-        }
+    }
     }
 }
