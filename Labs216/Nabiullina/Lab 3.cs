@@ -34,17 +34,17 @@ namespace Labs216.Nabiullina
             Console.Write("Write something: ");
             string a = Console.ReadLine();
             int c = 0;
-            string b = " ";
+            char b = ' ';
             for (int i = 0; i < a.Length; i++)
             {
                 char v = a[i];
                 
-                if (b = v)
+                if (b == v)
                 {
                     c += 1;
 
                 }
-                Console.WriteLine(v);
+                Console.WriteLine(c);
             }
         }
     }

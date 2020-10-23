@@ -8,11 +8,11 @@ namespace Labs216.Nabiullina
     {
         private string _name;
         private string _surname;
-        private static decimal _stavka;
+        private static double _stavka;
         private string _id;
         private int _schet;
 
-        public BANK(string name, string surname, decimal stavka, string id, int schet)
+        public BANK(string name, string surname, double stavka, string id, int schet)
         {
             _name = name;
             _surname = surname;
@@ -34,6 +34,18 @@ namespace Labs216.Nabiullina
             var firstLetter = newSurname[0];
             var otherLetters = newSurname.Remove(0, 1);
             _surname = firstLetter.ToString().ToUpper() + otherLetters;
+        }
+        public void SetStavka (double newStavka)
+        {
+            Console.WriteLine(" Stavka  = 6,7% ");
+            Console.WriteLine(" How much money is in the account? ");
+            double a = double.Parse (Console.ReadLine());
+            Console.Write(" After how many years do you withdraw money? ");
+            double let = double.Parse (Console.ReadLine());
+            double st = 6.7;
+            double c = a * (Math.Pow(st, let));
+            Console.WriteLine(" ");
+            Console.WriteLine(" ");
         }
 
     }
