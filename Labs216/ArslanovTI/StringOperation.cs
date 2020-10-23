@@ -6,5 +6,6 @@ namespace Labs216.ArslanovTI
 {
     class StringOperation
     {
+
     }
 }

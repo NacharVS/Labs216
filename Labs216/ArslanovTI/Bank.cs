@@ -16,6 +16,7 @@ namespace Labs216.ArslanovTI
 
         public void SetName (string newName) 
             {
+ 
            
             newName = newName.Trim();
             var firstletter = newName[0];
