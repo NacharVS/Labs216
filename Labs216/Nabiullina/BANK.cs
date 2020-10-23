@@ -35,6 +35,30 @@ namespace Labs216.Nabiullina
             var otherLetters = newSurname.Remove(0, 1);
             _surname = firstLetter.ToString().ToUpper() + otherLetters;
         }
+        public void SetSchet (int NewSetSchet)
+        {
+            int sch = 0;
+            Console.WriteLine($"On the account now: {sch}");
+            Console.WriteLine(" 1. Withdraw money  \n 2. Put money");
+            string b = Console.ReadLine();
+            switch (b)
+            {
+                case "1":
+                    Console.WriteLine("Max 200");
+                    int with = int.Parse (Console.ReadLine());
+                    if (with > 200 )
+                    {
+
+                    }
+                    
+                    break;
+                case "2":
+                    Console.WriteLine("Min 50");
+                    break;
+            }
+
+
+        }
         public void SetStavka (double newStavka)
         {
             Console.WriteLine(" Stavka  = 6,7% ");
