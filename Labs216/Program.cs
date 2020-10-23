@@ -7,7 +7,7 @@ namespace Labs216
     {
         static void Main(string[] args)
         {
-            StringOperation.SOP();
+           
         }
     }
 }

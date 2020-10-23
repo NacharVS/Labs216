@@ -23,5 +23,19 @@ namespace Labs216.Gabdulkhaev
             var otherLetters = newName.Remove(0, 1);
             _name = firstLetter.ToString().ToUpper() + otherLetters;
         }
+        public void SetFamiliya(string newFam)
+        {
+            newFam = newFam.Trim();
+            var firstLetter = newFam[0];
+            var otherLetters = newFam.Remove(0, 1);
+            _surname = firstLetter.ToString().ToUpper() + otherLetters;
+        }
+        public void SetID(string newID)
+        {
+            Random rnd = new Random();
+            int _id = rnd.Next(100, 250);
+        }
+        private double chet;
+        double _paymentaccount = Convert.ToDouble(Console.ReadLine());
     }
 }
