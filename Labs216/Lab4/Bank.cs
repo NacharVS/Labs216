@@ -8,10 +8,9 @@ namespace Labs216.Lab4
     {
         private string _name;
         private string _surname;
-        private string _id;
-        private static double _rate;
-        private double _paymentAccount;
-
+        private int _id;
+        private static double _stavka;
+        private double _score;
         public void SetName(string newName)
         {
             newName = newName.Trim();
@@ -26,16 +25,13 @@ namespace Labs216.Lab4
             var otherLetters = newSurname.Remove(0, 1);
             _surname = firstLetter.ToString().ToUpper() + otherLetters;
         }
-        public void SetID(string newID)
+        public static void Bank1()
         {
-            newID = newID.Trim();
-            var firstLetter = newID[0];
-            var otherLetters = newID.Remove(0, 1);
-            _id = firstLetter.ToString().ToUpper() + otherLetters;
-        }
-        public void SetRate(double newRate)
-        {
-            newRate = newRate.
+            Console.WriteLine("Welcome to our bank!");
+            Console.WriteLine("Stavka in our bank - 6,7%");
+            Console.WriteLine("Enter your data");
+            string name, surname = Console.ReadLine();
+
         }
     }
 }
