@@ -48,12 +48,25 @@ namespace Labs216.Nabiullina
                     int with = int.Parse (Console.ReadLine());
                     if (with > 200 )
                     {
-
+                        Console.WriteLine("NOOOT!!!");
                     }
-                    
+                    else
+                    {
+                        Console.WriteLine(sch - with);
+                    }
                     break;
                 case "2":
                     Console.WriteLine("Min 50");
+                    int put = int.Parse(Console.ReadLine());
+                    if (put < 50)
+                    {
+                        Console.WriteLine("NOOOT!!!");
+                    }
+                    else
+                    {
+                        sch += put;
+                        Console.WriteLine(sch );
+                    }
                     break;
             }
 
