@@ -36,7 +36,7 @@ namespace Labs216
     //parallepiped's Volume
     //amperage/resistence/voltage
     {
-        static  void Main(string[] args) 
+        static void Main(string[] args) 
         { 
         double a = Console.ReadLine("Введите число 1");
         double b = Console.ReadLine("Введите число 2");
