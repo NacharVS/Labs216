@@ -38,4 +38,10 @@ namespace Labs216.Gabdulkhaev
         private double chet;
         double _paymentaccount = Convert.ToDouble(Console.ReadLine());
     }
+    class bangrun
+    {
+        public static void run()
+        {
+        }
+    }
 }
