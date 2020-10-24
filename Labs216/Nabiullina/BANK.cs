@@ -35,24 +35,31 @@ namespace Labs216.Nabiullina
             var otherLetters = newSurname.Remove(0, 1);
             _surname = firstLetter.ToString().ToUpper() + otherLetters;
         }
-        public void SetSchet (int NewSetSchet)
+        public void SetSchet ()
         {
-            int sch = 0;
-            Console.WriteLine($"On the account now: {sch}");
+            
+            Console.WriteLine($"On the account now: {_schet}");
             Console.WriteLine(" 1. Withdraw money  \n 2. Put money");
             string b = Console.ReadLine();
             switch (b)
             {
                 case "1":
-                    Console.WriteLine("Max 200");
+                    Console.WriteLine("Max 200000");
                     int with = int.Parse (Console.ReadLine());
-                    if (with > 200 )
+                    if (_schet > with)
                     {
-                        Console.WriteLine("NOOOT!!!");
+                        if (with > 200000)
+                        {
+                            Console.WriteLine("NOOOT!!!");
+                        }
+                        else
+                        {
+                            Console.WriteLine(_schet - with);
+                        }
                     }
                     else
                     {
-                        Console.WriteLine(sch - with);
+                        Console.WriteLine($"On your account : {_schet}");
                     }
                     break;
                 case "2":
@@ -64,25 +71,22 @@ namespace Labs216.Nabiullina
                     }
                     else
                     {
-                        sch += put;
-                        Console.WriteLine(sch );
+                        _schet += put;
+                        Console.WriteLine(_schet );
                     }
                     break;
             }
 
 
         }
-        public void SetStavka (double newStavka)
+        public void SetStavka ()
         {
-            Console.WriteLine(" Stavka  = 6,7% ");
-            Console.WriteLine(" How much money is in the account? ");
-            double a = double.Parse (Console.ReadLine());
+            Console.WriteLine($" Stavka  = {_stavka} ");
             Console.Write(" After how many years do you withdraw money? ");
             double let = double.Parse (Console.ReadLine());
-            double st = 6.7;
-            double c = a * (Math.Pow(st, let));
-            Console.WriteLine(" ");
-            Console.WriteLine(" ");
+            double c = _schet * (Math.Pow(_stavka, let));
+            Console.WriteLine($"After {let} years, your account will have an {c} amount "); 
+            
         }
 
     }
