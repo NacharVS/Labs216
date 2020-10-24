@@ -5,10 +5,4 @@
     <TargetFramework>netcoreapp3.1</TargetFramework>
   </PropertyGroup>
 
-  <ItemGroup>
-    <Compile Remove="Vail\**" />
-    <EmbeddedResource Remove="Vail\**" />
-    <None Remove="Vail\**" />
-  </ItemGroup>
-
 </Project>
