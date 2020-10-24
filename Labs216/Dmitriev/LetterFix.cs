@@ -46,7 +46,7 @@ namespace Labs216.Dmitriev
             student.First_name = Console.ReadLine();
             Console.WriteLine("введите last_name");
             student.Last_name = Console.ReadLine();
-            Console.WriteLine($"name {Last_name} surname:{first_name} groups:{numberGroups}");
+            Console.WriteLine($"name:{student.First_name} surname:{student.Last_name} groups:{student.number_Groups}");
         }
     }      
 }
