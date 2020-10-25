@@ -10,7 +10,7 @@ namespace Labs216
     {
         static void Main(string[] args)
         {
-            Bank.Bank1();
+            LetterFix.LetterFix1();
         }
         
     }

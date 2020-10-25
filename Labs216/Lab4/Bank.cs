@@ -30,8 +30,7 @@ namespace Labs216.Lab4
             Console.WriteLine("Welcome to our bank!");
             Console.WriteLine("Stavka in our bank - 6,7%");
             Console.WriteLine("Enter your data");
-            string name, surname = Console.ReadLine();
-
+            string data = Console.ReadLine();
         }
     }
 }
