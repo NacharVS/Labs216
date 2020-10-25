@@ -84,8 +84,8 @@ namespace Labs216.Nabiullina
             Console.WriteLine($" Stavka  = {_stavka} ");
             Console.Write(" After how many years do you withdraw money? ");
             double let = double.Parse (Console.ReadLine());
-            double c = _schet * (Math.Pow(_stavka, let));
-            Console.WriteLine($"After {let} years, your account will have an {c} amount "); 
+            _schet = _schet + ( _schet * _stavka);
+            Console.WriteLine($"After {let} years, your account will have an {} amount "); 
             
         }
 
