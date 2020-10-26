@@ -10,7 +10,7 @@ namespace Labs216.Nabiullina
         private string _surname;
         private static double _stavka;
         private string _id;
-        private int _schet;
+        private double _schet;
 
         public BANK(string name, string surname, double stavka, string id, int schet)
         {
@@ -45,7 +45,7 @@ namespace Labs216.Nabiullina
             {
                 case "1":
                     Console.WriteLine("Max 200000");
-                    int with = int.Parse (Console.ReadLine());
+                    double with = double.Parse (Console.ReadLine());
                     if (_schet > with)
                     {
                         if (with > 200000)
@@ -64,7 +64,7 @@ namespace Labs216.Nabiullina
                     break;
                 case "2":
                     Console.WriteLine("Min 50");
-                    int put = int.Parse(Console.ReadLine());
+                    double put = double.Parse(Console.ReadLine());
                     if (put < 50)
                     {
                         Console.WriteLine("NOOOT!!!");
@@ -81,11 +81,17 @@ namespace Labs216.Nabiullina
         }
         public void SetStavka ()
         {
+            _stavka = 6.7;
             Console.WriteLine($" Stavka  = {_stavka} ");
             Console.Write(" After how many years do you withdraw money? ");
             double let = double.Parse (Console.ReadLine());
-            _schet = _schet + ( _schet * _stavka);
-            Console.WriteLine($"After {let} years, your account will have an {} amount "); 
+            double c;
+            for (int i=0; i < let; i++)
+            {
+                 _schet += _schet / 100 * _stavka;
+                
+            }
+            Console.WriteLine($"After {let} years, your account will have an {_schet} amount "); 
             
         }
 
