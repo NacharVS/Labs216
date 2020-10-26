@@ -12,6 +12,8 @@ namespace Labs216
         {
 
             BANK account1 = new BANK("Ivan", "Ivanov", 6.7, "1052560", 100);
+            
+            account1.SetSchet();
             account1.SetStavka();
             
 

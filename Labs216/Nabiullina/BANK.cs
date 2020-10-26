@@ -54,12 +54,12 @@ namespace Labs216.Nabiullina
                         }
                         else
                         {
-                            Console.WriteLine(_schet - with);
+                            Console.WriteLine($"On your account: {_schet -= with} money");
                         }
                     }
                     else
                     {
-                        Console.WriteLine($"On your account : {_schet}");
+                        Console.WriteLine($"On your account: {_schet} money");
                     }
                     break;
                 case "2":
@@ -71,8 +71,8 @@ namespace Labs216.Nabiullina
                     }
                     else
                     {
-                        _schet += put;
-                        Console.WriteLine(_schet );
+                        
+                        Console.WriteLine($"On your account: { _schet += put } monney");
                     }
                     break;
             }
@@ -94,6 +94,11 @@ namespace Labs216.Nabiullina
             Console.WriteLine($"After {let} years, your account will have an {_schet} amount "); 
             
         }
+        public void SetId (int NewSetId)
+        {
 
+        }
+    
+    
     }
 }
