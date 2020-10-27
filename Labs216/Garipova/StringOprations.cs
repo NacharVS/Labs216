@@ -21,7 +21,7 @@ namespace Labs216.Garipova
             int count = 0;
             for (int i = 0; i < s.Length; i++) ;
             {
-                if (s[i] == s.Length[s.Length - 1 - i]) ;
+                if (s[i] == s.Length[s.Length - 1 - i])
                 count += 1;
             }
             if (count == s.Length)
