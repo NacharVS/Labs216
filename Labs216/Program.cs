@@ -1,4 +1,5 @@
 ﻿using Labs216.MikhalevVL;
+using System.Runtime;
 
 namespace Labs216
 {
@@ -6,7 +7,7 @@ namespace Labs216
     {
         static void Main(string[] args)
         {
-            
+            Bank.StartBank();
         }
     }
 
