@@ -36,5 +36,10 @@ namespace Labs216.Tarskih
             string[] words = s.Split(' ', StringSplitOptions.RemoveEmptyEntries);
             Console.WriteLine($"Количество слов в строке = {words.Length}");
         }
+
+        public static void Palindrome(string s)
+        {
+            s = 
+        }
     }
 }
