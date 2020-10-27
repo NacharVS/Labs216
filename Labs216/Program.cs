@@ -3,7 +3,7 @@ using Labs216.Gabdulkhaev;
 
 namespace Labs216
 {
-    class bank
+    class sop
     {
         static void Main(string[] args)
         {

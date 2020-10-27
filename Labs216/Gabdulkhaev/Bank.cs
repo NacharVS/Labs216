@@ -16,6 +16,7 @@ namespace Labs216.Gabdulkhaev
         private string _id;
         private static double _rate;
         private double _paymentAccount;
+        private int _SetDATAROZHDENIYA;
         public void SetName(string newName)
         {
             newName = newName.Trim();
@@ -38,6 +39,12 @@ namespace Labs216.Gabdulkhaev
         private double chet;
         double _paymentaccount = Convert.ToDouble(Console.ReadLine());
     }
+    public void SetDenRozhd(int newDR)
+    {
+        int a = DateTime.Now.Millisecond;
+        DateTime dayofbirth = DateTime.Now.Date;
+    }
+
     class bangrun
     {
         public static void run()
