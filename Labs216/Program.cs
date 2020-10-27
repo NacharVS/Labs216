@@ -7,7 +7,9 @@ namespace Labs216
     {
         static void Main(string[] args)
         {
-            CalculationMethods.Calculator();
+            Student a = new Student("закиров","роберт");
+            Console.WriteLine(a.firstname);
+            Console.WriteLine(a.name);
 
         }
     }
