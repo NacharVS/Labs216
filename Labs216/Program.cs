@@ -11,10 +11,14 @@ namespace Labs216
         static void Main(string[] args)
         {
 
-            BANK account1 = new BANK("Ivan", "Ivanov", 6.7, "1052560", 100);
-            
+            BANK account1 = new BANK("Ivan", "Ivanov", 1999 , 6.7, "1052560", 100);
+
+            account1.SetVozrast();
+
             account1.SetSchet();
             account1.SetStavka();
+
+            
             
 
 

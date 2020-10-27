@@ -8,14 +8,16 @@ namespace Labs216.Nabiullina
     {
         private string _name;
         private string _surname;
+        private int _vozrast;
         private static double _stavka;
         private string _id;
         private double _schet;
 
-        public BANK(string name, string surname, double stavka, string id, int schet)
+        public BANK(string name, string surname, int vozrast, double stavka, string id, double schet)
         {
             _name = name;
             _surname = surname;
+            _vozrast = vozrast;
             _stavka = stavka;
             _id = id;
             _schet = schet;
@@ -27,6 +29,7 @@ namespace Labs216.Nabiullina
            var firstLetter = newName[0];
            var otherLetters = newName.Remove(0, 1);
            _name = firstLetter.ToString().ToUpper() + otherLetters;
+            
          }
         public void SetSurame(string newSurname)
         {
@@ -34,6 +37,12 @@ namespace Labs216.Nabiullina
             var firstLetter = newSurname[0];
             var otherLetters = newSurname.Remove(0, 1);
             _surname = firstLetter.ToString().ToUpper() + otherLetters;
+        }
+        public void SetVozrast()
+        {
+            int a = DateTime.Today.Year;
+            _vozrast = a - _vozrast ;
+            Console.WriteLine($"Age: {_vozrast}");
         }
         public void SetSchet ()
         {
