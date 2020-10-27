@@ -30,5 +30,11 @@ namespace Labs216.Tarskih
                     Console.Write(str[a]);
             }
         }
+
+        public static void WordsCount(string s)
+        {
+            string[] words = s.Split(' ', StringSplitOptions.RemoveEmptyEntries);
+            Console.WriteLine($"Количество слов в строке = {words.Length}");
+        }
     }
 }
