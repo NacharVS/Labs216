@@ -7,7 +7,7 @@ namespace Labs216.ArslanovTI
     
     class DivisionByInterval
     {
-        internal static void Raz(string[] args)
+        public  static void Raz(string[] args)
         {
             Console.WriteLine("Введите число, на которое делить");
             double a = int.Parse(Console.ReadLine());

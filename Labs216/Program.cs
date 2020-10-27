@@ -3,11 +3,15 @@ using System;
 
 namespace Labs216
 {
-    class Program
-    {
-        static void Main(string[] args)
+    class Program {
+
+
+        public void Main(string[] args)
         {
-            DivisionByInterval
+            DateTime.Date();
+        }
+
+            
 
         }
     }
