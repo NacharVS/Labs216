@@ -19,6 +19,8 @@ namespace Labs216.Anisimov
         private static int _count = 0;
         private static int _Max = 100000;
         private static int _Min = 10000;
+        private static int _MinAge = 14;
+        private int _age;
 
         public string Name
         {
@@ -46,6 +48,17 @@ namespace Labs216.Anisimov
                 else _surname = "defualt";
             }
         }
+        public int Age
+        {
+            get { return _age; }
+            set
+            {
+                if (value >= _MinAge)
+                    _age = value;
+                else
+                    Console.WriteLine("Your age does not match the required");
+            }
+        }
         public string Id
         {
             get { return _id; }
@@ -64,6 +77,60 @@ namespace Labs216.Anisimov
             _id = _name + _surname + "_" + _count;
             _count = _count + 1;
         }
+        private void GetAge()
+        {
+            Console.WriteLine("Write you birthday");
+            Console.WriteLine("Day:");
+            int day = int.Parse(Console.ReadLine());
+            Console.WriteLine("Mounth: (Example : may)");
+            int month = 0;
+            switch (Console.ReadLine())
+            {
+                case "январь":
+                    month = 1;
+                    break;
+                case "февраль":
+                    month = 2;
+                    break;
+                case "март":
+                    month = 3;
+                    break;
+                case "апрель":
+                    month = 4;
+                    break;
+                case "май":
+                    month = 5;
+                    break;
+                case "июнь":
+                    month = 6;
+                    break;
+                case "июль":
+                    month = 7;
+                    break;
+                case "август":
+                    month = 8;
+                    break;
+                case "сентябрь":
+                    month = 9;
+                    break;
+                case "октябрь":
+                    month = 10;
+                    break;
+                case "ноябрь":
+                    month = 11;
+                    break;
+                case "декабрь":
+                    month = 12;
+                    break;
+            }
+            Console.WriteLine("Year:");
+            int year = int.Parse(Console.ReadLine());
+            year = DateTime.Now.Year - year - 1; 
+            {
+                if (DateTime.Now.Month >= month & DateTime.Now.Day >= day) Age = year + 1;
+                else Age = year;
+            }
+        }
 
 
         public Bank()
@@ -72,6 +139,7 @@ namespace Labs216.Anisimov
             Name = Console.ReadLine();
             Console.WriteLine("Write you surname");
             Surname = Console.ReadLine();
+            GetAge();//Отдельный метод для запроса дня рождения и расчета возраста (мне так удобнее)
             GenId();
         }
         public void Withdraw(int value)
@@ -112,17 +180,18 @@ namespace Labs216.Anisimov
         public static void _Bank()
         {
             Bank[] acc = new Bank[3];
-            for (int i = 0; i < 3; i++)
+            for (int i = 0; i < 1; i++)
             {
                 acc[i] = new Bank();
                 acc[i].Notify += Message;
             }
-            for (int i = 0; i < 3; i++)
+            for (int i = 0; i < 1; i++)
             {
                 Console.WriteLine($"number {i + 1}");
                 Console.WriteLine($"Name--{acc[i].Name}");
                 Console.WriteLine($"Surname--{acc[i].Surname}");
                 Console.WriteLine($"ID--{acc[i].Id}");
+                Console.WriteLine($"Age--{acc[i].Age}");
                 Console.WriteLine();
             } // Это выврд для проверки правильно ли создаються аккаунты и выбора с каким аккаунтом работать
             int acc_number = 0;
@@ -159,13 +228,14 @@ namespace Labs216.Anisimov
                 if (Console.ReadLine() == "n")
                     break;
             }
-            for (int i = 0; i < 3; i++)
+            for (int i = 0; i < 1; i++)
             {
                 Console.WriteLine($"number {i + 1}");
                 Console.WriteLine($"Name--{acc[i].Name}");
                 Console.WriteLine($"Surname--{acc[i].Surname}");
                 Console.WriteLine($"ID--{acc[i].Id}");
                 Console.WriteLine($"Money--{acc[i].Account}");
+                Console.WriteLine($"Age--{acc[i].Age}");
                 Console.WriteLine();
             }// Это вывод для проверки правильно ли программа работала с данными
         }
