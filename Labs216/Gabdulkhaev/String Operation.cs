@@ -8,12 +8,14 @@ namespace Labs216.Gabdulkhaev
     {
         public static void SOP()
         {
-            Console.WriteLine("Введите слово");
-            string slovo = Console.ReadLine();
-            int kolvo = slovo.Length;
-            for (int a = 0; a < kolvo; a = a + 1)
-                string chetnie = slovo.Substring(a, 1);
-            Console.WriteLine(chetnie);
+            string a = Console.ReadLine();
+            string c = a;
+            for (int g = 0; g < a.Length; g++)
+                a = a.Remove(g, 1);
+            Console.WriteLine(a);
+            for (int f = 1; f < c.Length; f++)
+                c = c.Remove(f, 1);
+            Console.WriteLine(c);
         }
     }
 }
