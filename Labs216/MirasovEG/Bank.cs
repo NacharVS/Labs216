@@ -15,7 +15,8 @@ namespace Labs216.MirasovEG
         private static int _minPut = 1000;
         private static int _maxTake = 10000000;
         private static int count = 0;
-
+        private int _year;
+        private int _month;
         public string Name
         {
             get => _name;
@@ -47,34 +48,56 @@ namespace Labs216.MirasovEG
 
             bank.GenerationID();
             Console.WriteLine($"Your ID: {bank._ID}");
+            Console.WriteLine();
+
+            
+
+            Console.WriteLine("Enter the year of birth:");
+            bank._year = int.Parse(Console.ReadLine());
+
+            Console.WriteLine("Enter the month of birth:");
+            bank._month = int.Parse(Console.ReadLine());
+
+            int now = DateTime.Now.Year;
+            int month = DateTime.Now.Month;
+
+            if (now - bank._year >= 14 && month > bank._month)
+            {
+                Console.WriteLine("Access is allowed");
+
+                while (true)
+                {
+                    Console.WriteLine();
+                    Console.WriteLine("Choose actions with the bill \n 1 - To put money into the account \n 2 - Withdraw money from an account \n 3 - Calculate the amount of savings for several years ahead");
+                    int choice = int.Parse(Console.ReadLine());
+
+                    switch (choice)
+                    {
+                        case 1:
+                            bank.Put();
+                            break;
+
+                        case 2:
+                            bank.Take();
+                            break;
+
+                        case 3:
+                            bank.Calculate();
+                            break;
+
+                    }
+                    Console.WriteLine("Want to repeat the operation selectin (Y/N)");
+                    string a = Console.ReadLine();
+                    if (a == "N" || a == "n") break;
+
+                    Console.WriteLine();
+                }
+            }
+            else
+                Console.WriteLine("You have not reached the required age");
 
             Console.WriteLine();
-            while (true)
-            {
-                Console.WriteLine("Choose actions with the bill \n 1 - To put money into the account \n 2 - Withdraw money from an account \n 3 - Calculate the amount of savings for several years ahead");
-                int choice = int.Parse(Console.ReadLine());
-
-                switch (choice)
-                {
-                    case 1:
-                        bank.Put();
-                        break;
-
-                    case 2:
-                        bank.Take();
-                        break;
-
-                    case 3:
-                        bank.Calculate();
-                        break;
-
-                }
-                Console.WriteLine("Want to repeat the operation selectin (Y/N)");
-                string a = Console.ReadLine();
-                if (a == "N" || a =="n") break;
-
-                Console.WriteLine();
-            }
+            
         }
 
         public void Put()
