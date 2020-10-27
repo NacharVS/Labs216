@@ -8,7 +8,7 @@ namespace Labs216
         static void Main(string[] args)
         {
 
-            CalculationMethods.Circumference(2.2);
+            LetterFixProgram.StartLetterFixProgramm();
 
         }
     }
