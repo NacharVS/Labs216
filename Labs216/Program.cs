@@ -3,11 +3,11 @@ using Labs216.Zakirov;
 
 namespace Labs216
 {
-    class DivisionByIntrval
+    class Program
     {
         static void Main(string[] args)
         {
-            DivisionByinterval.Division();
+            CalculationMethods.Calculator();
         }
     }
 }
