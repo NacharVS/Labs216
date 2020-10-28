@@ -8,7 +8,7 @@ namespace Labs216.ArslanovTI
     {
         public void Date(string[] args)
         {
-            Console.WriteLine("Введите ваш год рождения");
+            Console.WriteLine("Введите ваш год рождения!");
             int a = int.Parse(Console.ReadLine());
             int b = System.DateTime.Now.Year;
             int age = b - a;
