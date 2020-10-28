@@ -45,7 +45,7 @@ namespace Labs216.Tarskih
             {
                 m += n[n.Length - i - 1];
             }
-            if (n == m) Console.WriteLine("Эта строка не является палиндромом");
+            if (n == m) Console.WriteLine("Эта строка является палиндромом");
             else Console.WriteLine("Эта строка не является палиндромом");
             Console.WriteLine();                   
         }
