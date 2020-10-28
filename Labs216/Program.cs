@@ -8,7 +8,8 @@ namespace Labs216
     {
         static void Main(string[] args)
         {
-            Run._Bank();
+            BankEmployee client = new BankEmployee("qwe", "asd", "zxc", "12 year", 10000);
+            client.GetInfo();
         }
     }
 }
