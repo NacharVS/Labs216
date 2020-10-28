@@ -39,7 +39,19 @@ namespace Labs216.Tarskih
 
         public static void Palindrome(string s)
         {
-            s = 
+            s = s.Replace(" ", "");
+            char[] str = s.ToCharArray();
+            char[] reverse = str.Reverse().ToArray();
+            int count = 0;
+            for (int i = 0; i < str.Length; i = i + 1)
+            {
+                if (reverse[i] == str[i])
+                    count += 1;
+            }
+            if (count == str.Length)
+                Console.WriteLine("Эта строка являфется палиндромом");
+            else
+                Console.WriteLine("Эта строка не является палиндромом");
         }
     }
 }
