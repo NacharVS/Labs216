@@ -2,5 +2,6 @@
 {
     class StringOperation
     {
+        console/
     }
 }
