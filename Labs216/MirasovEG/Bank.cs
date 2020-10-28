@@ -5,35 +5,61 @@ using System.Text;
 
 namespace Labs216.MirasovEG
 {
-    class Bank
+    abstract class Person
     {
         private string _name;
-        private string _ID;
         private string _surname;
-        private static int _stavka = 6;
-        private int _account;
-        private static int _minPut = 1000;
-        private static int _maxTake = 10000000;
-        private static int count = 0;
-        private int _year;
-        private int _month;
         public string Name
         {
             get => _name;
             set => _name = $"{value[0].ToString().ToUpper() + value.Substring(1)}";
         }
-    
         public string Surname
         {
             get => _surname;
-            set =>_surname = $"{value[0].ToString().ToUpper() + value.Substring(1)}";
+            set => _surname = $"{value[0].ToString().ToUpper() + value.Substring(1)}";
         }
+        public virtual void GetInform()
+        {
+            Console.WriteLine($"Your name: {Name}{Surname}");
+        }
+    }
 
-        public void GenerationID()
+    class Clerk : Person
+    {
+        private static int _department = 0;
+        public override void GetInform()
+        {
+            Console.WriteLine($"Your name: {Name}{Surname}");
+            Console.WriteLine($"Your department: {_department}");
+            _department += 1;
+        }
+    }
+
+    class Bank : Person
+    {
+        private string _ID;
+        private static int _stavka = 6;
+        private int _account;
+        private static int _minPut = 1000;
+        private static int _maxTake = 10000000;
+        private static int count = 0;
+        private int _year { get; set; }
+        private int _month { get; set; }
+
+        public override void GetInform()
+        {
+            Console.WriteLine($"Your name: {Name} {Surname}");
+            Console.WriteLine($"Your ID: {GenerationID()}");
+            Console.WriteLine($"Your account: {_account}");
+            Console.WriteLine($"Your interest rate: {_stavka}");
+        }
+        public string GenerationID()
         {
             
             _ID = Name + Surname + count;
             count += 1;
+            return _ID;
         }
 
         public static void StartBank()
@@ -46,11 +72,7 @@ namespace Labs216.MirasovEG
             Console.WriteLine("Enter Surname:");
             bank.Surname = Console.ReadLine();
 
-            bank.GenerationID();
-            Console.WriteLine($"Your ID: {bank._ID}");
             Console.WriteLine();
-
-            
 
             Console.WriteLine("Enter the year of birth:");
             bank._year = int.Parse(Console.ReadLine());
@@ -68,7 +90,7 @@ namespace Labs216.MirasovEG
                 while (true)
                 {
                     Console.WriteLine();
-                    Console.WriteLine("Choose actions with the bill \n 1 - To put money into the account \n 2 - Withdraw money from an account \n 3 - Calculate the amount of savings for several years ahead");
+                    Console.WriteLine("Choose actions with the bill \n 1 - To put money into the account \n 2 - Withdraw money from an account \n 3 - Calculate the amount of savings for several years ahead \n 4 - Find out information about account");
                     int choice = int.Parse(Console.ReadLine());
 
                     switch (choice)
@@ -84,6 +106,10 @@ namespace Labs216.MirasovEG
                         case 3:
                             bank.Calculate();
                             break;
+                        case 4:
+                            bank.GetInform();
+                        break;
+                            
 
                     }
                     Console.WriteLine("Want to repeat the operation selectin (Y/N)");
