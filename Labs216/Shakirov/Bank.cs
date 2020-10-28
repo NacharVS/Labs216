@@ -19,6 +19,19 @@ namespace Labs216.Shakirov
             var otherLetter = newName.Remove(0, 1);
             _name = (firstLetter.ToString().ToUpper() + otherLetter);
         }
-
+        public void SetSurname(string newSurname)
+        {
+            newSurname = newSurname.Trim();
+            var firstLetter = newSurname[0];
+            var otherLetters = newSurname.Remove(0, 1);
+            _surname = firstLetter.ToString().ToUpper() + otherLetters;
+        }
+        public static void Bank1()
+        {
+            Console.WriteLine("Добро пожаловать в банк");
+            Console.WriteLine("Ставка банка - 7,3");
+            Console.WriteLine("Введите свои данные");
+            string name, surname = Console.ReadLine();
+        }
     }
 }
