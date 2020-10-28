@@ -37,21 +37,17 @@ namespace Labs216.Tarskih
             Console.WriteLine($"Количество слов в строке = {words.Length}");
         }
 
-        public static void Palindrome(string s)
+        public static void Palindrome(string n)
         {
-            s = s.Replace(" ", "");
-            char[] str = s.ToCharArray();
-            char[] reverse = str.Reverse().ToArray();
-            int count = 0;
-            for (int i = 0; i < str.Length; i = i + 1)
+            string m = "";
+            n = n.Replace(" ", "");
+            for (int i = 0; i < n.Length; i = i + 1) ;
             {
-                if (reverse[i] == str[i])
-                    count += 1;
+                m += n[n.Length - i - 1];
             }
-            if (count == str.Length)
-                Console.WriteLine("Эта строка являфется палиндромом");
-            else
-                Console.WriteLine("Эта строка не является палиндромом");
+            if (n == m) Console.WriteLine("Эта строка не является палиндромом");
+            else Console.WriteLine("Эта строка не является палиндромом");
+            Console.WriteLine();                   
         }
     }
 }

@@ -7,7 +7,7 @@ namespace Labs216
     {
         static void Main(string[] args)
         {
-            StringOperations.OddSymbol(string );
+            StringOperations.OddSymbol("Быть или не быть");
         }
     }
 }
