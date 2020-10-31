@@ -43,7 +43,7 @@ namespace Labs216.Dmitriev
             _surname = Console.ReadLine();
             _id = _name + _surname ;
             
-            Console.WriteLine($"здраствуйте, {_name} {_surname}, ваш счет, ваш id  {_id} у вас  {_account} ");
+            Console.WriteLine($"здраствуйте, {_name} {_surname}, ваш id  {_id} у вас  {_account} то есть вы бомж ");
         }
     }
 }
