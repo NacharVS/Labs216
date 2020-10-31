@@ -8,10 +8,9 @@ namespace Labs216.Stepanov
     {
         private string _name;
         private string _surname;
-        private string _id;
-        private static double _rate;
-        private double _paymentAccount;
-
+        private int _id;
+        private static double _stavka;
+        private double _score;
         public void SetName(string newName)
         {
             newName = newName.Trim();
@@ -26,18 +25,12 @@ namespace Labs216.Stepanov
             var otherLetters = newSurname.Remove(0, 1);
             _surname = firstLetter.ToString().ToUpper() + otherLetters;
         }
-        public void SetID(string newID)
+        public static void Bank1()
         {
-            newID = newID.Trim();
-            var firstLetter = newID[0];
-            var otherLetters = newID.Remove(0, 1);
-            _id = firstLetter.ToString().ToUpper() + otherLetters;
+            Console.WriteLine("Добро пожаловать в наш банк!");
+            Console.WriteLine("Ставка в нашем банке составляет 6,7%");
+            Console.WriteLine("Введите ваши данные");
+            string data = Console.ReadLine();
         }
-        public void SetRate(double newRate)
-        {
-            newRate = newRate.
-        }
-
-
     }
 }
