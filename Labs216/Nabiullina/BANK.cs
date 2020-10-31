@@ -4,10 +4,29 @@ using System.Text;
 
 namespace Labs216.Nabiullina
 {
-    class BANK
+    class Person
     {
         private string _name;
         private string _surname;
+        public void SetName(string newName)
+        {
+            newName = newName.Trim();
+            var firstLetter = newName[0];
+            var otherLetters = newName.Remove(0, 1);
+            _name = firstLetter.ToString().ToUpper() + otherLetters;
+
+        }
+        public void SetSurame(string newSurname)
+        {
+            newSurname = newSurname.Trim();
+            var firstLetter = newSurname[0];
+            var otherLetters = newSurname.Remove(0, 1);
+            _surname = firstLetter.ToString().ToUpper() + otherLetters;
+        }
+    }
+    class BANK : Person
+    {
+        
         private int _vozrast;
         private static double _stavka = 6.7;
         private string _id;
@@ -16,28 +35,14 @@ namespace Labs216.Nabiullina
 
         public BANK(string name, string surname, int vozrast, double stavka, double schet)
         {
-            _name = name;
-            _surname = surname;
+          
             _vozrast = vozrast;
             _stavka = stavka;
             _schet = schet;
 
         }
-         public void SetName(string newName)
-         {
-           newName = newName.Trim();
-           var firstLetter = newName[0];
-           var otherLetters = newName.Remove(0, 1);
-           _name = firstLetter.ToString().ToUpper() + otherLetters;
-            
-         }
-        public void SetSurame(string newSurname)
-        {
-            newSurname = newSurname.Trim();
-            var firstLetter = newSurname[0];
-            var otherLetters = newSurname.Remove(0, 1);
-            _surname = firstLetter.ToString().ToUpper() + otherLetters;
-        }
+        
+       
         public void SetVozrast()
         {
             int a = DateTime.Today.Year;
