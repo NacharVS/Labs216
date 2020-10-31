@@ -157,10 +157,15 @@ namespace Labs216.Anisimov
             Console.WriteLine($"Отдел: {Departament}");
             Console.WriteLine($"Опыт: {Experince}");
             Console.WriteLine($"Зарплата: {Pay}");
+            Console.WriteLine();
         }
     }
     class BankClient : Person
     {
+        public delegate void BankAccount(string message);
+
+        public event BankAccount Notify;
+
         private string _id;
         private static double InterestRate = 5;
         private double _account;
@@ -188,7 +193,62 @@ namespace Labs216.Anisimov
             _count = _count + 1;
         }
 
+        public BankClient(string name, string surname)
+        {
+            Name = name;
+            Surname = surname;
+            GetAge();
+            if (ToYoung) Notify?.Invoke("To young");
+            GenId();
+        }
 
+        public void Withdraw(int value)
+        {
+            if (ToYoung)
+            {
+                Notify?.Invoke("To young");
+                return;
+            }
+            if (value > _account)
+            {
+                Notify?.Invoke($"You have only: {Account}");
+                return;
+            }
+            if (value <= _Max)
+            {
+                Account = Account - value;
+                Notify?.Invoke($"Now your balance is: {Account}");
+            }
+            else Notify?.Invoke("You can't take more than 100 000");
+        }
+        public void Deposit(int value)
+        {
+            if (ToYoung)
+            {
+                Notify?.Invoke("To young");
+                return;
+            }
+            if (value >= _Min)
+            {
+                _account = _account + value;
+                Notify?.Invoke($"Now your balance is: {Account}");
+            }
+            else Notify?.Invoke("You can't add less than 10 000");
+        }
+        public void Calculate(int year)
+        {
+            if (ToYoung)
+            {
+                Notify?.Invoke("To young");
+                return;
+            }
+            double buff = _account;
+            for (int i = 0; i < year; i++)
+            {
+                buff = buff + buff * InterestRate / 100;
+            }
+            Notify?.Invoke($"Your balance will be {buff} in {year} years");
+        }
         public override void GetInfo()
         {
             Console.WriteLine($"Имя: {Name}");
@@ -196,8 +256,29 @@ namespace Labs216.Anisimov
             Console.WriteLine($"Возраст: {Age}");
             Console.WriteLine($"Счет: {Account}");
             Console.WriteLine($"Ставка: {InterestRate}");
+            Console.WriteLine();
         }
-    }
 
-   
+        private bool ToYoung => Age < _MinAge;
+    }
+    class RunBank2_0
+    {
+        public static void _RunBank2_0()
+        {
+            BankEmployee employee = new BankEmployee("Name", "Surname", "Department", "12 year", 10000);
+            BankClient client = new BankClient("Name2", "Surname2");
+            client.Notify += Message;
+            employee.GetInfo();
+            client.GetInfo();
+            client.Deposit(1000);
+            client.Deposit(10000);
+            client.GetInfo();
+        }
+        private static void Message(string message)
+        {
+            Console.WriteLine(message);
+            Console.WriteLine();
+        }
+
+    }
 }

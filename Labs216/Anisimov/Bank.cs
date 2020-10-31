@@ -175,7 +175,7 @@ namespace Labs216.Anisimov
             Notify?.Invoke($"Your balance will be {buff} in {year} years");
         }
     }
-    class Run
+    class RunBank
     {
         public static void _Bank()
         {
