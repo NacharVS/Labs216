@@ -7,7 +7,7 @@ namespace Labs216
     {
         static void Main(string[] args)
         {
-            Student.Calculator();
+            StringOperation.StringOp("РОберт ЗАкиров");
         }
     }
 }
