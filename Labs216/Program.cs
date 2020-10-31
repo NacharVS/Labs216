@@ -7,9 +7,7 @@ namespace Labs216
     {
         static void Main(string[] args)
         {
-            Student a = new Student("закиров","роберт");
-            Console.WriteLine(a.firstname);
-            Console.WriteLine(a.name);
+            StringOperations.SOp("закиров роберт");
 
         }
     }
