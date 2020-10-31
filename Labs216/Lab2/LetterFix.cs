@@ -11,11 +11,7 @@ namespace Labs216.Lab2
         public string _surname;
         public int _numberGroups;
          
-        public Students (string name, string surname, int numberGroups)
-        {
-            _name = name;
-            _surname = surname;
-        }
+    
     }
     class LetterFix
     {
