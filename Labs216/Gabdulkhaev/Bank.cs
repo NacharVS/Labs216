@@ -44,7 +44,40 @@ namespace Labs216.Gabdulkhaev
         int a = DateTime.Now.Millisecond;
         DateTime dayofbirth = DateTime.Now.Date;
     }
-
+    public static void rabota()
+    {
+        Console.WriteLine("Выберите действие");
+        Console.WriteLine("Положить на счет - 1, снять - 2, положить на депозит 3");
+        int dei = Convert.ToInt32(Console.ReadLine());
+        switch (dei)
+        {
+            case 1:
+                Console.WriteLine("Вы выбрали снять со счета");
+                Console.WriteLine("Введите сумму");
+                double summa = Convert.ToDouble(Console.ReadLine());
+                double chet = _paymentaccount - summa;
+                Console.WriteLine($"Итоговый счет {chet}");
+                break;
+            case 2:
+                Console.WriteLine("Вы выбрали положить на счет");
+                Console.WriteLine("Введите сумму");
+                    double raznost = Convert.ToDouble(Console.ReadLine());
+                chet = _paymentaccount - raznost;
+                Console.WriteLine($"Итоговый счет {chet}");
+                break;
+            case 3:
+                Console.WriteLine("Вы выбрали депозит");
+                Console.WriteLine("Выберите какую сумму хотите положить");
+                Console.WriteLine("Процент в нашем банке - 0,3859195 в год");
+                double summmmmmmmmmmmm = Convert.ToDouble(Console.ReadLine());
+                double depoz=summmmmmmmmmmmm*0.3859195;
+                Console.WriteLine($"Через год вы получит {depoz}");
+                break;
+            default:
+                Console.WriteLine("Error");
+                break;
+        }
+    }
     class bangrun
     {
         public static void run()
