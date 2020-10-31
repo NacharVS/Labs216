@@ -9,17 +9,17 @@ namespace Labs216.Nabiullina
         private string _name;
         private string _surname;
         private int _vozrast;
-        private static double _stavka;
+        private static double _stavka = 6.7;
         private string _id;
         private double _schet;
+        private static int stt = 0;
 
-        public BANK(string name, string surname, int vozrast, double stavka, string id, double schet)
+        public BANK(string name, string surname, int vozrast, double stavka, double schet)
         {
             _name = name;
             _surname = surname;
             _vozrast = vozrast;
             _stavka = stavka;
-            _id = id;
             _schet = schet;
 
         }
@@ -90,7 +90,7 @@ namespace Labs216.Nabiullina
         }
         public void SetStavka ()
         {
-            _stavka = 6.7;
+            
             Console.WriteLine($" Stavka  = {_stavka} ");
             Console.Write(" After how many years do you withdraw money? ");
             double let = double.Parse (Console.ReadLine());
@@ -103,9 +103,11 @@ namespace Labs216.Nabiullina
             Console.WriteLine($"After {let} years, your account will have an {_schet} amount "); 
             
         }
-        public void SetId (int NewSetId)
+        public void SetId ()
         {
-
+            _id = _name + _surname + stt;
+            stt += 1;
+            Console.WriteLine(_id);
         }
     
     
