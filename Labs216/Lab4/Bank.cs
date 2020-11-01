@@ -9,7 +9,7 @@ namespace Labs216.Lab4
         private string _name;
         private string _surname;
         private string _id;
-        private static double _stavka;
+        private static double _stavka = 6.7;
         private double _score;
         private int _age;
         public void SetName(string newName)
@@ -57,10 +57,23 @@ namespace Labs216.Lab4
         }
         public static void SetStavka()
         {
-            _stavka = 6.7;
-            Console.WriteLine("Stavka in our bank - 6.7%");
-            Console.WriteLine("How many years would you like to withdraw money&");
+            double _score = 0;
+            double _stavka = 6.7;
+            Console.WriteLine($"Stavka in our bank - {_stavka}%");
+            Console.WriteLine($"our score {_score}");
+            Console.WriteLine("How many years would you like to withdraw money?");
             double years = double.Parse(Console.ReadLine());
+            for (double i = 0; i < years; i++)
+            {
+                i = ((100 * _score) / _stavka) * 100;
+                Console.WriteLine($"Your account will have {i} in {years} years");
+            }
         }
+        public void SetAge()
+        {
+            int p = DateTime.Now.Millisecond;
+            DateTime age = DateTime.Now.Date;
+        }
+
     }
 }
