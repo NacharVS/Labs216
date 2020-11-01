@@ -8,7 +8,6 @@ namespace Labs216
     {
         static void Main(string[] args)
         {
-            StringOprations.chototam();
         }
     }
 }
