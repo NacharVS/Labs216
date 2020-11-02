@@ -19,7 +19,7 @@ namespace Labs216.Topunova
                 if(x != 0 )
                 {
                     double y = (a / x);
-                    Console.WriteLine( $"y")
+                    Console.WriteLine($"y");
                 }
             }
      }

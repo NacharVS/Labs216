@@ -6,5 +6,18 @@ namespace Labs216.Topunova
 {
     class Bank
     {
+        private string _name;
+        private string _surname;
+        private string _id;
+        private static double _rate;
+        private double _paymentAccount
+
+            public void SetName(string newName)
+            {
+            _name = newName.Trim();
+            var firstLetter = newName[0];
+            var otherLetter = newName.Remove(0, 1);
+            _name = (firstLetter.ToString().ToUpper() + otherLetter);
+            }
     }
 }

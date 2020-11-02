@@ -25,7 +25,7 @@ namespace Labs216.Topunova
             firsteValue = double.Parse(Console.ReadLine());
             Console.WriteLine("Введите число 2");
             SecoundeValue = double.Parse(Console.ReadLine());
-            Console.WriteLine("Введите формулу: ('a^2 = b^2 + c^2' 'c^2 = a^2 + b^2' '2PI*R^2' 'PI*R^2' A*B*C'));
+            Console.WriteLine( "Введите формулу: ('a^2 = b^2 + c^2' 'c^2 = a^2 + b^2' '2PI*R^2' 'PI*R^2' A*B*C'));
                 
                 switch(action)
             {
