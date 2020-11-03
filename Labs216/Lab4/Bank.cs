@@ -57,22 +57,26 @@ namespace Labs216.Lab4
         }
         public static void SetStavka()
         {
-            double _score = 0;
+            double _score = 17000;
             double _stavka = 6.7;
             Console.WriteLine($"Stavka in our bank - {_stavka}%");
             Console.WriteLine($"our score {_score}");
             Console.WriteLine("How many years would you like to withdraw money?");
             double years = double.Parse(Console.ReadLine());
-            for (double i = 0; i < years; i++)
+            double i = 0;
+            for ( i = 0; i < years; i++)
             {
                 i = ((100 * _score) / _stavka) * 100;
-                Console.WriteLine($"Your account will have {i} in {years} years");
             }
+            Console.WriteLine($"Your account will have {i} in {years} years");
         }
         public void SetAge()
         {
             int p = DateTime.Now.Millisecond;
+            int result = 0;
             DateTime age = DateTime.Now.Date;
+            result = p - DateTime.Now.Month;
+            Console.WriteLine(result);
         }
 
     }
