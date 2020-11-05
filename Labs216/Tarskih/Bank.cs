@@ -18,7 +18,6 @@ namespace Labs216.Tarskih
             _surname = surname;
             _age = refund;
             _rate = rate;
-            _id = id;
             _account = account;
         }
         public void SetName(string newName)
