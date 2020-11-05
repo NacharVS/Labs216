@@ -39,7 +39,7 @@ namespace Labs216.Tarskih
         public void SetAccount()
         {
             Console.WriteLine($"На счёте сейчас {_account} валюты");
-            Console.WriteLine($" {1} - Снять со счёта  {2} - Положить на счёт ");
+            Console.WriteLine(" 1. Снять со счёта \n 2. Положить на счёт");
             string b = Console.ReadLine();
             switch (b)
             {
@@ -50,8 +50,28 @@ namespace Labs216.Tarskih
                     {
                         if (with > 200000)
                         {
+                            Console.WriteLine("Ошибка");
+                        }    
+                        else
+                        {
                             Console.WriteLine($"На вашем счёте: {_account -= with} средств");
                         }
+                    }
+                    else
+                    {
+                        Console.WriteLine($"На вашем счёте {_account} money");
+                    }
+                    break;
+                case "2":
+                    Console.WriteLine("Минимальная сумма - 50 валюты");
+                    double put = double.Parse(Console.ReadLine());
+                    if (put < 50)
+                    {
+                        Console.WriteLine("Ошибка");
+                    }
+                    else
+                    {
+                        Console.WriteLine($"На вашем счёте {_account += put} валюты")
                     }
             }
         }
