@@ -29,6 +29,19 @@ namespace Labs216.Tarskih
             var otherLetters = newName.Remove(0, 1);
             _name = firstLetter.ToString().ToUpper() + otherLetters;
         }
+        public void SetSurname(string newSurname)
+        {
+            newSurname = newSurname.Trim();
+            var firstLetter = newSurname[0];
+            var otherLetters = newSurname.Remove(0, 1);
+            _surname = firstLetter.ToString().ToUpper() + otherLetters;
+        }
+        public void SetAccount()
+        {
+            Console.WriteLine($"На счёте сейчас {_account} валюты");
+            Console.WriteLine(" 1 - Снять со счёта  2 - Положить на счёт");
+            string b = Console.ReadLine();
+        }
 
     }
 }
