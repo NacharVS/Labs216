@@ -8,16 +8,15 @@ namespace Labs216.Tarskih
     {
         private string _name;
         private string _surname;
-        private int _refund;
+        private int _age;
         private static double _rate;
-        private string _id;
         private double _account;
 
         public Bank(string name, string surname, int refund, double rate, string id, double account)
         {
             _name = name;
             _surname = surname;
-            _refund = refund;
+            _age = refund;
             _rate = rate;
             _id = id;
             _account = account;
@@ -35,6 +34,12 @@ namespace Labs216.Tarskih
             var firstLetter = newSurname[0];
             var otherLetters = newSurname.Remove(0, 1);
             _surname = firstLetter.ToString().ToUpper() + otherLetters;
+        }
+        public void SetAge()
+        {
+            int x = DateTime.Today.Year;
+            _age = x - _age;
+            Console.WriteLine($"Ваш возраст {_age}");
         }
         public void SetAccount()
         {
@@ -71,10 +76,19 @@ namespace Labs216.Tarskih
                     }
                     else
                     {
-                        Console.WriteLine($"На вашем счёте {_account += put} валюты")
+                        Console.WriteLine($"На вашем счёте {_account += put} валюты");
                     }
+                    break;
             }
         }
-
+        public void SetRate()
+        {
+            _account = 7.7;
+            Console.WriteLine($"Ставка = {_rate}");
+            Console.Write("После скольки лет вы хотите снять деньги?");
+            double year = double.Parse(Console.ReadLine());
+            double y = _account * (Math.Pow(_rate, year));
+            Console.WriteLine($"После {y} лет, на вашем счёте будет {_account} валюты");            
+        }
     }
 }
