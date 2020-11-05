@@ -22,6 +22,13 @@ namespace Labs216.Tarskih
             _id = id;
             _account = account;
         }
+        public void SetName(string newName)
+        {
+            newName = newName.Trim();
+            var firstLetter = newName[0];
+            var otherLetters = newName.Remove(0, 1);
+            _name = firstLetter.ToString().ToUpper() + otherLetters;
+        }
 
     }
 }
