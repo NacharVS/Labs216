@@ -6,5 +6,6 @@ namespace Labs216.Garipova.del
 {
     class BranchOffice
     {
+        
     }
 }
