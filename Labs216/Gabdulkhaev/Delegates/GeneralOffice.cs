@@ -6,5 +6,8 @@ namespace Labs216.Gabdulkhaev.Delegates
 {
     class GeneralOffice
     {
+        int a;
+        int [] massiff=new int[a]
+           int a=Console.ReadLine();
     }
 }
