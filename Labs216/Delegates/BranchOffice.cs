@@ -47,6 +47,23 @@ namespace Labs216.Delegates
         static public void Maxelement()
         {
 
+            int[] array = new int[7];
+            Random rnd = new Random();
+            int a = 0;
+            for (int i = 0; i < array.Length; i++)
+            {
+                array[i] = rnd.Next(10, 90);
+                Console.WriteLine($"{array[i]}");
+            }
+            for (int i = 0; i < array.Length; i++)
+            {
+                if (a<array[i])
+                {
+                    a = array[i];
+                }
+            
+            }
+            Console.WriteLine($" Max: {a}");
         }
     }
 }

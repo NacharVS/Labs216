@@ -12,7 +12,7 @@ namespace Labs216
         static void Main(string[] args)
         {
             Massiv Mas;
-            Mas = BranchOffice.Summmasiv;
+            Mas = BranchOffice.Maxelement;
             Mas();
 
         }
