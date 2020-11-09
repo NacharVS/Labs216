@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Linq;
 using Labs216.Anisimov;
+using Labs216.Anisimov.Delegates;
 
 namespace Labs216
 {
@@ -8,7 +9,7 @@ namespace Labs216
     {
         static void Main(string[] args)
         {
-            RunBank2_0._RunBank2_0();
+            BranchOffice.Run();
         }
     }
 }
