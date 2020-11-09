@@ -16,15 +16,7 @@ namespace Labs216.Delegates
                 array[i] = rnd.Next(1, 10);
                 
             }
-            for (int i = 0; i < array.Length; i++)
-            {
-                if (array[i]> array[i++])
-                {
-                    a = array[i];
-                    array[i] = array[i++];
-                    array[i++] = a;
-                }
-            }
+            Array.Sort(array);
             for (int i = 0; i < array.Length; i++)
             {
 
@@ -35,7 +27,21 @@ namespace Labs216.Delegates
 
         static public void Summmasiv()
         {
+            int[] array = new int[6];
+            Random rnd = new Random();
+            int a = 0;
+            for (int i = 0; i < array.Length; i++)
+            {
+                array[i] = rnd.Next(10, 90);
+                Console.WriteLine($"{array[i]}");
+            }
+            for (int i = 0; i < array.Length; i++)
+            {
+                a += array[i];
+                
 
+            }
+            Console.WriteLine($"Summ: {a}");
         }
         
         static public void Maxelement()

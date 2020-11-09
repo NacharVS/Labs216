@@ -110,7 +110,7 @@ namespace Labs216.Nabiullina
         }
         public void SetId ()
         {
-            _id = _name + _surname + stt;
+            
             stt += 1;
             Console.WriteLine(_id);
         }
