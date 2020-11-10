@@ -6,52 +6,56 @@ namespace Labs216.Anisimov.Delegates
 {
     class GeneralOffice
     {
-        public static int[] SortMassive(int[] array)
+        public static void SortArray(int[] array)
         {
-            int buff;
-            for (int j = 0; j < array.Length - 1; j++)
-            {
-                for (int i = 0; i < array.Length - 1 - j; i++)
-                    if (array[i] > array[i + 1])
-                    {
-                        buff = array[i];
-                        array[i] = array[i + 1];
-                        array[i + 1] = buff;
-                    }
-            }
-            
+            Array.Sort(array);
+
+            Console.WriteLine("Sort array");
+
+            Console.WriteLine();
+
             for (int i = 0;i < array.Length; i++)
             {
                 Console.Write($"| {array[i]} |");
             }
 
-            return array;
+            Console.WriteLine();
+            Console.WriteLine();
         }
 
-        public static int SummMassive(int[] array)
+        public static void SummArray(int[] array)
         {
+
+            Console.WriteLine("Summ array");
+
+            Console.WriteLine();
+
             int res = 0;
             foreach (int item in array)
             {
                 res += item;
             }
 
-            Console.WriteLine($"Сумма -- {res}");
+            Console.WriteLine($"Summ -- {res}");
 
-            return res;
+            Console.WriteLine();
         }
 
-        public static int MaxMassive(int[] array)
+        public static void MaxArray(int[] array)
         {
+            Console.WriteLine("Max array");
+
+            Console.WriteLine();
+
             int max = 0;
             foreach (int item in array)
             {
                 if (item > max) max = item;
             }
 
-            Console.WriteLine($"Максимум -- {max}");
+            Console.WriteLine($"Max -- {max}");
 
-            return max;
+            Console.WriteLine();
         }
     }
 }

@@ -6,24 +6,32 @@ namespace Labs216.Anisimov.Delegates
 {
     class BranchOffice
     {
-        private delegate int[] Sort(int[] array);
-        private delegate int Number(int[] array);
+        private delegate void ArrayOprerations(int[] array);
 
         public static void Run()
         {
-            Sort sorter = GeneralOffice.SortMassive;
-            Number number = GeneralOffice.MaxMassive;
-            number += GeneralOffice.SummMassive;
+            ArrayOprerations oprerations = GeneralOffice.SortArray;
+            oprerations += GeneralOffice.MaxArray;
+            oprerations += GeneralOffice.SummArray;
 
             Random rnd = new Random();
-            int[] array = new int[5];
+            int[] array = new int[rnd.Next(5, 10)];
             for (int i = 0; i < array.Length - 1; i++)
             {
                 array[i] = rnd.Next(1, 100);
             }
 
-            sorter(array);
-            number(array);
+            Console.WriteLine("array");
+
+            for (int i = 0; i < array.Length; i++)
+            {
+                Console.Write($"| {array[i]} |");
+            }
+
+            Console.WriteLine();
+            Console.WriteLine();
+
+            oprerations(array);
         }
     }
 }
