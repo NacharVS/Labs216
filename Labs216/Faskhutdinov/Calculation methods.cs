@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Labs216.Shakirov
+namespace Labs216.Faskhutdinov
 {
     class Calculation_methods
     {
