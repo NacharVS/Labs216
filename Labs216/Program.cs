@@ -11,8 +11,9 @@ namespace Labs216
         
         static void Main(string[] args)
         {
-            int[] mass = { 3, 7, 55, 34, 9, 2 };
-            BranchOff.Massivs (mass);
+            int[] array = { 3, 7, 55, 34, 9, 2 };
+            int[] aray = { 4, 56, 7, 19, 33, 25 };
+            BranchOff.Massivs(array,aray);
 
         }
     }
