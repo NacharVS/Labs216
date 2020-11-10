@@ -10,7 +10,6 @@ namespace Labs216.Delegates
         {
             int[] array = new int[5];
             Random rnd = new Random();
-            int a = 0;
             for (int i = 0; i < array.Length; i++)
             {
                 array[i] = rnd.Next(1, 10);

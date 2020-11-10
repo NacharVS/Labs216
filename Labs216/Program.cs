@@ -8,12 +8,10 @@ namespace Labs216
 {
     class Program
     {
-        private delegate void Massiv();
+        
         static void Main(string[] args)
         {
-            Massiv Mas;
-            Mas = BranchOffice.Maxelement;
-            Mas();
+          
 
         }
     }
