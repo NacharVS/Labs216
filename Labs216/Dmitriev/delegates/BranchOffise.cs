@@ -4,7 +4,23 @@ using System.Text;
 
 namespace Labs216.Dmitriev.delegates
 {
-    class Class1
+    class BranchOffice
+    {
+        public static void Corterovka()
+        {
+           
+
+        }
+        public static void Summa()
+        {
+            
+        }
+        public static void Maxx()
+        {
+          
+        }
+    }
+
     {
     }
 }
