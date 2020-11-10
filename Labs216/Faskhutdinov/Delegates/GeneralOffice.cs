@@ -12,23 +12,16 @@ namespace Labs216.Faskhutdinov.Delegates
 
             Console.WriteLine("Sort array");
 
-            Console.WriteLine();
-
             for (int i = 0; i < array.Length; i++)
             {
                 Console.Write($"| {array[i]} |");
             }
-
-            Console.WriteLine();
-            Console.WriteLine();
         }
 
         public static void SummArray(int[] array)
         {
 
             Console.WriteLine("Summ array");
-
-            Console.WriteLine();
 
             int res = 0;
             foreach (int item in array)
@@ -37,8 +30,6 @@ namespace Labs216.Faskhutdinov.Delegates
             }
 
             Console.WriteLine($"Summ -- {res}");
-
-            Console.WriteLine();
         }
 
         public static void MaxArray(int[] array)
@@ -54,8 +45,6 @@ namespace Labs216.Faskhutdinov.Delegates
             }
 
             Console.WriteLine($"Max -- {max}");
-
-            Console.WriteLine();
         }
     }
 }
