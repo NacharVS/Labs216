@@ -6,8 +6,10 @@ namespace Labs216.Gabdulkhaev.Delegates
 {
     class GeneralOffice
     {
-        int a;
-        int [] massiff=new int[a]
-           int a=Console.ReadLine();
+        int[] m = new int[10];
+        Random rand = new Random();
+        for (int i=0; i<10; i=i+1)
+            {
     }
+}
 }
