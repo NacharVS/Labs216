@@ -9,10 +9,11 @@ namespace Labs216.Garipova.del
 
         public static void Invocation(int[] array)
         {
-            //Massif mss = GeneralOffice.Maxx;
-            Massif mss = GeneralOffice.Summa;
+            Massif mss = null;
+            mss += GeneralOffice.Maxx;
+            mss += GeneralOffice.Summa;
             mss += GeneralOffice.Sorterovka;
-            mss(array);
+            
         }
     }
 }

@@ -26,16 +26,20 @@ namespace Labs216.Garipova.del
             Console.WriteLine();
             Console.WriteLine($"summa: {summ}");
         }
+        public static void Maxx(int[] mass)
+        {
+            int x = 0;
+
+            for (int i = 0; i < mass.Length; i++)
+            {
+              if (x > mass[i])
+                {
+                    x = mass[x];
+                }
+                Console.WriteLine(x);
+            }
+        }
     }
 }
 
-
-        //public static void Maxx(int[] mass)
-        //{
-        //    for (int i = 0; i < mass.Length; i++)
-        //    {
-
-        //    }
-        //}
-    
 
