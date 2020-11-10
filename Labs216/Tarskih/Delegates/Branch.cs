@@ -5,16 +5,12 @@ namespace Labs216.Tarskih.Delegates
 {
     class Branch
     {
-        private delegate void Massive();
-        public static void Main()
+        private delegate void Massive (int[] massive);
+        public static void Imya()
         {
-            int[] nums = new int[5];
-            Console.WriteLine("Введите 5 чисел");
-            for (int i = 0; i < nums.Length; i++)
-            {
-                Console.Write($"{0}-е число: ");
-                nums[i] = Int32.Parse(Console.ReadLine());
-            }
+            int[] massive = { 228, 69, 1337, 18, 23 };
+            Massive massive1 = General.SortingByAscending;
+            massive1(massive);
         }
     }
 }

@@ -7,7 +7,8 @@ namespace Labs216
     {
         static void Main(string[] args)
         {
-            StringOperations.OddSymbol("Быть или не быть");
+            int[] massive = { 228, 69, 1337, 18, 23 };
+            Branch.Massive(massive);
         }
     }
 }

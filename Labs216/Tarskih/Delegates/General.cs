@@ -8,18 +8,14 @@ namespace Labs216.Tarskih.Delegates
 {
     class General
     {
-        public static void Sorting(string[] args)
+        public static void SortingByAscending(int[] massive)
         {
-            int temp;
-            for (int j = int + 1; j < nums.Lenght; j++)
+            Array.Sort(massive);
+            for (int i = 0; i < massive.Length; i++)
             {
-                if (nums[i] > nums[j])
-                {
-                    temp = nums[i]
-                    nums[i] = nums[j];
-                    nums[j] = temp;
-                }
+                Console.WriteLine(massive[i] + " ");
             }
+            Console.WriteLine("Сортировка массива по возрастанию выполнена");
         }
     }
 }
