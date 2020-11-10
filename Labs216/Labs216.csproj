@@ -11,4 +11,8 @@
     <None Remove="KhabibullinaRal\**" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Faskhutdinov\Delegates\" />
+  </ItemGroup>
+
 </Project>
