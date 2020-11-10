@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Linq;
 
 namespace Labs216.Gabdulkhaev.Delegates
 {
@@ -18,7 +19,12 @@ namespace Labs216.Gabdulkhaev.Delegates
         }
         public static void Sortirovka()
         {
-            sozdaniemassiva();
+            int a = Convert.ToInt32(Console.ReadLine());
+            int[] massiff = new int[a];
+            Random rnd = new Random();
+            for (int b = 0; b < massiff.Length; b++)
+            {
+                massiff[b] = rnd.Next(1, 100);
                 Array.Sort(massiff);
                 Console.WriteLine(massiff[b]);
             }
@@ -47,4 +53,5 @@ namespace Labs216.Gabdulkhaev.Delegates
             }
             Console.WriteLine(massiff.Max);
         }
-            }
+    }
+}
