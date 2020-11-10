@@ -1,13 +1,16 @@
 ﻿using System;
+using System.Linq;
 using Labs216.Bulatov;
+using Labs216.Bulatov.Delegates;
+
 
 namespace Labs216
 {
-    class DivisionByIntrval
+    class Program
     {
         static void Main(string[] args)
         {
-            DivisionByInterval.Division();
+            BranchOffice.Run();
         }
     }
 }

@@ -8,18 +8,9 @@ namespace Labs216.Bulatov.Delegates
     {
         public static void Sorting(int[] array)
         {
-            
-        
-                //// ввод чисел
-                //int[] array = new int[7];
-                //Console.WriteLine("Введите семь чисел");
-                //for (int i = 0; i < array.Length; i++)
-                //{
-                //    Console.Write("{0}-е число: ", i + 1);
-                //    array[i] = Int32.Parse(Console.ReadLine());
-                //}
+            Array.Sort(array);
+            Console.WriteLine(" Sort Array");
 
-                // сортировка
                 int buf;
                 for (int i = 0; i < array.Length - 1; i++)
                 {
@@ -32,29 +23,48 @@ namespace Labs216.Bulatov.Delegates
                             array[j] = buf;
                         }
                     }
+                }            
+                for (int i = 0; i < array.Length; i++)
+                {
+                    Console.Write($"|{array[i]}| ");                    
                 }
-
-                //// вывод
-                //Console.WriteLine("Вывод отсортированного массива");
-                //for (int i = 0; i < array.Length; i++)
-                //{
-                //    Console.WriteLine(array[i]);
-                //}
-                //Console.ReadLine();
+            Console.WriteLine();
+            Console.WriteLine();
         }
-        
-    
 
-        public static void SummMassive()
+
+
+        public static void SummMassive(int[] array)
+        {
+            Array.Sort(array);
+            Console.WriteLine(" Summ Array's Elements");
+            int res = 0;
+            foreach (int item in array)
+            {
+                res += item;
+            }
+            Console.Write($"|{res}|");
+            Console.WriteLine();
+            Console.WriteLine();
+        }
+        public static void max(int[] array)
+        {            
+            Array.Sort(array);
+            Console.WriteLine(" Max Array's Element");
+            int maxValue = array[array.Length - 1];
+            Console.Write($"|{maxValue}|");
+        }
+        public static void ArraySumm(int[] array1, int[] array2)
         {
 
         }
-        public static void max()
+        public static void ArrayDifference(int[] array1, int[] array2)
         {
 
-            int[] ar = { 67, 34, 3, 8, 35, 23 };
-            Array.Sort(ar);
-            int maxValue = ar[ar.Length - 1];
+        }
+        public static void ArrayComposition(int[] array1, int[] array2)
+        {
+
         }
     }
 }
