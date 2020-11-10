@@ -4,19 +4,39 @@ namespace Labs216.Delegates
 {
     class GeneralOffice
     {
-        public static void Sorting()
+        static public void SummArray(int[] mass)
         {
-            Random rnb = new Random();
-            int[] array = new int[17];
-            for (int i = 0; i < array.Length; i++)
+            int Summ = 0;
+            for (int i = 0; i < mass.Length; i++)
             {
-                array[i] = rnb.Next(10, 99);
+                if (mass[i] > 0)
+                    Summ += mass[i];
             }
-            Array.Sort(array);
-            for (int i = 0; i < array.Length; i++)
+            Console.WriteLine();
+            Console.Write($"Summ: {Summ}");
+        }
+        public static void MaxValue(int[] mass)
+        {
+            int max = 0;
+            for (int i = 0; i < mass.Length; i++)
             {
-                Console.Write($" {array[i]}");
+                Console.Write($" {mass[i]}");
+                if (max < mass[i])
+                    max = mass[i];
             }
+            Console.WriteLine();
+            Console.WriteLine($"max: {max}");
+        }
+        public static void Sorting(int[] mass)
+        {
+            Array.Sort(mass);
+            Console.Write("Sorting:");
+            for (int i = 0; i < mass.Length; i++)
+            {
+                Console.Write($" {mass[i]}");
+               
+            }
+            
         }
     }
 }

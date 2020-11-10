@@ -9,9 +9,16 @@ namespace Labs216
 {
     class Program
     {
+      
         static void Main(string[] args)
         {
-            GeneralOffice.Sorting();
+            int[] array = new int[17];
+            Random rnb = new Random();
+            for (int i = 0; i < array.Length; i++)
+            {
+                array[i] = rnb.Next(99);
+            }
+            BranchOffice.RabbitInvoke(array);
         }
         
     }

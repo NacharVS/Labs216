@@ -6,20 +6,13 @@ namespace Labs216.Delegates
 {
     class BranchOffice
     {
-        public static void MaxValue()
+        public delegate void Rabbit(int[] mass);
+        public static void RabbitInvoke(int[] mass)
         {
-            Random rnb = new Random();
-            int[] array = new int[17];
-            int max = 0;
-            for (int i = 0; i < array.Length; i++)
-            {
-                array[i] = rnb.Next(99);
-                Console.Write($" {array[i]}");
-                if (max < array[i])
-                    max = array[i];
-            }
-            Console.WriteLine();
-            Console.Write($"max: {max}");
+            Rabbit rabbit = GeneralOffice.MaxValue;
+            rabbit += GeneralOffice.Sorting;
+            rabbit += GeneralOffice.SummArray;
+            rabbit(mass);
         }
     }
 }
