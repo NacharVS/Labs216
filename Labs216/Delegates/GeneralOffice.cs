@@ -11,6 +11,10 @@ namespace Labs216.Delegates
             for (int i = 0; i < array.Length; i++)
             {
                 array[i] = rnb.Next(10, 99);
+            }
+            Array.Sort(array);
+            for (int i = 0; i < array.Length; i++)
+            {
                 Console.Write($" {array[i]}");
             }
         }
