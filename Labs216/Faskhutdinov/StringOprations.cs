@@ -1,7 +1,8 @@
 ﻿using System;
 
 
-namespace Labs216.Garipova
+namespace Labs216.Faskhutdinov
+
 {
     class StringOprations
     { 
