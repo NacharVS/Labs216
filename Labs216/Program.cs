@@ -19,7 +19,15 @@ namespace Labs216
                 array[i] = rnb.Next(99);
             }
             BranchOffice.RabbitInvoke(array);
+
+            int[] array1 = new int[15];
+            int[] array2 = new int[15];
+            for (int s = 0; s < array1.Length; s++)
+            {
+                array1[s] = rnb.Next(99);
+                array2[s] = rnb.Next(99);
+            }
+            BranchOffice.YogurtInvoke(array1, array2);
         }
-        
     }
 }

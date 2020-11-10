@@ -14,5 +14,14 @@ namespace Labs216.Delegates
             rabbit += GeneralOffice.SummArray;
             rabbit(mass);
         }
+        public delegate void Yogurt(int[] mass1, int[] mass2);
+        public static void YogurtInvoke(int[] mass1, int[] mass2)
+        {
+            Yogurt yogurt = GeneralOffice.SumtwoArrays;
+            yogurt += GeneralOffice.DifferenceTwoArrays;
+            yogurt += GeneralOffice.Multiplication;
+            yogurt(mass1, mass2);
+        }
+
     }
 }
