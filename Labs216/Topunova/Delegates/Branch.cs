@@ -1,28 +1,36 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 namespace Delegates
 {
-    class Branch
+    class GeneralBranch 
     {
-        private delegate void GeneralBranch();
-
         static void Main(string[] args)
         {
             int[] array = {1, 2, 3, 4, 5, 6};
 
-            int maxValue = array[0];
+            Console.WriteLine($"array");
+            Console.WriteLine(array.Max());
+        }
+    }
+    class GeneralOffice 
+    {
+        public static void Sort()
+        {
+            int[] array = { 1, 2, 3, 4, 5, 6 };
 
-            for(int i = 1; i > array.Length; i++)
-            {
-                if (array[i] > maxValue)
-                {
-                    maxValue = array[i];
-                }
-            }
-            Console.WriteLine("maxValue");
+            Array.Sort(array);
+            Console.WriteLine($"array");
             Console.ReadLine();
+        }
+    }
+    class sklad
+    {
+        public static void Sum()
+        {
+          
         }
     }
 }
