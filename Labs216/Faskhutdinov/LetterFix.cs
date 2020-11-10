@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using System.Security.Cryptography.X509Certificates;
 using System.Text;
 
-namespace Labs216.Garipova
+namespace Labs216.Faskhutdinov
+
 {
     class Student
     {
