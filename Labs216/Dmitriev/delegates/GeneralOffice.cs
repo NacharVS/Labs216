@@ -6,23 +6,46 @@ namespace Labs216.Dmitriev.delegates
 {
     class GeneralOffice
     {
-        public static void Massivesort()
+        public static void Massivesort(int[] mass)
         {
-            int[] Array = new int[25];
-            Random rnd = new Random();
+            Console.WriteLine("massiv otsortirvan");
+            Array.Sort(mass);
+            for (int i = 0; i < mass.Length; i++)
 
-            for (int a = 0; a > Array.Length; a++)
             {
-                Array[a] = rnd.Next(30, 50);
+                Console.Write($"{mass[i]} ");
             }
+            Console.WriteLine();
         }
-        public static void Summa()
-        {
 
-        }
-        public static void Maxx()
-        {
 
+
+        public static  void Summamassiv(int[] mass)
+        {
+            int Summ = 0;
+            for (int a = 0; a < mass.Length; a++)
+            {
+                if (mass[a] > 0)
+                    Summ += mass[a];
+            }
+            Console.WriteLine();
+            Console.Write($"Summ: {Summ}");
         }
+        public static void MaxValue(int[] mass)
+        {
+            int max = 0;
+            for (int a = 0; a < mass.Length; a++)
+            {
+                if (max < mass[a])
+                    max = mass[a];
+            }
+            Console.WriteLine();
+            Console.WriteLine($"max: {max}");
+        }
+        
+        
+            
+        
     }
+
 }

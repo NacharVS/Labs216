@@ -4,19 +4,10 @@ using System.Text;
 
 namespace Labs216.Dmitriev.delegates
 {
-    class BranchOffice
+    public class BranchOffice
     {
-        public static void Corterovka()
-        {
-
-        }
-        public static void Summa()
-        {
-
-        }
-        public static void Maxx()
-        {
-
-        }
+        public delegate void sergo(int[] mass);
     }
+    
+        
 }
