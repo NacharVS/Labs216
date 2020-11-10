@@ -1,5 +1,5 @@
 ﻿using System;
-using Labs216.Gabdulkhaev;
+using Labs216.Bulatov;
 
 namespace Labs216
 {

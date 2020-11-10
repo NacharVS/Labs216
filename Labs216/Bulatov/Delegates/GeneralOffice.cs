@@ -6,7 +6,7 @@ namespace Labs216.Bulatov.Delegates
 {
     class GeneralOffice
     {
-        public static void SortingMassive(int[] array)
+        public static void Sorting(int[] array)
         {
             
         
