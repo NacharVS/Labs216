@@ -11,7 +11,8 @@ namespace Labs216
         
         static void Main(string[] args)
         {
-            GeneralOffice.Massivs();
+            int[] mass = { 3, 7, 55, 34, 9, 2 };
+            BranchOff.Massivs (mass);
 
         }
     }
