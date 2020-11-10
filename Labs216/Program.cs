@@ -1,5 +1,6 @@
 ﻿using System;
 using Labs216.Zamaliev;
+using Labs216.Zamaliev.Delegates;
 
 namespace Labs216
 {
@@ -7,8 +8,13 @@ namespace Labs216
     {
         static void Main(string[] args)
         {
-            StringOperations.SOp("закиров роберт");
-
+            int[] array = new int[5];
+            Random rnb = new Random();
+            for (int i = 0; i < array.Length; i++)
+            {
+                array[i] = rnb.Next(10);
+            }
+            BranchOffice.RobertInvoke(array);
         }
     }
 }
