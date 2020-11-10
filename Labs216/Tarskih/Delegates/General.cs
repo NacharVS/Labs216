@@ -1,16 +1,25 @@
 ﻿using System;
-using System.Collections.Generic;
+using System.Collections;
 using System.Linq;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace Labs216.Tarskih.Delegates
 {
     class General
     {
-        delegate int Operation(int a, int b, int c, int d, int e);
-        static void Main(string[] args)
+        public static void Sorting(string[] args)
         {
-            Console.WriteLine()
+            int temp;
+            for (int j = int + 1; j < nums.Lenght; j++)
+            {
+                if (nums[i] > nums[j])
+                {
+                    temp = nums[i]
+                    nums[i] = nums[j];
+                    nums[j] = temp;
+                }
+            }
         }
     }
 }
