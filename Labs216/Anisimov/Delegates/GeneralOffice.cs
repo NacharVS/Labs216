@@ -57,5 +57,53 @@ namespace Labs216.Anisimov.Delegates
 
             Console.WriteLine();
         }
+
+        public static void SummOfMassives(int[] array1, int[] array2)
+        {
+            int[] arrayRes = new int[array1.Length];
+            for (int i = 0; i < array1.Length - 1 ;i++)
+            {
+                arrayRes[i] = array1[i] + array2[i];
+            }
+
+            Console.WriteLine("SummOfArrays");
+
+            for (int i = 0; i < arrayRes.Length; i++)
+            {
+                Console.Write($"| {arrayRes[i]} |");
+            }
+        }
+
+        public static void DifOfMassives(int[] array1, int[] array2)
+        {
+            int[] arrayRes = new int[array1.Length];
+            for (int i = 0; i < array1.Length - 1; i++)
+            {
+                arrayRes[i] = array1[i] - array2[i];
+            }
+
+            Console.WriteLine("DifOfArrays");
+
+            for (int i = 0; i < arrayRes.Length; i++)
+            {
+                Console.Write($"| {arrayRes[i]} |");
+            }
+        }
+
+        public static void ProizvedenieOfMassives(int[] array1, int[] array2)
+        {
+            int[] arrayRes = new int[array1.Length];
+            for (int i = 0; i < array1.Length - 1; i++)
+            {
+                arrayRes[i] = array1[i] * array2[i];
+            }
+
+            Console.WriteLine("ProizvedenieOfMassives");
+
+            for (int i = 0; i < arrayRes.Length; i++)
+            {
+                Console.Write($"| {arrayRes[i]} |");
+            }
+        }
     }
 }
