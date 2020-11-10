@@ -8,19 +8,15 @@ namespace Labs216.Dmitriev.delegates
     {
         public static void Corterovka()
         {
-           
 
         }
         public static void Summa()
         {
-            
+
         }
         public static void Maxx()
         {
-          
-        }
-    }
 
-    {
+        }
     }
 }
