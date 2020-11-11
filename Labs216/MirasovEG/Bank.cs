@@ -38,6 +38,10 @@ namespace Labs216.MirasovEG
 
     class Bank : Person
     {
+        public delegate void ChangeRate(int rate);
+
+        public event ChangeRate Notify;
+
         private string _ID;
         private static int _stavka = 6;
         private int _account;
@@ -46,6 +50,22 @@ namespace Labs216.MirasovEG
         private static int count = 0;
         private int _year { get; set; }
         private int _month { get; set; }
+
+        public  int Stavka
+        {
+            get { return _stavka;}
+            private set
+            {
+                _stavka = value;
+                Notify?.Invoke(_stavka);
+
+            }
+        }
+
+        public  void NewRate(int rate)
+        {
+            Stavka = rate;
+        }
 
         public override void GetInform()
         {
