@@ -8,7 +8,7 @@ namespace Labs216.Tarskih.Delegates
 {
     class General
     {
-        public static void SortingByAscending(int[] massive)
+        public static void SortingByAscending(int[] massive, int[] massive_two)
         {
             Array.Sort(massive);
             for (int i = 0; i < massive.Length; i++)
@@ -17,7 +17,7 @@ namespace Labs216.Tarskih.Delegates
             }
             Console.WriteLine("Cортировка массива по возрастанию выполнена");
         }
-        static public void SumOfMassive(int[] massive)
+        static public void SumOfMassive(int[] massive, int[] massive_two)
         {
             int x = 0;
             for (int i = 0; i < massive.Length; i = i + 1)
@@ -26,7 +26,7 @@ namespace Labs216.Tarskih.Delegates
             }
             Console.WriteLine($"Сумма массива равна {x}");
         }
-        static public void TheMaximumValueOfTheMassive(int[] massive)
+        static public void TheMaximumValueOfTheMassive(int[] massive, int[] massive_two)
         {
             int y = 0;
             for (int i = 0; i < massive.Length; i = i + 1)
@@ -37,6 +37,21 @@ namespace Labs216.Tarskih.Delegates
                 }
             }
             Console.WriteLine($"Максимальное значение в данном массиве равно {y}");
+        }
+        static public void TheSumOfTwoMassives(int[] massive, int[] massive_two)
+        {
+            int z = 0;
+            for (int i = 0; i < massive.Length; i = i + 1)
+            {
+                for (int j = 0; j < massive_two.Length; j = j + 1)
+                {
+                    if (i == j)
+                    {
+                        z = massive[i] + massive_two[j];
+                        Console.WriteLine($"Сумма двух данных массивов равна {z}");
+                    }
+                }
+            }
         }
     }
 }
