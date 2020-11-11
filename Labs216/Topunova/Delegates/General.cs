@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Labs216
+namespace Labs216.Topunova.Delegates
 {
-    class Program
+    class General
     {
     }
 }
