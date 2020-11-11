@@ -26,7 +26,7 @@ namespace Labs216.Nabiullina
     }
     class BANK : Person
     {
-        
+
         private int _vozrast;
         private static double _stavka = 6.7;
         private string _id;
@@ -35,23 +35,23 @@ namespace Labs216.Nabiullina
 
         public BANK(string name, string surname, int vozrast, double stavka, double schet)
         {
-          
+
             _vozrast = vozrast;
             _stavka = stavka;
             _schet = schet;
 
         }
-        
-       
+
+
         public void SetVozrast()
         {
             int a = DateTime.Today.Year;
-            _vozrast = a - _vozrast ;
+            _vozrast = a - _vozrast;
             Console.WriteLine($"Age: {_vozrast}");
         }
-        public void SetSchet ()
+        public void SetSchet()
         {
-            
+
             Console.WriteLine($"On the account now: {_schet}");
             Console.WriteLine(" 1. Withdraw money  \n 2. Put money");
             string b = Console.ReadLine();
@@ -59,7 +59,7 @@ namespace Labs216.Nabiullina
             {
                 case "1":
                     Console.WriteLine("Max 200000");
-                    double with = double.Parse (Console.ReadLine());
+                    double with = double.Parse(Console.ReadLine());
                     if (_schet > with)
                     {
                         if (with > 200000)
@@ -85,7 +85,7 @@ namespace Labs216.Nabiullina
                     }
                     else
                     {
-                        
+
                         Console.WriteLine($"On your account: { _schet += put } monney");
                     }
                     break;
@@ -93,28 +93,32 @@ namespace Labs216.Nabiullina
 
 
         }
-        public void SetStavka ()
+        public void SetStavka()
         {
-            
+
             Console.WriteLine($" Stavka  = {_stavka} ");
             Console.Write(" After how many years do you withdraw money? ");
-            double let = double.Parse (Console.ReadLine());
+            double let = double.Parse(Console.ReadLine());
             double c;
-            for (int i=0; i < let; i++)
+            for (int i = 0; i < let; i++)
             {
-                 _schet += _schet / 100 * _stavka;
-                
+                _schet += _schet / 100 * _stavka;
+
             }
-            Console.WriteLine($"After {let} years, your account will have an {_schet} amount "); 
-            
+            Console.WriteLine($"After {let} years, your account will have an {_schet} amount ");
+
         }
-        public void SetId ()
+        public void SetId()
         {
-            
+
             stt += 1;
             Console.WriteLine(_id);
         }
-    
-    
+
+        public static void ChangeRate(double stavka)
+        {
+            _stavka = stavka;
+
+        }
     }
 }

@@ -11,10 +11,11 @@ namespace Labs216
         
         static void Main(string[] args)
         {
-            int[] array = { 3, 7, 55, 34, 9, 2 };
-            int[] aray = { 4, 56, 7, 19, 33, 25 };
-            BranchOff.Massivs(array,aray);
+            BANK acc1 = new BANK("Zulfia", "Nabiullina", 17, 6.7 , 280);
+           
 
+        
         }
+
     }
 }
