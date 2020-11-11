@@ -1,6 +1,6 @@
 ﻿using System;
 using Labs216.Zamaliev;
-using Labs216.Zamaliev.Delegates;
+
 
 namespace Labs216
 {
@@ -8,13 +8,12 @@ namespace Labs216
     {
         static void Main(string[] args)
         {
-            int[] array = new int[5];
-            Random rnb = new Random();
-            for (int i = 0; i < array.Length; i++)
-            {
-                array[i] = rnb.Next(10);
-            }
-            BranchOffice.RobertInvoke(array);
+            Bank account1 = new Bank("Petr", "Sidorov", 2000, 8.2, "1052560", 1000);
+
+            account1.SetVozrast();
+
+            account1.SetSchet();
+            account1.SetStavka();
         }
     }
 }
