@@ -15,16 +15,28 @@ namespace Labs216.Tarskih.Delegates
             {
                 Console.WriteLine(massive[i] + " ");
             }
-            Console.WriteLine("Сортировка массива по возрастанию выполнена");
+            Console.WriteLine("Cортировка массива по возрастанию выполнена");
         }
         static public void SumOfMassive(int[] massive)
         {
             int x = 0;
-            for (int i = 0; i < massive.Length; i++)
+            for (int i = 0; i < massive.Length; i = i + 1)
             {
                 x += massive[i];
             }
-            Console.WriteLine($"Сумма массива равна {x}")
+            Console.WriteLine($"Сумма массива равна {x}");
+        }
+        static public void TheMaximumValueOfTheMassive(int[] massive)
+        {
+            int y = 0;
+            for (int i = 0; i < massive.Length; i = i + 1)
+            { 
+                if (y < massive[i])
+                {
+                    y = massive[i];
+                }
+            }
+            Console.WriteLine($"Максимальное значение в данном массиве равно {y}");
         }
     }
 }

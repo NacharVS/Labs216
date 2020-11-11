@@ -11,6 +11,7 @@ namespace Labs216.Tarskih.Delegates
             int[] massive = { 228, 69, 1337, 18, 23 };
             Massive massive1 = General.SortingByAscending;
             massive1 += General.SumOfMassive;
+            massive1 += General.TheMaximumValueOfTheMassive;
             massive1(massive);
         }
     }
