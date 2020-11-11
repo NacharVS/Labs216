@@ -7,14 +7,15 @@ namespace Labs216.Anisimov
 {
     class Bank
     {
-        public delegate void BankAccount(string message);
+        public delegate void BankAccount(string phoneNumber, string Message);
 
         public event BankAccount Notify;
 
         private string _name;
         private string _surname;
+        private string _phoneNumber;
         private string _id;
-        private static double InterestRate = 5;
+        private static double _interestRate = 5;
         private double _account;
         private static int _count = 0;
         private static int _Max = 100000;
@@ -25,7 +26,7 @@ namespace Labs216.Anisimov
         public string Name
         {
             get { return _name; }
-            set 
+            private set 
             {
                 if (value != "")
                 {
@@ -38,7 +39,7 @@ namespace Labs216.Anisimov
         public string Surname
         {
             get { return _surname; }
-            set 
+            private set 
             {
                 if (value != "")
                 {
@@ -51,7 +52,7 @@ namespace Labs216.Anisimov
         public int Age
         {
             get { return _age; }
-            set
+            private set
             {
                 if (value >= _MinAge)
                     _age = value;
@@ -66,7 +67,11 @@ namespace Labs216.Anisimov
         public double Account
         {
             get { return _account; }
-            set { _account = value; }
+            private set 
+            {
+                _account = value;
+                Notify?.Invoke(_phoneNumber, $"Acount Change {_account}");
+            }
         }
         public static int Count
         {
@@ -82,7 +87,7 @@ namespace Labs216.Anisimov
             Console.WriteLine("Write you birthday");
             Console.WriteLine("Day:");
             int day = int.Parse(Console.ReadLine());
-            Console.WriteLine("Mounth: (Example : may)");
+            Console.WriteLine("Mounth: (Пример : май)");
             int month = 0;
             switch (Console.ReadLine())
             {
@@ -139,6 +144,8 @@ namespace Labs216.Anisimov
             Name = Console.ReadLine();
             Console.WriteLine("Write you surname");
             Surname = Console.ReadLine();
+            Console.WriteLine("Write you phone");
+            _phoneNumber = Console.ReadLine();
             GetAge();//Отдельный метод для запроса дня рождения и расчета возраста (мне так удобнее)
             GenId();
         }
@@ -146,40 +153,43 @@ namespace Labs216.Anisimov
         {
             if (value > _account)
             {
-                Notify?.Invoke($"You have only: {Account}");
+                Notify?.Invoke(_phoneNumber, $"You have only: {Account}");
                 return;
             }
             if (value <= _Max)
             {
                 Account = Account - value;
-                Notify?.Invoke($"Now your balance is: {Account}");
             }
-            else Notify?.Invoke("You can't take more than 100 000");
+            else Notify?.Invoke(_phoneNumber, "You can't take more than 100 000");
         }
         public void Deposit(int value)
         {
             if (value >= _Min)
             {
-                _account = _account + value;
-                Notify?.Invoke($"Now your balance is: {Account}");
+                Account = Account + value;
             }
-            else Notify?.Invoke("You can't add less than 10 000");
+            else Notify?.Invoke(_phoneNumber, "You can't add less than 10 000");
         }
         public void Calculate(int year)
         {
             double buff = _account;
             for (int i = 0; i < year;  i++)
             {
-                buff = buff + buff *InterestRate/100;
+                buff = buff + buff *_interestRate/100;
             }
-            Notify?.Invoke($"Your balance will be {buff} in {year} years");
+            Notify?.Invoke(_phoneNumber, $"Your balance will be {buff} in {year} years");
+        }
+        public void ChangeRate(double value)
+        {
+            _interestRate = value;
+            Notify?.Invoke(_phoneNumber, $"New insert rate -- {_interestRate}");
         }
     }
     class RunBank
     {
         public static void _Bank()
         {
-            Bank[] acc = new Bank[3];
+            Bank[] acc = new Bank[1];
             for (int i = 0; i < 1; i++)
             {
                 acc[i] = new Bank();
@@ -204,7 +214,7 @@ namespace Labs216.Anisimov
             }
             while (true)
             {
-                Console.WriteLine("What do you want: 1 -- Withdraw money || 2 -- Deposit money || 3 -- Check account || 4 -- Calculate deposit");
+                Console.WriteLine("What do you want: 1 -- Withdraw money || 2 -- Deposit money || 3 -- Check account || 4 -- Calculate deposit || 5 -- Change rate");
                 int choose = int.Parse(Console.ReadLine());
                 switch (choose)
                 {
@@ -223,6 +233,10 @@ namespace Labs216.Anisimov
                         Console.WriteLine("How many years to calculate");
                         acc[acc_number].Calculate(int.Parse(Console.ReadLine()));
                         break;
+                    case 5:
+                        Console.WriteLine("How much:");
+                        acc[acc_number].ChangeRate(double.Parse(Console.ReadLine()));
+                        break;
                 }
                 Console.WriteLine("Continue y/n");
                 if (Console.ReadLine() == "n")
@@ -239,9 +253,10 @@ namespace Labs216.Anisimov
                 Console.WriteLine();
             }// Это вывод для проверки правильно ли программа работала с данными
         }
-        private static void Message(string message)
+        private static void Message(string PhoneNumber, string message)
         {
-            Console.WriteLine(message);
+            Console.WriteLine($"Было отправлено сообщение на номер: {PhoneNumber}");
+            Console.WriteLine($"Сообщение: {message}");
             Console.WriteLine();
         }
     }
