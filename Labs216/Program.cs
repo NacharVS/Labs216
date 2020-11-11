@@ -10,7 +10,8 @@ namespace Labs216
     {
         static void Main(string[] args)
         {
-            BranchOffice.Run();
+            Bank.Bank1();
+
         }
     }
 }
