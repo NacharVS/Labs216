@@ -25,6 +25,7 @@ namespace Labs216.Gabdulkhaev.Delegates
             for (int b = 0; b < massiff.Length; b++)
             {
                 massiff[b] = rnd.Next(1, 100);
+                if (b == 0) continue;
                 Array.Sort(massiff);
                 Console.WriteLine(massiff[b]);
             }
