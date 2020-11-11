@@ -6,7 +6,7 @@ namespace Labs216
 {
     class Program
     {
-        static void Main(string[] args)
+        public static void Main(string[] args)
         {
             int[] massive = { 228, 69, 1337, 18, 23 };
             int[] massive_two = { 22, 02, 19, 89, 31 };

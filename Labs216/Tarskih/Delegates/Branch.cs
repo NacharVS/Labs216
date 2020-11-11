@@ -14,7 +14,9 @@ namespace Labs216.Tarskih.Delegates
             massive1 += General.TheSumOfMassive;
             massive1 += General.TheMaximumValueOfTheMassive;
             massive1 += General.TheSumOfTwoMassives;
-            massive1 += General.TheDifferenceOfTheMassive;
+            massive1 += General.TheDifferenceOfTwoMassive;
+            massive1 += General.TheMultiplicationOfTwoMassives;
+            massive1 += General.TheDivisionOfTwoMassives;
             massive1(massive, massive_two);
         }
     }
