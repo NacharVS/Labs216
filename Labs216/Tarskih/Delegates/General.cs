@@ -17,7 +17,7 @@ namespace Labs216.Tarskih.Delegates
             }
             Console.WriteLine("Cортировка массива по возрастанию выполнена");
         }
-        static public void SumOfMassive(int[] massive, int[] massive_two)
+        static public void TheSumOfMassive(int[] massive, int[] massive_two)
         {
             int x = 0;
             for (int i = 0; i < massive.Length; i = i + 1)
@@ -40,18 +40,33 @@ namespace Labs216.Tarskih.Delegates
         }
         static public void TheSumOfTwoMassives(int[] massive, int[] massive_two)
         {
-            int z = 0;
+            int s = 0;
             for (int i = 0; i < massive.Length; i = i + 1)
             {
                 for (int j = 0; j < massive_two.Length; j = j + 1)
                 {
                     if (i == j)
                     {
-                        z = massive[i] + massive_two[j];
-                        Console.WriteLine($"Сумма двух данных массивов равна {z}");
+                        s = massive[i] + massive_two[j];
                     }
                 }
             }
+            Console.WriteLine($"Сумма двух данных массивов равна {s}");
+        }
+        static public void TheDifferenceOfTheMassive(int[] massive, int[] massive_two)
+        {
+            int d = 0;
+            for (int i = 0; i < massive.Length; i = i + 1)
+            {
+                for (int j = 0; j < massive_two.Length; j = j + 1)
+                {
+                    if (i == j)
+                    {
+                        d = massive[i] - massive_two[j];
+                    }
+                }
+            }
+            Console.WriteLine($"Разность двух данных массивов равна {d}");
         }
     }
 }
