@@ -1,59 +1,50 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.Specialized;
 using System.Text;
 
 namespace Labs216.Lab4
 {
     class Bank
     {
-        private string _name;
-        private string _surname;
-        private string _id;
+        public delegate void Friend(string phonenumber);
+
+        private int _sum;
+        private string _phoneNumber;
         private static double _stavka = 6.7;
         private double _score;
-        private int _age;
-        public void SetName(string newName)
+        public Bank(int sum, string phoneNumber)
         {
-            newName = newName.Trim();
-            var firstLetter = newName[0];
-            var otherLetters = newName.Remove(0, 1);
-            _name = firstLetter.ToString().ToUpper() + otherLetters;
+            _sum = sum;
+            _phoneNumber = phoneNumber;
         }
-        public void SetSurname(string newSurname)
+        public int Sum
         {
-            newSurname = newSurname.Trim();
-            var firstLetter = newSurname[0];
-            var otherLetters = newSurname.Remove(0, 1);
-            _surname = firstLetter.ToString().ToUpper() + otherLetters;
+            get
+            {
+                return _sum;
+            }
+            private set
+            {
+                _sum = value;
+                Notify?.Invoke(_phoneNumber);
+            }
+        }
+        public event Friend Notify;
+        public string PhoneNumber
+        {
+            get
+            {
+                return _phoneNumber;
+            }
+            private set
+            {
+                _phoneNumber = value;
+            }
         }
         public static void Bank1()
         {
-            Console.WriteLine("Welcome to our bank!");
-            Console.WriteLine("What do you want to do?");
-            Console.WriteLine("1. Withdraw money");
-            Console.WriteLine("2. Deposit money");
-            string a = Console.ReadLine();
-            double max = 200000;
-            double min = 10000;
-            switch (a)
-            {
-                case "1":
-                    Console.WriteLine("Can be removed max 200 000!");
-                    int value = int.Parse(Console.ReadLine());
-                    if (value < max)
-                        Console.WriteLine("The operation was successful!");
-                    else
-                        Console.WriteLine("Mistake!");
-                    break;
-                case "2":
-                    Console.WriteLine("Can be removed min 10 000");
-                    int value1 = int.Parse(Console.ReadLine());
-                    if (value1 > min)
-                        Console.WriteLine("The operation was successful!");
-                    else
-                        Console.WriteLine("Mistake!");
-                    break;
-            }
+            
         }
         public static void SetStavka()
         {
@@ -70,14 +61,9 @@ namespace Labs216.Lab4
             }
             Console.WriteLine($"Your account will have {i} in {years} years");
         }
-        public void SetAge()
+        public void StavkaChange(double newStavka)
         {
-            int p = DateTime.Now.Millisecond;
-            int result = 0;
-            DateTime age = DateTime.Now.Date;
-            result = p - DateTime.Now.Month;
-            Console.WriteLine(result);
-        }
 
+        }
     }
 }
