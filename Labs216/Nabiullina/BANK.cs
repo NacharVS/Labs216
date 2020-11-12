@@ -33,11 +33,10 @@ namespace Labs216.Nabiullina
         private double _schet;
         private static int stt = 0;
 
-        public BANK(string name, string surname, int vozrast, double stavka, double schet)
+        public BANK(string name, string surname, int vozrast, double schet)
         {
 
             _vozrast = vozrast;
-            _stavka = stavka;
             _schet = schet;
 
         }
@@ -114,10 +113,21 @@ namespace Labs216.Nabiullina
             stt += 1;
             Console.WriteLine(_id);
         }
-
-        public static void ChangeRate(double stavka)
+        public delegate void AccountStavka(double stavka);
+        public event AccountStavka Rate;
+        public double Stavka
         {
-            _stavka = stavka;
+            get { return _stavka; }
+            private  set
+            {
+                _stavka = value;
+                Rate?.Invoke(_stavka);
+            }
+
+        }
+        public void ChangeRate(double stavka)
+        {
+            Stavka = stavka;
 
         }
     }

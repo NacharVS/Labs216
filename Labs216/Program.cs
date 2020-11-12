@@ -8,13 +8,18 @@ namespace Labs216
 {
     class Program
     {
-        
+       
         static void Main(string[] args)
         {
-            BANK acc1 = new BANK("Zulfia", "Nabiullina", 17, 6.7 , 280);
-           
+            BANK acc = new BANK("Zul", "Nabiul", 17, 100);
+            acc.Rate += Message;
+            acc.ChangeRate(5);
 
-        
+            void Message(double stavka)
+            {
+                Console.WriteLine($"Rate change on {stavka}");
+            }
+
         }
 
     }
