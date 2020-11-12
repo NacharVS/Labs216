@@ -8,75 +8,106 @@ namespace Labs216.Bulatov
     {
         private string _name;
         private string _surname;
+        private string _phoneNumber;
         private string _id;
-        private static double _stavka = 6.7;
-        private double _score;
+        private static double _1xBet; //Ставка
+        private double _Cash;
+        private static int _count = 1;
+        private static int _Max = 100000;
+        private static int _Min = 1000;
         private int _age;
-        public void SetName(string newName)
+        
+        public string Name
         {
-            newName = newName.Trim();
-            var firstLetter = newName[0];
-            var otherLetters = newName.Remove(0, 1);
-            _name = firstLetter.ToString().ToUpper() + otherLetters;
-        }
-        public void SetSurname(string newSurname)
-        {
-            newSurname = newSurname.Trim();
-            var firstLetter = newSurname[0];
-            var otherLetters = newSurname.Remove(0, 1);
-            _surname = firstLetter.ToString().ToUpper() + otherLetters;
-        }
-        public static void Bank1()
-        {
-            Console.WriteLine("Welcome to our bank!");
-            Console.WriteLine("What do you want to do?");
-            Console.WriteLine("1. Withdraw money");
-            Console.WriteLine("2. Deposit money");
-            string a = Console.ReadLine();
-            double max = 200000;
-            double min = 10000;
-            switch (a)
+            get { return _name; }
+            private set
             {
-                case "1":
-                    Console.WriteLine("Can be removed max 200 000!");
-                    int value = int.Parse(Console.ReadLine());
-                    if (value < max)
-                        Console.WriteLine("The operation was successful!");
-                    else
-                        Console.WriteLine("Mistake!");
-                    break;
-                case "2":
-                    Console.WriteLine("Can be add to account min 10 000");
-                    int value1 = int.Parse(Console.ReadLine());
-                    if (value1 > min)
-                        Console.WriteLine("The operation was successful!");
-                    else
-                        Console.WriteLine("Mistake!");
-                    break;
+                if (value != "")
+                {
+                    value = value.Trim();
+                    _name = value[0].ToString().ToUpper() + value.Substring(1);
+                }
+                else _name = "defualt";
             }
         }
-        public static void SetStavka()
+        public string Surname
         {
-            double _score = 17000;
-            double _stavka = 6.7;
-                Console.WriteLine($"Stavka in our bank - {_stavka}%");
-                Console.WriteLine($"Your score {_score}");
-                Console.WriteLine("How many years would you like to withdraw money?");
-            double years = double.Parse(Console.ReadLine());
-            double i = 0;
-            for (i = 0; i < years; i++)
+            get { return _surname; }
+            private set
             {
-                i = ((100 * _score) / _stavka) * 100;
+                if (value != "")
+                {
+                    value = value.Trim();
+                    _surname = value[0].ToString().ToUpper() + value.Substring(1);
+                }
+                else _surname = "defualt";
             }
-                Console.WriteLine($"Your account will have {i} in {years} years");
         }
-        public void SetAge()
+        public int Age
         {
-            int p = DateTime.Now.Millisecond;
-            int result = 0;
-            DateTime age = DateTime.Now.Date;
-            result = p - DateTime.Now.Month;
-                Console.WriteLine(result);
+            get { return _age; }
+            private set
+            {                
+               _age = value;            
+            }
+        }
+        public string Id
+        {
+            get { return _id; }
+        }
+        public double Account
+        {
+            get { return _Cash; }
+            private set
+            {
+                _Cash = value;
+                //Notify?.Invoke(_phoneNumber, $"Acount Change {_account}");
+            }
+        }
+        public static int Count
+        {
+            get { return _count; }
+        }
+        private void GetId()
+        {
+            _id = _name + _surname + "_" + _count;
+            _count = _count + 1;
+        }
+        private void GetAge()
+        {
+            Console.WriteLine("Write you birthday (dd mm yyyy)");
+            string[] date = new string[3];
+            date = Console.ReadLine().Split(" ");
+            int day = int.Parse(date[0]);
+            int month = int.Parse(date[1]);
+            int year = DateTime.Now.Year - int.Parse(date[2]) - 1;
+            {
+                if (DateTime.Now.Month >= month & DateTime.Now.Day >= day) Age = year + 1;
+            }
+        }
+        public Bank()
+        {
+            Console.WriteLine("Write you name");
+            Name = Console.ReadLine();
+            Console.WriteLine("Write you surname");
+            Surname = Console.ReadLine();
+            Console.WriteLine("Write you phone");
+            _phoneNumber = Console.ReadLine();
+            GetAge(); //Вызвал метод 79
+            GetId(); //Вызвал метод 74
+        }
+        //Нужно сделать методы депозит, снять, ставка, и что-то ещё, чтобы всё работало.
+        public void Deposit(int Value)
+        {
+
+        }
+        public void Withdraw(int Value)
+        {
+
+        }
+        public void Mirror(int Year)
+        {
+
         }
 
     }
