@@ -1,8 +1,10 @@
 ﻿using System;
 namespace Labs216.Garipova
 {
-    class Bank
+    class Bankaccount
     {
+        public delegate void Handler(string phonenumber)
+
         private string _name;
         private string _surname;
         private string _id;
@@ -44,6 +46,10 @@ namespace Labs216.Garipova
         {
             double _rate = 0.3;
             _rate = 0.3 * count;
+        }
+        public void RateChange(double newrate)
+        {
+            _rate = newrate;
         }
         public void Setaddmoney()
         {
