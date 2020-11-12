@@ -1,7 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Security.Cryptography.X509Certificates;
-using System.Text;
 
 namespace Labs216.Anisimov
 {
@@ -33,7 +30,7 @@ namespace Labs216.Anisimov
                     value = value.Trim();
                     _name = value[0].ToString().ToUpper() + value.Substring(1);
                 }
-                else _name = "defualt";
+                else _name = "No data";
             }
         }
         public string Surname
@@ -46,7 +43,7 @@ namespace Labs216.Anisimov
                     value = value.Trim();
                     _surname = value[0].ToString().ToUpper() + value.Substring(1);
                 }
-                else _surname = "defualt";
+                else _surname = "No data";
             }
         }
         public int Age
@@ -84,53 +81,12 @@ namespace Labs216.Anisimov
         }
         private void GetAge()
         {
-            Console.WriteLine("Write you birthday");
-            Console.WriteLine("Day:");
-            int day = int.Parse(Console.ReadLine());
-            Console.WriteLine("Mounth: (Пример : май)");
-            int month = 0;
-            switch (Console.ReadLine())
-            {
-                case "январь":
-                    month = 1;
-                    break;
-                case "февраль":
-                    month = 2;
-                    break;
-                case "март":
-                    month = 3;
-                    break;
-                case "апрель":
-                    month = 4;
-                    break;
-                case "май":
-                    month = 5;
-                    break;
-                case "июнь":
-                    month = 6;
-                    break;
-                case "июль":
-                    month = 7;
-                    break;
-                case "август":
-                    month = 8;
-                    break;
-                case "сентябрь":
-                    month = 9;
-                    break;
-                case "октябрь":
-                    month = 10;
-                    break;
-                case "ноябрь":
-                    month = 11;
-                    break;
-                case "декабрь":
-                    month = 12;
-                    break;
-            }
-            Console.WriteLine("Year:");
-            int year = int.Parse(Console.ReadLine());
-            year = DateTime.Now.Year - year - 1; 
+            Console.WriteLine("Write you birthday (dd.mm.yyyy)");
+            string[] date = new string[3];
+            date = Console.ReadLine().Split(".");
+            int day = int.Parse(date[0]);
+            int month = int.Parse(date[1]);
+            int year = DateTime.Now.Year - int.Parse(date[2]) - 1; 
             {
                 if (DateTime.Now.Month >= month & DateTime.Now.Day >= day) Age = year + 1;
                 else Age = year;
