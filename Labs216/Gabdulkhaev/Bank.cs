@@ -78,6 +78,7 @@ namespace Labs216.Gabdulkhaev
                 break;
         }
     }
+    // Надо добавить эвенты 
     class bangrun
     {
         public static void run()

@@ -1,17 +1,18 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Linq;
 
 namespace Labs216.Gabdulkhaev.Delegates
 {
     class BranchOffice
     {
-        private delegate void IM(int[] array);
-        public static void Prikol()
+        private delegate void IM(int[] massiff);
+        public static void Lab()
         {
-            IM prikol = GeneralOffice.Sortirovka;
-            prikol += GeneralOffice.Summa;
-            prikol += GeneralOffice.Max;
+            IM lab = GeneralOffice.Sortirovka;
+            lab += GeneralOffice.Summa;
+            lab += GeneralOffice.Max;
             int a = Convert.ToInt32(Console.ReadLine());
             int[] massiff = new int[a];
             Random rnd = new Random();
@@ -19,7 +20,6 @@ namespace Labs216.Gabdulkhaev.Delegates
             {
                 massiff[b] = rnd.Next(1, 100);
             }
-        }
         }
     }
 }
