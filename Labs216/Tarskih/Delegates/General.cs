@@ -100,4 +100,5 @@ namespace Labs216.Tarskih.Delegates
             Console.WriteLine("Все операции с массивами были выполнены");
         }
     }
+
 }

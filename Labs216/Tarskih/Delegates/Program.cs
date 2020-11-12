@@ -10,7 +10,7 @@ namespace Labs216
         {
             int[] massive = { 228, 69, 1337, 18, 23 };
             int[] massive_two = { 22, 02, 19, 89, 31 };
-            Branch.Massive(massive, massive_two);
+            Branch.Imya(massive, massive_two);
         }
     }
 }
