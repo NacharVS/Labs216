@@ -12,7 +12,8 @@ namespace Labs216.ArslanovTI
         private static double _rate;
         private double addMoney;
         private double withdrawMoney;
-        double sum = 0;
+        double sum;
+        
 
         public void SetName (string newName) 
             {
@@ -55,10 +56,17 @@ namespace Labs216.ArslanovTI
         public void setWithdrawMoney(string newWithdrawMoney) 
         {
             int withdraw = int.Parse(Console.ReadLine());
-            sum = withdraw + sum;
+            sum -= withdraw + sum;
             withdrawMoney = sum;
 
         }
+        public void DateCreateAccount(DateTime datecreate, double sum)
+        {
+            datecreate = System.DateTime.Now.Year();
+           
+            
+        }
+        
 
 
 
