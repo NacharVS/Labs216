@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Data;
 
 namespace Labs216.Anisimov
 {
@@ -11,14 +12,22 @@ namespace Labs216.Anisimov
         private string _name;
         private string _surname;
         private string _phoneNumber;
+        private int _age;
         private string _id;
-        private static double _interestRate = 5;
+        private static double _interestRate = 0.05;
         private double _account;
+
+        private double _cashBack;
+
+        private static double _cahsBackRate = 0.01;
         private static int _count = 0;
         private static int _Max = 100000;
         private static int _Min = 10000;
         private static int _MinAge = 14;
-        private int _age;
+
+        private DateTime _accountOpen;
+        private DateTime _lastProfit;
+        private DateTime _lastCASHBACK;
 
         public string Name
         {
@@ -104,6 +113,20 @@ namespace Labs216.Anisimov
             _phoneNumber = Console.ReadLine();
             GetAge();//Отдельный метод для запроса дня рождения и расчета возраста (мне так удобнее)
             GenId();
+            _accountOpen = DateTime.Now;
+            _lastProfit = _accountOpen;
+        }
+
+        public Bank(string name, string surname, string phone)
+        {
+            Name = name;
+            Surname = surname;
+            _phoneNumber = phone;
+            GetAge();
+            GenId();
+            _accountOpen = DateTime.Now;
+            _lastProfit = _accountOpen;
+            _lastCASHBACK = _accountOpen;
         }
         public void Withdraw(int value)
         {
@@ -115,6 +138,7 @@ namespace Labs216.Anisimov
             if (value <= _Max)
             {
                 Account = Account - value;
+                _cashBack += value * _cahsBackRate;
             }
             else Notify?.Invoke(_phoneNumber, "You can't take more than 100 000");
         }
@@ -126,14 +150,35 @@ namespace Labs216.Anisimov
             }
             else Notify?.Invoke(_phoneNumber, "You can't add less than 10 000");
         }
-        public void Calculate(int year)
+        public void ShowProfit(int yaer) //Это не тот метод, он показывает пользователю сколько денег будет через n лет
         {
             double buff = _account;
-            for (int i = 0; i < year;  i++)
+            for (int i = 0; i < yaer;  i++)
             {
-                buff = buff + buff *_interestRate/100;
+                buff += buff *_interestRate;
             }
-            Notify?.Invoke(_phoneNumber, $"Your balance will be {buff} in {year} years");
+            Notify?.Invoke(_phoneNumber, $"Your balance will be {buff} in {yaer} yearz");
+        }
+        public void CalculateProfit(DateTime timeNow)
+        {
+            for (int i = 0; i < (timeNow.Day - _lastProfit.Day); i++)
+            {
+                Account += _account * _interestRate;
+            }
+            _lastProfit = timeNow;
+        }
+        public void GetCahsBack(DateTime timeNow)
+        {
+            if ((timeNow.Day - _lastCASHBACK.Day) != 0)
+            {
+                for (int i = 0; i < (timeNow.Day - _lastCASHBACK.Day); i++)
+                {
+                    Notify?.Invoke(_phoneNumber, $"Your get cahback {_cashBack}");
+                    Account += _cashBack;
+                }
+                _lastCASHBACK = timeNow;
+                _cashBack = 0;
+            }
         }
         public void ChangeRate(double value)
         {
@@ -187,7 +232,7 @@ namespace Labs216.Anisimov
                         break;
                     case 4:
                         Console.WriteLine("How many years to calculate");
-                        acc[acc_number].Calculate(int.Parse(Console.ReadLine()));
+                        acc[acc_number].ShowProfit(int.Parse(Console.ReadLine()));
                         break;
                     case 5:
                         Console.WriteLine("How much:");
@@ -208,6 +253,33 @@ namespace Labs216.Anisimov
                 Console.WriteLine($"Age--{acc[i].Age}");
                 Console.WriteLine();
             }// Это вывод для проверки правильно ли программа работала с данными
+        }
+
+        public static void _Bank2() //Первый перегружен
+        {
+            Bank acc = new Bank("name","surname","88005553535");
+            acc.Notify += Message;
+            acc.Deposit(100000);
+            acc.Deposit(100000);
+            acc.Deposit(100000);
+            acc.Deposit(100000);
+            acc.Deposit(100000);
+            acc.Deposit(100000);
+            acc.Deposit(100000);
+            acc.Deposit(100000);
+            acc.Deposit(100000);
+            acc.Deposit(100000);
+            DateTime Now = DateTime.Now;
+            for (int i = 0; i < 10; i++)
+            {
+                acc.CalculateProfit(Now += TimeSpan.FromDays(1));
+            }
+            for (int i = 0; i < 2; i++)
+            {
+                acc.Withdraw(10000);
+                acc.Withdraw(15000);
+                acc.GetCahsBack(Now += TimeSpan.FromDays(1));
+            }
         }
         private static void Message(string PhoneNumber, string message)
         {
