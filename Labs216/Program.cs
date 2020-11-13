@@ -10,14 +10,14 @@ namespace Labs216
     {
         static void Main(string[] args)
         {
-            Bank.Bank();
 
-        }
-        private static void Message(string PhoneNumber, string message)
-        {
-            Console.WriteLine($"Было отправлено сообщение на номер: {PhoneNumber}");
-            Console.WriteLine($"Сообщение: {message}");
-            Console.WriteLine();
+
+            static void Message(string PhoneNumber, string message)
+            {
+                Console.WriteLine($"Было отправлено сообщение на номер: {PhoneNumber}");
+                Console.WriteLine($"Сообщение: {message}");
+                Console.WriteLine();
+            }
         }
     }
 }
