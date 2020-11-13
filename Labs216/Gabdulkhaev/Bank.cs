@@ -11,18 +11,32 @@ namespace Labs216.Gabdulkhaev
         // Процент
         // Кол-во денег на счету
         // сгенерировать
+        public delegate void prikol(string message);
+        public event prikol SMS;
         private string _name;
+        private int _number;
         private string _surname;
         private string _id;
         private static double _rate;
         private double _paymentAccount;
         private int _SetDATAROZHDENIYA;
-        public void SetName(string newName)
+        public string SetName
         {
-            newName = newName.Trim();
-            var firstLetter = newName[0];
-            var otherLetters = newName.Remove(0, 1);
-            _name = firstLetter.ToString().ToUpper() + otherLetters;
+            get { return _name; }
+            set
+            {
+                _name = value;
+            }
+    }
+        public string _Name { get; private set; }
+        public void Smena(int _name)
+        {
+            _Name += _name;
+            SMS?.Invoke($"Имя сменили на: {_name}");
+        }
+        public void Setnumb(int newNumb)
+        {
+            newNumb = Convert.ToInt32(Console.ReadLine());
         }
         public void SetFamiliya(string newFam)
         {
@@ -36,9 +50,10 @@ namespace Labs216.Gabdulkhaev
             Random rnd = new Random();
             int _id = rnd.Next(100, 250);
         }
-        private double chet;
+        public double chet;
         double _paymentaccount = Convert.ToDouble(Console.ReadLine());
     }
+}
     public void SetDenRozhd(int newDR)
     {
         int a = DateTime.Now.Millisecond;
@@ -78,11 +93,12 @@ namespace Labs216.Gabdulkhaev
                 break;
         }
     }
-    // Надо добавить эвенты 
+    // Надо добавить эвенты
+    // Сделать касхбацк
+
     class bangrun
     {
         public static void run()
         {
         }
     }
-}
