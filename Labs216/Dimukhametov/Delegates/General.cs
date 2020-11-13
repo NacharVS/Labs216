@@ -1,0 +1,25 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Text;
+
+namespace Labs216.Dimukhametov.Delegates
+{
+    class GeneralOffice
+    {
+        public static void Sorting ()
+        {
+            Random rnd = new Random();
+            int[] array = new int[13];
+            for (int i = 0; i < array.Length; i++)
+            {
+                array[i] = rnd.Next(10, 99);
+            }
+            Array.Sort(array);
+            for (int i = 0; i < array.Length; i++)
+            {
+                Console.Write($" {array[i]}");
+            }
+    }
+    
+    }
+}

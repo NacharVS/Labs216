@@ -11,8 +11,4 @@
     <None Remove="Vail\**" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Dimukhametov\" />
-  </ItemGroup>
-
 </Project>
