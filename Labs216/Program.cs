@@ -9,17 +9,7 @@ namespace Labs216
     {
         public static void Main(string[] args)
         {
-            Bank bank = new Bank();
-
-            bank.Notify += RateMessage;
-            bank.NewRate(5);
-
-            void RateMessage(int rate)
-            {
-                Console.WriteLine($"Rate has changed to {rate}");
-            }
-
-            Bank.StartBank();
+            Bank.CheckProfit();
 
         }
     }
