@@ -95,6 +95,7 @@ namespace Labs216.Gabdulkhaev
     }
     // Надо добавить эвенты
     // Сделать касхбацк
+    // profit
 
     class bangrun
     {
