@@ -59,7 +59,9 @@ namespace Labs216.MirasovEG
         private static int _maxTake = 10000000;
         private static int _count;
         private static double _cashbackRate = 0.05;
-        
+        private static double _cashbackRateOrganizationOne = 0.10;
+        private static double _cashbackRateOrganizationTwo = 0.15;
+        private static double _cashbackRateOrganizationThree = 0.25;
         private int Year { get; set; }
         private int Month { get; set; }
 
@@ -111,6 +113,33 @@ namespace Labs216.MirasovEG
             Check?.Invoke($"Buy: {sum}");
             _account += sum * _cashbackRate;
             Check?.Invoke($"CashBack: {sum * _cashbackRate}; On Account with CashBack: {_account}");
+        }
+
+        public void Buy(int sum, string NameOrganization)
+        {
+            if (NameOrganization == "One")
+            {
+                _account -= sum;
+                Check?.Invoke($"Buy: {sum}");
+                _account += sum * _cashbackRateOrganizationOne;
+                Check?.Invoke($"CashBack: {sum * _cashbackRateOrganizationOne}; On Account with CashBack: {_account}");
+            }
+            else if (NameOrganization == "Two")
+            {
+                _account -= sum;
+                Check?.Invoke($"Buy: {sum}");
+                _account += sum * _cashbackRateOrganizationTwo;
+                Check?.Invoke($"CashBack: {sum * _cashbackRateOrganizationTwo}; On Account with CashBack: {_account}");
+            }
+            else if (NameOrganization == "Three")
+            {
+                _account -= sum;
+                Check?.Invoke($"Buy: {sum}");
+                _account += sum * _cashbackRateOrganizationThree;
+                Check?.Invoke($"CashBack: {sum * _cashbackRateOrganizationThree}; On Account with CashBack: {_account}");
+            }
+
+
         }
         public override void GetInform()
         {
@@ -233,7 +262,9 @@ namespace Labs216.MirasovEG
     
             bank.Deposit();
             bank.Buy(1000);
-            bank.Buy(1000);
+            bank.Buy(1000,"One");
+            bank.Buy(1000, "Two");
+            bank.Buy(1000, "Three");
             Thread.Sleep(10000);
             bank.Instilled(DateTime.Now,2);
 
