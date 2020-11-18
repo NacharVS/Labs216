@@ -17,7 +17,9 @@ namespace Labs216.Dmitriev
         private string _surname;
         private string _phoneNumber;
         private static double _interestRate = 5;
-        private double _account;
+        private double _account; private double _cashBack;
+
+        private static double _cahsBackRate = 0.25;
         private static int _Max = 250000;
         private static int _Min = 11000;
         private static int _MinAge = 14;
@@ -71,6 +73,15 @@ namespace Labs216.Dmitriev
             }
         }
 
+        public void PeriodProfit(DateTime currenTime,int period, object _accounOpened, int _rate, int Sum)
+        {
+            int deltaTime = currenTime.Second - _accounOpened.Second;
+            for (int i = 0; i < deltaTime / period; i++)
+            {
+                Sum += (int)(Sum * _rate);
+            }
+        }
+
         private void GetAge()
         {
             Console.WriteLine("введите день рождение (число.месяц.год)");
@@ -93,6 +104,7 @@ namespace Labs216.Dmitriev
             Console.WriteLine("введите номер телефона ");
             _phoneNumber = Console.ReadLine();
             GetAge();
+
         }
         public void Withdraw(int value)
         {
