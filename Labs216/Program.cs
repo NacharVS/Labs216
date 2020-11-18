@@ -8,12 +8,14 @@ namespace Labs216
     {
         static void Main(string[] args)
         {
-            Bank account1 = new Bank("Petr", "Sidorov", 2000, 8.2, "1052560", 1000);
+            ();
 
-            account1.SetVozrast();
-
-            account1.SetSchet();
-            account1.SetStavka();
+        }
+        private static void Message(string PhoneNumber, string message)
+        {
+            Console.WriteLine($"Было отправлено сообщение на номер: {PhoneNumber}");
+            Console.WriteLine($"Сообщение: {message}");
+            Console.WriteLine();
         }
     }
 }

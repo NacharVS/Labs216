@@ -4,107 +4,114 @@ using System.Text;
 
 namespace Labs216.Zamaliev
 {
-    class Bank
+    public class Bank
     {
-        private string _name;
+        public string _name;
         private string _surname;
-        private int _vozrast;
-        private static double _stavka;
+        private string _phoneNumber;
         private string _id;
-        private double _schet;
+        private static double _stavka;
+        private double _Cash;
+        private static int _count = 1;
+        private static int _Max = 100000;
+        private static int _Min = 1000;
+        private int _age;
 
-        public Bank(string name, string surname, int vozrast, double stavka, string id, double schet)
+        public string Name
         {
-            _name = name;
-            _surname = surname;
-            _vozrast = vozrast;
-            _stavka = stavka;
-            _id = id;
-            _schet = schet;
-
-        }
-        public void SetName(string newName)
-        {
-            newName = newName.Trim();
-            var firstLetter = newName[0];
-            var otherLetters = newName.Remove(0, 1);
-            _name = firstLetter.ToString().ToUpper() + otherLetters;
-
-        }
-        public void SetSurame(string newSurname)
-        {
-            newSurname = newSurname.Trim();
-            var firstLetter = newSurname[0];
-            var otherLetters = newSurname.Remove(0, 1);
-            _surname = firstLetter.ToString().ToUpper() + otherLetters;
-        }
-        public void SetVozrast()
-        {
-            int a = DateTime.Today.Year;
-            _vozrast = a - _vozrast;
-            Console.WriteLine($"Age: {_vozrast}");
-        }
-        public void SetSchet()
-        {
-
-            Console.WriteLine($"On the account now: {_schet}");
-            Console.WriteLine(" 1. Withdraw money  \n 2. Put money");
-            string b = Console.ReadLine();
-            switch (b)
+            get { return _name; }
+            private set
             {
-                case "1":
-                    Console.WriteLine("Max 200000");
-                    double with = double.Parse(Console.ReadLine());
-                    if (_schet > with)
-                    {
-                        if (with > 200000)
-                        {
-                            Console.WriteLine("NOOOT!!!");
-                        }
-                        else
-                        {
-                            Console.WriteLine($"On your account: {_schet -= with} money");
-                        }
-                    }
-                    else
-                    {
-                        Console.WriteLine($"On your account: {_schet} money");
-                    }
-                    break;
-                case "2":
-                    Console.WriteLine("Min 50");
-                    double put = double.Parse(Console.ReadLine());
-                    if (put < 50)
-                    {
-                        Console.WriteLine("NOOOT!!!");
-                    }
-                    else
-                    {
-
-                        Console.WriteLine($"On your account: { _schet += put } monney");
-                    }
-                    break;
+                if (value != "")
+                {
+                    value = value.Trim();
+                    _name = value[0].ToString().ToUpper() + value.Substring(1);
+                }
+                else _name = "defualt";
             }
-
-
         }
-        public void SetStavka()
+        public string Surname
         {
-            _stavka = 6.7;
-            Console.WriteLine($" Stavka  = {_stavka} ");
-            Console.Write(" After how many years do you withdraw money? ");
-            double let = double.Parse(Console.ReadLine());
-            double c;
-            for (int i = 0; i < let; i++)
+            get { return _surname; }
+            private set
             {
-                _schet += _schet / 100 * _stavka;
+                if (value != "")
+                {
+                    value = value.Trim();
+                    _surname = value[0].ToString().ToUpper() + value.Substring(1);
+                }
+                else _surname = "defualt";
+            }
+        }
+        public int Age
+        {
+            get { return _age; }
+            private set
+            {
+                _age = value;
+            }
+        }
+        public string Id
+        {
+            get { return _id; }
+        }
+        public double Account
+        {
+            get { return _Cash; }
+            private set
+            {
+                _Cash = value;
 
             }
-            Console.WriteLine($"After {let} years, your account will have an {_schet} amount ");
-
         }
-        public void SetId(int NewSetId)
+        public static int Count
         {
+            get { return _count; }
+        }
+        private void GetId()
+        {
+            _id = _name + _surname + "_" + _count;
+            _count = _count + 1;
+        }
+        private void GetAge()
+        {
+            Console.WriteLine("Write you birthday (dd mm yyyy)");
+            string[] date = new string[3];
+            date = Console.ReadLine().Split(" ");
+            int day = int.Parse(date[0]);
+            int month = int.Parse(date[1]);
+            int year = DateTime.Now.Year - int.Parse(date[2]) - 1;
+            {
+                if (DateTime.Now.Month >= month & DateTime.Now.Day >= day) Age = year + 1;
+            }
+        }
+
+        
+        
+            public void Bank()
+            {
+                Console.WriteLine("Write you name");
+                _name = Console.ReadLine();
+                Console.WriteLine("Write you surname");
+                Surname = Console.ReadLine();
+                Console.WriteLine("Write you phone");
+                _phoneNumber = Console.ReadLine();
+                GetAge();
+                GetId();
+            }
+
+            public void Deposit(int Value)
+            {
+
+            }
+            public void Withdraw(int Value)
+            {
+
+            }
+            public void Mirror(int Year)
+            {
+
+            }
 
         }
     }
