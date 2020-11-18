@@ -20,6 +20,7 @@ namespace Labs216.Gabdulkhaev
         private static double _rate;
         private double _paymentAccount;
         private int _SetDATAROZHDENIYA;
+        private DateTime _accountOpenDate;
         public string SetName
         {
             get { return _name; }
@@ -27,7 +28,7 @@ namespace Labs216.Gabdulkhaev
             {
                 _name = value;
             }
-    }
+        }
         public string _Name { get; private set; }
         public void Smena(int _name)
         {
@@ -53,11 +54,13 @@ namespace Labs216.Gabdulkhaev
         public double chet;
         double _paymentaccount = Convert.ToDouble(Console.ReadLine());
     }
-}
     public void SetDenRozhd(int newDR)
     {
-        int a = DateTime.Now.Millisecond;
-        DateTime dayofbirth = DateTime.Now.Date;
+        int a = Convert.ToInt32(Console.ReadLine());
+        if (a < 14)
+            Console.WriteLine("-");
+        else
+            Console.WriteLine("+");
     }
     public static void rabota()
     {
@@ -76,7 +79,7 @@ namespace Labs216.Gabdulkhaev
             case 2:
                 Console.WriteLine("Вы выбрали положить на счет");
                 Console.WriteLine("Введите сумму");
-                    double raznost = Convert.ToDouble(Console.ReadLine());
+                double raznost = Convert.ToDouble(Console.ReadLine());
                 chet = _paymentaccount - raznost;
                 Console.WriteLine($"Итоговый счет {chet}");
                 break;
@@ -85,7 +88,7 @@ namespace Labs216.Gabdulkhaev
                 Console.WriteLine("Выберите какую сумму хотите положить");
                 Console.WriteLine("Процент в нашем банке - 0,3859195 в год");
                 double summmmmmmmmmmmm = Convert.ToDouble(Console.ReadLine());
-                double depoz=summmmmmmmmmmmm*0.3859195;
+                double depoz = summmmmmmmmmmmm * 0.3859195;
                 Console.WriteLine($"Через год вы получит {depoz}");
                 break;
             default:
@@ -93,13 +96,27 @@ namespace Labs216.Gabdulkhaev
                 break;
         }
     }
+    public static void cashback()
+    {
+        // разделить на 3 партнера, 1 - 10%, 2 - 20%, 3 - 30
+        double potr = Convert.ToDouble(Console.ReadLine());
+        string part =Console.ReadLine();
+        switch (part)
+        {
+            case "сбер":
+                int cash = potr * 10 %
+                break;
+        }
+    }
+    public DateTime AccountOpenDate()
+    {
+        get
+            {
+            return _accountopendate;
+        }
+    }
+}
+
     // Надо добавить эвенты
     // Сделать касхбацк
     // profit
-
-    class bangrun
-    {
-        public static void run()
-        {
-        }
-    }
