@@ -11,7 +11,7 @@ namespace Labs216
        
         static void Main(string[] args)
         {
-            BANK acc = new BANK("Zul", "Nabiul", 17, 100);
+            BANK acc = new BANK("Zul", "Nabiul", 17, 2500);
             acc.Rate += Message;
             acc.ChangeRate(5);
 
@@ -19,7 +19,10 @@ namespace Labs216
             {
                 Console.WriteLine($"Rate change on {stavka}");
             }
-
+            acc.Pokypka(200);
+            acc.Partners(1);
+            
+            
         }
 
     }

@@ -32,6 +32,8 @@ namespace Labs216.Nabiullina
         private string _id;
         private double _schet;
         private static int stt = 0;
+        private double _pokupka;
+        
 
         public BANK(string name, string surname, int vozrast, double schet)
         {
@@ -129,6 +131,38 @@ namespace Labs216.Nabiullina
         {
             Stavka = stavka;
 
+        }
+       
+        public void Partners (int partn)
+        {
+            if (partn == 1)
+            {
+                //"ostin"
+                double o = 20;
+                _schet += _pokupka / 100 * o;
+                Console.WriteLine(_schet);
+            }
+            if (partn == 2)
+            {
+                //sportmaster
+                double s = 15;
+                _schet += _pokupka / 100 * s;
+                Console.WriteLine(_schet);
+            }
+            if (partn==3)
+            {
+                //pandora
+                double p = 12;
+                _schet += _pokupka / 100 * p;
+                Console.WriteLine(_schet);
+            }
+           
+           
+        }
+        public void Pokypka(double pok)
+        {
+            _pokupka = pok;
+            _schet -= _pokupka;
         }
     }
 }
