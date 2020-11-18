@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Data;
 
 namespace Labs216.Topunova
 {
@@ -12,12 +13,14 @@ namespace Labs216.Topunova
         private string _stavka = 0.035;
         private string _score;
         private string _age;
-        public void Bank.SetName(string newName);
+        private string SetName;
         private static double _rate;
-        private static Bank.Accounte; 
-        public double _paymentAccount;
+        private static _Bank.Accounte; 
+        private double _paymentAccount;
         private DateTime _accounteOpenDate;
         private string _phoneNumber;
+        private string _keshBak;
+        private object _phonenNumber;
 
         public void Infa()
         {
@@ -57,11 +60,11 @@ namespace Labs216.Topunova
             Console.WriteLine();
 
             Console.WriteLine("Введите: ");
-            double month = double.Parse(Console.Write());
             double month = double.Parse(Console.ReadLine());
+            double month1 = double.Parse(Console.ReadLine());
             Console.WriteLine("Введите: ");
-            double year = double.Parse(Console.WriteLine());
             double year = double.Parse(Console.ReadLine());
+            double year1 = double.Parse(Console.ReadLine());
 
             double now = DateTime.Now.Year;
             double mounth = DateTime.Now.Month;
@@ -112,29 +115,29 @@ namespace Labs216.Topunova
 
         static void Main(string[] args)
         {
-            Bank.Account acc1 = new Bank.Account(500, "_phoneNumber");
+            _Bank.Account acc1 = new _Bank.Account(500, "_phoneNumber");
             acc1.RateChangedEvent += _rateChangednotify;
             acc1.RateChange(0.047);
         }
 
         public void _phoneNumber()
-
+        {
             _phonenNumber = Console.WriteLine("Введите номер: ");
+        }
         public void BankAccount(int sum, string phoneNumber)
         {
             _sum = sum;
             _phoneNumber = phoneNumber;
         }
 
-         public void PeriodProfit(DateTime currentTime, int period)
-         {
+        public void PeriodProfit(DateTime currentTime, int period, sum)
+        {
             int deltaTime = currentTime.Second - _accounOpenDate.Second;
-            for(int i = 0; i < daltaTime / period; i ++)
+            for (int i = 0; i < deltaTime / period; i++)
             {
                 Sum += (int)(Sum * _rate);
             }
-         }
-
+        }
     }
 }
 
