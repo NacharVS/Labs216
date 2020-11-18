@@ -19,15 +19,20 @@ namespace Labs216.Anisimov
 
         private double _cashBack;
 
+        private int _period = 2;
+        private int _cashBackPeriod = 5;
+
+
         private static double _cahsBackRate = 0.01;
         private static int _count = 0;
-        private static int _Max = 100000;
+        private static int _Max = 1000000;
         private static int _Min = 10000;
         private static int _MinAge = 14;
 
         private DateTime _accountOpen;
         private DateTime _lastProfit;
         private DateTime _lastCASHBACK;
+
 
         public string Name
         {
@@ -122,7 +127,6 @@ namespace Labs216.Anisimov
             Name = name;
             Surname = surname;
             _phoneNumber = phone;
-            GetAge();
             GenId();
             _accountOpen = DateTime.Now;
             _lastProfit = _accountOpen;
@@ -138,7 +142,6 @@ namespace Labs216.Anisimov
             if (value <= _Max)
             {
                 Account = Account - value;
-                _cashBack += value * _cahsBackRate;
             }
             else Notify?.Invoke(_phoneNumber, "You can't take more than 100 000");
         }
@@ -159,23 +162,54 @@ namespace Labs216.Anisimov
             }
             Notify?.Invoke(_phoneNumber, $"Your balance will be {buff} in {yaer} yearz");
         }
+        public void Buy(int value)
+        {
+            Withdraw(value);
+            Notify?.Invoke(_phoneNumber, $"Vi potrtili boblo {value}");
+            _cashBack += value * _cahsBackRate;
+        }
+        public void Buy(int value,string organization)
+        {
+            Withdraw(value);
+            switch (organization)
+            {
+                case "Macdonalds":
+                    _cashBack += value * (_cahsBackRate + 0.01);
+                    Notify?.Invoke(_phoneNumber, $"Vi potrtili boblo {value} na Macdonalds");
+                    break;
+                case "Steam":
+                    _cashBack += value * (_cahsBackRate + 0.025);
+                    Notify?.Invoke(_phoneNumber, $"Vi potrtili boblo {value} na Steam");
+                    break;
+                case "Apple":
+                    _cashBack += value * (_cahsBackRate + 0.02);
+                    Notify?.Invoke(_phoneNumber, $"Vi potrtili boblo {value} na Apple");
+                    break;
+                case "Paterochka":
+                    _cashBack += value * (_cahsBackRate + 0.015);
+                    Notify?.Invoke(_phoneNumber, $"Vi potrtili boblo {value} na Paterochka");
+                    break;
+                default:
+                    _cahsBackRate += value * (_cahsBackRate + 0.01);
+                    Notify?.Invoke(_phoneNumber, $"Vi potrtili boblo {value}");
+                    break;
+            }
+        }
+
         public void CalculateProfit(DateTime timeNow)
         {
-            for (int i = 0; i < (timeNow.Day - _lastProfit.Day); i++)
+            while (((timeNow.Day - _lastProfit.Day) / _period) >= 1 || ((timeNow.Month - _lastProfit.Month) !=0))
             {
                 Account += _account * _interestRate;
+                _lastProfit += TimeSpan.FromDays(2);
             }
-            _lastProfit = timeNow;
         }
         public void GetCahsBack(DateTime timeNow)
         {
-            if ((timeNow.Day - _lastCASHBACK.Day) != 0)
+            if ((timeNow.Day - _lastCASHBACK.Day) >= _cashBackPeriod || ((timeNow.Month - _lastCASHBACK.Month) != 0))
             {
-                for (int i = 0; i < (timeNow.Day - _lastCASHBACK.Day); i++)
-                {
-                    Notify?.Invoke(_phoneNumber, $"Your get cahback {_cashBack}");
-                    Account += _cashBack;
-                }
+                Notify?.Invoke(_phoneNumber, $"Your get cahback {_cashBack}");
+                Account += _cashBack;
                 _lastCASHBACK = timeNow;
                 _cashBack = 0;
             }
@@ -259,27 +293,17 @@ namespace Labs216.Anisimov
         {
             Bank acc = new Bank("name","surname","88005553535");
             acc.Notify += Message;
-            acc.Deposit(100000);
-            acc.Deposit(100000);
-            acc.Deposit(100000);
-            acc.Deposit(100000);
-            acc.Deposit(100000);
-            acc.Deposit(100000);
-            acc.Deposit(100000);
-            acc.Deposit(100000);
-            acc.Deposit(100000);
-            acc.Deposit(100000);
-            DateTime Now = DateTime.Now;
-            for (int i = 0; i < 10; i++)
-            {
-                acc.CalculateProfit(Now += TimeSpan.FromDays(1));
-            }
-            for (int i = 0; i < 2; i++)
-            {
-                acc.Withdraw(10000);
-                acc.Withdraw(15000);
-                acc.GetCahsBack(Now += TimeSpan.FromDays(1));
-            }
+            acc.Deposit(1000000);
+            DateTime Time = DateTime.Now;
+            Time += TimeSpan.FromDays(5);
+            acc.CalculateProfit(Time);
+            acc.Buy(10000);
+            acc.Buy(15000);
+            Time += TimeSpan.FromDays(1);
+            acc.GetCahsBack(Time);
+            acc.Buy(20000, "Apple");
+            Time += TimeSpan.FromDays(5);
+            acc.GetCahsBack(Time);
         }
         private static void Message(string PhoneNumber, string message)
         {
