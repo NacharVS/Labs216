@@ -55,6 +55,7 @@ namespace Labs216.Shakirov
                 Console.WriteLine("This string is a palindrome");
             else
                 Console.WriteLine("This string is not a palindrome");
+
         }
     }
 }

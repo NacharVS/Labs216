@@ -8,7 +8,9 @@ namespace Labs216.Shakirov
     {
         private string _name;
         private string _surname;
+        private string _phonenumber;
         private int _vozrast;
+        private double _cashBack;
         private static double _stavka;
         private string _id;
         private double _schet;

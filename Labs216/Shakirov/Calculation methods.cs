@@ -4,9 +4,9 @@ using System.Text;
 
 namespace Labs216.Shakirov
 {
-    class Calculation_methods
+    class Programm
     {
-        static public void QuadraticEquation(int a, int b, int c)
+        static public void main(int a, int b, int c)
         {
             int D = (b * b) - (4 * a * c);
             int y1 = (-b + Convert.ToInt32(Math.Sqrt(D))) / (2 * a);

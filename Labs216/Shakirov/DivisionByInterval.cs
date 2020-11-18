@@ -4,9 +4,9 @@ using System.Text;
 
 namespace Labs216.Shakirov
 {
-    class Program
+    class pop
     {
-        static void Main(string[] args)
+        static void s(string[] args)
         {
             DivisionByInterval.divisionbyinterval();
         }
