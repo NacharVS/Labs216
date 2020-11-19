@@ -2,6 +2,7 @@
 using System.Linq;
 using Labs216.Bulatov;
 using Labs216.Bulatov.Delegates;
+using Labs216.Bulatov.Strategy;
 
 
 namespace Labs216
@@ -10,15 +11,7 @@ namespace Labs216
     {
         static void Main(string[] args)
         {
-            
-
-
-            static void Message(string PhoneNumber, string message)
-            {
-                Console.WriteLine($"Было отправлено сообщение на номер: {PhoneNumber}");
-                Console.WriteLine($"Сообщение: {message}");
-                Console.WriteLine();
-            }
+            Interface.Programdsf;
         }
     }
 }

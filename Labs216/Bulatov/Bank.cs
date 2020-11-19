@@ -124,7 +124,7 @@ namespace Labs216.Bulatov
             {
                 buff = buff + buff * _1xBet / 100;
             }
-            Notify?.Invoke($"Your balance will be {buff} in {Year} years");
+            //Notify?.Invoke($"Your balance will be {buff} in {Year} years");
         }
         
         
