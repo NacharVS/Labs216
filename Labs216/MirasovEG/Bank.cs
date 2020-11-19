@@ -66,6 +66,7 @@ namespace Labs216.MirasovEG
         private int Month { get; set; }
 
 
+
         public double Stavka
         {
             get { return _stavka; }
