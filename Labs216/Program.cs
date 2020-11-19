@@ -9,11 +9,10 @@ namespace Labs216
     {
         static void Main(string[] args)
         {
-            Bankaccount acc1 = new Bankaccount(300, +78937589254);
-            acc1.Notify += MessageSending1;
-            acc1.Notify += MessageSending2;
+            Bankaccount acc1 = new Bankaccount(300, "+78937589254");
             acc1.Deposit(50);
-            acc1.Widtraw(50);
+            acc1.Withtdraw(50);
+            acc1.Deposit(50);
         }
         public static void MessageSending1(string phonenumber, int sum)
         {
@@ -22,6 +21,10 @@ namespace Labs216
         public static void MessageSending2(string phonenumber, int sum)
         {
             Console.WriteLine($"Account value{sum}");
+        }
+        public static void MessageSending3(double rate)
+        {
+            Console.WriteLine($"");
         }
     }
 }

@@ -3,70 +3,73 @@ namespace Labs216.Garipova
 {
     class Bankaccount
     {
-        public delegate void Handler(string phonenumber)
+        public delegate void Handler(int sum, string phonenumber);
+        public delegate void Texture(double rate);
 
-        private string _name;
-        private string _surname;
-        private string _id;
-        private static double _rate = 9;
+        private string _sum;
+        private string _phonenumber;
+        private static double _rate;
         private static int count = 0;
-        private double addmoney;
-        private double withdrawmoney;
-        private int _year { get; set; }
-        private int _month { get; set; }
-
-
-        public void Getinfo()
+        public Bankaccount(double rate)
         {
-            Console.WriteLine($"Вас зовут:{_name} {_surname }");
-            Console.WriteLine($"Ваш id :{_id }");
-            Console.WriteLine($"{_rate }");
+            _rate = rate;
         }
-        public void SetName(string newName)
+        public Bankaccount(int sum, string phonenumber)
         {
-            newName = newName.Trim();
-            var firstLetter = newName[0];
-            var otherLetter = newName.Remove(0, 1);
-            _name = (firstLetter.ToString().ToUpper() + otherLetter);
+            _sum = sum;
+            _phonenumber = phonenumber;
         }
-        public void Setsurname(string newsurname)
+        public int Summa
         {
-            newsurname = newsurname.Trim();
-            var Letter = newsurname[0];
-            var Lettter = newsurname.Remove(0, 1);
-            _surname = (Letter.ToString().ToUpper() + Lettter);
+            get
+            {
+                return _sum;
+            }
+            private set
+            {
+                _sum = value;
+                Notify?.Invoke(_sum, _phonenumber);
+            }
         }
-        public string Id(string newId)
+        public event Handler Notify;
+        public string Phonenumber
         {
-            _id = _name + _surname + count;
-            count += 1;
-            return _id;
+            get
+            {
+                return _phonenumber;
+            }
+            private set
+            {
+                _phonenumber = value;
+            }
         }
-        public void Setrate()
+        public event Texture Notify2;
+        public double Rate
         {
-            double _rate = 0.3;
-            _rate = 0.3 * count;
+            get { return _rate; }
+            private set
+            {
+                var Oldrate = _rate;
+                _rate = value;
+                Notify2?.Invoke(_rate);
+            }
         }
-        public void RateChange(double newrate)
+        public void Deposit(int sum)
         {
-            _rate = newrate;
+            Summa += sum;
         }
-        public void Setaddmoney()
+        public void Withdraw(int sum)
         {
-            int deposite = int.Parse(Console.ReadLine());
-            count = deposite + count;
-            addmoney = count;
+            Summa -= sum;
         }
-        public void Setwithdrawmoney()
+        public void Change(double rate)
         {
-            int withdraw = int.Parse(Console.ReadLine());
-            count = withdraw + count;
-            withdrawmoney = count;
+            rate = (rate * Summa) / 100;
         }
-
-
     }
+
 }
+              
 
 
 
