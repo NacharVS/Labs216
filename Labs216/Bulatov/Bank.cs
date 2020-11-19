@@ -6,17 +6,21 @@ namespace Labs216.Bulatov
 {
     class Bank
     {
+        public delegate void BankAccount(string phoneNumber, string Message);
+
+        public event BankAccount Notify;
+
         private string _name;
         private string _surname;
         private string _phoneNumber;
         private string _id;
-        private static double _1xBet; //Ставка
+        private static double _1xBet = 2; //Ставка
         private double _Cash;
         private static int _count = 1;
         private static int _Max = 100000;
         private static int _Min = 1000;
         private int _age;
-        
+
         public string Name
         {
             get { return _name; }
@@ -47,8 +51,8 @@ namespace Labs216.Bulatov
         {
             get { return _age; }
             private set
-            {                
-               _age = value;            
+            {
+                _age = value;
             }
         }
         public string Id
@@ -61,7 +65,7 @@ namespace Labs216.Bulatov
             private set
             {
                 _Cash = value;
-                //Notify?.Invoke(_phoneNumber, $"Acount Change {_account}");
+                Notify?.Invoke(_phoneNumber, $"Acount Change {_Cash}");
             }
         }
         public static int Count
@@ -99,16 +103,30 @@ namespace Labs216.Bulatov
         //Нужно сделать методы депозит, снять, ставка, и что-то ещё, чтобы всё работало.
         public void Deposit(int Value)
         {
-
+            if (Value > _Min)
+            {
+                _Cash = _Cash + Value;
+            }
+            else Notify?.Invoke(_phoneNumber, "You can't add less than 10 000");
         }
         public void Withdraw(int Value)
         {
-
+            if (Value < _Max)
+            {
+                _Cash = _Cash + Value;
+            }
+            else Notify?.Invoke(_phoneNumber, "You can't take more than 100 000");
         }
         public void Mirror(int Year)
         {
-
+            double buff = _Cash;
+            for (int i = 0; i < Year; i++)
+            {
+                buff = buff + buff * _1xBet / 100;
+            }
+            Notify?.Invoke($"Your balance will be {buff} in {Year} years");
         }
-
+        
+        
     }
 }

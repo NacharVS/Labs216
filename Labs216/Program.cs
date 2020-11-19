@@ -10,6 +10,7 @@ namespace Labs216
     {
         static void Main(string[] args)
         {
+            
 
 
             static void Message(string PhoneNumber, string message)
