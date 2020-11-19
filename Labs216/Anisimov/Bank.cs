@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Data;
 
 namespace Labs216.Anisimov
 {
@@ -13,26 +12,25 @@ namespace Labs216.Anisimov
         private string _surname;
         private string _phoneNumber;
         private int _age;
-        private string _id;
-        private static double _interestRate = 0.05;
+        public string Id { get; private set; }
         private double _account;
 
-        private double _cashBack;
-
+        private static double _interestRate = 0.05;
         private int _period = 2;
+
+        private double _cashBack;
+        private static double _cahsBackRate = 0.01;
         private int _cashBackPeriod = 5;
 
+        public static int Count { get; private set; } = 0;
 
-        private static double _cahsBackRate = 0.01;
-        private static int _count = 0;
-        private static int _Max = 1000000;
-        private static int _Min = 10000;
-        private static int _MinAge = 14;
+        private static readonly int _Max = 1000000;
+        private static readonly int _Min = 10000;
+        private static readonly int _MinAge = 14;
 
         private DateTime _accountOpen;
         private DateTime _lastProfit;
         private DateTime _lastCASHBACK;
-
 
         public string Name
         {
@@ -71,27 +69,19 @@ namespace Labs216.Anisimov
                     Console.WriteLine("Your age does not match the required");
             }
         }
-        public string Id
-        {
-            get { return _id; }
-        }
         public double Account
         {
             get { return _account; }
             private set 
             {
-                _account = value;
+                _account = Math.Round(value,2);
                 Notify?.Invoke(_phoneNumber, $"Acount Change {_account}");
             }
         }
-        public static int Count
-        {
-            get { return _count; }
-        }
         private void GenId()
         {
-            _id = _name + _surname + "_" + _count;
-            _count = _count + 1;
+            Id = _name + _surname + "_" + Count;
+            Count = Count + 1;
         }
         private void GetAge()
         {
@@ -106,8 +96,6 @@ namespace Labs216.Anisimov
                 else Age = year;
             }
         }
-
-
         public Bank()
         {
             Console.WriteLine("Write you name");
@@ -116,12 +104,12 @@ namespace Labs216.Anisimov
             Surname = Console.ReadLine();
             Console.WriteLine("Write you phone");
             _phoneNumber = Console.ReadLine();
-            GetAge();//Отдельный метод для запроса дня рождения и расчета возраста (мне так удобнее)
+            GetAge();
             GenId();
             _accountOpen = DateTime.Now;
             _lastProfit = _accountOpen;
+            _lastCASHBACK = _accountOpen;
         }
-
         public Bank(string name, string surname, string phone)
         {
             Name = name;
@@ -153,19 +141,19 @@ namespace Labs216.Anisimov
             }
             else Notify?.Invoke(_phoneNumber, "You can't add less than 10 000");
         }
-        public void ShowProfit(int yaer) //Это не тот метод, он показывает пользователю сколько денег будет через n лет
+        public void ShowProfit(int yaer)
         {
             double buff = _account;
             for (int i = 0; i < yaer;  i++)
             {
                 buff += buff *_interestRate;
             }
-            Notify?.Invoke(_phoneNumber, $"Your balance will be {buff} in {yaer} yearz");
+            Notify?.Invoke(_phoneNumber, $"Your balance will be {buff} in {yaer} years");
         }
         public void Buy(int value)
         {
             Withdraw(value);
-            Notify?.Invoke(_phoneNumber, $"Vi potrtili boblo {value}");
+            Notify?.Invoke(_phoneNumber, $"Spend cash -- {value}");
             _cashBack += value * _cahsBackRate;
         }
         public void Buy(int value,string organization)
@@ -175,33 +163,33 @@ namespace Labs216.Anisimov
             {
                 case "Macdonalds":
                     _cashBack += value * (_cahsBackRate + 0.01);
-                    Notify?.Invoke(_phoneNumber, $"Vi potrtili boblo {value} na Macdonalds");
+                    Notify?.Invoke(_phoneNumber, $"Spend cash {value} in Macdonalds");
                     break;
                 case "Steam":
                     _cashBack += value * (_cahsBackRate + 0.025);
-                    Notify?.Invoke(_phoneNumber, $"Vi potrtili boblo {value} na Steam");
+                    Notify?.Invoke(_phoneNumber, $"Spend cash {value} in Steam");
                     break;
                 case "Apple":
                     _cashBack += value * (_cahsBackRate + 0.02);
-                    Notify?.Invoke(_phoneNumber, $"Vi potrtili boblo {value} na Apple");
+                    Notify?.Invoke(_phoneNumber, $"Spend cash {value} in Apple");
                     break;
                 case "Paterochka":
                     _cashBack += value * (_cahsBackRate + 0.015);
-                    Notify?.Invoke(_phoneNumber, $"Vi potrtili boblo {value} na Paterochka");
+                    Notify?.Invoke(_phoneNumber, $"Spend cash {value} in Paterochka");
                     break;
                 default:
                     _cahsBackRate += value * (_cahsBackRate + 0.01);
-                    Notify?.Invoke(_phoneNumber, $"Vi potrtili boblo {value}");
+                    Notify?.Invoke(_phoneNumber, $"Spend cash {value}");
                     break;
             }
         }
-
         public void CalculateProfit(DateTime timeNow)
         {
             while (((timeNow.Day - _lastProfit.Day) / _period) >= 1 || ((timeNow.Month - _lastProfit.Month) !=0))
             {
+                _lastProfit += TimeSpan.FromDays(_period);
+                Notify?.Invoke(_phoneNumber, $"Profit for {_lastProfit.Date}");
                 Account += _account * _interestRate;
-                _lastProfit += TimeSpan.FromDays(2);
             }
         }
         public void GetCahsBack(DateTime timeNow)
@@ -220,9 +208,10 @@ namespace Labs216.Anisimov
             Notify?.Invoke(_phoneNumber, $"New insert rate -- {_interestRate}");
         }
     }
+
     class RunBank
     {
-        public static void _Bank()
+        public static void RunBank1()
         {
             Bank[] acc = new Bank[1];
             for (int i = 0; i < 1; i++)
@@ -238,7 +227,7 @@ namespace Labs216.Anisimov
                 Console.WriteLine($"ID--{acc[i].Id}");
                 Console.WriteLine($"Age--{acc[i].Age}");
                 Console.WriteLine();
-            } // Это выврд для проверки правильно ли создаються аккаунты и выбора с каким аккаунтом работать
+            }
             int acc_number = 0;
             while (true)
             {
@@ -286,24 +275,30 @@ namespace Labs216.Anisimov
                 Console.WriteLine($"Money--{acc[i].Account}");
                 Console.WriteLine($"Age--{acc[i].Age}");
                 Console.WriteLine();
-            }// Это вывод для проверки правильно ли программа работала с данными
+            }
         }
 
-        public static void _Bank2() //Первый перегружен
+        public static void RunBank2() //Первый перегружен
         {
             Bank acc = new Bank("name","surname","88005553535");
             acc.Notify += Message;
+
             acc.Deposit(1000000);
             DateTime Time = DateTime.Now;
             Time += TimeSpan.FromDays(5);
             acc.CalculateProfit(Time);
+
             acc.Buy(10000);
             acc.Buy(15000);
             Time += TimeSpan.FromDays(1);
             acc.GetCahsBack(Time);
+
             acc.Buy(20000, "Apple");
             Time += TimeSpan.FromDays(5);
             acc.GetCahsBack(Time);
+
+            Time += TimeSpan.FromDays(5);
+            acc.CalculateProfit(Time);
         }
         private static void Message(string PhoneNumber, string message)
         {

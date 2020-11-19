@@ -9,7 +9,7 @@ namespace Labs216
     {
         static void Main(string[] args)
         {
-            RunBank._Bank2();
+            RunBank.RunBank2();
         }
     }
 }
