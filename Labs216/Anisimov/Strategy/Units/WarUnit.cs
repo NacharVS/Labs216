@@ -2,7 +2,7 @@
 
 namespace Labs216.Anisimov.Strategy.Units
 {
-    sealed class Knight : Characteristic, IWarUnit
+    sealed class Knight : Characteristic, IAttack, IMovable
     {
         public int Damage { get; private set; }
         public double Speed { get; private set; }
@@ -27,7 +27,7 @@ namespace Labs216.Anisimov.Strategy.Units
         }
     }
 
-    sealed class Archer : Characteristic, IWarUnit, IShootable
+    sealed class Archer : Characteristic, IAttack, IMovable, IShootable
     {
         public int Damage { get; private set; }
         public double Speed { get; private set; }
@@ -61,18 +61,22 @@ namespace Labs216.Anisimov.Strategy.Units
         }
     }
 
-    sealed class WarBoat : Characteristic, IWarUnit
+    sealed class WarBoat : Characteristic, IAttack, IMovable, IShootable
     {
         public int Damage { get; private set; }
         public double Speed { get; private set; }
         public string UnitType { get; } = "water";
+        public int Distance { get; private set; }
+        public int ShootDamage { get; private set; }
 
-        public WarBoat(int health, int defense, double speed, int damage)
+        public WarBoat(int health, int defense, double speed, int damage, int distance, int shootdamage)
         {
             Health = health;
             Defense = defense;
             Speed = speed;
             Damage = damage;
+            Distance = distance;
+            ShootDamage = shootdamage;
         }
 
         public void Attack()
@@ -84,9 +88,14 @@ namespace Labs216.Anisimov.Strategy.Units
         {
             Console.WriteLine($"WarBoat move in the {UnitType} with speed: {Speed}");
         }
+
+        public void Shoot()
+        {
+            Console.WriteLine($"WarBoat shoot untit with damage: {ShootDamage}");
+        }
     }
 
-    sealed class WarHelicopter : Characteristic, IWarUnit, IShootable
+    sealed class WarHelicopter : Characteristic, IAttack, IMovable, IShootable
     {
         public int Damage { get; private set; }
         public double Speed { get; private set; }
@@ -94,12 +103,13 @@ namespace Labs216.Anisimov.Strategy.Units
         public int Distance { get; private set; }
         public int ShootDamage { get; private set; }
 
-        public WarHelicopter(int health, int defense, double speed, int damage, int shootdamage)
+        public WarHelicopter(int health, int defense, double speed, int damage, int distance, int shootdamage)
         {
             Health = health;
             Defense = defense;
             Speed = speed;
             Damage = damage;
+            Distance = distance;
             ShootDamage = shootdamage;
         }
 
@@ -119,7 +129,7 @@ namespace Labs216.Anisimov.Strategy.Units
         }
     }
 
-    sealed class Spearman : Characteristic, IWarUnit
+    sealed class Spearman : Characteristic, IAttack, IMovable
     {
         public int Damage { get; private set; }
         public double Speed { get; private set; }

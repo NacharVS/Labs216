@@ -2,7 +2,7 @@
 
 namespace Labs216.Anisimov.Strategy.Units
 {
-    sealed class Farmer : Characteristic, ICivilian
+    sealed class Farmer : Characteristic, IWorkable, IMovable
     {
         public double Speed { get; private set; }
         public string UnitType { get; } = "ground";
@@ -25,7 +25,7 @@ namespace Labs216.Anisimov.Strategy.Units
         }
     }
 
-    sealed class CivBoat : Characteristic, ICivilian
+    sealed class CivBoat : Characteristic, IWorkable, IMovable
     {
         public double Speed { get; private set; }
         public string UnitType { get; } = "water";
@@ -48,7 +48,7 @@ namespace Labs216.Anisimov.Strategy.Units
         }
     }
 
-    sealed class CivHelicopter : Characteristic, ICivilian
+    sealed class CivHelicopter : Characteristic, IWorkable, IMovable
     {
         public double Speed { get; private set; }
         public string UnitType { get; } = "air";
@@ -71,7 +71,7 @@ namespace Labs216.Anisimov.Strategy.Units
         }
     }
 
-    sealed class Doctor : Characteristic, ICivilian
+    sealed class Doctor : Characteristic, IWorkable, IMovable
     {
         public double Speed { get; private set; }
         public string UnitType { get; } = "ground";
@@ -94,7 +94,7 @@ namespace Labs216.Anisimov.Strategy.Units
         }
     }
 
-    sealed class Politican : Characteristic, ICivilian
+    sealed class Politican : Characteristic, IWorkable, IMovable
     {
         public double Speed { get; private set; }
         public string UnitType { get; } = "ground";

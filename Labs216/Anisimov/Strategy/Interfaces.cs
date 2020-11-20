@@ -16,19 +16,20 @@
         public void Shoot();
     }
 
-    interface ICivilian : IMovable
+
+    interface IWorkable
     {
         public void Work();
     }
     
-    interface IWarUnit : IMovable
+    interface IAttack
     {
         public int Damage { get; }
 
         public void Attack();
     }
 
-    interface IBuilding
+    interface IInteractive
     {
         public void Interact();
     }

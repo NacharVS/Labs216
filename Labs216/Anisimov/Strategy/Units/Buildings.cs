@@ -2,8 +2,11 @@
 
 namespace Labs216.Anisimov.Strategy.Units
 {
-    sealed class Wall : Characteristic, IBuilding
+    sealed class Wall : Characteristic, IInteractive, IShootable
     {
+        public int Distance { get; private set; }
+        public int ShootDamage { get; private set; }
+
         public Wall(int health, int defense)
         {
             Health = health;
@@ -14,9 +17,14 @@ namespace Labs216.Anisimov.Strategy.Units
         {
             Console.WriteLine($"It is a wall. It is looks like {Health} hp");
         }
+
+        public void Shoot()
+        {
+            Console.WriteLine($"Tower shoot untit on distance -- {Distance} -- with damage: {ShootDamage}");
+        }
     }
 
-    sealed class Gate : Characteristic, IBuilding
+    sealed class Gate : Characteristic, IInteractive
     {
         public Gate(int health, int defense)
         {
@@ -30,7 +38,7 @@ namespace Labs216.Anisimov.Strategy.Units
         }
     }
 
-    sealed class Tower : Characteristic, IBuilding, IShootable
+    sealed class Tower : Characteristic, IInteractive, IShootable
     {
         public int Distance { get; private set; }
         public int ShootDamage { get; private set; }
@@ -54,9 +62,9 @@ namespace Labs216.Anisimov.Strategy.Units
         }
     }
 
-    sealed class House : Characteristic, IBuilding
+    sealed class House : Characteristic, IInteractive
     {
-        public House(int health, int defense, int distance, int shootdamage)
+        public House(int health, int defense)
         {
             Health = health;
             Defense = defense;
@@ -68,9 +76,9 @@ namespace Labs216.Anisimov.Strategy.Units
         }
     }
 
-    sealed class Hospital : Characteristic, IBuilding
+    sealed class Hospital : Characteristic, IInteractive
     {
-        public Hospital(int health, int defense, int distance, int shootdamage)
+        public Hospital(int health, int defense)
         {
             Health = health;
             Defense = defense;
