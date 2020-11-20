@@ -11,8 +11,19 @@ namespace Labs216
     {
         static void Main(string[] args)
         {
-            Interface.Programdsf;
+            
         }
     }
 }
+//public class Programdsf
+//{
+//    static void Zapusk()
+//    {
+//        Console.WriteLine(IMovable.MaxSpeed);
+//        IMovable.MaxSpeed = 65;
+//        Console.WriteLine(IMovable.MaxSpeed);
+//        double time = IMovable.GetTime(100, 10);
+//        Console.WriteLine(time);
+//    }
+//}
 
