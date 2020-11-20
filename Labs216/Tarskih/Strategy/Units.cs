@@ -8,7 +8,6 @@ namespace Labs216.Tarskih.Strategy
         {
             public abstract class MovableObject
             {
-                public abstract void DefineCover();
                 public abstract void Move(int dx, int dy);
                 public abstract bool MoveNode(int i, int dx, int dy);
             }
