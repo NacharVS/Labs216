@@ -12,4 +12,5 @@ namespace Labs216.Tarskih.Strategy
             public abstract bool MoveNode(int i, int dx, int dy);
         }
     }
+
 }
