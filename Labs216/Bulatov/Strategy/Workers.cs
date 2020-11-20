@@ -6,5 +6,6 @@ namespace Labs216.Bulatov.Strategy
 {
     class Workers
     {
+        
     }
 }
