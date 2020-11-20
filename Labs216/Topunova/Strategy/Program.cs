@@ -7,10 +7,12 @@ namespace Labs216.Topunova.Strategy
 {
     class Program
     {
-        static void Main(string[] args)
+        static void Main(int moviableobject, string moviableobject1)
         {
-            IMovable moviableobjct;
-             
+            Program moviableobjct;
+            moviableobjct = new ProstoHuman;
+            moviableobjct = "speed";
+            moviableobjct = Console.WriteLine();
         }
     }
 }

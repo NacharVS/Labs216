@@ -7,9 +7,9 @@ namespace Interfase
 {
     class Move
     {
-        interface Movable
+        interface IMovable: 
         {
-           static void IMovable(int speedArcher, int speedprostoHuman, int speedRider)
+           static void Movable(int speedArcher, int speedprostoHuman, int speedRider)
             {
                 speedArcher = 10;
                 speedprostoHuman = 7;
