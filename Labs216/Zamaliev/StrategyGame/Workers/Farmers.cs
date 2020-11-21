@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Labs216.Zamaliev.StrategyGame
+namespace Labs216.Zamaliev.StrategyGame.Workers
 {
-    class Buildings
+    class Farmers
     {
     }
 }
