@@ -15,7 +15,7 @@ namespace Labs216.Gabdulkhaev.Стратгия
         double protection { get; set; }
         double speed { get; set; }
     }
-    class prikolist : Personazh
+    class skaks:Personazh
     {
 
         public string name
