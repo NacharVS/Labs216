@@ -1,87 +1,80 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 using System.Threading;
 
 namespace Labs216.MirasovEG.Strategy.Units
 {
-    class Farm : CharacteristicBuilding, IBuilding
+    class Farm : CharacteristicBuilding, IProfit
     {
+        
         public Farm(int health, int defence)
         {
             _health = health;
             _defense = defence;
         }
-        public void Profit()
+        public void Profit(WareHouse wareHouse)
         {
-            while (!IsDestroyed)
-            {
-                Thread.Sleep(2000);
-                Console.WriteLine("+10 wheat");
-            }
+            wareHouse.ResourcesWheat = 10;
+            Thread.Sleep(2000);
+            Console.WriteLine("+10 wheat");
+            
         }
     }
 
-    class Sawmill : CharacteristicBuilding, IBuilding
+    class Sawmill : CharacteristicBuilding, IProfit
     {
         public Sawmill(int health, int defence)
         {
             _health = health;
             _defense = defence;
         }
-        public void Profit()
+        public void Profit(WareHouse wareHouse)
         {
-            while (!IsDestroyed)
-            {
-                Thread.Sleep(2000);
-                Console.WriteLine("+10 wood");
-            }
+            wareHouse.ResourcesWood = 10;
+            Thread.Sleep(2000);
+            Console.WriteLine("+10 wood");
         }
     }
 
-    class Mine : CharacteristicBuilding, IBuilding
+    class Mine : CharacteristicBuilding, IProfit
     {
         public Mine(int health, int defence)
         {
             _health = health;
             _defense = defence;
         }
-        public void Profit()
+        public void Profit(WareHouse wareHouse)
         {
-            while (!IsDestroyed)
-            {
-                Thread.Sleep(2000);
-                Console.WriteLine("+10 ore");
-            }
+            wareHouse.ResourcesOre = 10;
+            Thread.Sleep(2000);
+            Console.WriteLine("+10 ore");
+            
         }
     }
 
-    class Townhall : CharacteristicBuilding, IBuilding
+    class Townhall : CharacteristicBuilding, IProfit
     {
         public Townhall(int health, int defence)
         {
             _health = health;
             _defense = defence;
         }
-        public void Profit()
+        public void Profit(WareHouse wareHouse)
         {
-            while (!IsDestroyed)
-            {
-                Thread.Sleep(2000);
-                Console.WriteLine("+100 coin");
-            }
+            wareHouse.ResourcesCoin = 100;
+            Thread.Sleep(2000);
+            Console.WriteLine($"+100 coin");
         }
     }
 
-    class Tower : CharacteristicBuilding, IWarBuilding
+    class Tower : CharacteristicBuilding, IShoot
     {
-        public int _distance { get; private set; }
+        public int Distance { get; private set; }
         public Tower(int health, int defence, int dmgBuild, int distance)
         {
             _health = health;
             _defense = defence;
             _dmgBuild = dmgBuild;
-            _distance = distance;
+            Distance = distance;
         }
 
         public void Shoot()
@@ -90,5 +83,43 @@ namespace Labs216.MirasovEG.Strategy.Units
         }
     }
 
+    public class WareHouse : CharacteristicBuilding
+    {
 
+        public WareHouse(int health, int defence)
+        {
+            _health = health;
+            _defense = defence;
+        }
+
+
+        private int _resourcesWheat;
+        public int ResourcesWheat
+        {
+            get => _resourcesWheat;
+            set => _resourcesWheat += value;
+        }
+
+        private int _resourcesWood;
+        public int ResourcesWood
+        {
+            get => _resourcesWood;
+            set => _resourcesWood += value;
+        }
+
+        private int _resourcesOre;
+        public int ResourcesOre
+        {
+            get => _resourcesOre;
+            set => _resourcesOre += value;
+        }
+
+        private int _resourcesCoin;
+        public int ResourcesCoin
+        {
+            get => _resourcesCoin;
+            set => _resourcesCoin += value;
+        }
+
+    }
 }

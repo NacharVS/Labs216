@@ -1,10 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace Labs216.MirasovEG.Strategy.Units
 {
-    class Infantryman : CharacteristicPerson, IMeleeWarior
+    class Infantryman : CharacteristicPerson, IAttack, IMovable
     {
         public Infantryman(int health, int defence, int dmg, int speed)
         {
@@ -26,7 +24,7 @@ namespace Labs216.MirasovEG.Strategy.Units
 
     }
 
-    class Archer : CharacteristicPerson, IDistanceWarior
+    class Archer : CharacteristicPerson,IMovable,IShoot
     {
         public int Distance { get; private set; }
         public Archer(int health, int defence, int dmg, int speed, int distance)
@@ -49,7 +47,7 @@ namespace Labs216.MirasovEG.Strategy.Units
         }
 
     }
-    class Cavalry : CharacteristicPerson, IMeleeWarior
+    class Cavalry : CharacteristicPerson, IAttack, IMovable
     {
         public Cavalry(int health, int defence, int dmg, int speed)
         {
@@ -70,7 +68,7 @@ namespace Labs216.MirasovEG.Strategy.Units
         }
     }
 
-    class Сatapult : CharacteristicPerson, IDistanceWarior
+    class Сatapult : CharacteristicPerson, IMovable, IShoot
     {
         public int Distance { get; private set; }
         public Сatapult(int health, int defence, int dmg, int speed, int distance)
@@ -93,7 +91,7 @@ namespace Labs216.MirasovEG.Strategy.Units
         }
     }
 
-    class Paladin : CharacteristicPerson, IMultiWarior
+    class Paladin : CharacteristicPerson, IMovable, IShoot, IAttack,IHeal
     {
         public int Distance { get; private set; }
         public Paladin(int health, int defence, int dmg, int speed, int distance)
@@ -116,6 +114,11 @@ namespace Labs216.MirasovEG.Strategy.Units
         public void Move()
         {
             Console.WriteLine($"Paladin move with speed: {_speed}");
+        }
+
+        public void Heal()
+        {
+            Console.WriteLine("Paladin heal 5 unit");
         }
     }
 }

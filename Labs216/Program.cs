@@ -2,6 +2,7 @@
 using System;
 using Labs216.MirasovEG.Delegates;
 using Labs216.MirasovEG.Strategy;
+using Labs216.MirasovEG.Strategy.Units;
 
 
 namespace Labs216
@@ -12,7 +13,6 @@ namespace Labs216
         { 
             Start start = new Start();
             start.StartStrategy();
-
         }
     }
 }

@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace Labs216.MirasovEG.Strategy
+﻿namespace Labs216.MirasovEG.Strategy
 {
     public abstract class CharacteristicPerson
     {
@@ -17,6 +13,5 @@ namespace Labs216.MirasovEG.Strategy
         public int _health { get;  set; }
         public int _defense { get;  set; }
         public int _dmgBuild { get; set; }
-        public bool IsDestroyed { get; set; }
     }
 }

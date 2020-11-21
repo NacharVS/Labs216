@@ -1,12 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using System.Threading.Channels;
 
-namespace Labs216.MirasovEG.Strategy
+namespace Labs216.MirasovEG.Strategy.Units
 {
 
-    class Farmer : CharacteristicPerson, ICivilian
+    class Farmer : CharacteristicPerson, IMovable, IWork, IAttack
     {
         public Farmer(int health, int defence, int dmg, int speed)
         {
@@ -15,17 +12,24 @@ namespace Labs216.MirasovEG.Strategy
             _DMG = dmg;
             _speed = speed;
         }
+
+        public void MeleeAttack()
+        {
+            Console.WriteLine($"Farmer attack: {_DMG}");
+        }
+
         public void Move()
         {
             Console.WriteLine($"Farmer move with speed: {_speed}");
         }
-        public void Work()
+        public void Work(WareHouse wareHouse)
         {
-            Console.WriteLine("The farmer works on arable land");
+            wareHouse.ResourcesWheat = 5;
+            Console.WriteLine("The farmer works on arable land: + 5 wheat");
         }
     }
 
-    class Miner : CharacteristicPerson, ICivilian
+    class Miner : CharacteristicPerson, IMovable, IWork, IAttack
     {
         public Miner(int health, int defence, int dmg, int speed)
         {
@@ -34,17 +38,24 @@ namespace Labs216.MirasovEG.Strategy
             _DMG = dmg;
             _speed = speed;
         }
+
+        public void MeleeAttack()
+        {
+            Console.WriteLine($"Miner attack: {_DMG}");
+        }
+
         public void Move()
         {
             Console.WriteLine($"Miner move with speed: {_speed}");
         }
-        public void Work()
+        public void Work(WareHouse wareHouse)
         {
-            Console.WriteLine("A miner works in a mine");
+            wareHouse.ResourcesOre = 5;
+            Console.WriteLine("A miner works in a mine: +5 Ore");
         }
     }
 
-    class Woodman : CharacteristicPerson, ICivilian
+    class Woodman : CharacteristicPerson, IMovable, IWork, IAttack
     {
         public Woodman(int health, int defence, int dmg, int speed)
         {
@@ -53,17 +64,22 @@ namespace Labs216.MirasovEG.Strategy
             _DMG = dmg;
             _speed = speed;
         }
+        public void MeleeAttack()
+        {
+            Console.WriteLine($"Woodman attack: {_DMG}");
+        }
         public void Move()
         {
             Console.WriteLine($"Woodman move with speed: {_speed}");
         }
-        public void Work()
+        public void Work(WareHouse wareHouse)
         {
-            Console.WriteLine("Woodman working in the forest");
+            wareHouse.ResourcesWood = 5;
+            Console.WriteLine("Woodman working in the forest: + 5 Wood");
         }
     }
 
-    class Builder : CharacteristicPerson, ICivilian
+    class Builder : CharacteristicPerson, IMovable, IAttack
     {
         public Builder(int health, int defence, int dmg, int speed)
         {
@@ -72,17 +88,18 @@ namespace Labs216.MirasovEG.Strategy
             _DMG = dmg;
             _speed = speed;
         }
+        public void MeleeAttack()
+        {
+            Console.WriteLine($"Builder attack: {_DMG}");
+        }
         public void Move()
         {
             Console.WriteLine($"Builder move with speed: {_speed}");
         }
-        public void Work()
-        {
-            Console.WriteLine("The Builder builds buildings");
-        }
+      
     }
 
-    class Healer : CharacteristicPerson, ICivilian
+    class Healer : CharacteristicPerson, IMovable, IAttack, IHeal
     {
         public Healer(int health, int defence, int dmg, int speed)
         {
@@ -91,13 +108,20 @@ namespace Labs216.MirasovEG.Strategy
             _DMG = dmg;
             _speed = speed;
         }
+
+        public void Heal()
+        {
+            Console.WriteLine($"The Healer cured the whole party");
+        }
+
+        public void MeleeAttack()
+        {
+            Console.WriteLine($"Healer attack: {_DMG}");
+        }
         public void Move()
         {
             Console.WriteLine($"Healer move with speed: {_speed}");
         }
-        public void Work()
-        {
-            Console.WriteLine("A healer treats people");
-        }
+
     }
 }

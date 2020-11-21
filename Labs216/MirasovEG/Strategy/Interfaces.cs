@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using Labs216.MirasovEG.Strategy.Units;
 
 namespace Labs216.MirasovEG.Strategy
 {
@@ -19,19 +17,22 @@ namespace Labs216.MirasovEG.Strategy
 
     interface IWork
     {
-        public void Work();
+        public void Work(WareHouse wareHouse);
     }
 
+    interface IBuild
+    {
+        public void Build();
+    }
     interface IProfit
     {
-        public void Profit();
+        public void Profit(WareHouse wareHouse);
     }
 
-    interface ICivilian : IMovable, IWork{}
-    interface IMultiWarior : IMovable, IAttack, IShoot{}
-    interface IMeleeWarior : IMovable, IAttack { }
-    interface IDistanceWarior : IMovable, IShoot { }
-    interface IBuilding : IProfit { }
-    interface IWarBuilding : IShoot{}
-    
+    interface IHeal
+    {
+        public void Heal();
+    }
+
+
 }
