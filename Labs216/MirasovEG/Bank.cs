@@ -116,23 +116,23 @@ namespace Labs216.MirasovEG
             Check?.Invoke($"CashBack: {sum * _cashbackRate}; On Account with CashBack: {_account}");
         }
 
-        public void Buy(int sum, string NameOrganization)
+        public void Buy(int sum, string nameOrganization)
         {
-            if (NameOrganization == "One")
+            if (nameOrganization == "One")
             {
                 _account -= sum;
                 Check?.Invoke($"Buy: {sum}");
                 _account += sum * _cashbackRateOrganizationOne;
                 Check?.Invoke($"CashBack: {sum * _cashbackRateOrganizationOne}; On Account with CashBack: {_account}");
             }
-            else if (NameOrganization == "Two")
+            else if (nameOrganization == "Two")
             {
                 _account -= sum;
                 Check?.Invoke($"Buy: {sum}");
                 _account += sum * _cashbackRateOrganizationTwo;
                 Check?.Invoke($"CashBack: {sum * _cashbackRateOrganizationTwo}; On Account with CashBack: {_account}");
             }
-            else if (NameOrganization == "Three")
+            else if (nameOrganization == "Three")
             {
                 _account -= sum;
                 Check?.Invoke($"Buy: {sum}");

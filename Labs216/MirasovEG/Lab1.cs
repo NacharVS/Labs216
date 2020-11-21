@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace Labs216.MirasovEG
 {
@@ -8,9 +6,9 @@ namespace Labs216.MirasovEG
     {
         static public void QuadraticEquation(int a, int b, int c)
         {
-            int D = (b * b) - (4 * a * c);
-            int x1 = (-b + Convert.ToInt32(Math.Sqrt(D))) / (2 * a);
-            int x2 = (-b - Convert.ToInt32(Math.Sqrt(D))) / (2 * a);
+            int d = (b * b) - (4 * a * c);
+            int x1 = (-b + Convert.ToInt32(Math.Sqrt(d))) / (2 * a);
+            int x2 = (-b - Convert.ToInt32(Math.Sqrt(d))) / (2 * a);
             Console.WriteLine($"X1 = {x1}| X2 = {x2}");
         }
 

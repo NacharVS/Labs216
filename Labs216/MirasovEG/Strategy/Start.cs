@@ -1,5 +1,7 @@
 ﻿using System;
-using Labs216.MirasovEG.Strategy.Units;
+using Labs216.MirasovEG.Strategy.Units.Buildings;
+using Labs216.MirasovEG.Strategy.Units.Civilian;
+using Labs216.MirasovEG.Strategy.Units.Warior;
 
 namespace Labs216.MirasovEG.Strategy
 {

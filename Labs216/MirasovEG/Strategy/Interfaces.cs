@@ -1,4 +1,4 @@
-﻿using Labs216.MirasovEG.Strategy.Units;
+﻿using Labs216.MirasovEG.Strategy.Units.Buildings;
 
 namespace Labs216.MirasovEG.Strategy
 {

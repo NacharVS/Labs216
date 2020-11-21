@@ -1,9 +1,4 @@
-﻿using Labs216.MirasovEG;
-using System;
-using Labs216.MirasovEG.Delegates;
-using Labs216.MirasovEG.Strategy;
-using Labs216.MirasovEG.Strategy.Units;
-
+﻿using Labs216.MirasovEG.Strategy;
 
 namespace Labs216
 {
