@@ -1,6 +1,7 @@
 ﻿using System;
 using Labs216.Zakirov;
 using Labs216.Zakirov.Delegate;
+using Labs216.Zakirov.Strategygame;
 
 namespace Labs216
 {
@@ -8,15 +9,16 @@ namespace Labs216
     {
         static void Main(string[] args)
         {
-            {
-                int[] array = new int[25];
-                Random rnb = new Random();
-                for (int a = 0; a < array.Length; a++)
-                {
-                    array[a] = rnb.Next(99);
-                }
-                Branch.AinurInvoke(array);
-            }
+            var builder1 = TeachBuilder();
+            IMovable move = builder1;
+            move.Move();
+            ICreatable create = builder1;
+            create.Construct();
         }
-    }
+        public static Workers.Builder TeachBuilder()
+        {
+            Workers.Builder builderUnit = new Workers.Builder();
+            return builderUnit;
+        }
+    }    
 }

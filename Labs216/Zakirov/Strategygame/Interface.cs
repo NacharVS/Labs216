@@ -5,30 +5,23 @@ using System.Text;
 namespace Labs216.Zakirov.Strategygame
 {
     interface IMovable
-    {
-        public double Speed { get; }
-        public string UnitType { get; }
+    {        
         public void Move();
-
     }
     interface IShootable
     {
-        public int ShootDamage { get; }
-        public int Distance { get; }
         public void Shoot();
-
     }
-    interface IWorkers : IMovable
+    //interface IWorkers
+    //{
+    //    public void Work();       /*// Сделать айпродакшн*/
+    //}
+    interface ICreatable
     {
-        public void Work();
+        public void Construct();
     }
-    interface IBuilding
-    {
-        public void Interact();
-    }
-    interface IArmy : IMovable
-    {
-        public int Damage { get; }
+    interface IArmy
+    {      
         public void Attack();
     }
 
