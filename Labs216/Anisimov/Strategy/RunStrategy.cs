@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 using Labs216.Anisimov.Strategy.Units;
 
 namespace Labs216.Anisimov.Strategy
@@ -9,47 +7,107 @@ namespace Labs216.Anisimov.Strategy
     {
         public static void Run()
         {
+            IMovable move;
+            IWorkable work;
+            IAttack attack;
+            IShootable shoot;
+            IInteractive interactive;
+            IGather Gatherer;
+            IGather Source;
+            IGather Vault;
+
+            Console.WriteLine();
+            Console.WriteLine("Building");
+            Console.WriteLine();
+
+            Console.WriteLine("Wall");
+            Console.WriteLine();
+            interactive = new Wall(100, 100);
+            interactive.Interact();
+            Console.WriteLine();
+
+            Console.WriteLine("Gate");
+            Console.WriteLine();
+            interactive = new Gate(100, 100);
+            interactive.Interact();
+            Console.WriteLine();
+
+            Console.WriteLine("Tower");
+            Console.WriteLine();
+            interactive = new Tower(100, 100, 100, 100);
+            interactive.Interact();
+
+            shoot = new Tower(100, 100, 100, 100);
+            shoot.Shoot();
+            Console.WriteLine();
+
+            Console.WriteLine("Mine");
+            Console.WriteLine();
+            interactive = new Mine(100, 100, 1000);
+            interactive.Interact();
+
+            Source = new Mine(100, 100, 1000);
+            Console.WriteLine();
+
+            Console.WriteLine("GoldStorage");
+            Console.WriteLine();
+            interactive = new GoldStorage(100, 100);
+            interactive.Interact();
+
+            Vault = new GoldStorage(100, 100);
+            Console.WriteLine();
+
+            Console.WriteLine();
             Console.WriteLine("Civilian");
             Console.WriteLine();
 
             Console.WriteLine("Farmer");
             Console.WriteLine();
-            IMovable movefarmer = new Farmer(100, 100, 100);
-            movefarmer.Move();
-            IWorkable farmer = new Farmer(100, 100, 100);
-            farmer.Work();
+            move = new Farmer(100, 100, 100);
+            move.Move();
+
+            work = new Farmer(100, 100, 100);
+            work.Work();
             Console.WriteLine();
 
             Console.WriteLine("CivBoat");
             Console.WriteLine();
-            IMovable moveCivBoat = new CivBoat(100, 100, 100);
-            moveCivBoat.Move();
-            IWorkable CivBoat = new Farmer(100, 100, 100);
-            CivBoat.Work();
+            move = new CivBoat(100, 100, 100);
+            move.Move();
+
+            work = new CivBoat(100, 100, 100);
+            work.Work();
             Console.WriteLine();
 
             Console.WriteLine("CivHelicopter");
             Console.WriteLine();
-            IMovable moveCivHelicopter = new CivHelicopter(100, 100, 100);
-            moveCivHelicopter.Move();
-            IWorkable CivHelicopter = new CivHelicopter(100, 100, 100);
-            CivHelicopter.Work();
+            move = new CivHelicopter(100, 100, 100);
+            move.Move();
+
+            work = new CivHelicopter(100, 100, 100);
+            work.Work();
             Console.WriteLine();
 
             Console.WriteLine("Doctor");
             Console.WriteLine();
-            IMovable moveDoctor = new Doctor(100, 100, 100);
-            moveDoctor.Move();
-            IWorkable Doctor = new Doctor(100, 100, 100);
-            Doctor.Work();
+            move = new Doctor(100, 100, 100);
+            move.Move();
+
+            work = new Doctor(100, 100, 100);
+            work.Work();
             Console.WriteLine();
 
-            Console.WriteLine("Politican");
+            Console.WriteLine("Miner");
             Console.WriteLine();
-            IMovable movePolitican = new Politican(100, 100, 100);
-            movePolitican.Move();
-            IWorkable Politican = new Politican(100, 100, 100);
-            Politican.Work();
+            move = new Miner(100, 100, 100);
+            move.Move();
+
+            work = new Miner(100, 100, 100);
+            work.Work();
+
+            Gatherer = new Miner(100, 100, 100);
+            Gatherer.Gather(Source);
+            Gatherer.Store(Vault);
             Console.WriteLine();
 
             Console.WriteLine();
@@ -58,52 +116,57 @@ namespace Labs216.Anisimov.Strategy
 
             Console.WriteLine("Knight");
             Console.WriteLine();
-            IMovable moveKnight = new Knight(100, 100, 100, 100);
-            moveKnight.Move();
-            IAttack Knight = new Knight(100, 100, 100, 100);
-            Knight.Attack();
+            move = new Knight(100, 100, 100, 100);
+            move.Move();
+
+            attack = new Knight(100, 100, 100, 100);
+            attack.Attack();
             Console.WriteLine();
 
             Console.WriteLine("Archer");
             Console.WriteLine();
-            IMovable moveArcher = new Archer(100, 100, 100, 100, 100, 100);
-            moveArcher.Move();
-            IAttack Archer = new Archer(100, 100, 100, 100, 100, 100);
-            Archer.Attack();
-            IShootable shootArcher = new Archer(100, 100, 100, 100, 100, 100);
-            shootArcher.Shoot();
+            move = new Archer(100, 100, 100, 100, 100, 100);
+            move.Move();
+
+            attack = new Archer(100, 100, 100, 100, 100, 100);
+            attack.Attack();
+
+            shoot = new Archer(100, 100, 100, 100, 100, 100);
+            shoot.Shoot();
             Console.WriteLine();
 
             Console.WriteLine("WarBoat");
             Console.WriteLine();
-            IMovable moveWarBoat = new WarBoat(100, 100, 100, 100, 100, 100);
-            moveWarBoat.Move();
-            IAttack WarBoat = new WarBoat(100, 100, 100, 100, 100, 100);
-            WarBoat.Attack();
-            IShootable shootWarBoat = new WarBoat(100, 100, 100, 100, 100, 100);
-            shootWarBoat.Shoot();
+            move = new WarBoat(100, 100, 100, 100, 100, 100);
+            move.Move();
+
+            attack = new WarBoat(100, 100, 100, 100, 100, 100);
+            attack.Attack();
+
+            shoot = new WarBoat(100, 100, 100, 100, 100, 100);
+            shoot.Shoot();
             Console.WriteLine();
 
             Console.WriteLine("WarHelicopter");
             Console.WriteLine();
-            IMovable moveWarHelicopter = new WarHelicopter(100, 100, 100, 100, 100, 100);
-            moveWarHelicopter.Move();
-            IAttack WarHelicopter = new WarHelicopter(100, 100, 100, 100, 100, 100);
-            WarHelicopter.Attack();
-            IShootable shootWarHelicopter = new WarHelicopter(100, 100, 100, 100, 100, 100);
-            shootWarHelicopter.Shoot();
+            move = new WarHelicopter(100, 100, 100, 100, 100, 100);
+            move.Move();
+
+            attack = new WarHelicopter(100, 100, 100, 100, 100, 100);
+            attack.Attack();
+
+            shoot = new WarHelicopter(100, 100, 100, 100, 100, 100);
+            shoot.Shoot();
             Console.WriteLine();
 
             Console.WriteLine("Spearman");
             Console.WriteLine();
-            IMovable moveSpearman = new Spearman(100, 100, 100, 100);
-            moveSpearman.Move();
-            IAttack Spearman = new Spearman(100, 100, 100, 100);
-            Spearman.Attack();
-            Console.WriteLine();
+            move = new Spearman(100, 100, 100, 100);
+            move.Move();
 
-
-
+            attack = new Spearman(100, 100, 100, 100);
+            attack.Attack();
+            Console.WriteLine();              
         } 
     }
 }

@@ -2,7 +2,7 @@
 
 namespace Labs216.Anisimov.Strategy.Units
 {
-    sealed class Wall : Characteristic, IInteractive, IShootable
+    sealed class Wall : Characteristic, IInteractive
     {
         public int Distance { get; private set; }
         public int ShootDamage { get; private set; }
@@ -11,16 +11,6 @@ namespace Labs216.Anisimov.Strategy.Units
         {
             Health = health;
             Defense = defense;
-        }
-
-        public void Interact()
-        {
-            Console.WriteLine($"It is a wall. It is looks like {Health} hp");
-        }
-
-        public void Shoot()
-        {
-            Console.WriteLine($"Tower shoot untit on distance -- {Distance} -- with damage: {ShootDamage}");
         }
     }
 
@@ -34,7 +24,7 @@ namespace Labs216.Anisimov.Strategy.Units
 
         public void Interact()
         {
-            Console.WriteLine($"You move through the gate");
+            Console.WriteLine($"Move through the gate");
         }
     }
 
@@ -53,18 +43,33 @@ namespace Labs216.Anisimov.Strategy.Units
 
         public void Interact()
         {
-            Console.WriteLine($"You move in the tower");
-        }
-
-        public void Shoot()
-        {
-            Console.WriteLine($"Tower shoot untit on distance -- {Distance} -- with damage: {ShootDamage}");
+            Console.WriteLine($"Move in the tower");
         }
     }
 
-    sealed class House : Characteristic, IInteractive
+    sealed class Mine : Characteristic, IInteractive, IGather
     {
-        public House(int health, int defense)
+        public int Count { get; set; }
+        public string GatherType { get;} = "gold";
+
+        public Mine(int health, int defense, int count)
+        {
+            Health = health;
+            Defense = defense;
+            Count = count;
+        }
+        public void Interact()
+        {
+            Console.WriteLine($"You see a mine");
+        }
+    }
+
+    sealed class GoldStorage : Characteristic, IInteractive , IGather
+    {
+        public int Count { get; set; }
+        public string GatherType { get; } = "gold";
+
+        public GoldStorage(int health, int defense)
         {
             Health = health;
             Defense = defense;
@@ -72,21 +77,7 @@ namespace Labs216.Anisimov.Strategy.Units
 
         public void Interact()
         {
-            Console.WriteLine($"You move in the house");
-        }
-    }
-
-    sealed class Hospital : Characteristic, IInteractive
-    {
-        public Hospital(int health, int defense)
-        {
-            Health = health;
-            Defense = defense;
-        }
-
-        public void Interact()
-        {
-            Console.WriteLine($"You move in the hospital");
+            Console.WriteLine($"You see a gold storage");
         }
     }
 }

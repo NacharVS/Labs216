@@ -1,11 +1,10 @@
-﻿using System;
-
-namespace Labs216.Anisimov.Strategy.Units
+﻿namespace Labs216.Anisimov.Strategy.Units
 {
     sealed class Farmer : Characteristic, IWorkable, IMovable
     {
         public double Speed { get; private set; }
         public string UnitType { get; } = "ground";
+        public string Profesion { get; } = "farmer";
 
         public Farmer(int health, int defense, double speed)
         {
@@ -13,22 +12,13 @@ namespace Labs216.Anisimov.Strategy.Units
             Defense = defense;
             Speed = speed;
         }
-
-        public void Move()
-        {
-            Console.WriteLine($"Farmer move in the {UnitType} with speed: {Speed}");
-        }
-
-        public void Work()
-        {
-            Console.WriteLine($"Farmer work in field");
-        }
     }
 
     sealed class CivBoat : Characteristic, IWorkable, IMovable
     {
         public double Speed { get; private set; }
         public string UnitType { get; } = "water";
+        public string Profesion { get; } = "transport";
 
         public CivBoat(int health, int defense, double speed)
         {
@@ -36,22 +26,13 @@ namespace Labs216.Anisimov.Strategy.Units
             Defense = defense;
             Speed = speed;
         }
-
-        public void Move()
-        {
-            Console.WriteLine($"CivBoat move in the {UnitType} with speed: {Speed}");
-        }
-
-        public void Work()
-        {
-            Console.WriteLine($"CivBoat is cargo transportation");
-        }
     }
 
     sealed class CivHelicopter : Characteristic, IWorkable, IMovable
     {
         public double Speed { get; private set; }
         public string UnitType { get; } = "air";
+        public string Profesion { get; } = "transport";
 
         public CivHelicopter(int health, int defense, double speed)
         {
@@ -59,22 +40,13 @@ namespace Labs216.Anisimov.Strategy.Units
             Defense = defense;
             Speed = speed;
         }
-
-        public void Move()
-        {
-            Console.WriteLine($"Helicopter move in {UnitType} with speed: {Speed}");
-        }
-
-        public void Work()
-        {
-            Console.WriteLine($"Helicopter is civilian trensportation");
-        }
     }
 
     sealed class Doctor : Characteristic, IWorkable, IMovable
     {
         public double Speed { get; private set; }
         public string UnitType { get; } = "ground";
+        public string Profesion { get; } = "healer";
 
         public Doctor(int health, int defense, double speed)
         {
@@ -82,38 +54,21 @@ namespace Labs216.Anisimov.Strategy.Units
             Defense = defense;
             Speed = speed;
         }
-
-        public void Move()
-        {
-            Console.WriteLine($"Doctor move in {UnitType} with speed: {Speed}");
-        }
-
-        public void Work()
-        {
-            Console.WriteLine($"Doctor treats people");
-        }
     }
 
-    sealed class Politican : Characteristic, IWorkable, IMovable
+    sealed class Miner : Characteristic, IWorkable, IMovable, IGather
     {
         public double Speed { get; private set; }
         public string UnitType { get; } = "ground";
+        public string Profesion { get; } = "miner";
+        public int Count { get; set; }
+        public string GatherType { get; } = "gold";
 
-        public Politican(int health, int defense, double speed)
+        public Miner(int health, int defense, double speed)
         {
             Health = health;
             Defense = defense;
             Speed = speed;
-        }
-
-        public void Move()
-        {
-            Console.WriteLine($"Politican move in {UnitType} with speed: {Speed}");
-        }
-
-        public void Work()
-        {
-            Console.WriteLine($"Politican deceives people");
         }
     }
 }
