@@ -1,30 +1,22 @@
-﻿using Labs216.Garipova;
-using Labs216.Garipova.del;
-using System;
-
-
-namespace Labs216
+﻿namespace Labs216
 {
     class Program
     {
         static void Main(string[] args)
         {
-            Bankaccount acc1 = new Bankaccount(300, "+78937589254");
-            acc1.Deposit(50);
-            acc1.Withtdraw(50);
-            acc1.Deposit(50);
+            var archer1 = TeachArcher();
+            IMovable move = archer1;
+            move.Move();
+            ISootable shoot = archer1;
+            shoot.Shoot();
         }
-        public static void MessageSending1(string phonenumber, int sum)
+        public static TeachArcher()
         {
-            Console.WriteLine($"Message send at {phonenumber}");
-        }
-        public static void MessageSending2(string phonenumber, int sum)
-        {
-            Console.WriteLine($"Account value{sum}");
-        }
-        public static void MessageSending3(double rate)
-        {
-            Console.WriteLine($"");
+            Archer archerUnit = new Archer;
+            archerUnit.minDamage = 3;
+            archerUnit.maxDamage = 7;
+            return archerUnit;
+
         }
     }
 }
