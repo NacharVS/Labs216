@@ -2,8 +2,11 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Interfase
 
+namespace Interfase
+    //добавление интерфейса 
+    //добавление способностей для (Archer, rider)
+    //добавлено 
 {
     class Move
     {
