@@ -12,7 +12,7 @@ namespace Labs216
       
         static void Main(string[] args)
         {
-            Bank account = new Bank(999, "+79872314564");
+            Bank account = new Bank(999, 0.05);
             
             account.Deposit(100);
             account.Withdraw(99);
@@ -28,7 +28,11 @@ namespace Labs216
         }
         public static void Message3(double stavka)
         {
-            Console.WriteLine($"");
+            Console.WriteLine($"Our stavka {stavka}");
+        }
+        public static void Message4(int sum, double cashback)
+        {
+            Console.WriteLine($"Return of a part of funds: {cashback}");
         }
     }
 }

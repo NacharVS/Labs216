@@ -9,15 +9,21 @@ namespace Labs216.Lab4
     {
         public delegate void Friend(int sum, string phonenumber);
         public delegate void Texture(double stavka);
+        public delegate void Candy(int sum, double cashback);
 
-        private int _sum;
+        private static int _sum;
         private string _phoneNumber;
-        private static double _stavka; 
+        private static double _stavka;
+        static double _cashback = 0.05;
         public Bank(double stavka)
         {
             _stavka = stavka;
         }
-        
+        public Bank(int sum, double cashback)
+        {
+            _sum = sum;
+            _cashback = cashback;
+        }
         public Bank(int sum, string phoneNumber)
         {
             _sum = sum;
@@ -73,13 +79,35 @@ namespace Labs216.Lab4
         {
             stavka = (stavka * Sum) / 100 ;
         }
-        public static void DateTimeStavka()
+        
+        public event Candy Notify3;
+        public double Cashback
         {
-
+            get
+            {
+                return _cashback;
+            }
+            set
+            {
+                _cashback = value;
+                Notify3.Invoke(_sum, _cashback);
+            }
         }
-        public static void Cashbaсk()
+        public static void Buy(int sum, double cashback)
         {
-
+            double partner1 = 0.08;
+            double partner2 = 0.03;
+            for (double i = 0; i < sum; i++)
+            {
+                if (i < 500)
+                {
+                    cashback = sum * partner1;
+                }
+                else
+                {
+                    cashback = sum * partner2;
+                }
+            }
         }
     }
 }
