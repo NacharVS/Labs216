@@ -1,5 +1,7 @@
 ﻿using System;
-using Labs216.Anisimov.Strategy.Units;
+using Labs216.Anisimov.Strategy.Buildings;
+using Labs216.Anisimov.Strategy.Civilian;
+using Labs216.Anisimov.Strategy.Fighters;
 
 namespace Labs216.Anisimov.Strategy
 {
@@ -8,165 +10,153 @@ namespace Labs216.Anisimov.Strategy
         public static void Run()
         {
             IMovable move;
-            IWorkable work;
             IAttack attack;
             IShootable shoot;
             IInteractive interactive;
-            IGather Gatherer;
-            IGather Source;
-            IGather Vault;
-
-            Console.WriteLine();
-            Console.WriteLine("Building");
-            Console.WriteLine();
-
-            Console.WriteLine("Wall");
-            Console.WriteLine();
-            interactive = new Wall(100, 100);
-            interactive.Interact();
-            Console.WriteLine();
-
-            Console.WriteLine("Gate");
-            Console.WriteLine();
-            interactive = new Gate(100, 100);
-            interactive.Interact();
-            Console.WriteLine();
-
-            Console.WriteLine("Tower");
-            Console.WriteLine();
-            interactive = new Tower(100, 100, 100, 100);
-            interactive.Interact();
-
-            shoot = new Tower(100, 100, 100, 100);
-            shoot.Shoot();
-            Console.WriteLine();
-
-            Console.WriteLine("Mine");
-            Console.WriteLine();
-            interactive = new Mine(100, 100, 1000);
-            interactive.Interact();
-
-            Source = new Mine(100, 100, 1000);
-            Console.WriteLine();
-
-            Console.WriteLine("GoldStorage");
-            Console.WriteLine();
-            interactive = new GoldStorage(100, 100);
-            interactive.Interact();
-
-            Vault = new GoldStorage(100, 100);
-            Console.WriteLine();
-
-            Console.WriteLine();
-            Console.WriteLine("Civilian");
-            Console.WriteLine();
-
-            Console.WriteLine("Farmer");
-            Console.WriteLine();
-            move = new Farmer(100, 100, 100);
-            move.Move();
-
-            work = new Farmer(100, 100, 100);
-            work.Work();
-            Console.WriteLine();
-
-            Console.WriteLine("CivBoat");
-            Console.WriteLine();
-            move = new CivBoat(100, 100, 100);
-            move.Move();
-
-            work = new CivBoat(100, 100, 100);
-            work.Work();
-            Console.WriteLine();
-
-            Console.WriteLine("CivHelicopter");
-            Console.WriteLine();
-            move = new CivHelicopter(100, 100, 100);
-            move.Move();
-
-            work = new CivHelicopter(100, 100, 100);
-            work.Work();
-            Console.WriteLine();
-
-            Console.WriteLine("Doctor");
-            Console.WriteLine();
-            move = new Doctor(100, 100, 100);
-            move.Move();
-
-            work = new Doctor(100, 100, 100);
-            work.Work();
-            Console.WriteLine();
-
-            Console.WriteLine("Miner");
-            Console.WriteLine();
-            move = new Miner(100, 100, 100);
-            move.Move();
-
-            work = new Miner(100, 100, 100);
-            work.Work();
-
-            Gatherer = new Miner(100, 100, 100);
-            Gatherer.Gather(Source);
-            Gatherer.Store(Vault);
-            Console.WriteLine();
+            IGather gatherer;
 
             Console.WriteLine();
             Console.WriteLine("WarUnit");
             Console.WriteLine();
 
-            Console.WriteLine("Knight");
-            Console.WriteLine();
-            move = new Knight(100, 100, 100, 100);
+            var archer = new Archer(1, 1, 1, 1, 1, 1);
+
+            move = archer;
             move.Move();
 
-            attack = new Knight(100, 100, 100, 100);
-            attack.Attack();
-            Console.WriteLine();
-
-            Console.WriteLine("Archer");
-            Console.WriteLine();
-            move = new Archer(100, 100, 100, 100, 100, 100);
-            move.Move();
-
-            attack = new Archer(100, 100, 100, 100, 100, 100);
+            attack = archer;
             attack.Attack();
 
-            shoot = new Archer(100, 100, 100, 100, 100, 100);
+            shoot = archer;
             shoot.Shoot();
-            Console.WriteLine();
 
-            Console.WriteLine("WarBoat");
-            Console.WriteLine();
-            move = new WarBoat(100, 100, 100, 100, 100, 100);
+            var ballista = new Ballista(2, 2, 2, 2, 2);
+
+            move = ballista;
             move.Move();
 
-            attack = new WarBoat(100, 100, 100, 100, 100, 100);
-            attack.Attack();
-
-            shoot = new WarBoat(100, 100, 100, 100, 100, 100);
+            shoot = ballista;
             shoot.Shoot();
-            Console.WriteLine();
 
-            Console.WriteLine("WarHelicopter");
-            Console.WriteLine();
-            move = new WarHelicopter(100, 100, 100, 100, 100, 100);
+            var knight = new Knight(3, 3, 3, 3);
+
+            move = knight;
             move.Move();
 
-            attack = new WarHelicopter(100, 100, 100, 100, 100, 100);
+            attack = knight;
             attack.Attack();
 
-            shoot = new WarHelicopter(100, 100, 100, 100, 100, 100);
+            var spearman = new Spearman(4, 4, 4, 4);
+
+            move = spearman;
+            move.Move();
+
+            attack = spearman;
+            attack.Attack();
+
+            var warBoat = new WarBoat(5, 5, 5, 5, 5);
+
+            move = warBoat;
+            move.Move();
+
+            shoot = warBoat;
             shoot.Shoot();
+
+            Console.WriteLine();
+            Console.WriteLine("Building");
             Console.WriteLine();
 
-            Console.WriteLine("Spearman");
+            var wall = new Wall(6, 6);
+
+            interactive = wall;
+            interactive.Interact();
+
+            var gate = new Gate(7, 7);
+
+            interactive = gate;
+            interactive.Interact();
+
+            var tower = new Tower(8, 8, 8, 8);
+
+            interactive = tower;
+            interactive.Interact();
+
+            shoot = tower;
+            shoot.Shoot();
+            tower.Interact(archer);
+            shoot.Shoot();
+
+            var forest = new Forest(5);
+
+            interactive = forest;
+            interactive.Interact();
+
+            var mine = new Mine(5);
+
+            interactive = mine;
+            interactive.Interact();
+
+            var field = new Field(5);
+
+            interactive = field;
+            interactive.Interact();
+
+            var storage = new Storage(9, 9, 4);
+
+            interactive = storage;
+            interactive.Interact();
+
             Console.WriteLine();
-            move = new Spearman(100, 100, 100, 100);
+            Console.WriteLine("Civilian");
+            Console.WriteLine();
+
+            var boat = new Boat(10, 10, 10);
+
+            move = boat;
             move.Move();
 
-            attack = new Spearman(100, 100, 100, 100);
-            attack.Attack();
-            Console.WriteLine();              
+            var civilian = new Civ(11, 11, 11);
+
+            move = civilian;
+            move.Move();
+
+            var farmer = new Farmer(12, 12, 12);
+
+            move = farmer;
+            move.Move();
+
+            gatherer = farmer;
+            gatherer.Gather(field);
+            gatherer.Store(storage);
+
+            interactive.Interact();
+
+            var lumberjack = new Lumberjack(13, 13, 13);
+
+            move = lumberjack;
+            move.Move();
+
+            gatherer = lumberjack;
+            gatherer.Gather(forest);
+            gatherer.Gather(forest);
+            gatherer.Store(storage);
+
+            interactive.Interact();
+
+            var miner = new Miner(14, 14, 14);
+
+            move = miner;
+            move.Move();
+
+            gatherer = miner;
+            for (int i = 0; i < 6; i++)
+            {
+                gatherer.Gather(mine);
+            }
+            gatherer.Store(storage);
+            gatherer.Store(storage);
+
+            interactive.Interact();
         } 
     }
 }

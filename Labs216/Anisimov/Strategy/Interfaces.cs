@@ -5,11 +5,9 @@ namespace Labs216.Anisimov.Strategy
     interface IMovable
     {
         public double Speed { get; }
-        public string UnitType { get; }
-
         public void Move()
         {
-            Console.WriteLine($"Unit move in the {UnitType} with speed: {Speed}");
+            Console.WriteLine($"Unit move with speed: {Speed}");
         }
     }
 
@@ -23,26 +21,13 @@ namespace Labs216.Anisimov.Strategy
             Console.WriteLine($"Unit shoot on distance -- {Distance} -- with damage: {ShootDamage}");
         }
     }
-
-
-    interface IWorkable
-    {
-        public string Profesion { get; }
-
-        public void Work()
-        {
-            Console.WriteLine($"Unit work. He if {Profesion}");
-        }
-    }
     
     interface IAttack
     {
         public int Damage { get; }
-        public string AttackType { get; }
-
         public void Attack()
         {
-            Console.WriteLine($"Unit attack with {AttackType} damage: {Damage}");
+            Console.WriteLine($"Unit attack with damage: {Damage}");
         }
     }
 
@@ -54,33 +39,22 @@ namespace Labs216.Anisimov.Strategy
         }
     }
 
-    interface IGather //Один интерфейс для добытчика, источника и хранилиша ресурсов
+    interface IResourseSourse
     {
-        public int Count { get; set; }
-        public string GatherType { get; }
+        public int Amount { get; set; }
+    }
 
-        public void Gather(IGather source)
-        {
-            if (GatherType == source.GatherType || source.Count != 0)
-            {
-                Count += 1;
-                source.Count -= 1;
-                Console.WriteLine($"Source : {source.Count}");
-                Console.WriteLine($"Gatherer : {Count}");
-            }
-            else Console.WriteLine("You can't do this");
-        }
+    interface IStorage
+    {
+        public int Gold { get; set; }
+        public int Wood { get; set; }
+        public int Food { get; set; }
+        public int MaxAmount { get; }
+    }
 
-        public void Store(IGather vault)
-        {
-            if (GatherType == vault.GatherType || Count != 0)
-            {
-                Count -= 1;
-                vault.Count += 1;
-                Console.WriteLine($"Vault : {vault.Count}");
-                Console.WriteLine($"Gatherer : {Count}");
-            }
-            else Console.WriteLine("You can't do this");
-        }
+    interface IGather : IResourseSourse
+    {
+        public void Gather(IResourseSourse source);
+        public void Store(IStorage storage);
     }
 }
