@@ -1,10 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using Labs216.Gabdulkhaev.Strategiya.Boets;
 
 namespace Labs216.Gabdulkhaev.Strategiya.Peaceful_people
 {
-    class Miner : Character, IHoditable, IRabotable
+    class Miner : Character, IHoditable, IRabotable, INanositUronable
     {
         public int kirka_sost = 100;
         public void Hodit()
@@ -34,5 +35,11 @@ namespace Labs216.Gabdulkhaev.Strategiya.Peaceful_people
                 else if (luck==luck1)
                     Console.WriteLine("Вам повезло, luck=luck1, шахтер все, откис");
             }
+        public void Uron()
+        {
+            Random rnd = new Random();
+            int Uron_kuznec = rnd.Next(1, 5);
+            Console.WriteLine($"Шахтер нанес {Uron_kuznec} хелф-поинт урона");
+        }
         }
     }
