@@ -12,6 +12,7 @@ namespace Labs216.ArslanovTI.Game
             ElectricArrow = 500;
 
         }
+        
 
     }
 }

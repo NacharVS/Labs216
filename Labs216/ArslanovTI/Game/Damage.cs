@@ -4,17 +4,62 @@ using System.Text;
 
 namespace Labs216.ArslanovTI.Game
 {
-    class Damage
+
+    class Attack
     {
-        interface IDamage
+        public int _attackrange;
+        public int _splashattack;
+        public int _attackspeed;
+
+
+       
+        public int AttackRange
         {
-            static void Damage(int damageArcher, int damageWizard, int damageBerserk,  int damageknight)
+            get
+
             {
-                damageArcher = 45;
-                damageWizard = 70;
-                damageBerserk = 59;
-                damageknight = 67;
+                return _attackrange;
+
+
+            }
+            set
+            {
+                _attackrange = value;
+            }
+        }
+
+
+
+        public int splashAttack
+        {
+            get
+
+            {
+                return _splashattack;
+
+
+            }
+            set
+            {
+                _attackrange = value;
+            }
+        }
+
+
+        public int speedAttack
+        {
+            get
+
+            {
+                return _attackspeed;
+
+
+            }
+            set
+            {
+                _attackspeed = value;
             }
         }
     }
 }
+

@@ -4,12 +4,8 @@ using System.Text;
 
 namespace Labs216.ArslanovTI.Game
 {
-    class Berserk
+    class Berserk : IAttack
     {
-        public void DamageSkills(string stun, int rage)
-        {
-            stun = "Выделенный игрок оглушен";
-            
-        }
+        public int minDamage { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
     }
 }
