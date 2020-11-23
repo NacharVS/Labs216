@@ -4,8 +4,10 @@ using System.Text;
 
 namespace Labs216.Zakirov.Strategygame
 {
-   abstract class Characteristics
+   public abstract class Characteristics
     {
+        public int Health { get; set; }
        
     }
 }
+

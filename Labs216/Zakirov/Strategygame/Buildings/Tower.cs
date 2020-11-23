@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Labs216.Zakirov.Strategygame
 {
-    class Army
+    class Tower
     {
     }
 }

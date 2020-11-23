@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Labs216.Zakirov
 {
-    class BANK
+    class BANK1
     {
         private string _name;
         private string _surname;
@@ -13,7 +13,7 @@ namespace Labs216.Zakirov
         private string _id;
         private double _schet;
 
-        public BANK(string name, string surname, int vozrast, double stavka, string id, double schet)
+        public BANK1(string name, string surname, int vozrast, double stavka, string id, double schet)
         {
             _name = name;
             _surname = surname;
@@ -94,7 +94,7 @@ namespace Labs216.Zakirov
             Console.WriteLine($" Stavka  = {_stavka} ");
             Console.Write(" After how many years do you withdraw money? ");
             double let = double.Parse(Console.ReadLine());
-            double c;
+         
             for (int i = 0; i < let; i++)
             {
                 _schet += _schet / 100 * _stavka;
