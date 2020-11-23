@@ -2,16 +2,24 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Labs216.Shakirov.Game
+namespace Labs216.Shakirov.Game.Fighter
 {
-    class Archer
+    sealed class Archer: Characteristic, IAttack, IMovable, IShootable
     {
-        public void special ability (int hail of arrows, int strong shot)
+        public int Damage { get, private set; }
+        public double Speed { get; private set; }
+        public int Distance { get; private set; }
+        public int ShootDamage { get; private set; }
+        public Archer(int health, int defense, double speed, int damage, int distance, int shootdamage)
         {
-            hail of arrows
-                strong shot
-
+            Health = health;
+            Defense = defense;
+            Speed = speed;
+            Damage = damage;
+            ShootDamage = shootdamage;
         }
+        
+        
 
     }
 }
