@@ -4,7 +4,13 @@ using System.Text;
 
 namespace Labs216.Zamaliev.StrategyGame.Workers
 {
-    class Foresters
+    class Foresters : IMovable
     {
+        public int Speed => throw new NotImplementedException();
+
+        public void Move()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

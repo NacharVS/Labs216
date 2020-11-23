@@ -11,23 +11,23 @@ namespace Labs216.Zamaliev
 
         public Student(string firstname, string name)
         {
-            _firstname = firstname;
-            _name = name;
+            Firstname = firstname;
+            Name = name;
         }
 
-        public string firstname
+        public string Firstname
         {
             get { return _firstname; }
 
             set
             {
-                string purrname = null;
-                string buf = value.Remove(0, 1);
-                purrname = purrname + value[0].ToString().ToUpper();
-                firstname = purrname + buf;
+                value = value.Trim();
+                string buff = value[0].ToString().ToUpper();
+                value = value.Substring(1);
+                _firstname = buff + value;
             }
         }
-        public string name
+        public string Name
         {
             get
             {
@@ -36,10 +36,7 @@ namespace Labs216.Zamaliev
 
             set
             {
-                string purname = null;
-                string buff = value.Remove(0, 1);
-                purname = purname + value[0].ToString().ToUpper();
-                name = purname + buff;
+                
             }
         }
     }

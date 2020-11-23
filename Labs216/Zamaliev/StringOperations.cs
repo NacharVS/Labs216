@@ -8,32 +8,31 @@ namespace Labs216.Zamaliev
     {
         static public void SOp(string s)
         {
-            char[] str = s.ToCharArray();
 
             Console.WriteLine("Нечётный символ в строке: ");
-            for (int a = 0; a < str.Length; a = a + 1)
+            for (int a = 0; a < s.Length; a++)
             {
-                if (str[a] == ' ')
+                if (s[a] == ' ')
                     continue;
-                if (a % 2 == 0)
-                    Console.WriteLine(str[a]);
+                if ((a+1) % 2 != 0)
+                    Console.Write($"{s[a]}|");
             }
 
             Console.WriteLine();
 
             Console.Write("Чётный символ в строке: ");
-            for (int a = 0; a < str.Length; a = a + 1)
+            for (int a = 0; a < s.Length; a++)
             {
-                if (str[a] == ' ')
+                if (s[a] == ' ')
                     continue;
-                if (a % 2 != 0)
-                    Console.Write(str[a]);
+                if ((a+1) % 2 == 0)
+                    Console.Write($"{s[a]}|");
             }
         }
 
         public static void WordsCount(string s)
         {
-            string[] words = s.Split(' ', StringSplitOptions.RemoveEmptyEntries);
+            string[] words = s.Split('a', StringSplitOptions.RemoveEmptyEntries);
             Console.WriteLine($"Количество слов в строке = {words.Length}");
         }
 
@@ -41,7 +40,7 @@ namespace Labs216.Zamaliev
         {
             string m = "";
             n = n.Replace(" ", "");
-            for (int i = 0; i < n.Length; i = i + 1) 
+            for (int i = 0; i < n.Length; i++) 
             {
                 m += n[n.Length - i - 1];
             }
