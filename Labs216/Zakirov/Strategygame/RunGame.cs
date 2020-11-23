@@ -8,16 +8,19 @@ namespace Labs216.Zakirov.Strategygame
     {
         public static void Run()
         {
-            var farmer1 = TeachFarmer();
-            IMovable move = farmer1;
+            IMovable move;
+            IAttack attack;
+            IShootable shoot;            
+            IGather gatherer;
+
+            var farmer = new Farmer(12, 12);
+
+            move = farmer;
             move.Move();
-            IGather gather = farmer1;
-            gather.Gather();
+
+           
+
         }
-        public static Farmer TeachFarmer()
-        {
-            Farmer farmerUnit = new Farmer(1, 1);
-            return farmerUnit;
-        }
+
     }
 }

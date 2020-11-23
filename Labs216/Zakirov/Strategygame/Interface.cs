@@ -7,19 +7,48 @@ namespace Labs216.Zakirov.Strategygame
     interface IMovable
     {
         public int Speed { get; }
-        public void Move();
+        public void Move()
+        {
+            Console.WriteLine($"Unit move with speed: {Speed}");
+        }
     }
     interface IShootable
     {
-        public void Shoot();
+        public int ShootDamage { get; }
+        public void Shoot()
+        {
+            Console.WriteLine($"Unit shoot with damage {ShootDamage}");
+        }
     }
-       interface IGather
+    public interface IResourseSourse
     {
-        public void Gather();
+        public int Amount { get; set; }
+
     }
-    interface IArmy
-    {      
-        public void Attack();
+
+    public interface IStorage
+    {
+        public int Gold { get; set; }
+        public int Wood { get; set; }
+        public int Food { get; set; }
+        public int MaxAmount { get; }
+    }
+
+    
+    interface IGather : IResourseSourse
+    {
+        public void Gather(IResourseSourse source);
+        void Gather(object field);
+        public void Store(IStorage storage);
+        
+    }
+    interface IAttack
+    {   
+        public int Damage { get; }
+        public void Attack()
+        {
+            Console.WriteLine($"Unit attack with damage {Damage}");
+        }
     }
 
 
