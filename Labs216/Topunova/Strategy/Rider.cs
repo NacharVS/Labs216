@@ -4,11 +4,23 @@ using System.Text;
 
 namespace Labs216.Topunova.Strategy
 {
-    class Rider
+    class Rider : CharacteristicRider, ISpead, IMove
     {
-        public void Headless(string searches, int moves)
+        public Rider(int Health, int Speed)
         {
-            searches = "Looking for a head";
+            Health = Health;
+            Speed = Speed;
+        }
+        {
+        public void ISpead(Acceleration)
+        {
+            Acceleration = 5;
+            Console.WriteLine("+5km/h");
+        }
+        public void IMoves(string Direction)
+        {
+            Direction = (left || right);
+            Console.WriteLine($"left & right");
         }
     }
 }
