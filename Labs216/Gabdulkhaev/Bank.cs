@@ -53,69 +53,70 @@ namespace Labs216.Gabdulkhaev
         }
         public double chet;
         double _paymentaccount = Convert.ToDouble(Console.ReadLine());
-    }
-    public void SetDenRozhd(int newDR)
-    {
-        int a = Convert.ToInt32(Console.ReadLine());
-        if (a < 14)
-            Console.WriteLine("-");
-        else
-            Console.WriteLine("+");
-    }
-    public static void rabota()
-    {
-        Console.WriteLine("Выберите действие");
-        Console.WriteLine("Положить на счет - 1, снять - 2, положить на депозит 3");
-        int dei = Convert.ToInt32(Console.ReadLine());
-        switch (dei)
+        public void SetDenRozhd(int newDR)
         {
-            case 1:
-                Console.WriteLine("Вы выбрали снять со счета");
-                Console.WriteLine("Введите сумму");
-                double summa = Convert.ToDouble(Console.ReadLine());
-                double chet = _paymentaccount - summa;
-                Console.WriteLine($"Итоговый счет {chet}");
-                break;
-            case 2:
-                Console.WriteLine("Вы выбрали положить на счет");
-                Console.WriteLine("Введите сумму");
-                double raznost = Convert.ToDouble(Console.ReadLine());
-                chet = _paymentaccount - raznost;
-                Console.WriteLine($"Итоговый счет {chet}");
-                break;
-            case 3:
-                Console.WriteLine("Вы выбрали депозит");
-                Console.WriteLine("Выберите какую сумму хотите положить");
-                Console.WriteLine("Процент в нашем банке - 0,3859195 в год");
-                double summmmmmmmmmmmm = Convert.ToDouble(Console.ReadLine());
-                double depoz = summmmmmmmmmmmm * 0.3859195;
-                Console.WriteLine($"Через год вы получит {depoz}");
-                break;
-            default:
-                Console.WriteLine("Error");
-                break;
+            int a = Convert.ToInt32(Console.ReadLine());
+            if (a < 14)
+                Console.WriteLine("-");
+            else
+                Console.WriteLine("+");
         }
-    }
-    public static void cashback()
-    {
-        // разделить на 3 партнера, 1 - 10%, 2 - 20%, 3 - 30
-        double potr = Convert.ToDouble(Console.ReadLine());
-        string part =Console.ReadLine();
-        switch (part)
+        public void rabota()
         {
-            case "сбер":
-                int cash = potr * 10 %
-                break;
-        }
-    }
-    public DateTime AccountOpenDate()
-    {
-        get
+            Console.WriteLine("Выберите действие");
+            Console.WriteLine("Положить на счет - 1, снять - 2, положить на депозит 3");
+            int dei = Convert.ToInt32(Console.ReadLine());
+            switch (dei)
             {
-            return _accountopendate;
+                case 1:
+                    Console.WriteLine("Вы выбрали снять со счета");
+                    Console.WriteLine("Введите сумму");
+                    double summa = Convert.ToDouble(Console.ReadLine());
+                    double chet = _paymentaccount - summa;
+                    Console.WriteLine($"Итоговый счет {chet}");
+                    break;
+                case 2:
+                    Console.WriteLine("Вы выбрали положить на счет");
+                    Console.WriteLine("Введите сумму");
+                    double raznost = Convert.ToDouble(Console.ReadLine());
+                    chet = _paymentaccount - raznost;
+                    Console.WriteLine($"Итоговый счет {chet}");
+                    break;
+                case 3:
+                    Console.WriteLine("Вы выбрали депозит");
+                    Console.WriteLine("Выберите какую сумму хотите положить");
+                    Console.WriteLine("Процент в нашем банке - 0,3859195 в год");
+                    double summmmmmmmmmmmm = Convert.ToDouble(Console.ReadLine());
+                    double depoz = summmmmmmmmmmmm * 0.3859195;
+                    Console.WriteLine($"Через год вы получит {depoz}");
+                    break;
+                default:
+                    Console.WriteLine("Error");
+                    break;
+            }
+        }
+        public static void cashback()
+        {
+            // разделить на 3 партнера, 1 - 10%, 2 - 20%, 3 - 30
+            double potr = Convert.ToDouble(Console.ReadLine());
+            string part = Console.ReadLine();
+            switch (part)
+            {
+                case "сбер":
+                    double cash = potr/10;
+                    break;
+            }
+        }
+        public DateTime AccountOpenDate
+        {
+            get
+            {
+                return _accountOpenDate;
+            }
         }
     }
 }
+
 
     // Надо добавить эвенты
     // Сделать касхбацк
