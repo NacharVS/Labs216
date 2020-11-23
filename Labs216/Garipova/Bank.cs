@@ -10,6 +10,7 @@ namespace Labs216.Garipova
         private string _phonenumber;
         private static double _rate;
         private static int count = 0;
+        private static double _cashback;
         public Bankaccount(double rate)
         {
             _rate = rate;
@@ -66,6 +67,22 @@ namespace Labs216.Garipova
         {
             rate = (rate * Summa) / 100;
         }
+
+        public void CashBack()
+        {
+            get 
+                {
+                return _cashback;
+                }
+            set
+            {
+                _cashback = value;
+                Notify3.Invoke(_sum, _cashback); 
+            }
+        }
+        set
+    
+
     }
 
 }
