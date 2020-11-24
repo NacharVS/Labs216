@@ -10,6 +10,7 @@ namespace Labs216.ArslanovTI.Game
 
         public int maxDamage { get; }
         void Attack();
+        //111
 
 
 
