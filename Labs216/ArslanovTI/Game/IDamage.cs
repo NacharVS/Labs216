@@ -5,11 +5,9 @@ using System.Text;
 namespace Labs216.ArslanovTI.Game
 {
 
-    class Attack
+    interface IDamage
     {
-        public int _attackrange;
-        public int _splashattack;
-        public int _attackspeed;
+        
 
 
        
@@ -60,6 +58,10 @@ namespace Labs216.ArslanovTI.Game
                 _attackspeed = value;
             }
         }
+
+        int _attackrange { get; set; }
+        int _splashattack { get; set; }
+        int _attackspeed { get; set; }
     }
 }
 
