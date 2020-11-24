@@ -4,9 +4,7 @@ using System.Text;
 
 namespace Labs216.Nabiullina.StrategyGame
 {
-    class ILYA
+    class Lesoryb
     {
-        int ydar = 150;
-        int sila = 60;
     }
 }

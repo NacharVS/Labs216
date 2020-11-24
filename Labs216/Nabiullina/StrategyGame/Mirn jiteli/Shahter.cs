@@ -4,9 +4,7 @@ using System.Text;
 
 namespace Labs216.Nabiullina.StrategyGame
 {
-    class IVAN
+    class Shahter
     {
-        int ydar = 100;
-        int sila = 100;
     }
 }
