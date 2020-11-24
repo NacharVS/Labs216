@@ -4,19 +4,25 @@ using System.Text;
 
 namespace Labs216.Nabiullina.StrategyGame.Mirn_jiteli
 {
-    interface IDeistviya
+    interface IEat
     {
         public void Eat()
         {
             Console.WriteLine("Pokyshal");
         }
+    }
+    interface ILechenie
+    {
         public void Lechenie()
         {
-            Console.WriteLine("Proshol kyrs lecheniya.");
+            Console.WriteLine("Proshol kyrs lecheniya");
         }
+    }
+    interface IWalking
+    {
         public void Walking()
         {
-            Console.WriteLine("Took a walke.");
+            Console.WriteLine("Took a walke");
         }
     }
 }
