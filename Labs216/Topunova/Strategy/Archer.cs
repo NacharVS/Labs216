@@ -1,23 +1,26 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-using System;
+
 
 namespace Labs216.Topunova.Strategy
 {
-    class Archer : Characteristics, IShort, IMovable
+    class Archer : Characteristics, IShoot, IMovable
     {
-        public int Shootdmg { get; }
-        public int afsdgdhdfh;
+        public int Shoot { get; }
+        public int _kollichestvo;
         public int _healt;
         public double Speed { get; }
-
-        public Archer(int Health, int Force, int Arrow, string IMove)
+        public int _force;
+        public int _move;
+        public string _derection;
+        public int _arrow;
+        public Archer(int Health, int Force, int Arrow, int Move)
         {
             _healt = Health;
-            Force = Force;
-            Arrow = Arrow;
-            Move = Move;
+            _force = Force;
+            _arrow = Arrow;
+            _move = Move;
         }
         public void Force()
         {
@@ -25,13 +28,13 @@ namespace Labs216.Topunova.Strategy
         }
         public void Arrow(int Kollichestvo)
         {
-            afsdgdhdfh += Kollichestvo;
+            _kollichestvo += Kollichestvo;
           Console.WriteLine($"+{Kollichestvo} arrow");
         }
-        public void IMove(string Derection)
+        public void IMoves(string Derection)
         {
-            Derection = (left || right);
-            Console.WriteLine($"left || right");
+            _derection = Derection;
+            Console.WriteLine($"Выбрать направление: ");
         }
     }
 }

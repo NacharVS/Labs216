@@ -13,10 +13,10 @@ namespace Labs216.Topunova.Strategy
             Console.WriteLine($"Spead");
         }
     }
-    interface IShort
+    interface IShoot
     {
-        public int Shootdmg { get; }
-        public void Shoot()
+        public int Shoot { get; }
+        public void Shootable()
         {
             Console.WriteLine("Unit moves with takly");
         }

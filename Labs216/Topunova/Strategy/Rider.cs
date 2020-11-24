@@ -4,27 +4,30 @@ using System.Text;
 
 namespace Labs216.Topunova.Strategy
 {
-    class Rider : CharacteristicRider, IShort, IMovable
+    class Rider : Characteristics, IShoot, IMovable
     {
-        public int Shootdmg => throw new NotImplementedException();
-        public int adsgdsghs;
+        public int Shoot => throw new NotImplementedException();
+        public int _acceleration;
         public double Speed => throw new NotImplementedException();
+        public string _derection;
+        public int _health;
+        public int _speed;
 
         public Rider(int Health, int Speed)
         {
-            Health = Health;
-            Speed = Speed;
+            _health = Health;
+            _speed = new Speed;
         }
+        
+        public void ISpead(int Acceleration) //ускорение 
         {
-        public void ISpead(int Acceleration)
-        {
-            adsgdsghs += Acceleration;
+            _acceleration += Acceleration;
             Console.WriteLine($"+{Acceleration}km/h");
         }
-        public void IMoves(string Direction)
+        public void IMoves(string Derection) //направление
         {
-            Direction = (left || right);
-            Console.WriteLine($"left & right");
+            _derection = Derection;
+            Console.WriteLine($"Выбрать направление: ");
         }
     }
 }
