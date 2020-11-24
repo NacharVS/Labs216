@@ -5,11 +5,16 @@ using System;
 
 namespace Labs216.Topunova.Strategy
 {
-    class Archer : Characteristics, IShot, IMove
+    class Archer : Characteristics, IShort, IMovable
     {
+        public int Shootdmg { get; }
+        public int afsdgdhdfh;
+        public int _healt;
+        public double Speed { get; }
+
         public Archer(int Health, int Force, int Arrow, string IMove)
         {
-            Health = Health;
+            _healt = Health;
             Force = Force;
             Arrow = Arrow;
             Move = Move;
@@ -20,8 +25,8 @@ namespace Labs216.Topunova.Strategy
         }
         public void Arrow(int Kollichestvo)
         {
-            Kollichestvo.Arrow = 5;
-          Console.WriteLine("+5 arrow");
+            afsdgdhdfh += Kollichestvo;
+          Console.WriteLine($"+{Kollichestvo} arrow");
         }
         public void IMove(string Derection)
         {
