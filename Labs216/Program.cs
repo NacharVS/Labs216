@@ -1,21 +1,24 @@
-﻿namespace Labs216
+﻿using Labs216.Garipova;
+using Labs216.Garipova.warniors;
+
+namespace Labs216
 {
     class Program
     {
         static void Main(string[] args)
         {
-            var archer1 = TeachArcher();
+            Archer archer1 = new Archer();
             IMovable move = archer1;
             move.Move();
-            ISootable shoot = archer1;
+            IShootable shoot = archer1;
             shoot.Shoot();
-        }
-        public static TeachArcher()
-        {
-            Archer archerUnit = new Archer;
-            archerUnit.minDamage = 3;
-            archerUnit.maxDamage = 7;
-            return archerUnit;
+
+            FootSoldier footSoldier = new FootSoldier();
+            IMovable move2 = footSoldier;
+            move2.Move();
+            IShootable shoot = footSoldier;
+
+
 
         }
     }
