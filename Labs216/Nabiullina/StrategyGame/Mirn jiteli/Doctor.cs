@@ -4,7 +4,8 @@ using System.Text;
 
 namespace Labs216.Nabiullina.StrategyGame
 {
-    class Doctor
+    class Doctor:ITreat
     {
+       
     }
 }
