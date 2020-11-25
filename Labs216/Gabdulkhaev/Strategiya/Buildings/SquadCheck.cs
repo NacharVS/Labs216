@@ -6,7 +6,7 @@ namespace Labs216.Gabdulkhaev.Strategiya.Buildings
 {
     class SquadCheck: Character
     {
-        public void Check()
+        public void Check() // либо смотровая башня, либо кто-нибудь ходит чекает
         {
             Console.WriteLine("Все бойцы на месте");
         }

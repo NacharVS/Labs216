@@ -19,7 +19,7 @@ namespace Labs216.Gabdulkhaev.Strategiya.Peaceful_people
             {
                 kirka_sost = kirka_sost - 10;
             }
-                int resurse_in_the_chaxte = 1000; // Ресурсов в шахте 1к, но их надо пополнять
+                int resurse_in_the_chaxte = 1000; // ресурсов в шахте, покупать в магазине
                 Random rnd = new Random();
                 int luck = rnd.Next(1, 10);
                 Random rnd1 = new Random();

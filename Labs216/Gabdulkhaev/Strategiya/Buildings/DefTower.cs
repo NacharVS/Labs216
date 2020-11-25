@@ -12,11 +12,11 @@ namespace Labs216.Gabdulkhaev.Strategiya.Buildings
             int deffend = rndd.Next(1, 3);
             if (deffend==1)
             {
-                Console.WriteLine("Башня обнаружила противника");
+                Console.WriteLine("Башня обнаружила противника и убила его");
             }
             else if (deffend==2)
                         {
-                Console.WriteLine("Никого не найдено");
+                Console.WriteLine("Все впорядке");
             }
         }
     }
