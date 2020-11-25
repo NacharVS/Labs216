@@ -8,6 +8,7 @@ namespace Labs216.Nabiullina.StrategyGame
     {
         //srtelyat
         public void Shoot();
+        public int Dmgshoot { get; }
     }
     interface IMovement
     {
@@ -24,11 +25,7 @@ namespace Labs216.Nabiullina.StrategyGame
         //ozhivat'
         public void Revive();
     }
-    interface ITreat
-    {
-        //lechit'
-        public void Treat();
-    }
+  
     interface IIncome
     {
         //pribbIl'
@@ -40,7 +37,10 @@ namespace Labs216.Nabiullina.StrategyGame
         //pabota
         public void Work();
     }
-
+    interface ISleep
+    {
+        public void Sleep();
+    }
 
 }
 
