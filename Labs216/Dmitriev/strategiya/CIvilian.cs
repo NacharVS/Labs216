@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Labs216.Dmitriev.strategiya
 {
-    class fishermens : ICivilian
+    class fishermens : infaBuilding
     {
         public int Zdorove { get; }
         public double Speed { get; private set; }
@@ -27,18 +27,17 @@ namespace Labs216.Dmitriev.strategiya
         }
     }
 
-    sealed class xunter :  ICivilian
+    sealed class xunter : infaBuilding
     {
         public double Speed { get; private set; }
         public string UnitType { get; } = "земля";
-        public int Zdorove { get; }
-        public int Oborona { get; }
+       
 
         public xunter(int zdorove, int oborona, double speed)
         {
-            Zdorove = zdorove;
-            Oborona = oborona;
-            Speed = speed;
+            _Zdorove = zdorove;
+            _Oborona = oborona;
+            _Speed = speed;
         }
 
         public void Move()
