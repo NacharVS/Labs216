@@ -10,6 +10,9 @@ namespace Labs216.Nabiullina.StrategyGame
         public int _minspeed=0;
         public int _maxspeed;
         public int _dmg;
-    
+        public int _sila;
+        public int _money;
+
+
     }
 }
