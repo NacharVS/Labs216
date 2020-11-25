@@ -9,7 +9,7 @@ namespace Labs216.Garipova.warniors
         }
         public void Shoot()
         {
-            throw new NotImplementedException();
+            Console.WriteLine("");
         }
     }
     

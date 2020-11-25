@@ -8,4 +8,8 @@ namespace Labs216.Garipova
     {
         public void Move();
     }
+    interface IShootable
+    {
+        public void Shoot();
+    }
 }
