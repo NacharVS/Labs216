@@ -12,8 +12,53 @@ namespace Labs216
     {
         public void Collab();
     }
-    interface IWork
+    
+    interface IAttack
     {
-        public void Work();
+        public void Attack();
+    }
+    interface IMovable
+    {
+        public void Move();
+    }
+    interface IBlind
+    {
+        public void Blind();
+    }
+    interface IFight
+    {
+        public void Fight();
+    }
+    interface IJump
+    {
+        public void Jump();
+    }
+    interface IExamine
+    {
+        public void Examine();
+    }
+    interface ITreats
+    {
+        public void Treats();
+    }
+    interface IExplain
+    {
+        public void Explain();
+    }
+    interface ICheck
+    {
+        public void Check();
+    }
+    interface IHelp
+    {
+        public void Help();
+    }
+    interface ICooking
+    {
+        public void Cooking();
+    }
+    interface IEnjoyLife
+    {
+        public void EnjoyLife();
     }
 }

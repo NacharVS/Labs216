@@ -4,17 +4,16 @@ using System.Text;
 
 namespace Labs216.Buildings
 {
-    class ArcherTower: CharacteristicsBuildings, ICollabration
+    class Hospital: CharacteristicsBuildings, ICollabration
     {
-        public ArcherTower(int health, int defence)
+        public Hospital(int health, int deference)
         {
             _health = health;
-            _defence = defence;
+            _defence = deference;
         }
         public void Collab()
         {
-            Console.WriteLine("You collab with ArcherTower");
+            Console.WriteLine("You collab with Hospital");
         }
-
     }
 }

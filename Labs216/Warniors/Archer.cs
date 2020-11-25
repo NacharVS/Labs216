@@ -4,13 +4,16 @@ using System.Text;
 
 namespace Labs216.Warniors
 {
-    class Archer: Characteristics, IShootable, IMovable
+    class Archer: Characteristics, IShootable, IMovable, IBlind, IFight, IAttack
     {
-        public Archer(int health, int uron)
+        public Archer(int health, int uron, int force, int adroitness, int attention, int malice)
         {
             _health = health;
             _uron = uron;
-
+            _force = force;
+            _adroitnes = adroitness;
+            _attention = attention;
+            _malice = malice;
         }
         public void Move()
         {
@@ -19,8 +22,19 @@ namespace Labs216.Warniors
 
         public void Shoot()
         {
-            Console.WriteLine("Archer shoot");
+            Console.WriteLine("Archer shooting");
         }
-
+        public void Blind()
+        {
+            Console.WriteLine("Archer blinding");
+        }
+        public void Fight()
+        {
+            Console.WriteLine("Archer fighting");
+        }
+        public void Attack()
+        {
+            Console.WriteLine("Archer attacking");
+        }
     }
 }
