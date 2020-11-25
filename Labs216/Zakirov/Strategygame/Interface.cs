@@ -48,9 +48,16 @@ namespace Labs216.Zakirov.Strategygame
         public void Attack()
         {
             Console.WriteLine($"Unit attack with damage {Damage}");
+
         }
     }
 
-
+    interface IInteractivchik
+    {
+        public void Interact()
+        {
+            Console.WriteLine($"You have nothing to do here");
+        }
+    }
     
 }

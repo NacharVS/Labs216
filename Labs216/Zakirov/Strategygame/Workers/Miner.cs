@@ -2,19 +2,18 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Labs216.Zakirov.Strategygame
+namespace Labs216.Zakirov.Strategygame.Workers
 {
-    public class Farmer : Characteristics, IMovable, IGather
+    public class Miner : Characteristics, IMovable, IGather
     {
         public int Amount { get; set; }
         public int Speed { get; private set; }
-        public Farmer (int health, int speed)
+        public Miner(int health, int speed)
         {
             Health = health;
             Speed = speed;
 
         }
-        
         public void Gather(IResourseSourse source)
         {
             if (source.Amount == 0)
@@ -50,4 +49,4 @@ namespace Labs216.Zakirov.Strategygame
             throw new NotImplementedException();
         }
     }
- }
+}
