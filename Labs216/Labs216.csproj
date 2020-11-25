@@ -13,6 +13,8 @@
 
   <ItemGroup>
     <Folder Include="Faskhutdinov\Delegates\" />
+    <Folder Include="Faskhutdinov\interface play\zdaniy\" />
+    <Folder Include="Faskhutdinov\interface play\voennyi\" />
   </ItemGroup>
 
 </Project>

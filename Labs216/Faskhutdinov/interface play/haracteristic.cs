@@ -4,7 +4,9 @@ using System.Text;
 
 namespace Labs216.Faskhutdinov.interface_play
 {
-    class haracteristic
+     abstract class Characteristic
     {
+        public int Health { get; set; }
+        public int Defense { get; set; }
     }
 }
