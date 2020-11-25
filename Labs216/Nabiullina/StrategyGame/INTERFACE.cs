@@ -8,7 +8,7 @@ namespace Labs216.Nabiullina.StrategyGame
     {
         //srtelyat
         public void Shoot();
-        public int Dmgshoot { get; }
+        
     }
     interface IMovement
     {

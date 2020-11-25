@@ -12,7 +12,7 @@ namespace Labs216.Nabiullina.StrategyGame
         public int _dmg;
         public int _sila;
         public int _money;
-
+        public int _puli;
 
     }
 }

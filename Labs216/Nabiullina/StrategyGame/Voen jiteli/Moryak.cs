@@ -4,24 +4,28 @@ using System.Text;
 
 namespace Labs216.Nabiullina.StrategyGame.Voen_jiteli
 {
-    class Moryak : Characteristic, IWork, ISleep, ICharge
+    class Moryak : Characteristic, IWork, ISleep, IShoot
     {
-        public Moryak(int zdorove, int yron, int minspeed, int maxspeed, int money)
+        public Moryak(int zdorove, int yron,  int maxspeed, int puli)
         {
             _dmg = yron;
             _maxspeed = maxspeed;
-            _minspeed = minspeed;
             _zdorove = zdorove;
-            _money = money;
+            _puli = puli;
         }
-        public void Charge()
+        public void Shoot()
         {
             Console.WriteLine("OOOY, NO! Пираааты... пиу-пиу-пиу");
+            _puli -= 2;
+            Console.WriteLine($"Осталось {_puli} пуль");
         }
 
         public void Sleep()
         {
             Console.WriteLine("Пора набраться сил. Я спать!");
+            
+             _zdorove += 2; 
+           
         }
 
         public void Work()

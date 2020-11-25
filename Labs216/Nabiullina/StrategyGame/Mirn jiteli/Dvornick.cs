@@ -17,13 +17,15 @@ namespace Labs216.Nabiullina.StrategyGame
         }
         public void Movement()
         {
-            Console.WriteLine("Я умею двигаться!");
+            Console.WriteLine("Передвигаюсь на уборочной машине");
+            _zdorove -= 2;
 
         }
 
         public void Sleep()
         {
             Console.WriteLine("Дворник пошел спать");
+            _zdorove += 1;
         }
     }
 }
