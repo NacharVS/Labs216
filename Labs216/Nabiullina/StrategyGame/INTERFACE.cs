@@ -41,6 +41,14 @@ namespace Labs216.Nabiullina.StrategyGame
     {
         public void Sleep();
     }
+    interface IChelovek
+    {
+        public void Chelovek();
 
+    }
+    interface IChtoHranitca
+    {
+        public void ChtoHranitca();
+    }
 }
 

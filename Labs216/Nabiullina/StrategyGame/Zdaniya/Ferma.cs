@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Labs216.Nabiullina.StrategyGame.Zdaniya
 {
-    class Ferma
+    class Ferma : Characteristic, IChelovek, 
     {
     }
 }
