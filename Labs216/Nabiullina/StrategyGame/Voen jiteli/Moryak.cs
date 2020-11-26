@@ -17,6 +17,14 @@ namespace Labs216.Nabiullina.StrategyGame.Voen_jiteli
         public void Movement()
         {
             Console.WriteLine("Мне стоит взять лодку.");
+            if(_zdorove>=1)
+            {
+                _zdorove -= 1;
+            }
+            else
+            {
+                Console.WriteLine("Кажется у меня нет сил:(");
+            }
         }
 
         public void Shoot()
@@ -50,7 +58,7 @@ namespace Labs216.Nabiullina.StrategyGame.Voen_jiteli
         public void Work()
         {
             Console.WriteLine(" Я путешествую на лодке и ловлю рыбу.")
-                 
+            
 
         }
     }

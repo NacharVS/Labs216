@@ -4,23 +4,27 @@ using System.Text;
 
 namespace Labs216.Nabiullina.StrategyGame.Voen_jiteli
 {
-    class Soldat : Characteristic, IShoot, IMovement, 
+    class Soldat : Characteristic, IDlyaVoennogo
     {
-        
-
-        public void Charge()
-        {
-            throw new NotImplementedException();
-        }
 
         public void Movement()
         {
-            throw new NotImplementedException();
+            
         }
 
         public void Shoot()
         {
             throw new NotImplementedException();
+        }
+
+        public void Sleep()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void Work()
+        {
+            Console.WriteLine("Я на службе. Мне стоит выполнять данные руководством приказы!");
         }
     }
 }
