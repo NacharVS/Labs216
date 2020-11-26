@@ -4,24 +4,23 @@ using System.Text;
 
 namespace Labs216.Nabiullina.StrategyGame
 {
-    class Doctor : Characteristic, IMovement, IWork, ISleep, IIncome
-
+    class Doctor : Characteristic, IDlyaChelovekaMirn
     {
-        public Doctor(  int maxspeed, int zdorove, int money)
+        public Doctor(  int operatciyavremya, int zdorove, int zarobotok)
         {
-            _maxspeed = maxspeed;
+            _maxspeed = operatciyavremya;
             _zdorove = zdorove;
-            _money = money;
+            _money = zarobotok;
         }
         public void Movement()
         {
-            Console.WriteLine("Я прыгать на скакалке!");
+            Console.WriteLine("Я  могу прыгать на скакалке!");
             _zdorove -= 2;
 
         }
         public void Work()
         {
-            Console.WriteLine("Я лечу людей!");
+            Console.WriteLine($"Я лечу людей! \n Одна операция длится {_maxspeed}");
         }
 
         public void Sleep()

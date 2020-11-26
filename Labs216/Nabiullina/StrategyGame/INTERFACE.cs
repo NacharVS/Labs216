@@ -4,51 +4,25 @@ using System.Text;
 
 namespace Labs216.Nabiullina.StrategyGame
 {
-    interface IShoot
-    {
-        //srtelyat
-        public void Shoot();
-        
-    }
-    interface IMovement
-    {
-        //peredvigenie
-        public void Movement();
-    }
-    interface ICharge
-    {
-        //zaryad, ataka
-        public void Charge();
-    }
-    interface IRevive
-    {
-        //ozhivat'
-        public void Revive();
-    }
-  
-    interface IIncome
-    {
-        //pribbIl'
-        public void Income();
-    }
-
-    interface IWork
-    {
-        //pabota
-        public void Work();
-    }
-    interface ISleep
+    interface IDlyaChelovekaMirn
     {
         public void Sleep();
-    }
-    interface IChelovek
-    {
-        public void Chelovek();
+        public void Work();
+        public void Income();
+        public void Movement();
 
     }
-    interface IChtoHranitca
+    interface IDlyaVoennogo
+    {
+        public void Sleep();
+        public void Shoot();
+        public void Movement();
+        public void Work();
+    }
+    interface IDlyaZdaniya
     {
         public void ChtoHranitca();
+        public void ChisloChelovek();
     }
 }
 

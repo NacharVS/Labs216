@@ -13,6 +13,7 @@ namespace Labs216.Nabiullina.StrategyGame
         public int _sila;
         public int _money;
         public int _puli;
-
+        public int _hranenie;
+        public int _zarobotok;
     }
 }
