@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Labs216.ArslanovTI.Game
 {
-    class Wizard : Health, IAttack, IMoveable
+    class Wizard : Health, IAttack, IMoveable, IDamage
     {
         public int minDamage => 145;
 
@@ -14,14 +14,20 @@ namespace Labs216.ArslanovTI.Game
 
         public int maxSpeed => 7;
 
+        public int _attackrange => 10;
+
+        public int _splashattack => 7;
+
+        public int _attackspeed => 10;
+
         public void Attack()
         {
-            throw new NotImplementedException();
+            Console.WriteLine("Атака мага!");
         }
 
         public void Move()
         {
-            throw new NotImplementedException();
+            Console.WriteLine("Маг отступает!");
         }
     }
 }
