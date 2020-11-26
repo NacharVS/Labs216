@@ -7,18 +7,25 @@ namespace Labs216.Zamaliev.StrategyGame
         interface IMovable
         {
             public void Move();
-            public int Speed { get; }
+            
         }
-        interface IShootable
+        interface IAttack
         {
             public void Shoot();
+            public void Punch();
         }
         interface IMinable
         {
             public void Mine();
+            public void ChopWood();
+            public void ToFish();
+            public void Build();
+            public void Farm();
         }
-        interface IAttack
+        interface IDefense
         {
-            public void Attack();
+
         }
-    }
+
+        
+}
