@@ -27,7 +27,7 @@ namespace Labs216.Nabiullina
     class BANK : Person
     {
 
-        private int _vozrast;
+        private DateTime _dayofbirth;
         private static double _stavka = 6.7;
         private string _id;
         private double _schet;
@@ -35,10 +35,10 @@ namespace Labs216.Nabiullina
         private double _pokupka;
         
 
-        public BANK(string name, string surname, int vozrast, double schet)
+        public BANK(string name, string surname, DateTime vozrast, double schet)
         {
 
-            _vozrast = vozrast;
+            _dayofbirth = vozrast;
             _schet = schet;
 
         }
@@ -46,9 +46,9 @@ namespace Labs216.Nabiullina
 
         public void SetVozrast()
         {
-            int a = DateTime.Today.Year;
-            _vozrast = a - _vozrast;
-            Console.WriteLine($"Age: {_vozrast}");
+           
+            int age = DateTime.Today.Year - _dayofbirth.Year;
+            Console.WriteLine($"Age: {age}");
         }
         public void SetSchet()
         {
