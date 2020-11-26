@@ -4,7 +4,12 @@ using System.Text;
 
 namespace Labs216.ArslanovTI.Game.Building
 {
-    class Blacksmith
+    class Blacksmith : Health
     {
+       
+        
+
     }
+    
+
 }

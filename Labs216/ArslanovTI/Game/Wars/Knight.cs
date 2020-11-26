@@ -14,7 +14,7 @@ namespace Labs216.ArslanovTI.Game
 
         public int maxSpeed =>7;
 
-        public int _attackrange => 4;
+        public int _attackrange => 2;
 
         public int _splashattack => 2;
 

@@ -4,13 +4,13 @@ using System.Text;
 
 namespace Labs216.ArslanovTI.Game.Civilians
 {
-    class Forester
+    class Forester 
     {
-        public void SkillsForester(string Th, Random FishPerDay)
+        public void SkillsForester(string ToTree, Random TreePerDay)
         {
-            ToFish = "Рыбак ловит от 5 до 20 рыб в день";
-            FishPerDay = new Random();
-            int fish = FishPerDay.Next(5, 10);
+            ToTree = "Лесник рубит от 5 до 20 деревьев в день";
+            TreePerDay = new Random();
+            int fish = TreePerDay.Next(5, 20);
 
         }
     }

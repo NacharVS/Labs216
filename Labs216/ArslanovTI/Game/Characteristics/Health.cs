@@ -4,14 +4,22 @@ using System.Text;
 
 namespace Labs216.ArslanovTI.Game
 {
-    class Health
+    abstract class Health
     {
-        static void valueHeath(int valueHeathArcher, int valueHeathWizard, int valueHeathBerserk, int valueHeathknight)
+        private int _health;
+        public int Health1
         {
-            valueHeathArcher = 100;
-            valueHeathWizard = 250;
-            valueHeathBerserk = 700;
-            valueHeathknight = 500;
+            get
+
+            {
+                return _health;
+            }
+            set 
+            {
+
+                _health = value;
+
+            }
         }
-    }
+    }   
 }

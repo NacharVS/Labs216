@@ -4,8 +4,17 @@ using System.Text;
 
 namespace Labs216.ArslanovTI.Game.Civilians
 {
-    class Fisherman
+    class Fisherman : IMoveable 
     {
+        public int minSpeed => 4;
+
+        public int maxSpeed =>7;
+
+        public void Move()
+        {
+           Console.WriteLine("Иду на рыбалку");
+        }
+
         public void SkillsFisherman(string ToFish, Random FishPerDay)
         {
             ToFish = "Рыбак ловит от 5 до 20 рыб в день";
@@ -15,4 +24,3 @@ namespace Labs216.ArslanovTI.Game.Civilians
         }         
     }
 }
-rf
