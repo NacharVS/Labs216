@@ -4,8 +4,8 @@ using System.Text;
 
 namespace Labs216.Bulatov.Strategy
 {
-    class Workers
+    public abstract class Characteristics
     {
-        
+        public int Health { get; set; }
     }
 }
