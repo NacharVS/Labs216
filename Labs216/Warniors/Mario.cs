@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Labs216.Warniors
 {
-    class Mario: Characteristics, IMovable, IShootable, IJump, IAttack
+    class Mario: Characteristics, IMario
     {
         public Mario(int health, int uron, int force, int adroitnes, int attention, int success)
         {
@@ -26,10 +26,6 @@ namespace Labs216.Warniors
         public void Jump()
         {
             Console.WriteLine("Mario jumping");
-        }
-        public void Attack()
-        {
-            Console.WriteLine("Mario attacking");
         }
     }
 }

@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Labs216.Workers
 {
-    class Teacher: CharacteristicsWorkers, IMovable, IExplain, ICheck, IHelp
+    class Teacher: CharacteristicsWorkers, ITeacher
     {
         public Teacher(int health, int uron, int skilled, int responsibility)
         {

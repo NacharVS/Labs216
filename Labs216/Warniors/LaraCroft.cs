@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Labs216.Warniors
 {
-    class LaraCroft: Characteristics, IShootable, IMovable, IAttack, IFight
+    class LaraCroft: Characteristics, ILaraCroft
     {
         public LaraCroft(int health, int force, int uron, int adroitnes, int malice, int intuition, int attention, int beauty)
         {
@@ -25,10 +25,7 @@ namespace Labs216.Warniors
         {
             Console.WriteLine("LaraCroft shooting");
         }
-        public void Attack()
-        {
-            Console.WriteLine("LaraCroft attacking");
-        }
+        
         public void Fight()
         {
             Console.WriteLine("LaraCroft fighting");

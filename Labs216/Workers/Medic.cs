@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Labs216.Workers
 {
-    class Medic: CharacteristicsWorkers, IMovable, IExamine, ITreats, IHelp
+    class Medic: CharacteristicsWorkers, IMedic
     {
         public Medic(int health, int uron, int skilled, int responsibility)
         {

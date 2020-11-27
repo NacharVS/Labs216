@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Labs216.Workers
 {
-    class Traveler: CharacteristicsWorkers, IMovable, IEnjoyLife
+    class Traveler: CharacteristicsWorkers, ITraveler
     {
         public Traveler(int health, int uron, int skilled, int responsibility)
         {

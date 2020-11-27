@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Labs216.Buildings
 {
-    class Labirint: CharacteristicsBuildings, ICollabration
+    class Labirint: CharacteristicsBuildings, IForBluindings
     {
         public Labirint(int health, int defence)
         {

@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Labs216.Buildings
 {
-    class ArcherTower: CharacteristicsBuildings, ICollabration
+    class ArcherTower: CharacteristicsBuildings, IForBluindings
     {
         public ArcherTower(int health, int defence)
         {

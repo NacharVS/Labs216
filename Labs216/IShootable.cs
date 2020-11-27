@@ -4,61 +4,72 @@ using System.Text;
 
 namespace Labs216
 {
-    interface IShootable
-    {
-        public void Shoot();
-    }
-    interface ICollabration
+    
+    interface IForBluindings
     {
         public void Collab();
     }
-    
-    interface IAttack
-    {
-        public void Attack();
-    }
-    interface IMovable
+    interface IArcher
     {
         public void Move();
+        public void Shoot();
+        public void Blind();
+        public void Fight();
+
     }
-    interface IBlind
+    interface IHeartBreakers
     {
+        public void Move();
+        public void Shoot();
         public void Blind();
     }
-    interface IFight
+    interface ILaraCroft
     {
+        public void Move();
+        public void Shoot();
         public void Fight();
     }
-    interface IJump
+    interface ILuckyguy
     {
+        public void Move();
+        public void Shoot();
+        public void Blind();
         public void Jump();
     }
-    interface IExamine
+    interface IMario
     {
-        public void Examine();
+        public void Move();
+        public void Shoot();
+        public void Jump();
     }
-    interface ITreats
-    {
-        public void Treats();
-    }
-    interface IExplain
-    {
-        public void Explain();
-    }
-    interface ICheck
-    {
-        public void Check();
-    }
-    interface IHelp
-    {
-        public void Help();
-    }
-    interface ICooking
-    {
-        public void Cooking();
-    }
-    interface IEnjoyLife
+    
+    interface ITraveler
     {
         public void EnjoyLife();
+        public void Move();
+    }
+    interface ITeacher
+    {
+        public void Move();
+        public void Explain();
+        public void Check();
+        public void Help();
+    }
+    interface IMedic
+    {
+        public void Move();
+        public void Examine();
+        public void Treats();
+        public void Help();
+    }
+    interface ICook
+    {
+        public void Move();
+        public void Cooking();
+    }
+    interface IAssistant
+    {
+        public void Move();
+        public void Help();
     }
 }

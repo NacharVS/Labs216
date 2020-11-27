@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Labs216.Buildings
 {
-    class Colledge: CharacteristicsBuildings, ICollabration
+    class Colledge: CharacteristicsBuildings, IForBluindings
     {
         public Colledge(int health, int deference)
         {

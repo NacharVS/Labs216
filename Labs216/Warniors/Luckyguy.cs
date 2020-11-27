@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Labs216.Warniors
 {
-    class Luckyguy: Characteristics, IShootable, IMovable, IAttack, IBlind, IFight, IJump
+    class Luckyguy: Characteristics, ILuckyguy
     {
         public Luckyguy(int health, int uron, int force, int adroitnes, int success, int malice, int intuition, int attention, int beauty)
         {
@@ -26,10 +26,7 @@ namespace Labs216.Warniors
         {
             Console.WriteLine("Luckyguy shooting");
         }
-        public void Attack()
-        {
-            Console.WriteLine("Luckyguy attacking");
-        }
+        
         public void Blind()
         {
             Console.WriteLine("Luckyguy blinding");

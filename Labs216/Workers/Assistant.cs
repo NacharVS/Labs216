@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Labs216.Workers
 {
-    class Assistant: CharacteristicsWorkers, IMovable, IHelp
+    class Assistant: CharacteristicsWorkers, IAssistant
     {
         public Assistant(int health, int uron, int skilled, int responsibility)
         {

@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Labs216.Buildings
 {
-    class Hospital: CharacteristicsBuildings, ICollabration
+    class Hospital: CharacteristicsBuildings, IForBluindings
     {
         public Hospital(int health, int deference)
         {

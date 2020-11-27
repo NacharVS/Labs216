@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Labs216.Warniors
 {
-    class Archer: Characteristics, IShootable, IMovable, IBlind, IFight, IAttack
+    class Archer: Characteristics, IArcher
     {
         public Archer(int health, int uron, int force, int adroitness, int attention, int malice)
         {
@@ -32,9 +32,6 @@ namespace Labs216.Warniors
         {
             Console.WriteLine("Archer fighting");
         }
-        public void Attack()
-        {
-            Console.WriteLine("Archer attacking");
-        }
+        
     }
 }

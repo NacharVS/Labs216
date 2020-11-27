@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Labs216.Warniors
 {
-    class HeartBreaker: Characteristics, IMovable, IShootable, IAttack, IBlind
+    class HeartBreaker: Characteristics, IHeartBreakers
     {
         public HeartBreaker(int health, int uron, int success, int intuition, int attention, int beauty)
         {
@@ -22,10 +22,6 @@ namespace Labs216.Warniors
         public void Shoot()
         {
             Console.WriteLine("HeartBreaker shooting with his eyes");
-        }
-        public void Attack()
-        {
-            Console.WriteLine("HeartBreaker attacking");
         }
         public void Blind()
         {

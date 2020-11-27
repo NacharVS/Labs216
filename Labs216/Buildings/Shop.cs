@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Labs216.Buildings
 {
-    class Shop: CharacteristicsBuildings, ICollabration
+    class Shop: CharacteristicsBuildings, IForBluindings
     {
         public Shop(int health, int deference)
         {
