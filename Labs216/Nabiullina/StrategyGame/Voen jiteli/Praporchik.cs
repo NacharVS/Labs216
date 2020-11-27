@@ -6,11 +6,10 @@ namespace Labs216.Nabiullina.StrategyGame.Voen_jiteli
 {
     class Praporchik : Characteristic, IDlyaVoennogo
     {
-        public Praporchik(int zdorove,  int maxspeed,  int sleep)
+        public Praporchik(int zdorove,  int maxspeed)
         {
             _maxspeed = maxspeed;
             _zdorove = zdorove;
-            _zdorove = sleep;
         }
         public void Movement()
         {
