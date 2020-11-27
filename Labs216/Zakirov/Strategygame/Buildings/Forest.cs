@@ -4,8 +4,8 @@ using System.Text;
 
 namespace Labs216.Zakirov.Strategygame
 {
-   public class Forest : IInteractivchik, IResourseSourse
-    {
+  sealed class Forest : Characteristics, IInteractivchik, IResourseSourse
+  {
         public int Amount { get; set; }
 
         public Forest(int amount)
@@ -16,6 +16,6 @@ namespace Labs216.Zakirov.Strategygame
         {
             Console.WriteLine($"You see a forest.\nResurse: {Amount}");
         }
-    }
+   }
 
 }

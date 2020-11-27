@@ -4,11 +4,11 @@ using System.Text;
 
 namespace Labs216.Zakirov.Strategygame.Buildings
 {
-    sealed class Field : IInteractivchik, IResourseSourse
+    sealed class Forest : Characteristics , IInteractivchik, IResourseSourse 
     {
         public int Amount { get; set; }
 
-        public Field(int amount)
+        public Forest(int amount)
         {
             Amount = amount;
         }

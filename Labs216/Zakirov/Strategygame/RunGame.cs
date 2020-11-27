@@ -1,10 +1,11 @@
-﻿using System;
+﻿
+using System;
 using System.Collections.Generic;
 using System.Text;
 
 namespace Labs216.Zakirov.Strategygame
 {
-    public class RunGame
+    class RunGame
     {
         public static void Run()
         {
@@ -12,13 +13,35 @@ namespace Labs216.Zakirov.Strategygame
             IAttack attack;
             IShootable shoot;            
             IGather gatherer;
+            IInteractivchik interactiv;
+            IGather sourse;
+            Console.WriteLine();
+            Console.WriteLine("Building");
+            Console.WriteLine();
 
-            var farmer = new Farmer(12, 12);
+            Console.WriteLine("Field");
+            Console.WriteLine();
+            interactiv = new Buildings.Forest(100);
+            interactiv.Interact();
+            Console.WriteLine();
 
-            move = farmer;
-            move.Move();
+            Console.WriteLine("Forest");
+            Console.WriteLine();
+            interactiv = new Buildings.Forest(100);
+            interactiv.Interact();
+            Console.WriteLine();
 
-           
+            Console.WriteLine("Mine");
+            Console.WriteLine();
+            interactiv = new Buildings.Mine(100);
+            interactiv.Interact();
+            Console.WriteLine();
+
+
+
+
+
+
 
         }
 
