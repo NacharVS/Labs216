@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Threading;
+using System.Threading.Channels;
 
 namespace Labs216.MirasovEG
 {
@@ -42,11 +43,11 @@ namespace Labs216.MirasovEG
     {
         public delegate void ChangeRate(double rate);
 
-        public event ChangeRate Notify;
+        public event ChangeRate Notify = (double rate) => Console.WriteLine($"New rate{rate}");
 
         public delegate void OnAccount(string message);
 
-        public event OnAccount Check;
+        public event OnAccount Check = (string message) => Console.WriteLine(message);
 
         private static DateTime _accountOpeningDate = DateTime.Now;
         private static DateTime _lastProfit = _accountOpeningDate;
@@ -84,7 +85,7 @@ namespace Labs216.MirasovEG
             {
                 _account = value;
                 double res = Math.Round(_account, 2);
-                Check?.Invoke($"On Account {res}");
+                Check($"On Account {res}");
             }
         }
 
@@ -179,7 +180,6 @@ namespace Labs216.MirasovEG
             if (Account > value)
             {
                 Account -= value;
-                
             }
 
             else
@@ -258,9 +258,13 @@ namespace Labs216.MirasovEG
 
         public static void CheckProfit()
         {
+
             Bank bank = new Bank();
-            bank.Check += Message;
-    
+
+            //bank.Check = (string message) => Console.WriteLine(message);
+            //bank.Notify = (double rate) => Console.WriteLine($"New rate{rate}");
+
+            bank.NewRate();
             bank.Deposit();
             bank.Buy(1000);
             bank.Buy(1000,"One");
@@ -269,11 +273,6 @@ namespace Labs216.MirasovEG
             Thread.Sleep(10000);
             bank.Instilled(DateTime.Now,2);
 
-            void Message(string message)
-            {
-                Console.WriteLine(message);
-                Console.WriteLine();
-            }
         }
 
         

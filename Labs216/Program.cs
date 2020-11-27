@@ -1,4 +1,5 @@
-﻿using Labs216.MirasovEG.Strategy;
+﻿using Labs216.MirasovEG;
+using Labs216.MirasovEG.Strategy;
 
 namespace Labs216
 {
@@ -6,8 +7,8 @@ namespace Labs216
     {
         public static void Main(string[] args)
         { 
-            Start start = new Start();
-            start.StartStrategy();
+           Bank bank = new Bank();
+           Bank.CheckProfit();
         }
     }
 }
