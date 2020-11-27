@@ -57,7 +57,7 @@ namespace Labs216.Nabiullina.StrategyGame.Voen_jiteli
 
         public void Work()
         {
-            Console.WriteLine(" Я путешествую на лодке и ловлю рыбу.")
+            Console.WriteLine(" Я путешествую на лодке и ловлю рыбу.");
             
 
         }

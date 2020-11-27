@@ -12,9 +12,9 @@ namespace Labs216
        
         static void Main(string[] args)
         {
-            //BANK acc = new BANK("Zul", "Nabiul", 17, 2500);
-            //acc.Rate += Message;
-            //acc.ChangeRate(5);
+            BANK acc = new BANK("Zul", "Nabiul", new DateTime(2000,5,25), 2500);
+            acc.Rate += (stavka) => Console.WriteLine($"Rate change on {stavka}");
+            acc.ChangeRate(5);
 
             //void Message(double stavka)
             //{
@@ -23,9 +23,9 @@ namespace Labs216
             //acc.Pokypka(200);
             //acc.Partners(1);
 
-            Doctor doctor = new Doctor(1,2,3);
-            doctor.Movement();
-            
+            //Doctor doctor = new Doctor(1,2,3);
+            //doctor.Movement();
+
         }
 
     }
