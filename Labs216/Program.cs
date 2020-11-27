@@ -108,6 +108,19 @@ namespace Labs216
             ArcherTower arctow  = new ArcherTower(100);
             IBuildings collabaration = arctow;
             collabaration.Collabaration();
+
+            bakery bak = new bakery(100);
+            IBuildings collabaration2 = bak;
+            collabaration2.Collabaration();
+
+            Castle castl = new Castle(100);
+            IBuildings collabaration3 = castl;
+            collabaration3.Collabaration();
+
+
+            watchingtower watchingtower1 = new watchingtower(100);
+            IBuildings collabaration4 = watchingtower1;
+            collabaration4.Collabaration();
         }
     }
 }
