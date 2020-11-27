@@ -17,6 +17,6 @@ namespace Labs216.Faskhutdinov.interface_play
     {
         void Mine();
         public int mine { get; }
-
     }
+    interface 
 }
