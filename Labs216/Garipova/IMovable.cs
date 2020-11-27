@@ -4,12 +4,21 @@ using System.Text;
 
 namespace Labs216.Garipova
 {
-    interface IMovable
+    interface Iworkers
     {
+        public void Cook();
         public void Move();
+        public void Sleep();
+        public void Eat();
     }
-    interface IShootable
+    interface Iwariors
     {
-        public void Shoot();
+        public void Stun();
+        public void Grenade();
+        public void Axe();
+    }
+    interface IBuildings
+    { 
+        public void Collabaration();
     }
 }

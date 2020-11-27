@@ -4,7 +4,15 @@ using System.Text;
 
 namespace Labs216.Garipova.buildings
 {
-    class bakery
+    class bakery : Characteristicsbuildings, IBuildings
     {
+        public bakery(int defence)
+        {
+         _defence = defence;
+        }
+       public void Collabaration()
+       {
+                Console.WriteLine("bakery collabaration");
+       }
     }
 }

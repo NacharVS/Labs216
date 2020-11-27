@@ -68,7 +68,7 @@ namespace Labs216.Garipova
             rate = (rate * Summa) / 100;
         }
 
-        public void CashBack()
+        public double  CashBack()
         {
             get 
                 {
@@ -80,9 +80,10 @@ namespace Labs216.Garipova
                 Notify3.Invoke(_sum, _cashback); 
             }
         }
-        set
-    
+        public static void chototam()
+        {
 
+        }
     }
 
 }

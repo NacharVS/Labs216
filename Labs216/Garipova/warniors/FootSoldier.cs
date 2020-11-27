@@ -4,15 +4,26 @@ using System.Text;
 
 namespace Labs216.Garipova.warniors
 {
-    class FootSoldier : Characteristics, IShootable, IMovable
+    class FootSoldier : Characteristicswarniors, Iwariors
     {
-        public void Move()
+        public FootSoldier(int health, int uron)
         {
-            Console.WriteLine("FootSoldier moving");
+            _health = health;
+            _uron = uron;
         }
-        public void Shoot()
+        public void Axe()
         {
-            throw new NotImplementedException();
+            Console.WriteLine("FootSoldier axe");
+        }
+
+        public void Grenade()
+        {
+            Console.WriteLine(" FootSoldier grenade");
+        }
+
+        public void Stun()
+        {
+            Console.WriteLine("FootSoldier stun");
         }
     }
 }

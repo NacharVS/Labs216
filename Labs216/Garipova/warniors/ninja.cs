@@ -4,15 +4,25 @@ using System.Text;
 
 namespace Labs216.Garipova.warniors
 {
-    class ninja : Characteristics, IShootable, IMovable
+    class ninja : Characteristicswarniors, Iwariors
     {
-        public void Move()
+        public ninja(int health, int uron)
         {
-            Console.WriteLine("ninja moving");
+            _health = health;
+            _uron = uron;
         }
-        public void Shoot()
+        public void Axe()
         {
-            throw new NotImplementedException();
+            Console.WriteLine("ninjia axe");
+        }
+
+        public void Grenade()
+        {
+            Console.WriteLine("ninjia grenade");
+        }
+        public void Stun()
+        {
+            Console.WriteLine("ninjia stun");
         }
     }
 }

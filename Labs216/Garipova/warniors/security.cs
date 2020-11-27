@@ -4,15 +4,25 @@ using System.Text;
 
 namespace Labs216.Garipova.warniors
 {
-    class security : Characteristics, IShootable, IMovable
+    class security : Characteristicswarniors, Iwariors
     {
-        public void Move()
+        public security(int health, int uron)
         {
-            Console.WriteLine("Security moving");
+            _health = health;
+            _uron = uron;
         }
-        public void Shoot()
+        public void Axe()
         {
-            throw new NotImplementedException();
+            Console.WriteLine("security axe");
+        }
+
+        public void Grenade()
+        {
+            Console.WriteLine("security grenade");
+        }
+        public void Stun()
+        {
+            Console.WriteLine("security stun");
         }
     }
 }

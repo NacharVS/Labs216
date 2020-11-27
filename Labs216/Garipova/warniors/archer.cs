@@ -1,18 +1,28 @@
 ﻿using System;
 namespace Labs216.Garipova.warniors
 {
-    class Archer : Characteristics, IShootable, IMovable
+    class Archer : Characteristicswarniors, Iwariors
     {
-        public void Move()
+        public Archer(int health, int uron)
         {
-            Console.WriteLine("Archer moving");
+            _health = health;
+            _uron = uron;
         }
-        public void Shoot()
+        public void Axe()
         {
-            Console.WriteLine("");
+            Console.WriteLine("Archer axe");
+        }
+
+        public void Grenade()
+        {
+            Console.WriteLine("Archer grenade");
+        }
+
+        public void Stun()
+        {
+            Console.WriteLine("Archer stun");
         }
     }
-    
 
 
 
@@ -23,7 +33,8 @@ namespace Labs216.Garipova.warniors
 
 
 
-        ;
-    {
-    }
+
+
+
+
 }
