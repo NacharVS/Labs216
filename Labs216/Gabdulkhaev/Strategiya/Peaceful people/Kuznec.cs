@@ -7,13 +7,13 @@ namespace Labs216.Gabdulkhaev.Strategiya.Peaceful_people
 {
     class Kuznec: Character, IHoditable, IRabotable, INanositUronable
     {
+        public int kuznecskie_prikoli = 1000; // инструменты и просто материалы, покупают в магазине
         public void Hodit()
         {
             Console.WriteLine("Кузнец пошел в кузницу");
         }
         public void Rabota()
         {
-            int kuznecskie_prikoli = 1000; // наковальни, молотки, молоты, кувалды, ручники и т.п. -------------------- покупаются в магазине
             Miner prikol = new Miner();
             Random rnd = new Random();
             int kuznec_pochinka = rnd.Next(1, 100);

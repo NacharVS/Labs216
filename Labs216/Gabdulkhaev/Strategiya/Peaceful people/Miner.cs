@@ -2,12 +2,14 @@
 using System.Collections.Generic;
 using System.Text;
 using Labs216.Gabdulkhaev.Strategiya.Boets;
+using Labs216.Gabdulkhaev.Strategiya.Buildings;
 
 namespace Labs216.Gabdulkhaev.Strategiya.Peaceful_people
 {
     class Miner : Character, IHoditable, IRabotable, INanositUronable
     {
         public int kirka_sost = 100;
+        public int nakopal;
         public void Hodit()
         {
             Console.WriteLine("Шахтер пошел в шахту");
@@ -19,16 +21,16 @@ namespace Labs216.Gabdulkhaev.Strategiya.Peaceful_people
             {
                 kirka_sost = kirka_sost - 10;
             }
-                int resurse_in_the_chaxte = 1000; // ресурсов в шахте, покупать в магазине
+            Mine chaxte = new Mine();
                 Random rnd = new Random();
                 int luck = rnd.Next(1, 10);
                 Random rnd1 = new Random();
                 int luck1 = rnd.Next(1, 10);
-                if (luck!= luck1 && resurse_in_the_chaxte > 0 && kirka_sost > 0)
+                if (luck!= luck1 && chaxte.resurse_in_the_chaxte > 0 && kirka_sost > 0)
                 {
                 Console.WriteLine("Сколько шахтер должен накопать ресурсов?");
                 int nakopal = Convert.ToInt32(Console.ReadLine());
-                int resurse_int_chaxte = resurse_in_the_chaxte - nakopal;
+                int resurse_int_chaxte = chaxte.resurse_in_the_chaxte - nakopal;
                 // kirka_sost=kirka_sost-10;
                 Console.WriteLine("Шахтер идет в шахту и теряет 10 прочности кирки, при прочности меньше 0 он также откисает");
                 }

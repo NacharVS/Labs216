@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 using Labs216.Gabdulkhaev.Strategiya.Boets;
+using Labs216.Gabdulkhaev.Strategiya.Buildings;
 
 namespace Labs216.Gabdulkhaev.Strategiya.Peaceful_people
 {
@@ -9,16 +10,16 @@ namespace Labs216.Gabdulkhaev.Strategiya.Peaceful_people
     {
         public void Rabota()
         {
-            int medicinskie_prikoli = 1000; // медикаменты
             Random rnd = new Random();
             int medik_Lech = rnd.Next(1, 3); // может вылечит, а может не знает как лечить
             Random rnd1 = new Random();
             int medik_lech1 = rnd.Next(1, 10); // вылечит на несколько хп (до 10)
-            if (medik_Lech == 1&&medicinskie_prikoli>0)
+            Bolnica bolnika = new Bolnica();
+            if (medik_Lech == 1&&bolnika.medicamenti>0)
             {
                 Console.WriteLine($"Медик вылечил бойца на +{medik_lech1} hp");
             }
-            else if (medik_Lech == 2 ||medicinskie_prikoli<=0)
+            else if (medik_Lech == 2 ||bolnika.medicamenti<=0)
             {
                 Console.WriteLine("Медик не знает как лечить или у него нет медикаментов");
             }

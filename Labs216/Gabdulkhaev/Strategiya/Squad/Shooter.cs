@@ -13,7 +13,7 @@ namespace Labs216.Gabdulkhaev.Strategiya.Boets
             public void Shoot()
         {
                 Random rnd = new Random();
-                int luck = rnd.Next(10, 100);
+                int luck = rnd.Next(10, 30);
             int luck2 = rnd.Next(1, 3);
             if (luck2==1)
             {

@@ -13,11 +13,28 @@ namespace Labs216.Gabdulkhaev.Strategiya.Peaceful_people
         }
         public void Rabota()
         {
-            Miner prikol = new Miner();
-            Kuznec neprikol = new Kuznec();
-            if (prikol.nakopal>0)
+            Miner chaxter = new Miner();
+            Kuznec kuznecccc= new Kuznec();
+            if (chaxter.nakopal > 0 && kuznecccc.kuznecskie_prikoli > 0)
             {
-
+                Console.WriteLine("Строитель может строить");
+            }
+            else if (chaxter.nakopal<=0 || kuznecccc.kuznecskie_prikoli<=0)
+                {
+                Console.WriteLine("Недостаточно инструментов или ресурсов");
+            }
+        }
+        public void Uron()
+        {
+            Random rnd = new Random();
+            int uron_stroi = rnd.Next(-3, 3);
+            if (uron_stroi>0)
+            {
+                Console.WriteLine($"Строитель нанес {uron_stroi} урона противнику");
+            }
+            else if (uron_stroi<0)
+            {
+                Console.WriteLine($"Строитель слишком слаб, он нанес {uron_stroi} хп урона себе, качайте его или покупайте ему что-нибудь в магазине ");
             }
         }
     }
