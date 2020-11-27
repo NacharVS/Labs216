@@ -6,7 +6,7 @@ namespace Labs216.Dmitriev.strategiya
 {
     class waru
     {
-        sealed class pblcapi : Infa,IMovable
+        sealed class pblcapi : infaBuilding, IMovable
         {
             public int Damage { get; private set; }
             public double Speed { get; private set; }
@@ -33,12 +33,7 @@ namespace Labs216.Dmitriev.strategiya
 
         
             
-        sealed class lodka : Infa, IMovable, IShootable
-            public void Shoot()
-            {
-                Console.WriteLine($": {ShootDamage}");
-            }
-        }
+        
 
         sealed class pexota :  IMovable
         {
@@ -48,8 +43,8 @@ namespace Labs216.Dmitriev.strategiya
 
             public pexota(int zdorove, int oborona, double speed, int uron)
             {
-                Health = zdorove;
-                Defense = oborona;
+                _Zdorove = zdorove;
+                 = oborona;
                 Speed = speed;
                 Damage = uron;
             }
@@ -72,12 +67,14 @@ namespace Labs216.Dmitriev.strategiya
             public int Distance { get; private set; }
             public int ShootDamage { get; private set; }
 
-            public lodka(int zdorove, int oborona, double speed, int uron)
+        sealed class lodka : infa4ela, IMovable, IShootable
+           
+             public lodka(int zdorove, int oborona, double speed, int uron)
             {
-                Zdorove = zdorove;
-                Defense = oborona;
-                Speed = speed;
-                Damage = uron;
+                _Zdorove = zdorove;
+            _Oborona = oborona;
+                _Speed = speed;
+                _uron = uron;
             }
 
                 public void Attack()
@@ -96,7 +93,7 @@ namespace Labs216.Dmitriev.strategiya
                 }
             }
 
-            sealed class samolet : Infa, IMovable, IShootable
+            sealed class samolet : infa4ela, IMovable, IShootable
             {
                 public int Damage { get; private set; }
                 public double Speed { get; private set; }
