@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Labs216.ArslanovTI.Game.Building
 {
-    class TownHall
+    class TownHall : Health
     {
     }
 }

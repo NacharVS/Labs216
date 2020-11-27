@@ -59,6 +59,7 @@ namespace Labs216.ArslanovTI
             withdrawMoney = sum;
 
         }
+        delegate int 
 
 
 

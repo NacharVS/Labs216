@@ -28,10 +28,11 @@ namespace Labs216.ArslanovTI.Game
         {
             Console.WriteLine("Лучник отступает!");
         }
-        public void DamageSkills(int FireArrow, int ElectricArrow)
+        public void DamageSkills(string FireArrow, string ElectricArrow)
         {
-            FireArrow = 100;
-            ElectricArrow = 500;
+            FireArrow = "Противник получает каждую секунду минус 10 здоровья";
+            ElectricArrow = "Противник получает электрический разряд";
+            
 
         }
     }
