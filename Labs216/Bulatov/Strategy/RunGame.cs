@@ -15,7 +15,7 @@ namespace Labs216.Bulatov.Strategy
             IAttack attack;
             IShootable shoot;
             IGather gatherer;
-            IInteract inter;
+            IInteract interactive;
 
             Console.WriteLine();
             Console.WriteLine("Army");
@@ -62,41 +62,41 @@ namespace Labs216.Bulatov.Strategy
             Console.WriteLine("Buildings");
             Console.WriteLine();
 
-            var field = new Field(5);
+            var field = new Field(50);
 
-            inter = field;
-            inter.Interact();
+            interactive = field;
+            interactive.Interact();
 
-            var forest = new Forest(5);
+            var forest = new Forest(50);
 
-            inter = forest;
-            inter.Interact();
+            interactive = forest;
+            interactive.Interact();
 
-            var mine = new Mine(5);
+            var mine = new Mine(50);
 
-            inter = mine;
-            inter.Interact();
+            interactive = mine;
+            interactive.Interact();
 
-            var river = new River(5);
+            var river = new River(0);
 
-            inter = river;
-            inter.Interact();
+            interactive = river;
+            interactive.Interact();
 
             var tower = new Tower(6, 6);
 
-            inter = tower;
-            inter.Interact();
+            interactive = tower;
+            interactive.Interact();
 
-            var storage = new TownHall(7, 7);
+            var storage = new TownHall(7, 1000);
 
-            inter = storage;
-            inter.Interact();
+            interactive = storage;
+            interactive.Interact();
 
             Console.WriteLine();
             Console.WriteLine("Workers");
             Console.WriteLine();
 
-            var farmer = new Farmer(12, 12);
+            var farmer = new Farmer(8, 8);
 
             move = farmer;
             move.Move();
@@ -105,24 +105,43 @@ namespace Labs216.Bulatov.Strategy
             gatherer.Gather(field);
             gatherer.Store(storage);
 
-            inter.Interact();
+            interactive.Interact();
 
             var fisherman = new Fisherman(10, 10);
 
             move = fisherman;
+            gatherer.Gather(river);
+            gatherer.Store(storage);
             move.Move();
 
-            var lumberjack = new lumberjack(13, 13, 13);
+            var lumberjack = new lumberjack(11, 11);
 
             move = lumberjack;
             move.Move();
 
             gatherer = lumberjack;
             gatherer.Gather(forest);
-            gatherer.Gather(forest);
+            
             gatherer.Store(storage);
 
-            inter.Interact();
+            interactive.Interact();
+
+            var merchant = new Merchant(12, 12);
+
+            move = merchant;
+            move.Move();
+
+            var miner = new Miner(13, 13);
+
+            move = miner;
+            move.Move();
+
+            gatherer = miner;
+            gatherer.Gather(mine);
+            
+            gatherer.Store(storage);            
+
+            interactive.Interact();
         }
     }
 }

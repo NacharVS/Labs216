@@ -34,8 +34,7 @@ namespace Labs216.Bulatov.Strategy
     }
     interface IGather : IResourseSourse
     {
-        public void Gather(IResourseSourse source);
-        void Gather(object field);
+        public void Gather(IResourseSourse source);        
         public void Store(IStorage storage);
     }    
     interface IAttack

@@ -50,7 +50,7 @@ namespace Labs216.Bulatov.Strategy.Buildings
 
         public void Interact()
         {
-            Console.WriteLine($"You see a storage.\nGold: {Gold}/{MaxAmount}\nWood: {Wood}/{MaxAmount}\nFodd: {Food}/{MaxAmount}");
+            Console.WriteLine($"You see a storage.\nGold: {Gold}/{MaxAmount}\nWood: {Wood}/{MaxAmount}\nFood: {Food}/{MaxAmount}");
         }
     }
 }

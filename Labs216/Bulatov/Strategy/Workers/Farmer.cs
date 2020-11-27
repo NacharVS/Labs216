@@ -44,7 +44,7 @@ namespace Labs216.Bulatov.Strategy.Workers
             Amount = 0;
         }
 
-        public void Gather(object food)
+        public void Gather(object field)
         {
             throw new NotImplementedException();
         }

@@ -40,11 +40,11 @@ namespace Labs216.Bulatov.Strategy.Workers
                 Console.WriteLine("Gather don't have resourse");
                 return;
             }
-            storage.Food += Amount;
+            storage.Gold += Amount;
             Amount = 0;
         }
 
-        public void Gather(object food)
+        public void Gather(object gold)
         {
             throw new NotImplementedException();
         }
