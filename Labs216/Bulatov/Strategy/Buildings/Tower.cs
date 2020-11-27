@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Labs216.Bulatov.Strategy.Buildings
 {
-    class Tower : Characteristics, IShootable 
+    class Tower : Characteristics, IShootable, IInteract
     {        
         public int ShootDamage { get; private set; }
 
@@ -12,6 +12,11 @@ namespace Labs216.Bulatov.Strategy.Buildings
         {
             Health = health;            
             ShootDamage = shootdamage;
+        }
+        public void Interact(IShootable archer)
+        {
+            ShootDamage += archer.ShootDamage;
+            Console.WriteLine($"Shootable unit move in the tower. Damage increace -- {archer.ShootDamage} + {ShootDamage}");
         }
     }
 }

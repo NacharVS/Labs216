@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Labs216.Bulatov.Strategy.Buildings
 {
-    public class Mine : Characteristics
+    public class Mine : IInteract, IResourseSourse
     {
         public int Amount { get; set; }
 

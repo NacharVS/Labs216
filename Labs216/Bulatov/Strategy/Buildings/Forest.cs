@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Labs216.Bulatov.Strategy.Buildings
 {
-    class Forest
+    class Forest : IInteract, IResourseSourse
     {
         public int Amount { get; set; }
 

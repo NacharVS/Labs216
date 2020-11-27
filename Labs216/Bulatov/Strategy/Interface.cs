@@ -47,7 +47,7 @@ namespace Labs216.Bulatov.Strategy
 
         }
     }
-    interface IInteractivchik
+    interface IInteract
     {
         public void Interact()
         {
