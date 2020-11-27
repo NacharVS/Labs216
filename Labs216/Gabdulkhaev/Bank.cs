@@ -12,7 +12,9 @@ namespace Labs216.Gabdulkhaev
         // Кол-во денег на счету
         // сгенерировать
         public delegate void prikol(string message);
+        public delegate void smena(string mes);
         public event prikol SMS;
+        public int cashback(DateTime currentTime, int period);
         private string _name;
         private int _number;
         private string _surname;
@@ -103,7 +105,7 @@ namespace Labs216.Gabdulkhaev
             switch (part)
             {
                 case "сбер":
-                    double cash = potr/10;
+                    double cash = potr / 10;
                     break;
             }
         }
@@ -112,6 +114,14 @@ namespace Labs216.Gabdulkhaev
             get
             {
                 return _accountOpenDate;
+            }
+        }
+        public void Cashback(DateTime currentTime, int period)
+        {
+            int deltaTime = currentTime.Second - _accountOpenDate.Second;
+            for (int i=0; i<deltaTime/period; i++)
+            {
+                chet += (int)(chet * _rate);
             }
         }
     }
