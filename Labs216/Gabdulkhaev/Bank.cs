@@ -8,7 +8,7 @@ namespace Labs216.Gabdulkhaev
     {
         // Имя Фамилия\
         // ID клиента
-        // Процент
+        // Процент1
         // Кол-во денег на счету
         // сгенерировать
         public delegate void prikol(string message);
