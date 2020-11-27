@@ -129,4 +129,15 @@ namespace Labs216.Bulatov
         
         
     }
+    class RunBank
+    {
+        public static void _Bunk()
+        {
+            Bank[] acc = new Bank[5];
+            for (int i = 0; i < 1; i++)
+            {
+                
+            }
+        }
+    }
 }
