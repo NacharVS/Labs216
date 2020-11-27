@@ -4,11 +4,11 @@ using System.Text;
 
 namespace Labs216.Shakirov.Game.Fighter
 {
-    class Ninja : Characteristic, IAttack, IMovable 
+    sealed class Ninja : Characteristic, IAttack, IMovable, IShootable
     {
-        
+        public int Damage { get, private set; }
         public double Speed { get; private set; }
-        public double Damage { get; private set; }
+        public int Distance { get; private set; }
         public int ShootDamage { get; private set; }
         public Ninja(int health, int defense, double speed, int damage, int distance, int shootdamage)
         {
@@ -18,5 +18,8 @@ namespace Labs216.Shakirov.Game.Fighter
             Damage = damage;
             ShootDamage = shootdamage;
         }
+
+
+
     }
 }
