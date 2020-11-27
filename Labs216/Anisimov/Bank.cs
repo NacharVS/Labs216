@@ -6,7 +6,7 @@ namespace Labs216.Anisimov
     {
         public delegate void BankAccount(string phoneNumber, string Message);
 
-        public event BankAccount Notify;
+        public event BankAccount Notify = (phoneNumber, Message) => Console.WriteLine($"Было отправлено сообщение на номер: {phoneNumber}\nСообщение: {Message}\n");
 
         private string _name;
         private string _surname;
@@ -217,7 +217,6 @@ namespace Labs216.Anisimov
             for (int i = 0; i < 1; i++)
             {
                 acc[i] = new Bank();
-                acc[i].Notify += Message;
             }
             for (int i = 0; i < 1; i++)
             {
@@ -281,7 +280,6 @@ namespace Labs216.Anisimov
         public static void RunBank2() //Первый перегружен
         {
             Bank acc = new Bank("name","surname","88005553535");
-            acc.Notify += Message;
 
             acc.Deposit(1000000);
             DateTime Time = DateTime.Now;
@@ -300,11 +298,11 @@ namespace Labs216.Anisimov
             Time += TimeSpan.FromDays(5);
             acc.CalculateProfit(Time);
         }
-        private static void Message(string PhoneNumber, string message)
-        {
-            Console.WriteLine($"Было отправлено сообщение на номер: {PhoneNumber}");
-            Console.WriteLine($"Сообщение: {message}");
-            Console.WriteLine();
-        }
+        //private static void Message(string PhoneNumber, string message)
+        //{
+        //    Console.WriteLine($"Было отправлено сообщение на номер: {PhoneNumber}");
+        //    Console.WriteLine($"Сообщение: {message}");
+        //    Console.WriteLine();
+        //}
     }
 }
