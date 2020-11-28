@@ -130,7 +130,7 @@ namespace Labs216.Tarskih
 
 
 
-        public abstract class EntityData // ================================================================================================================================ Абстрактный класс с характеристиками
+        public abstract class EntityData // ================================================================================================================================ Абстрактный класс с характеристиками существ
         {
             public int X { get; set; } // Положение по оси Х
             public int Y { get; set; } // Положение по оси У
@@ -153,7 +153,8 @@ namespace Labs216.Tarskih
             public int MaterialCount { get; set; } // Полное количество материала
             public int MaterialExtractionCount { get; set; } // Добыча Материала
         }
-            
+
+
 
 
         // ============================================================================ Юниты - Существа ====================================================================================
@@ -525,6 +526,221 @@ namespace Labs216.Tarskih
             public void Messaging() // --- Отправка сообщения
             {
                 Console.WriteLine($"Добытчик осуществляет процесс передачи сообщения");
+            }
+        }
+
+
+
+        interface ICRestingPlace // ------------------------------------------------------------------------------------------------------------------------------------------- Место для отдыха
+        {
+            public void CRestingPlace()
+            {
+                Console.WriteLine("В этом строении есть место или несколько мест для отдыха");
+            }
+        }
+
+
+
+        interface ICDefendingPlace // ----------------------------------------------------------------------------------------------------------------------------------------- Защита строения
+        {
+            public void CDefendingPlace()
+            {
+                Console.WriteLine("С этого строения идёт внутренняя защита");
+            }
+        }
+
+
+
+        interface ICGettingDamagePlace // -------------------------------------------------------------------------------------------------------------------------------------- Получение урона строением
+        {
+            public void CGettingDamagePlace()
+            {
+                Console.WriteLine("Это строение получает урон");
+            }
+        }
+
+
+
+        interface ICRestorationPlace // ----------------------------------------------------------------------------------------------------------------------------------------- Восстановление строения
+        {
+            public void CRestorationPlace()
+            {
+                Console.WriteLine("Это строение восстанавливается");
+            }
+        }
+
+
+
+        interface ICSafeKeeping // ----------------------------------------------------------------------------------------------------------------------------------------- Хранилище строения
+        {
+            public void CSafeKeeping()
+            {
+                Console.WriteLine("Это строение что-то в себе хранит");
+            }
+        }
+
+
+
+        interface ICDestruction // ----------------------------------------------------------------------------------------------------------------------------------------- Разрушение здания
+        {
+            public void Destruction()
+            {
+                Console.WriteLine("Состояние здания");
+            }
+        }
+
+
+
+        public abstract class ConstructionData // ============================================================================================================================= Абстрактный класс с характеристиками строений
+        {
+            public int X { get; set; } // Положение по оси Х
+            public int Y { get; set; } // Положение по оси У
+            public int MaxDurabilty { get; set; } // Максимальная прочность - константа
+            public int Durabilty { get; set; } // Прочность
+            public int PlaceCount { get; set; } // Количество мест
+            public int RestPlaceCount { get; set; } // Количество мест для отдыха
+            public bool RestingPlace { get; set; } // Возможность отдыха в этом строении
+            public bool DefendingPlace { get; set; } // Возможность защиты этого строения
+            public string DescriptionConstruction { get; set; } // Описание строения
+            public int RestorationPlace { get; set; } // Восстановление строения
+            public int TakeMaterialCountPlace { get; set; } // Хранилище материала строением
+            public int CurrentMaterialCountPlace { get; set; } // Текущее количество материала в хранилище
+            public int MaxMaterialCountPlace { get; set; } // Максимальное количество материала в строении
+            public int GettingDamagePlace { get; set; } // Получение урона строением
+        }
+            
+
+
+
+        // ============================================================================= Юниты - Строения ====================================================================================================================
+
+
+
+
+        public class Cottage : ConstructionData, ICRestingPlace, ICSafeKeeping, ICGettingDamagePlace, ICDefendingPlace, ICRestorationPlace, ICDestruction // --------------------------------------------------- Хижина
+        {
+            public Cottage(int x, int y, int durability, int place_count, int rest_place_count, bool resting_place, bool defending_place, string description_construction, int restoration_place, int current_material_count_place, int max_material_count_place, int take_material_count_place, int getting_damage_place, int max_durability)
+            {
+                X = x;
+                Y = y;
+                Durabilty = durability;
+                PlaceCount = place_count;
+                RestPlaceCount = rest_place_count;
+                RestingPlace = resting_place;
+                DefendingPlace = defending_place;
+                DescriptionConstruction = description_construction;
+                RestorationPlace = restoration_place;
+                TakeMaterialCountPlace = take_material_count_place;
+                MaxMaterialCountPlace = max_material_count_place;
+                CurrentMaterialCountPlace = current_material_count_place;
+                GettingDamagePlace = getting_damage_place;
+                MaxDurabilty = max_durability;
+            }
+            public void CRestingPlace(int a)
+            {
+                if (RestingPlace)
+                {
+                    if (RestPlaceCount != 0)
+                    {
+                        Console.WriteLine("В этой хижине есть место для отдыха. Занять его? ( да = 1, нет = 2)");
+                        if (a == 1)
+                        {
+                            RestPlaceCount = RestPlaceCount - 1;
+                            Console.WriteLine("В этой хижине было занято место для отдыха");
+                        }
+                        else if (a == 2)
+                        {
+                            RestPlaceCount = RestPlaceCount;
+                            Console.WriteLine("В этой хижине не было занято место для отдыха");
+                        }
+                    }
+                    else
+                    {
+                        Console.WriteLine("В этой хижине нет свободных мест для отдыха");
+                    }
+                }
+                else
+                {
+                    Console.WriteLine("В этой хижине не может быть мест для отдыха");
+                }
+            }
+            public void CDefending()
+            {
+                if (DefendingPlace)
+                {
+                    Console.WriteLine("С этой хижины может осуществляться защита");
+                }
+            }
+            public void CGettingDamage()
+            {
+                if (GettingDamagePlace != 0)
+                {
+                    Durabilty = Durabilty - GettingDamagePlace;
+                    Console.WriteLine("Эта хижина получает урон");
+                }
+                else
+                {
+                   
+                }
+            }
+            public void CDestruiction()
+            {
+                if (Durabilty <= 0)
+                {
+                    Console.WriteLine("Эта хижина разрушена");
+                }
+                else
+                {
+                    Console.WriteLine("Эта хижина не разрушено");
+                }
+            }
+            public void CRestoration(int b)
+            {
+                if (Durabilty !<= 0)
+                {
+                    Console.WriteLine("Эта хижина может быть восстановлено ( да = 1, нет = любая клавиша)");
+                    if (b == 1)
+                    {
+                        if (Durabilty != MaxDurabilty)
+                        {
+                            Durabilty = Durabilty + RestorationPlace;
+                            Console.WriteLine($"Эта хижина восстанавливается на {RestorationPlace} единиц");
+                        }
+                        else
+                        {
+                            Console.WriteLine("Эта хижина не требуется в восстановлении");
+                        }
+                        
+                    }
+                    else
+                    {
+                        Console.WriteLine("Был выбран вариант не восстанавливать хижину");
+                    }
+                }
+                else
+                {
+                    Console.WriteLine("Эта хижина не может быть восстановлена, так как она уничтожена");
+                }
+            }
+            public void CSafeKeeping(int c)
+            {
+                if (CurrentMaterialCountPlace != MaxMaterialCountPlace)
+                {
+                    Console.WriteLine("Сложить в эту хижину материал? ( да = 1, нет = любая клавиша");
+                    if (c == 1)
+                    {
+                        CurrentMaterialCountPlace = CurrentMaterialCountPlace + TakeMaterialCountPlace;
+                        Console.WriteLine($"В эту хижину было вложено {TakeMaterialCountPlace} материала");
+                    }
+                    else
+                    {
+                        Console.WriteLine("В хижину не было вложен материал");
+                    }
+                }
+                else
+                {
+                    Console.WriteLine("Хранилище в хижине переполнено! Она не может получить больше материала!");
+                }
             }
         }
     }
