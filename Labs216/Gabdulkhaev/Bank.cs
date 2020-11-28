@@ -11,10 +11,9 @@ namespace Labs216.Gabdulkhaev
         // Процент1
         // Кол-во денег на счету
         // сгенерировать
-        public delegate void prikol(string message);
+        public delegate void prikol(string mes);
         public delegate void smena(string mes);
-        public event prikol SMS;
-        public int cashback(DateTime currentTime, int period);
+        public event prikol SMS = (string mes) => { Console.WriteLine(mes);};
         private string _name;
         private int _number;
         private string _surname;
@@ -29,13 +28,8 @@ namespace Labs216.Gabdulkhaev
             set
             {
                 _name = value;
+                SMS?.Invoke($"Имя сменили на: {_name}");
             }
-        }
-        public string _Name { get; private set; }
-        public void Smena(int _name)
-        {
-            _Name += _name;
-            SMS?.Invoke($"Имя сменили на: {_name}");
         }
         public void Setnumb(int newNumb)
         {
@@ -102,10 +96,17 @@ namespace Labs216.Gabdulkhaev
             // разделить на 3 партнера, 1 - 10%, 2 - 20%, 3 - 30
             double potr = Convert.ToDouble(Console.ReadLine());
             string part = Console.ReadLine();
+            double cash = 0;
             switch (part)
             {
                 case "сбер":
-                    double cash = potr / 10;
+                    cash = potr / 10;
+                    break;
+                case "акбарс":
+                    cash = potr / 20;
+                    break;
+                case "тинькофф":
+                    cash = potr / 30;
                     break;
             }
         }
