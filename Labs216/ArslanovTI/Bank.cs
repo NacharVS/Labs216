@@ -13,18 +13,19 @@ namespace Labs216.ArslanovTI
         private double addMoney;
         private double withdrawMoney;
         double sum = 0;
+        public string cashback;
 
-        public void SetName (string newName) 
-            {
- 
-           
+        public void SetName(string newName)
+        {
+
+
             newName = newName.Trim();
             var firstletter = newName[0];
             var otherLetters = newName.Remove(0, 1);
             _name = (firstletter.ToString().ToUpper() + otherLetters);
 
-            }
-        public void SetsurName(string newsurName) 
+        }
+        public void SetsurName(string newsurName)
         {
             newsurName = newsurName.Trim();
             var firstletter = newsurName[0];
@@ -34,25 +35,25 @@ namespace Labs216.ArslanovTI
         public void SetId(string newsurName)
         {
             Random rnd = new Random();
-            int id = rnd.Next(99999,100000);
+            int id = rnd.Next(99999, 100000);
         }
         public void SetRate(string newsurName)
         {
-            
+
             double rate = 0.13;
             _rate = 0.13 * sum;
-            
-            
+
+
         }
-        public void setAddMoney (string newAddMoney)// Положить деньги
+        public void setAddMoney(string newAddMoney)// Положить деньги
         {
-            
+
             int deposite = int.Parse(Console.ReadLine());
             sum = deposite + sum;
             addMoney = sum;
-   
+
         }
-        public void setWithdrawMoney(string newWithdrawMoney) 
+        public void setWithdrawMoney(string newWithdrawMoney)
         {
             int withdraw = int.Parse(Console.ReadLine());
             sum = withdraw + sum;
@@ -60,6 +61,36 @@ namespace Labs216.ArslanovTI
 
         }
 
+        public delegate void Partners(string partn);
+        public event Partners Notify;
+
+        public void McDonalds(double cashback1)
+        {
+            cashback1 = 0.1;
+
+            Notify?.Invoke($"На счет поступило{sum * 0.1} кэшбека");
+
+        }
+        public void Apple(double cashback2)
+        {
+            cashback2 = 0.3;
+            Notify?.Invoke($"На счет поступило{sum * 0.3} кэшбека");
+
+        }
+        public void Zara(double cashback3)
+        {
+            cashback3 = 0.3;
+            Notify?.Invoke($"На счет поступило{sum * 0.3} кэшбека");
+
+        }
+    }
+
+    delegate int Expression(int withdraw1, int addMoney1);
+
+    public void Operation1(int x, int y)
+    { 
+
+    }
 
 
 
