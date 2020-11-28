@@ -6,7 +6,7 @@ namespace Labs216.Garipova
         public delegate void Handler(int sum, string phonenumber);
         public delegate void Texture(double rate);
 
-        private string _sum;
+        private int _sum;
         private string _phonenumber;
         private static double _rate;
         private static int count = 0;
@@ -14,6 +14,10 @@ namespace Labs216.Garipova
         public Bankaccount(double rate)
         {
             _rate = rate;
+        }
+        public Bankaccount(int sum)
+        {
+            _sum = sum;
         }
         public Bankaccount(int sum, string phonenumber)
         {
@@ -78,6 +82,22 @@ namespace Labs216.Garipova
             {
                 _cashback = value;
                 Notify3.Invoke(_sum, _cashback); 
+            }
+        }
+        public void Pokypka(int sum)
+        {
+            double partner0 = 0.06;
+            double partner2 = 0.09;
+            for(double i = 0; i < sum; i++)
+            {
+                if (i <60)
+                    {
+                        _cashback = sum * partner0;
+                    }
+                else
+                    {
+                        _cashback = sum * partner2;
+                    }
             }
         }
         public static void chototam()
