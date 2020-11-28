@@ -14,6 +14,7 @@ namespace Labs216.ArslanovTI
         private double withdrawMoney;
         double sum = 0;
         public string cashback;
+         
 
         public void SetName(string newName)
         {
@@ -64,33 +65,44 @@ namespace Labs216.ArslanovTI
         public delegate void Partners(string partn);
         public event Partners Notify;
 
-        public void McDonalds(double cashback1)
+    //    public void McDonalds(double cashback1)
+    //    {
+    //        cashback1 = 0.1;
+
+    //        Notify?.Invoke($"На счет поступило{sum * 0.1} кэшбека");
+
+    //    }
+    //    public void Apple(double cashback2)
+    //    {
+    //        cashback2 = 0.3;
+    //        Notify?.Invoke($"На счет поступило{sum * 0.3} кэшбека");
+
+    //    }
+    //    public void Zara(double cashback3)
+    //    {
+    //        cashback3 = 0.3;
+    //        Notify?.Invoke($"На счет поступило{sum * 0.3} кэшбека");
+
+    //    }
+  
+    public string Cashback1
         {
-            cashback1 = 0.1;
-
-            Notify?.Invoke($"На счет поступило{sum * 0.1} кэшбека");
-
+            get { return cashback; }
+            set { Notify?.Invoke($"На счет поступило{sum * 0.1} кэшбека"); }
         }
-        public void Apple(double cashback2)
+             public string Cashback2
         {
-            cashback2 = 0.3;
-            Notify?.Invoke($"На счет поступило{sum * 0.3} кэшбека");
-
+            get { return cashback; }
+            set { Notify?.Invoke($"На счет поступило{sum * 0.3}кэшбека"); }
         }
-        public void Zara(double cashback3)
+        public string Cashback3
         {
-            cashback3 = 0.3;
-            Notify?.Invoke($"На счет поступило{sum * 0.3} кэшбека");
-
+            get { return cashback; }
+            set { Notify?.Invoke($"На счет поступило{sum * 0.3}кэшбека"); }
         }
-    }
 
-    delegate int Expression(int withdraw1, int addMoney1);
 
-    public void Operation1(int x, int y)
-    { 
 
-    }
 
 
 
