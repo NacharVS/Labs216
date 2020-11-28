@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Labs216.Dmitriev.strategiya.Infa;
+using System;
 using System.Collections.Generic;
 using System.Text;
 

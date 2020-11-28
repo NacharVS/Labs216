@@ -6,7 +6,7 @@ using System.Text;
 
 namespace Labs216.Dmitriev.strategiya.waru
 {
-    
+
     class waru
     {
         sealed class pblcapi : infaBuilding, IMovable
@@ -38,7 +38,7 @@ namespace Labs216.Dmitriev.strategiya.waru
 
 
 
-        sealed class pexota : infa4ela 
+        sealed class pexota : infa4ela
         {
             public int Damage { get; private set; }
             public double Speed { get; private set; }
@@ -62,67 +62,70 @@ namespace Labs216.Dmitriev.strategiya.waru
                 Console.WriteLine($" направление  {UnitType}  скорость: {Speed}");
             }
         }
-    
+
+
+
+        sealed class Lodka : infaBuilding
+        {
+
+            public double Speed { get; private set; }
+            public string UnitType { get; } = "water";
+            public int Distance { get; private set; }
+            public int ShootDamage { get; private set; }
+            public double _Speed { get; private set; }
+
+            public Lodka(int zdorove, int oborona, double speed, int uron)
+            {
+                _Zdorove = zdorove;
+                _Oborona = oborona;
+                _Speed = speed;
+                _uron = uron;
+            }
+
+            public void Attack()
+            {
+                Console.WriteLine($"урон: {_uron}");
+            }
+
+            public void Move()
+            {
+                Console.WriteLine($" {UnitType}скорость : {Speed}");
+            }
+
+            public void Shoot()
+            {
+                Console.WriteLine($": {ShootDamage}");
+            }
+        }
+
+        sealed class samolet : infa4ela, IMovable
         {
             public int Damage { get; private set; }
-        public double Speed { get; private set; }
-        public string UnitType { get; } = "water";
-        public int Distance { get; private set; }
-        public int ShootDamage { get; private set; }
+            public double Speed { get; private set; }
+            public string UnitType { get; } = "воздух";
+            public int Distance { get; private set; }
+            public int ShootDamage { get; private set; }
 
-        sealed class Lodka : infa4ela
+            public samolet(int zdorove, int oborona, double speed, int uron)
+            {
+                _Zdorove = zdorove;
+                _Oborona = oborona;
+                Speed = speed;
+                Damage = uron;
+            }
 
+            public void Attack()
+            {
+                Console.WriteLine($"урон: {Damage}");
+            }
 
-             public lodka(int zdorove, int oborona, double speed, int uron)
-        {
-            _Zdorove = zdorove;
-            _Oborona = oborona;
-            _Speed = speed;
-            _uron = uron;
-        }
+            public void Move()
+            {
+                Console.WriteLine($"двигатся  {UnitType} скорость: {Speed}");
+            }
 
-        public void Attack()
-        {
-            Console.WriteLine($"урон: {Damage}");
-        }
-
-        public void Move()
-        {
-            Console.WriteLine($" {UnitType}скорость : {Speed}");
-        }
-
-        public void Shoot()
-        {
-            Console.WriteLine($": {ShootDamage}");
         }
     }
-
-    sealed class samolet : infa4ela, IMovable, IShootable
-    {
-        public int Damage { get; private set; }
-        public double Speed { get; private set; }
-        public string UnitType { get; } = "воздух";
-        public int Distance { get; private set; }
-        public int ShootDamage { get; private set; }
-
-        public samolet(int zdorove, int oborona, double speed, int uron)
-        {
-            Health = zdorove;
-            Defense = oborona;
-            Speed = speed;
-            Damage = uron;
-        }
-
-        public void Attack()
-        {
-            Console.WriteLine($"урон: {Damage}");
-        }
-
-        public void Move()
-        {
-            Console.WriteLine($"двигатся  {UnitType} скорость: {Speed}");
-        }
-
-    }
+}
 
 
