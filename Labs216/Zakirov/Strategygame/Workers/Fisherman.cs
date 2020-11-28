@@ -44,7 +44,7 @@ namespace Labs216.Zakirov.Strategygame.Workers
             Amount = 0;
         }
 
-        public void Gather(object food)
+        public void Gather(object lake)
         {
             throw new NotImplementedException();
         }

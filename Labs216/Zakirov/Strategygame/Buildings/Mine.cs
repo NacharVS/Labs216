@@ -8,7 +8,7 @@ namespace Labs216.Zakirov.Strategygame.Buildings
     {
         public int Amount { get; set; }
 
-        public Forest(int amount)
+        public Mine(int amount)
         {
             Amount = amount;
         }

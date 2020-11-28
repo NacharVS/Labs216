@@ -45,7 +45,7 @@ namespace Labs216.Zakirov.Strategygame
             Amount = 0;
         }
 
-        public void Gather(object food)
+        public void Gather(object field)
         {
             throw new NotImplementedException();
         }
