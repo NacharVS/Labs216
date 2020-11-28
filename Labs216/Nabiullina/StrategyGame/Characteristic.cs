@@ -15,5 +15,9 @@ namespace Labs216.Nabiullina.StrategyGame
         public int _puli;
         public int _hranenie;
         public int _zarobotok;
+        public double _shirina;
+        public double _height;
+        public double _S;
+        public int _ckolichestvo;
     }
 }
