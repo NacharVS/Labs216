@@ -6,9 +6,9 @@ namespace Labs216
     class Program
     {
         public static void Main(string[] args)
-        { 
-           Bank bank = new Bank();
-           Bank.CheckProfit();
+        {
+            ArrayListTest test = new ArrayListTest();
+            test.Collection();
         }
     }
 }

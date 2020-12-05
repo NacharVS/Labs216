@@ -258,12 +258,7 @@ namespace Labs216.MirasovEG
 
         public static void CheckProfit()
         {
-
             Bank bank = new Bank();
-
-            //bank.Check = (string message) => Console.WriteLine(message);
-            //bank.Notify = (double rate) => Console.WriteLine($"New rate{rate}");
-
             bank.NewRate();
             bank.Deposit();
             bank.Buy(1000);
@@ -272,9 +267,6 @@ namespace Labs216.MirasovEG
             bank.Buy(1000, "Three");
             Thread.Sleep(10000);
             bank.Instilled(DateTime.Now,2);
-
         }
-
-        
     }
 }
