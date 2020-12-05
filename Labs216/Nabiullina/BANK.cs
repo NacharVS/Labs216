@@ -164,5 +164,7 @@ namespace Labs216.Nabiullina
             _pokupka = pok;
             _schet -= _pokupka;
         }
+        
+
     }
 }
