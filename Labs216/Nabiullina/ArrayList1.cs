@@ -8,9 +8,12 @@ namespace Labs216.Nabiullina
 {
     class ArrayList1
     {
-        public void Collection()
+        public static void Collection()
         {
             ArrayList Collect = new ArrayList();
+            var listArrayInt = new ArrayList();
+            var listArrayString = new ArrayList();
+            var listArrayDouble = new ArrayList();
             Collect.Add("Tim");
             Collect.Add(15);
             Collect.Add(3.14);
@@ -28,11 +31,24 @@ namespace Labs216.Nabiullina
             Collect.Add(45.2);
             foreach (var item in Collect)
             {
-                int[] array
+                if (item.GetType() == typeof(int))
+                {
+                    listArrayInt.Add(item);
+                }
+                else if (item.GetType() == typeof(string))
+                {
+                    listArrayString.Add(item);
+                }
+                else if (item.GetType() == typeof(double))
+                {
+                    listArrayDouble.Add(item);
+                }
             }
-            for (int i = 1; int<Collect.Lenght)
-            { 
+            foreach (var item in listArrayString)
+            {
+                Console.Write($"{item}, ");
             }
+            
         }
 
     }

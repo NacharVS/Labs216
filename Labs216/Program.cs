@@ -12,9 +12,11 @@ namespace Labs216
        
         static void Main(string[] args)
         {
-            BANK acc = new BANK("Zul", "Nabiul", new DateTime(2000,5,25), 2500);
+
+            ArrayList1.Collection();
+            /*BANK acc = new BANK("Zul", "Nabiul", new DateTime(2000,5,25), 2500);
             acc.Rate += (stavka) => Console.WriteLine($"Rate change on {stavka}");
-            acc.ChangeRate(5);
+            acc.ChangeRate(5);*/
 
             //void Message(double stavka)
             //{
