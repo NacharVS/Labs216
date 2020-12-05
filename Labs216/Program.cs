@@ -10,7 +10,7 @@ namespace Labs216
     {
         static void Main(string[] args)
         {
-            RunBank.RunBank2();
+            PracticArrayList.ListSort();
         }
     }
 }
