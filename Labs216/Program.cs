@@ -7,7 +7,7 @@ namespace Labs216
     {
         static void Main(string[] args)
         {
-            Bank.StartBank();
+            ArrayList1.ArrayListMthd();
         }
     }
 

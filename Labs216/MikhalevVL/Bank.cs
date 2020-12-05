@@ -9,12 +9,10 @@ namespace Labs216.MikhalevVL
         private string surname;
         private static int rate = 5;
         private double bank_account;
-        private static string[] account_array = new string[1000];
-        private static string[] passwords = new string[1000];
-        private static double[] money_array = new double[1000];
         private static int min = 1000;
         private static int max = 10000000;
         private static int count = 0;
+        private static int[] date_of_birth;
 
         public string Name_public
         {
@@ -31,46 +29,35 @@ namespace Labs216.MikhalevVL
         public void GenerationID()
         {
             id = Name_public + Surname_public + count;
-            for (int i = 0; i < account_array.Length; i++)
-            {
-                if (account_array[i] == id)
-                {
-                    count += 1;
-                    id = Name_public + Surname_public + count;
-                }
-            }
-            for (int i = 0; i < account_array.Length; i++)
-            {
-                if (account_array[i] == null)
-                {
-                    account_array[i] = id;
-                    break;
-                }
-            }
+
         }
 
         public static void StartBank()
         {
-            var leavesign = 1;
-            while (leavesign == 1)
-            {
-                Bank bank = new Bank();
-                Console.WriteLine("What do you want to do? \n 1 - Signup \n 2 - Signin");
-                int choisesign = int.Parse(Console.ReadLine());
-                switch (choisesign)
-                {
-                    case 1:
-                        bank.Signup();
-                        break;
-                    case 2:
-                        bank.Signin();
-                        break;
-                }
+
+            Bank bank = new Bank();
+
+            Console.WriteLine("Enter Name:");
+            bank.Name_public = Console.ReadLine();
+
+            Console.WriteLine("Enter Surname:");
+            bank.Surname_public = Console.ReadLine();
+
+            Console.WriteLine($"Enter your birthdate (yyyy.mm.dd):");
+            var user_date = DateTime.Parse(Console.ReadLine()).Date;
+            var current_date = DateTime.Today;
+            Console.WriteLine(current_date.Year - user_date.Year);
+            
+
+                bank.GenerationID();
+                Console.WriteLine($"Your ID: {bank.id}");
+
+
 
                 var isthisend = 0;
                 while (isthisend == 0)
                 {
-                    Console.WriteLine("What do you want to do? \n 1 - Put money into the account \n 2 - Withdraw money from an account \n 3 - Calculate how much money will be on the account in a few years \n 4 - Leave");
+                    Console.WriteLine("What do you want to do? \n 1 - Put money into the account \n 2 - Withdraw money from an account \n 3 - Calculate how much money will be on the account in a few years");
                     int choice = int.Parse(Console.ReadLine());
 
                     switch (choice)
@@ -86,9 +73,7 @@ namespace Labs216.MikhalevVL
                         case 3:
                             bank.Calculate();
                             break;
-                        case 4:
-                            isthisend = 1;
-                            break;
+
                     }
                     Console.WriteLine("Do you want to continue (Y/N)");
                     string a = Console.ReadLine();
@@ -99,76 +84,7 @@ namespace Labs216.MikhalevVL
                 }
             }
 
-        }
-        public void Signup()
-        {
-            Bank bank = new Bank();
-
-            Console.WriteLine("Enter Name:");
-            bank.Name_public = Console.ReadLine();
-
-            Console.WriteLine("Enter Surname:");
-            bank.Surname_public = Console.ReadLine();
-
-            bank.GenerationID();
-            Console.WriteLine($"Your ID: {bank.id}");
-
-            Console.WriteLine("Enter your password:");
-            string pass = Console.ReadLine();
-            for (int i = 0; i < passwords.Length; i++)
-            {
-                if (passwords[i] == null)
-                {
-                    passwords[i] = pass;
-                    break;
-                }
-            }
-        }
-        public void Signin()
-        {
-            var leave = 1;
-            while (leave == 1)
-            {
-                Bank bank = new Bank();
-                Console.WriteLine("Enter your id:");
-                string userid = Console.ReadLine();
-                string right_password;
-                double money;
-                var check = 0;
-                for (int i = 0; i < account_array.Length; i++)
-                {
-                    if (account_array[i].Contains(userid))
-                    {
-                        right_password = passwords[i];
-                        bank.bank_account = money_array[i];
-                        check = 1;
-                        var truepass = 1;
-                        while (truepass == 1)
-                        {
-                            Console.WriteLine("Enter your password (or leave): ");
-                            string user_pass = Console.ReadLine();
-                            if (right_password.Contains(user_pass))
-                            {
-                                leave = 1;
-                                Console.WriteLine("Confirm");
-                            }
-                            else if (user_pass == "leave")
-                            {
-                                leave = 0;
-                            }
-                            else
-                            {
-                                Console.WriteLine("Incorrect password");
-                            }
-                        }
-                    }
-                }
-                if (check == 0)
-                {
-                    Console.WriteLine("Your account was not found");
-                }
-            }
-        }
+        
 
         public void Put()
         {
@@ -201,7 +117,8 @@ namespace Labs216.MikhalevVL
             {
                 Console.WriteLine($"You cannot take greatier than max ({max})");
             }
-            Console.WriteLine($"On your account: { bank_account}");
+            bank_account -= value;
+            Console.WriteLine($"On your account: {bank_account}");
             Console.WriteLine();
         }
 
