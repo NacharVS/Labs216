@@ -3,6 +3,7 @@ using System.Linq;
 using Labs216.Anisimov;
 using Labs216.Anisimov.Delegates;
 using Labs216.Anisimov.Strategy;
+using Labs216.Anisimov.Bank;
 
 namespace Labs216
 {
@@ -10,7 +11,7 @@ namespace Labs216
     {
         static void Main(string[] args)
         {
-            PracticArrayList.ListSort();
+            RunBank.Run();
         }
     }
 }
