@@ -22,9 +22,22 @@ namespace Labs216.Anisimov.Bank
 
         public void Open(string name, string surname, string phone, string birthday) 
         {
+            if(name == ""|| name == null)
+                throw new Exception($"Name is empty");
+            if (surname == "" || surname == null)
+                throw new Exception($"Surname is empty");
+            if (phone == "" || phone == null)
+                throw new Exception($"Phone is empty");
+            if (birthday == "" || birthday == null)
+                throw new Exception($"Birthday is empty");
+
             int age;
 
             string[] date = birthday.Split(".");
+
+            if (date.Length != 3)
+                throw new Exception("Wrong birthday format");
+
             int day = int.Parse(date[0]);
             int month = int.Parse(date[1]);
             int year = DateTime.Now.Year - int.Parse(date[2]) - 1;
@@ -45,11 +58,9 @@ namespace Labs216.Anisimov.Bank
             Account account = null;
             FindAccount(id, ref account);
 
-            if (account == null)
-                throw new Exception("Account not found");
-
             if (sum < _Min)
                 throw new Exception("You can't add less than 10 000");
+
             else account.Put(sum);
         }
 
@@ -58,12 +69,8 @@ namespace Labs216.Anisimov.Bank
             Account account = null;
             FindAccount(id, ref account);
 
-            if (account == null)
-                throw new Exception("Account not found");
-
             if (sum > account.Sum)
                 throw new Exception($"You have only: {account.Sum}");
-
             if (sum > _Max)
                 throw new Exception("You can't take more than 100 000");
 
@@ -75,31 +82,17 @@ namespace Labs216.Anisimov.Bank
             Account account = null;
             FindAccount(id, ref account);
 
-            if (account == null)
-                throw new Exception("Account not found");
-
             Withdraw(sum, id);
 
-            double cashBackRate = 0;
+            double BonusRate = 0;
 
             try
             {
-                cashBackRate = partners[organization];
+                BonusRate = partners[organization];
             }
             finally
             {
-                account.Buy(sum, ref cashBackRate);
-            }
-        }
-
-        private void FindAccount(int id, ref Account account)
-        {
-            for (int i = 0; i < Accounts.Count; i++)
-            {
-                if (Accounts[i].Id == id)
-                {
-                    account = Accounts[i];
-                }
+                account.Buy(sum, ref BonusRate);
             }
         }
 
@@ -108,9 +101,6 @@ namespace Labs216.Anisimov.Bank
             Account account = null;
             FindAccount(id, ref account);
 
-            if (account == null)
-                throw new Exception("Account not found");
-
             account.ChangeRate(newValue);
         }
 
@@ -118,9 +108,6 @@ namespace Labs216.Anisimov.Bank
         {
             Account account = null;
             FindAccount(id, ref account);
-
-            if (account == null)
-                throw new Exception("Account not found");
 
             account.Close();
 
@@ -135,6 +122,27 @@ namespace Labs216.Anisimov.Bank
                 Accounts[i].Calculate(Time);
                 Accounts[i].GetCashBack(Time);
             }
+        }
+
+        private void FindAccount(int id, ref Account account)
+        {
+            for (int i = 0; i < Accounts.Count; i++)
+            {
+                if (Accounts[i].Id == id)
+                {
+                    account = Accounts[i];
+                }
+            }
+            if (account == null)
+                throw new Exception("Account not found");
+        }
+
+        public void GetInfo(int id)
+        {
+            Account account = null;
+            FindAccount(id, ref account);
+
+            account.GetInfo();
         }
     }
 }

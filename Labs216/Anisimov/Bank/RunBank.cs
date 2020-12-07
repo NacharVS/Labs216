@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace Labs216.Anisimov.Bank
 {
@@ -17,37 +15,39 @@ namespace Labs216.Anisimov.Bank
                 Console.ForegroundColor = ConsoleColor.Green;
                 Console.WriteLine("1. Открыть счет \t 2. Вывести средства  \t 3. Добавить на счет");
                 Console.WriteLine("4. Купить \t 5. Изменить процентную ставку \t 6. Закрыть счет");
-                Console.WriteLine("7. Подождать \t 8. Выйти из программы");
+                Console.WriteLine("7. Подождать \t 8.Посмотреть информацию \t 9. Выйти из программы");
                 Console.WriteLine("Введите номер пункта:");
                 Console.ForegroundColor = tmp;
 
-                int command = int.Parse(Console.ReadLine());
                 try
                 {
-                    switch (command)
+                    switch (Console.ReadLine())
                     {
-                        case 1:
+                        case "1":
                             OpenAccount(bank);
                             break;
-                        case 2:
+                        case "2":
                             Withdraw(bank);
                             break;
-                        case 3:
+                        case "3":
                             Put(bank);
                             break;
-                        case 4:
+                        case "4":
                             Buy(bank);
                             break;
-                        case 5:
+                        case "5":
                             ChangeRate(bank);
                             break;
-                        case 6:
+                        case "6":
                             CloseAccount(bank);
                             break;
-                        case 7:
+                        case "7":
                             Wait(bank);
                             break;
-                        case 8:
+                        case "8":
+                            GetInfo(bank);
+                            break;
+                        case "9":
                             alive = false;
                             continue;
                     }
@@ -66,6 +66,8 @@ namespace Labs216.Anisimov.Bank
         {
             Console.WriteLine("Укажите имя, фамилию, телефон и дату рождения(dd.mm.yyyy)");
             string[] data = Console.ReadLine().Split(" ");
+            if (data.Length != 4)
+                throw new Exception("Wrong input");
             bank.Open(data[0], data[1], data[2], data[3]);
         }
         private static void Withdraw(Bank bank)
@@ -118,6 +120,13 @@ namespace Labs216.Anisimov.Bank
             Console.WriteLine("Сколько дней вы хотите ждать");
 
             bank.SkipTime(int.Parse(Console.ReadLine()));
+        }
+        private static void GetInfo(Bank bank)
+        {
+            Console.WriteLine("Введите id счета:");
+            int id = int.Parse(Console.ReadLine());
+
+            bank.GetInfo(id);
         }
     }
 }

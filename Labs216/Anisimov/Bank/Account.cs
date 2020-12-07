@@ -38,12 +38,8 @@ namespace Labs216.Anisimov.Bank
             get { return _name; }
             private set
             {
-                if (value != "")
-                {
-                    value = value.Trim();
-                    _name = value[0].ToString().ToUpper() + value.Substring(1);
-                }
-                else _name = "No data";
+                value = value.Trim();
+                _name = value[0].ToString().ToUpper() + value.Substring(1);
             }
         }
         public string Surname
@@ -51,12 +47,9 @@ namespace Labs216.Anisimov.Bank
             get { return _surname; }
             private set
             {
-                if (value != "")
-                {
-                    value = value.Trim();
-                    _surname = value[0].ToString().ToUpper() + value.Substring(1);
-                }
-                else _surname = "No data";
+                value = value.Trim();
+                _surname = value[0].ToString().ToUpper() + value.Substring(1);
+
             }
         }
         public double Sum
@@ -97,9 +90,9 @@ namespace Labs216.Anisimov.Bank
         {
             Sum -= sum;
         }
-        public void Buy(int sum, ref double Rate)
+        public void Buy(int sum, ref double BonusRate)
         {
-            _cashBack += sum * (_cahsBackRate + Rate);
+            _cashBack += sum * (_cahsBackRate + BonusRate);
         }
         public void ChangeRate(double newRate)
         {
@@ -117,6 +110,9 @@ namespace Labs216.Anisimov.Bank
         }
         public void GetCashBack(DateTime TimeNow)
         {
+            if (_cashBack == 0)
+                return;
+
             if ((TimeNow.Day - _lastCASHBACK.Day) >= _cashBackPeriod || ((TimeNow.Month - _lastCASHBACK.Month) != 0))
             {
                 Notify?.Invoke(PhoneNumber, $"Your get cahback {_cashBack}");
@@ -128,6 +124,14 @@ namespace Labs216.Anisimov.Bank
         public void Close()
         {
             Notify?.Invoke(PhoneNumber, $"Account with Id {Id} closed");
+        }
+
+        public void GetInfo()
+        {
+            ConsoleColor tmp = Console.ForegroundColor;
+            Console.ForegroundColor = ConsoleColor.Cyan;
+            Console.WriteLine($"name\t{Name}\nsurname\t{Surname}\nphone\t{PhoneNumber}\nage\t{Age}\nid\t{Id}\nsum\t{Sum}");
+            Console.ForegroundColor = tmp;
         }
     }
 }
