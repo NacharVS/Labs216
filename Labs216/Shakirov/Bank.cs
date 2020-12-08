@@ -4,105 +4,52 @@ using System.Text;
 
 namespace Labs216.Shakirov
 {
-    class Bank
+    abstract class Person
     {
         private string _name;
         private string _surname;
-        private string _phonenumber;
-        private int _vozrast;
-        private double _cashBack;
-        private static double _stavka;
-        private string _id;
-        private double _schet;
 
-        public Bank(string name, string surname, int vozrast, double stavka, string id, double schet)
+        public string Name
         {
-            _name = name;
-            _surname = surname;
-            _vozrast = vozrast;
-            _stavka = stavka;
-            _id = id;
-            _schet = schet;
+            get => _name;
+            set => _name = $"{value[0].ToString().ToUpper() + value.Substring(1)}";
         }
-        public void SetName(string newName)
-        {
-            newName = newName.Trim();
-            var firstLetter = newName[0];
-            var otherLetters = newName.Remove(0, 1);
-            _name = firstLetter.ToString().ToUpper() + otherLetters;
 
-        }
-        public void SetSurname(string newSurname)
+        public string Surname
         {
-            newSurname = newSurname.Trim();
-            var firstLetter = newSurname[0];
-            var otherLetters = newSurname.Remove(0, 1);
-            _surname = firstLetter.ToString().ToUpper() + otherLetters;
+            get => _surname;
+            set => _surname = $"{value[0].ToString().ToUpper() + value.Substring(1)}";
         }
-        public void SetVozrast()
+
+        public virtual void GetInform()
         {
-            int a = DateTime.Today.Year;
-            _vozrast = a - _vozrast;
-            Console.WriteLine($"Возраст: {_vozrast}");
+            Console.WriteLine($"Your name: {Name}{Surname}");
         }
-        public void SetSchet()
+
+        class Clerk : Person
         {
-            Console.WriteLine($"Сейчас на счету: {_schet}");
-            Console.WriteLine(" 1. Снять деньги \n 2. Положить деньги");
-            string b = Console.ReadLine();
-            switch (b)
+            private static int _departament;
+
+            public override void GetInform()
             {
-                case "1":
-                    Console.WriteLine("Max 150000");
-                    double with = double.Parse(Console.ReadLine());
-                    if (_schet > with)
-                    {
-                        if (with > 150000)
-                        {
-                            Console.WriteLine("Нет!");
-                        }
-                        else
-                        {
-                            Console.WriteLine($"На вашем счете: {_schet -= with} money");
-                        }
-                    }
-                    else
-                    {
-                        Console.WriteLine($"На вашем счете: {_schet} money");
-                    }
-                    break;
-                case "2":
-                    Console.WriteLine("Минимально 100");
-                    double put = double.Parse(Console.ReadLine());
-                    if (put < 100)
-                    {
-                        Console.WriteLine("Нет!");
-                    }
-                    else
-                    {
-                        Console.WriteLine($"На вашем счете: { _schet += put } money");
-                    }
-                    break;
+                Console.WriteLine($"Ваше имя: {Name}{Surname}");
+                Console.WriteLine($"Ваш департамент: {_departament}");
+                _departament += 1;
 
             }
         }
-        public void SetStavka()
-        {
-            _stavka = 7.2;
-            Console.WriteLine($" Stavka = {_stavka} ");
-            Console.WriteLine(" Через сколько лет вы снимите деньги? ");
-            double let = double.Parse(Console.ReadLine());
-            double c;
-            for (int i = 0; i < let; i++)
-            {
-                _schet += _schet / 100 * _stavka;
-            }
-            Console.WriteLine($"Через {let} лет, ваш аккаунт будет иметь {_schet} денег ");
-        }
-        public void SetId(int NewSetId)
-        {
 
-        }
+        class Bank : Person
+        {
+            public delegate void ChangeRate(double rate);
+
+            public event ChangeRate Notify = (double rate) => Console.WriteLine($"Новая ставка{rate}");
+
+            public delegate void OnAccount(string message);
+
+            public event OnAccount Check = (string message) => Console.WriteLine(message);
+
+            private static DateTime _account
+         }
+
     }
-}
-
