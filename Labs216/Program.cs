@@ -1,13 +1,15 @@
 ﻿using System;
+using System.Collections.Generic;
 using Labs216.Gabdulkhaev;
 
 namespace Labs216
 {
-    class sop
+    class Program
     {
         static void Main(string[] args)
         {
-            StringOperation.SOP();
+            List<bank> banklist = new List<bank>();
+            banklist.Add(new bank("Ahmed", 15));
         }
     }
 }
