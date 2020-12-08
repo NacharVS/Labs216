@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Channels;
 
@@ -6,6 +7,7 @@ namespace Labs216.MirasovEG
 {
     abstract class Person
     {
+
         private string _name;
         private string _surname;
 
@@ -27,17 +29,17 @@ namespace Labs216.MirasovEG
         }
     }
 
-    class Clerk : Person
-    {
-        private static int _department;
+    //class Clerk : Person
+    //{
+    //    private static int _department;
 
-        public override void GetInform()
-        {
-            Console.WriteLine($"Your name: {Name}{Surname}");
-            Console.WriteLine($"Your department: {_department}");
-            _department += 1;
-        }
-    }
+    //    public override void GetInform()
+    //    {
+    //        Console.WriteLine($"Your name: {Name}{Surname}");
+    //        Console.WriteLine($"Your department: {_department}");
+    //        _department += 1;
+    //    }
+    //}
 
     class Bank : Person
     {
