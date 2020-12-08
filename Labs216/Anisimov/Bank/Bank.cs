@@ -124,13 +124,24 @@ namespace Labs216.Anisimov.Bank
             }
         }
 
+        public void EditInfo(int id, int choose, string newValue)
+        {
+            Account account = null;
+            FindAccount(id, ref account);
+
+            if (newValue == null || newValue == "")
+                throw new Exception("Неверное значение");
+
+            account.EditInfo(choose, newValue);
+        }
+
         private void FindAccount(int id, ref Account account)
         {
-            for (int i = 0; i < Accounts.Count; i++)
+            foreach(Account item in Accounts)
             {
-                if (Accounts[i].Id == id)
+                if(item.Id == id)
                 {
-                    account = Accounts[i];
+                    account = item;
                 }
             }
             if (account == null)

@@ -125,6 +125,18 @@ namespace Labs216.Anisimov.Bank
         {
             Notify?.Invoke(PhoneNumber, $"Account with Id {Id} closed");
         }
+        public void EditInfo(int choose, string newValue)
+        {
+            switch (choose)
+            {
+                case 1:
+                    Name = newValue;
+                    break;
+                case 2:
+                    Surname = newValue;
+                    break;
+            }
+        }
 
         public void GetInfo()
         {

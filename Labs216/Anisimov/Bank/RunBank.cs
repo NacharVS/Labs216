@@ -15,7 +15,8 @@ namespace Labs216.Anisimov.Bank
                 Console.ForegroundColor = ConsoleColor.Green;
                 Console.WriteLine("1. Открыть счет \t 2. Вывести средства  \t 3. Добавить на счет");
                 Console.WriteLine("4. Купить \t 5. Изменить процентную ставку \t 6. Закрыть счет");
-                Console.WriteLine("7. Подождать \t 8.Посмотреть информацию \t 9. Выйти из программы");
+                Console.WriteLine("7. Подождать \t 8.Посмотреть информацию \t 9. Отредактировать данные");
+                Console.WriteLine("10. Выйти из программы");
                 Console.WriteLine("Введите номер пункта:");
                 Console.ForegroundColor = tmp;
 
@@ -48,6 +49,9 @@ namespace Labs216.Anisimov.Bank
                             GetInfo(bank);
                             break;
                         case "9":
+                            EditInfo(bank);
+                            break;
+                        case "10":
                             alive = false;
                             continue;
                     }
@@ -120,6 +124,16 @@ namespace Labs216.Anisimov.Bank
             Console.WriteLine("Сколько дней вы хотите ждать");
 
             bank.SkipTime(int.Parse(Console.ReadLine()));
+        }
+        private static void EditInfo(Bank bank)
+        {
+            Console.WriteLine("Введите id счета:");
+            int id = int.Parse(Console.ReadLine());
+            Console.WriteLine("Какую информацию вы хотите изменить\n1. Имя\t2. Фамилию");
+            int choose = int.Parse(Console.ReadLine());
+            Console.WriteLine("Введите новое значение");
+
+            bank.EditInfo(id, choose, Console.ReadLine());
         }
         private static void GetInfo(Bank bank)
         {
