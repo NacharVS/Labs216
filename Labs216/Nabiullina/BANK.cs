@@ -8,6 +8,15 @@ namespace Labs216.Nabiullina
     {
         private string _name;
         private string _surname;
+
+        public string Name => _name;
+        public string Surname => _surname;
+
+        public Person (string name, string surname)
+        {
+            _name = name;
+            _surname = surname;
+        }
         public void SetName(string newName)
         {
             newName = newName.Trim();
@@ -24,7 +33,7 @@ namespace Labs216.Nabiullina
             _surname = firstLetter.ToString().ToUpper() + otherLetters;
         }
     }
-    class BANK : Person
+    class BANK 
     {
 
         private DateTime _dayofbirth;

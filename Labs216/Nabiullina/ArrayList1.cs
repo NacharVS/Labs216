@@ -44,7 +44,7 @@ namespace Labs216.Nabiullina
                     listArrayDouble.Add(item);
                 }
             }
-            foreach (var item in listArrayString)
+            foreach (var item in listArrayInt)
             {
                 Console.Write($"{item}, ");
             }

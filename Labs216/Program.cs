@@ -12,22 +12,29 @@ namespace Labs216
        
         static void Main(string[] args)
         {
+            List<Person> personList = new List<Person>();
+            personList.Add(new Person("David", "Petrova"));
+            personList.Add(new Person("Nick", "Stepanov"));
+            personList.Add(new Person("Vadim", "Karmanov"));
+            personList.Add(new Person("Anton", "Stolov"));
+            personList.Add(new Person("Firuza", "Salamalekym"));
+            personList.Add(new Person("Alsy", "Ololova"));
 
-            ArrayList1.Collection();
-            /*BANK acc = new BANK("Zul", "Nabiul", new DateTime(2000,5,25), 2500);
-            acc.Rate += (stavka) => Console.WriteLine($"Rate change on {stavka}");
-            acc.ChangeRate(5);*/
+            foreach (var item in personList)
+            {
+                Console.WriteLine($"{item.Name} {item.Surname}");
+                Console.WriteLine(" Хотите что-нибудь поменять? 1-да / 2-нет ");
+                int a = int.Parse (Console.ReadLine());
+                if (a == 1)
+                {
 
-            //void Message(double stavka)
-            //{
-            //    Console.WriteLine($"Rate change on {stavka}");
-            //}
-            //acc.Pokypka(200);
-            //acc.Partners(1);
+                }
+                if (a == 2)
+                {
 
-            //Doctor doctor = new Doctor(1,2,3);
-            //doctor.Movement();
-
+                }
+            }
+            
         }
 
     }
