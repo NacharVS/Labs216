@@ -8,7 +8,7 @@ namespace Labs216.Faskhutdinov
     {
         public static void ListSert();
        }
-       ArrayList List = new ArrayList() { -23, "54", 1.7, "30", -24, 2.5, 25, 26, "12", "43", 4 , "21", 4.3, 3.4, 5.5 };
+    ArrayList List = new ArrayList() { -23, "54", 1.7, "30", -24, 2.5, 25, 26, "12", "43", 4, "21", 4.3, 3.4, 5.5 };
        private ArrayList StringList = new ArrayList();
        private ArrayList DoubleList = new ArrayList();
        private ArrayList IntList = new ArrayList();
@@ -26,7 +26,34 @@ namespace Labs216.Faskhutdinov
                         IntList.Add(item);
                         break;
                 }
+ 
+            Console.WriteLine();
+
+            Console.WriteLine("string");
+            Console.WriteLine();
+
+            foreach (var item in StringList)
+            {
+                Console.WriteLine(item);
             }
 
+            Console.WriteLine();
+
+            Console.WriteLine("double");
+            Console.WriteLine();
+
+            foreach (var item in DoubleList)
+            {
+                Console.WriteLine(item);
+            }
+            Console.WriteLine("int");
+            Console.WriteLine();
+            
+            foreach(var item in IntList)
+            {
+                Console.WriteLine(item);
+        }
+    }
+}
 
         
