@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Labs216.Faskhutdinov
 {
-    class ArrayList
+    class PracticArrayList
     {
         public static void ListSert();
        }
@@ -12,7 +12,21 @@ namespace Labs216.Faskhutdinov
        private ArrayList StringList = new ArrayList();
        private ArrayList DoubleList = new ArrayList();
        private ArrayList IntList = new ArrayList();
-
+         foreach(var item in List)
+            {
+                switch (item.GetType().ToString())
+                {
+                    case "System.String":
+                        StringList.Add(item);
+                        break;
+                    case "System.Double":
+                        DoubleList.Add(item);
+                        break;
+                    case "System.Int32":
+                        IntList.Add(item);
+                        break;
+                }
+            }
 
 
         
