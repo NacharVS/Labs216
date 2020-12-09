@@ -25,26 +25,64 @@ namespace Labs216.Dmitriev.Bank_collection
         {
             Console.WriteLine($"li4nostb klienta: {Name}{Surname}");
         }
-        abstract class Klient
+        class Clerk : Klient
         {
-            private string _name;
-            private string _surname;
+            private static int _otdel;
 
-            public string Name
+            public override void GetInform()
             {
-                get => _name;
-                set => _name = $"{value[0].ToString().ToUpper() + value.Substring(1)}";
+                Console.WriteLine($"li4nostb klienta: {Name}{Surname}");
+                Console.WriteLine($"otdlenie: {_otdel}");
+                _otdel += 1;
+            }
+            class Bank : Klient
+            {
+                public delegate void Izmenitstavka(double stavka);
+
+                public event Izmenitstavka Notify = (double stavka) => Console.WriteLine($"Novaya stavka{stavka}");
+
+                public delegate void OnAccount(string reklama);
+
+                public event OnAccount Check = (string reklama) => Console.WriteLine(reklama);
+
+                private static DateTime _accountOpeningDate = DateTime.Now;
+                private static DateTime _lastProfit = _accountOpeningDate;
+
+
+                private string _id;
+                private static double _stavka = 0.25;
+                private double _account;
+                private static int _minPut = 250;
+                private static int _maxTake = 25000000;
+                private static int _count;
+                private static double _cashbackRate = 0.05;
+                private static double _cashbackRateOrganizationOne = 0.11;
+                private static double _cashbackRateOrganizationTwo = 0.18;
+                private static double _cashbackRateOrganizationThree = 0.25;
+                private int Year { get; set; }
+                private int Month { get; set; }
+
+
+            }
+            public double stavka
+            {
+                get { return _stavka; }
+                private set
+                {
+                    _stavka = value;
+                    Notify?.Invoke(_stavka);
+                }
             }
 
-            public string Surname
+            public double Account
             {
-                get => _surname;
-                set => _surname = $"{value[0].ToString().ToUpper() + value.Substring(1)}";
-            }
-
-            public virtual void GetInform()
-            {
-                Console.WriteLine($"Your name: {Name}{Surname}");
+                get { return _account; }
+                set
+                {
+                    _account = value;
+                    double res = Math.Round(_account, 2);
+                    Check($"On Account {res}");
+                }
             }
         }
     }
