@@ -8,14 +8,28 @@ namespace Labs216.Nabiullina
     {
         private string _name;
         private string _surname;
+        private DateTime _dayofbirth;
+        private string _telephone;
+        private string _id;
+
 
         public string Name => _name;
         public string Surname => _surname;
-
-        public Person (string name, string surname)
+        public string Telephon => _telephone;
+        public DateTime Date => _dayofbirth;
+        public Person (string name, string surname, DateTime datarogdeniya, string telephone, string id)
         {
             _name = name;
             _surname = surname;
+            _dayofbirth = datarogdeniya;
+            _telephone = telephone;
+            _id = id;
+        }
+        public void SetVozrast()
+        {
+
+            int age = DateTime.Today.Year - _dayofbirth.Year;
+            Console.WriteLine($"Age: {age}");
         }
         public void SetName(string newName)
         {
@@ -32,13 +46,19 @@ namespace Labs216.Nabiullina
             var otherLetters = newSurname.Remove(0, 1);
             _surname = firstLetter.ToString().ToUpper() + otherLetters;
         }
+        public void SetVozrast()
+        {
+
+            int age = DateTime.Today.Year - _dayofbirth.Year;
+            
+            Console.WriteLine($"Age: {age}");
+        }
     }
     class BANK 
     {
 
         private DateTime _dayofbirth;
         private static double _stavka = 6.7;
-        private string _id;
         private double _schet;
         private static int stt = 0;
         private double _pokupka;
@@ -53,12 +73,7 @@ namespace Labs216.Nabiullina
         }
 
 
-        public void SetVozrast()
-        {
-           
-            int age = DateTime.Today.Year - _dayofbirth.Year;
-            Console.WriteLine($"Age: {age}");
-        }
+       
         public void SetSchet()
         {
 
@@ -118,12 +133,12 @@ namespace Labs216.Nabiullina
             Console.WriteLine($"After {let} years, your account will have an {_schet} amount ");
 
         }
-        public void SetId()
+        /*public void SetId()
         {
 
             stt += 1;
             Console.WriteLine(_id);
-        }
+        }*/
         public delegate void AccountStavka(double stavka);
         public event AccountStavka Rate;
         public double Stavka
