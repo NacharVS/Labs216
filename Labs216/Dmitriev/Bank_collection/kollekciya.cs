@@ -84,6 +84,7 @@ namespace Labs216.Dmitriev.Bank_collection
                     Check($"On Account {res}");
                 }
             }
+
         }
     }
 }
