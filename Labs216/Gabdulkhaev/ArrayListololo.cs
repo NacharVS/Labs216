@@ -7,9 +7,6 @@ namespace Labs216.Gabdulkhaev
         public static void array()
         {
             ArrayList LList = new ArrayList();
-            ArrayList ChislaList = new ArrayList();
-            ArrayList SlovaList = new ArrayList();
-            ArrayList DrobiList = new ArrayList();
             LList.Add("оп");
             LList.Add(2.3);
             LList.Add(55);
@@ -22,6 +19,9 @@ namespace Labs216.Gabdulkhaev
             LList.Add("строка");
             LList.Add(100.001);
             LList.Add(1000);
+            ArrayList ChislaList = new ArrayList();
+            ArrayList SlovaList = new ArrayList();
+            ArrayList DrobiList = new ArrayList();
             foreach (var item in LList)
             {
                 string tip = item.GetType().ToString();
