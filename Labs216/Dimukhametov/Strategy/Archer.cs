@@ -19,7 +19,7 @@ namespace Labs216.Dimukhametov.Strategy
 
         public void Shoot()
         {
-            Console.WriteLine("Выстрелил и нанес урон в значении: {_damage}");
+            Console.WriteLine("Выстрелил и нанес урон в значении: {_damage}");          
         }
     }
 }
