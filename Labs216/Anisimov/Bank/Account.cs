@@ -135,6 +135,12 @@ namespace Labs216.Anisimov.Bank
                 case 2:
                     Surname = newValue;
                     break;
+                case 3:
+                    PhoneNumber = newValue;
+                    break;
+                case 4:
+                    Age = int.Parse(newValue);
+                    break;
             }
         }
 

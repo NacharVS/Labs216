@@ -129,7 +129,7 @@ namespace Labs216.Anisimov.Bank
         {
             Console.WriteLine("Введите id счета:");
             int id = int.Parse(Console.ReadLine());
-            Console.WriteLine("Какую информацию вы хотите изменить\n1. Имя\t2. Фамилию");
+            Console.WriteLine("Какую информацию вы хотите изменить\n1. Имя\t2. Фамилию\t3.Номер телефона\t4.Дату рождения");
             int choose = int.Parse(Console.ReadLine());
             Console.WriteLine("Введите новое значение");
 

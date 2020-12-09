@@ -20,17 +20,8 @@ namespace Labs216.Anisimov.Bank
         private static readonly int _Min = 10000;
         protected static readonly int _MinAge = 14;
 
-        public void Open(string name, string surname, string phone, string birthday) 
+        private int AgeCalculate(string birthday)
         {
-            if(name == ""|| name == null)
-                throw new Exception($"Name is empty");
-            if (surname == "" || surname == null)
-                throw new Exception($"Surname is empty");
-            if (phone == "" || phone == null)
-                throw new Exception($"Phone is empty");
-            if (birthday == "" || birthday == null)
-                throw new Exception($"Birthday is empty");
-
             int age;
 
             string[] date = birthday.Split(".");
@@ -48,7 +39,21 @@ namespace Labs216.Anisimov.Bank
 
             if (age < _MinAge)
                 throw new Exception($"Your age does not match the required -- {_MinAge}");
-            Account newAccount = new Account(name, surname, phone, age);
+            return age;
+        }
+
+        public void Open(string name, string surname, string phone, string birthday) 
+        {
+            if(name == ""|| name == null)
+                throw new Exception($"Name is empty");
+            if (surname == "" || surname == null)
+                throw new Exception($"Surname is empty");
+            if (phone == "" || phone == null)
+                throw new Exception($"Phone is empty");
+            if (birthday == "" || birthday == null)
+                throw new Exception($"Birthday is empty");
+
+            Account newAccount = new Account(name, surname, phone, AgeCalculate(birthday));
             newAccount.Open();
             Accounts.Add(newAccount);
         }
@@ -131,6 +136,8 @@ namespace Labs216.Anisimov.Bank
 
             if (newValue == null || newValue == "")
                 throw new Exception("Неверное значение");
+            if (choose == 4)
+                newValue = AgeCalculate(newValue).ToString();
 
             account.EditInfo(choose, newValue);
         }
