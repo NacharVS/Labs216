@@ -17,7 +17,7 @@ namespace Labs216.Gabdulkhaev.Delegates
                 massiff[b] = rnd.Next(1, 100);
             }
         }
-        public static void Sortirovka(int[] massiff)
+        public static void Sortirovka()
         {
             int a = Convert.ToInt32(Console.ReadLine());
             int[] massiff = new int[a];
@@ -30,7 +30,7 @@ namespace Labs216.Gabdulkhaev.Delegates
                 Console.WriteLine(massiff[b]);
             }
         }
-        public static void Summa(int[] massiff)
+        public static void Summa()
         {
             {
                 int a = Convert.ToInt32(Console.ReadLine());
@@ -43,7 +43,7 @@ namespace Labs216.Gabdulkhaev.Delegates
                 Console.WriteLine($"{massiff.Sum()}= сумма массива");
             }
         }
-        public static void Max(int[] massiff)
+        public static void Max()
         {
             int a = Convert.ToInt32(Console.ReadLine());
             int[] massiff = new int[a];
@@ -54,7 +54,7 @@ namespace Labs216.Gabdulkhaev.Delegates
             }
             Console.WriteLine(massiff.Max);
         }
-        public static void Summatwomassives(int[] massiff)
+        public static void Summatwomassives()
         {
             int a = Convert.ToInt32(Console.ReadLine());
             int[] massiff = new int[10];
@@ -78,7 +78,7 @@ namespace Labs216.Gabdulkhaev.Delegates
                 massiff3[b] = massiff[b] + massiff2[b];
             }
         }
-        public static void Proizvednieofmassives(int[] massiff)
+        public static void Proizvednieofmassives()
         {
             int a = Convert.ToInt32(Console.ReadLine());
             int[] massiff = new int[10];
@@ -102,7 +102,7 @@ namespace Labs216.Gabdulkhaev.Delegates
                 massiff3[b] = massiff[b] * massiff2[b];
             }
         }
-            public static void Paznostofmassives(int[] massiff)
+            public static void Paznostofmassives()
             {
                 int a = Convert.ToInt32(Console.ReadLine());
                 int[] massiff = new int[10];

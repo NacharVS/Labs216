@@ -13,7 +13,7 @@ namespace Labs216.Gabdulkhaev
         // сгенерировать
         public delegate void prikol(string mes);
         public delegate void smena(string mes);
-        public event prikol SMS = (string mes) => { Console.WriteLine(mes);};
+        public event prikol SMS = (string mes) => { Console.WriteLine(mes); };
         private string _name;
         private int _number;
         private string _surname;
@@ -120,15 +120,27 @@ namespace Labs216.Gabdulkhaev
         public void Cashback(DateTime currentTime, int period)
         {
             int deltaTime = currentTime.Second - _accountOpenDate.Second;
-            for (int i=0; i<deltaTime/period; i++)
+            for (int i = 0; i < deltaTime / period; i++)
             {
                 chet += (int)(chet * _rate);
             }
         }
     }
+    class Acc
+    {
+        private string _name;
+        private string _surname;
+        public string Name => _name;
+        public string Surname => _surname;
+        private int _age;
+        public int age;
+        public Acc(string name, string Surname, int age)
+        {
+            _name = name;
+            _surname = Surname;
+            _age = age;
+        }
+    }
+    // имя фамилия телефон айди возраст дата ржд
+    // в программ лист назв. листа.адд и слово
 }
-
-
-    // Надо добавить эвенты
-    // Сделать касхбацк
-    // profit

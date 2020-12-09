@@ -8,8 +8,8 @@ namespace Labs216
     {
         static void Main(string[] args)
         {
-            List<bank> banklist = new List<bank>();
-            banklist.Add(new bank("A", 1));
+            List<Acc> banklist = new List<Acc>();
+            banklist.Add(new Acc("A","прикол",228));
         }
     }
 }
