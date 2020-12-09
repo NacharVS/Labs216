@@ -49,7 +49,95 @@ namespace Labs216.Shakirov
 
             public event OnAccount Check = (string message) => Console.WriteLine(message);
 
-            private static DateTime _account
-         }
+            private static DateTime _accountOpeningDate = DateTime.Now;
+            private static DateTime _lastProfit = _accountOpeningDate;
+
+            private string _id;
+            private static double _stavka = 0.06;
+            private double _account;
+            private static int _minPut = 1000;
+            private static int _maxTake = 10000000;
+            private static int _count;
+            private static double _cashbackRate = 0.05;
+            private static double _cashbackRateOrganizationOne = 0.10;
+            private static double _cashbackRateOrganizationTwo = 0.15;
+            private static double _cashbackRateOrganizationThree = 0.25;
+            private int Year { get; set; }
+            private int Month { get; set; }
+
+
+
+            public double Stavka
+            {
+                get { return _stavka; }
+                private set
+                {
+                    _stavka = value;
+                    Notify?.Invoke(_stavka);
+                }
+            }
+
+            public double Account
+            {
+                get { return _account; }
+                set
+                {
+                    _account = value;
+                    double res = Math.Round(_account, 2);
+                    Check($"На аккаунте {res}");
+                }
+            }
+
+            public void NewRate()
+            {
+                Console.WriteLine("Написать новую ставку:");
+                double rate = double.Parse((Console.ReadLine()));
+                Stavka = rate;
+            }
+
+            public void Installed(DateTime timeNow, int period)
+            {
+
+                for (int j = 0; j < (timeNow.Second - _lastProfit.Second) / period; j++ )
+                {
+
+                    _account += Account * Stavka;
+                    Check?.Invoke($"На счету прибыль {_account}");
+                }
+
+                _lastProfit = timeNow;
+            }
+
+            public void Buy(int sum)
+            {
+                _account -= sum;
+                Check?.Invoke($"Купить: {sum}");
+                _account += sum * _cashbackRate;
+                Check?.Invoke($"Кэшбэк: {sum * _cashbackRate}; Кэшбэк на счете: {_account}");
+            }
+
+            public void Buy(int sum, string nameOrganization)
+            {
+                if (nameOrganization == "One")
+                {
+                    _account -= sum;
+                    Check?.Invoke($"Купить: {sum}");
+                    _account += sum * _cashbackRateOrganizationOne;
+                    Check?.Invoke($"Кэшбэк: {sum * _cashbackRateOrganizationOne}; Кэшбэк на счете: {_account}");
+                }
+                else if (nameOrganization == "Two")
+                {
+                    _account -= sum;
+                    Check?.Invoke($"Купить: {sum}");
+                    _account += sum * _cashbackRateOrganizationOne;
+                    Check?.Invoke($"Кэшбэк: {sum * _cashbackRateOrganizationTwo}; Кэшбэк на счете: {_account}");
+                }
+                if (nameOrganization == "Three")
+                {
+                    _account -= sum;
+                    Check?.Invoke($"Купить: {sum}");
+                    _account += sum * _cashbackRateOrganizationOne;
+                    Check?.Invoke($"Кэшбэк: {sum * _cashbackRateOrganizationThree}; Кэшбэк на счете: {_account}");
+                }
 
     }
