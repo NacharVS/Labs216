@@ -11,12 +11,14 @@ namespace Labs216.Nabiullina
         private DateTime _dayofbirth;
         private string _telephone;
         private string _id;
-
+        public int _age; 
 
         public string Name => _name;
         public string Surname => _surname;
         public string Telephon => _telephone;
-        public DateTime Date => _dayofbirth;
+        public int Age => _age;
+        public string Id => _id;
+        public DateTime BerthDay => _dayofbirth;
         public Person (string name, string surname, DateTime datarogdeniya, string telephone, string id)
         {
             _name = name;
@@ -24,13 +26,14 @@ namespace Labs216.Nabiullina
             _dayofbirth = datarogdeniya;
             _telephone = telephone;
             _id = id;
+            _age = DateTime.Today.Year - _dayofbirth.Year;
         }
-        public void SetVozrast()
-        {
+        //public void SetVozrast()
+        //{
 
-            int age = DateTime.Today.Year - _dayofbirth.Year;
-            Console.WriteLine($"Age: {age}");
-        }
+        //     _age = DateTime.Today.Year - _dayofbirth.Year;
+        //    Console.WriteLine(_age);
+        //}
         public void SetName(string newName)
         {
             newName = newName.Trim();
@@ -46,13 +49,7 @@ namespace Labs216.Nabiullina
             var otherLetters = newSurname.Remove(0, 1);
             _surname = firstLetter.ToString().ToUpper() + otherLetters;
         }
-        public void SetVozrast()
-        {
-
-            int age = DateTime.Today.Year - _dayofbirth.Year;
-            
-            Console.WriteLine($"Age: {age}");
-        }
+        
     }
     class BANK 
     {
