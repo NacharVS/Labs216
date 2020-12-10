@@ -19,12 +19,14 @@ namespace Labs216
             personList.Add(new Person("Anton", "Stolov", new DateTime(2010, 5, 8), "98193652412", "Anton2010"));
             personList.Add(new Person("Firuza", "Salamalekym", new DateTime(2012, 3, 24), "89324569851", "Firuza"));
             personList.Add(new Person("Alsy", "Ololova", new DateTime(2003, 5, 14), "89047141055", "Alsy2003"));
+            
 
-            foreach (var item in personList)
+            foreach (var item in personList) 
             {
                 Console.WriteLine($"{item.Name} {item.Surname}  Age: {item.Date} phone number: {item.Telephon} ");
-                
+               
             }
+            
             Console.WriteLine(" Хотите что-нибудь поменять? 1-да / 2-нет ");
             int a = int.Parse(Console.ReadLine());
             if (a == 1)
