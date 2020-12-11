@@ -4,7 +4,11 @@ using System.Text;
 
 namespace Labs216.Dimukhametov.Strategy
 {
-    class Class1
-    {
+    
+        public abstract class BuildCharasteristicks
+        {
+            public int _health { get; set; }
+            public int _damage { get; set; }
+        }
     }
-}
+

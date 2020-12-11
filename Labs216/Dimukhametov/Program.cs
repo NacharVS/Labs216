@@ -8,14 +8,35 @@ namespace Labs216.Dimukhametov
     {
         static void Main(string[] args)
         {
-            Bank account = new Bank(999, 0.05);
-            account.Deposit(100);
-            account.Withdraw(99);
-            account.Deposit(500);
+            Bank Ivana = new Bank(0,0.5, "88005553535");
+            Ivana.Notify += Message;
+            while (true)
+            {
+                switch (Console.ReadLine())
+                {
+                    case "1":
+                        Ivana.Deposit(int.Parse(Console.ReadLine()));
+                        break;
+                    case "2":
+                        Ivana.Snyat(int.Parse(Console.ReadLine()));
+                        break;
+                    default:
+                        Console.WriteLine("vi razvalili sssr");
+                        break;
+                }
+                Console.WriteLine($"Баланс: {Ivana.Balans}");
+            }
+
+            Ivana.Deposit(100);
+            Ivana.Snyat(99);
+            Ivana.Deposit(500);
+            Ivana.Snyat(501);
+
+            Console.WriteLine(Ivana.Balans);
         }
         public static void Message(int sum, string phonenumber)
         {
-            Console.WriteLine($"Message send at {phonenumber}");
+            Console.WriteLine($"Message send at {phonenumber}. {sum}");
         }
         public static void Message2(int sum, string phonenumber)
         {

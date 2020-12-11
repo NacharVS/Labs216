@@ -4,22 +4,22 @@ using System.Text;
 
 namespace Labs216.Dimukhametov.Strategy
 {
-    class Archer : Characteristics, IMovable, IShoot
-    {
-        public Archer(int health, int damage, int speed)
-        {
-            _health = health;
-            _damage = damage;
-            _speed = speed;
-        }
-        public void Move()
-        {
-            Console.WriteLine("Двигаюсь к экзамену со скоростью: {_speed}");
-        }
-
-        public void Shoot()
-        {
-            Console.WriteLine("Выстрелил и нанес урон в значении: {_damage}");          
-        }
-    }
+    //   class Archer : Characteristics, IMovable, IShoot
+    //   {
+    //public Archer(int health, int damage, int speed)
+    //  {
+    //    _health = health;
+    //  _damage = damage;
+    //_speed = speed;
 }
+//public void Move()
+//      {
+//Console.WriteLine("Двигаюсь к экзамену со скоростью: {_speed}");
+//      }
+
+//public void Shoot()
+//      {
+//Console.WriteLine("Выстрелил и нанес урон в значении: {_damage}");          
+//      }
+//}
+//}

@@ -6,28 +6,29 @@ namespace Labs216.Dimukhametov
 {
     class Bank
     {
-        public delegate void Friend(int sum, string phonenumber);
-        public delegate void Texture(double stavka);
+        public delegate void Putin(int sum, string phonenumber);
+        public delegate void Brigada(double stavka);
         public delegate void Candy(int sum, double cashback);
-        private static int _sum;
+        private  int _sum;
         private string _phonenumber;
-        private static double _stavka;
+        public static double _stavka;
         static double _cashback = 0.05;
         public Bank(double stavka)
         {
             _stavka = stavka;
         }
-        public Bank(int sum, double cashback)
+        public Bank(int sum, double cashback, string phonenumber)
         {
             _sum = sum;
             _cashback = cashback;
-        }
-        public Bank(int sum, string phonenumber)
-        {
-            _sum = sum;
             _phonenumber = phonenumber;
         }
-        public int Sum
+        //public Bank(int sum, string phonenumber)
+        //{
+        //    _sum = sum;
+        //    _phonenumber = phonenumber;
+        //}
+        public int Balans
         {
             get
             {
@@ -39,21 +40,21 @@ namespace Labs216.Dimukhametov
                 Notify?.Invoke(_sum, phonenumber);
             }
         }
-        public event Friend Notify;
+        public event Putin Notify;
         public string phonenumber
         {
 
             get
             {
-                return phonenumber;
+                return _phonenumber;
             }
 
             private set
             {
-                phonenumber = value;
+                _phonenumber = value;
             }
         }
-        public event Texture Notify2;
+        public event Brigada Notify2;
         public double Stavka
         {
             get
@@ -62,22 +63,21 @@ namespace Labs216.Dimukhametov
             }
             private set
             {
-                var oldStavka = _stavka;
                 _stavka = value;
                 Notify2?.Invoke(_stavka);
             }
         }
         public void Deposit(int sum)
         {
-            Sum += sum;
+            Balans = sum;
         }
-        public void Withdraw(int sum)
+        public void Snyat(int sum)
         {
-            Sum += sum;
+            Balans -= sum;
         }
         public void StavkaChange(double stavka)
         {
-            stavka = (stavka * Sum) / 100;
+            stavka = (stavka * Balans) / 100;
         }
         public event Candy Notify3;
         public double Cashback

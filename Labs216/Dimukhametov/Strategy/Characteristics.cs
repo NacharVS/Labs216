@@ -10,10 +10,4 @@ namespace Labs216.Dimukhametov.Strategy
         public int _damage { get; set; }
         public int _speed { get; set; }
     }
-    public abstract class BuildCharasteristicks
-    {
-        public int _heath { get; set; }
-        public int _damage { get; set; }
-        
-    }
 }
