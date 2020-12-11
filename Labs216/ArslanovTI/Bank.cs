@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Text;
 
 namespace Labs216.ArslanovTI
 {
@@ -10,6 +9,10 @@ namespace Labs216.ArslanovTI
         private string _surname;
         private DateTime _DayOfBir;
         private long _id;
+        public delegate void _change();
+
+        public long id => _id;
+
 
 
         public User(string name, string surname, DateTime DayOfBirt, long id)
@@ -18,7 +21,7 @@ namespace Labs216.ArslanovTI
             _surname = surname;
             _DayOfBir = DayOfBirt;
             _id = id;
-            
+
         }
     }
     class Bank
@@ -85,10 +88,7 @@ namespace Labs216.ArslanovTI
             withdrawMoney = sum;
 
         }
-        void SetAge()
-        {
-            DateTi
-        }
+
 
         public delegate void Partners(string partn);
         public event Partners Notify;
@@ -116,23 +116,31 @@ namespace Labs216.ArslanovTI
 
             List<User> Users1 = new List<User>();
 
-            Users1.Add("Rudolf", "Nuriev", DateTimeKind(2005,5,8)) ;
-            Users1.Add("Ralph");
-            Users1.Add("Timur");
-            Users1.Add("Cher");
-
-
+            Users1.Add(new User("Rudolf", "Nuriev", new DateTime(2002, 5, 8), 35454));
+            Users1.Add(new User("Arman", "Bermacker", new DateTime(1953, 5, 8), 36468));
+            Users1.Add(new User("Salam", "Alekum", new DateTime(1245, 5, 8), 35448));
+            Users1.Add(new User("Sarman", "Nurbiev", new DateTime(2000, 5, 8), 22813));
 
 
         }
-        public void ()
+
+        public void Change(List<User> list, long id, string newName)
         {
-            List<long> idList = new List<long>();
-            
-            
+            foreach (var item in list)
+            {
+                if (item.id == id)
+                {
+                    list
+                }
 
+            }
         }
+
     }
+
+  
+
+}
 
 
 
