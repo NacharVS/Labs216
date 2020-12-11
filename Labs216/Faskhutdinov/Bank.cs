@@ -4,7 +4,7 @@ using System.Text;
 
 namespace _216Labs2020.Faskhutdinov.Bank_class;
 {
-    class Bank_1
+    class Bank
 {
     abstract class BankPerson
     {
@@ -35,4 +35,5 @@ namespace _216Labs2020.Faskhutdinov.Bank_class;
         }
     }
 
+   }
 }

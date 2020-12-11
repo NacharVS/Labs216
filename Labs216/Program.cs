@@ -2,14 +2,21 @@
 
 namespace Labs216
 {
-    class DivisionByIntrval
+    class Program
     {
+        private static object BankList;
+
         static void Main(string[] args)
         {
-            Console.Write("ya nichego ne ponimayu voobsche");
-            string a = Console.ReadLine();
-            Console.WriteLine("hello, i need help "+a);
-
+            List<Student> studentList = new List<Student>();
+            BankList.Add(new Bank("Insaf", 14));
+            BankList.Add(new Bank("Islam", 32));
+            BankList.Add(new Bank("Ilnaz", 17));
+            BankList.Add(new Bank("Anton", 19));
+            BankList.Add(new Bank("Ilgz", 18));
+            BankList.Add(new Bank("Indira", 11));
+            foreach (Bank item in BankList)
         }
+        Console.Writeline(item.Name);
     }
 }
