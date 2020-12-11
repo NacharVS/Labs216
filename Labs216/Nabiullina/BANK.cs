@@ -42,14 +42,26 @@ namespace Labs216.Nabiullina
             _name = firstLetter.ToString().ToUpper() + otherLetters;
 
         }
-        public void SetSurame(string newSurname)
+        public void SetSurname(string newSurname)
         {
             newSurname = newSurname.Trim();
             var firstLetter = newSurname[0];
             var otherLetters = newSurname.Remove(0, 1);
             _surname = firstLetter.ToString().ToUpper() + otherLetters;
         }
-        
+        public void ChangAge(DateTime NewBerthday)
+        {
+            _age = DateTime.Today.Year - NewBerthday.Year;
+        }
+        public void ChangName(string NewName)
+        {
+            _name = NewName;
+        }
+
+        public void ChangSurname(string newSurname)
+        {
+            _surname = newSurname;
+        }
     }
     class BANK 
     {

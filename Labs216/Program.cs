@@ -21,33 +21,56 @@ namespace Labs216
             personList.Add(new Person("Alsy", "Ololova", new DateTime(2003, 5, 14), "89047141055", "Alsy2003"));
 
 
+           
+                foreach (var item in personList)
+                {
+                    Console.WriteLine($"    {item.Name} {item.Surname}  Age: {item._age} phone number: {item.Telephon} ");
+                
+                }
+                
+
+            
+
+            Program.ChangeAge(personList, "Dava2000",new DateTime(2010, 5, 8));
+
+            Program.ChangeName(personList, "Anton2010", "Antoshka");
+
+            Program.ChangeSurname(personList, "Alsy2003", "Aleshevna");
+
             foreach (var item in personList)
             {
-               
+
                 Console.WriteLine($"{item.Name} {item.Surname}  Age: {item._age} phone number: {item.Telephon} ");
 
             }
-
-           
         }
         static void ChangeAge(List<Person> list, string Setid, DateTime newBerthDay)
         {
             foreach (var item in list)
             {
                 if (item.Id == Setid)
-                    item.BerthDay = newBerthDay;
+                    item.ChangAge(newBerthDay);
             }
 
         }
 
-        //static void ChangeName(List<Person> list, string Setid, string newName)
-        //{
-        //    foreach (var item in list)
-        //    {
-        //        if (item.Id == Setid)
-        //            item.Name = newName;
-        //    }
+        static void ChangeName(List<Person> list, string Setid, string newName)
+        {
+            foreach (var item in list)
+            {
+                if (item.Id == Setid)
+                    item.ChangName (newName);
+            }
 
-        //}
+        }
+        static void ChangeSurname(List<Person> list, string Setid, string newSurname)
+        {
+            foreach (var item in list)
+            {
+                if (item.Id == Setid)
+                    item.ChangSurname(newSurname);
+            }
+
+        }
     }
 }
