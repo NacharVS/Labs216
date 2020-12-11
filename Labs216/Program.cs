@@ -3,6 +3,7 @@ using System.Linq;
 using Labs216.Bulatov;
 using Labs216.Bulatov.Delegates;
 using Labs216.Bulatov.Strategy;
+using Labs216.Bulatov.Bank;
 
 
 namespace Labs216
@@ -11,19 +12,9 @@ namespace Labs216
     {
         static void Main(string[] args)
         {
-            RunGame.Run();
+            
         }
     }
 }
-//public class Programdsf
-//{
-//    static void Zapusk()
-//    {
-//        Console.WriteLine(IMovable.MaxSpeed);
-//        IMovable.MaxSpeed = 65;
-//        Console.WriteLine(IMovable.MaxSpeed);
-//        double time = IMovable.GetTime(100, 10);
-//        Console.WriteLine(time);
-//    }
-//}
+
 
