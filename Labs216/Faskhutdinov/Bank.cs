@@ -2,38 +2,37 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Labs216.Faskhutdinov
+namespace _216Labs2020.Faskhutdinov.Bank_class;
 {
-    class Bank
+    class Bank_1
+{
+    abstract class BankPerson
     {
-        private string _name;
-        private string _surname;
-        private string _id;
-        private static double _rate;
-        private double _paymentAccount;
-
-        public void SetName(string newName)
+        public static string Name { get; set; }
+        public BankPerson(string name)
         {
-            newName = newName.Trim();
-            var firstLetter = newName[0];
-            var otherLetter = newName.Remove(0, 1);
-            _name = (firstLetter.ToString().ToUpper() + otherLetter);
+            Name = name;
         }
-        public void SetSurname(string newSurname)
-        {
-            newSurname = newSurname.Trim();
-            var firstLetter = newSurname[0];
-            var otherLetters = newSurname.Remove(0, 1);
-            _surname = firstLetter.ToString().ToUpper() + otherLetters;
-        }
-        public static void Bank1()
-        {
-            Console.WriteLine("Добро пожаловать в банк");
-            Console.WriteLine("Ставка банка - 7,3");
-            Console.WriteLine("Введите свои данные");
-            string name, surname = Console.ReadLine();
-
-        }
-
     }
+    class User : BankPerson
+    {
+        public int Sum { get; set; }
+
+        public User(string name, int sum)
+            : base(name)
+        {
+            Sum = sum;
+        }
+    }
+    class Worker : BankPerson
+    {
+        public string Position { get; set; }
+
+        public Worker(string name, string position)
+            : base(name)
+        {
+            Position = position;
+        }
+    }
+
 }
