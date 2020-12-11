@@ -6,23 +6,23 @@ using Labs216.Tarskih.Abstract_Classes;
 
 namespace Labs216.Tarskih.Constructions
 {
-    public class Cottage : ConstructionData, IAttack, IPlace
+    class Warehouse : ConstructionData, IPlace, IStore
     {
-        public Cottage(int x, int y, int health_building, int damage_building, int place_count)
+        public Warehouse(int x, int y, int health_building, int place_count, int material_count)
         {
             X = x;
             Y = y;
             HealthBuilding = health_building;
-            DamageBuilding = damage_building;
             PlaceCount = place_count;
-        }
-        public void Attack()
-        {
-            Console.WriteLine($"Здание наносит урон в {DamageBuilding} единиц");
+            MaterialCount = material_count;
         }
         public void Place()
         {
             Console.WriteLine($"Это здание имеет {PlaceCount} мест");
+        }
+        public void Store()
+        {
+            Console.WriteLine($"Это здание содержит {MaterialCount} материала");
         }
     }
 }

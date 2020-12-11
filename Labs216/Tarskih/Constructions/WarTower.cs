@@ -6,9 +6,9 @@ using Labs216.Tarskih.Abstract_Classes;
 
 namespace Labs216.Tarskih.Constructions
 {
-    public class Cottage : ConstructionData, IAttack, IPlace
+    public class WarTower : ConstructionData, IAttack, IPlace, IShoot 
     {
-        public Cottage(int x, int y, int health_building, int damage_building, int place_count)
+        public WarTower(int x, int y, int health_building, int damage_building, int place_count)
         {
             X = x;
             Y = y;
@@ -23,6 +23,10 @@ namespace Labs216.Tarskih.Constructions
         public void Place()
         {
             Console.WriteLine($"Это здание имеет {PlaceCount} мест");
+        }
+        public void Shoot()
+        {
+            Console.WriteLine($"Это здание наносит дальний урон в {DamageBuilding}");
         }
     }
 }
