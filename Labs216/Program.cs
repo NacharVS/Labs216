@@ -31,7 +31,7 @@ namespace Labs216
 
             
 
-            Program.ChangeAge(personList, "Dava2000",new DateTime(2010, 5, 8));
+            Program.ChangeAge(personList, "Dava2000",new DateTime(2010, 12, 8));
 
             Program.ChangeName(personList, "Anton2010", "Antoshka");
 
@@ -40,7 +40,7 @@ namespace Labs216
             foreach (var item in personList)
             {
 
-                Console.WriteLine($"{item.Name} {item.Surname}  Age: {item._age} phone number: {item.Telephon} ");
+                Console.WriteLine($" {item.Name} {item.Surname}  Age: {item._age} phone number: {item.Telephon} ");
 
             }
         }
