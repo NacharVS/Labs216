@@ -64,27 +64,6 @@ namespace Labs216.Dmitriev.Bank_collection
 
 
             }
-            public double stavka
-            {
-                get { return _stavka; }
-                private set
-                {
-                    _stavka = value;
-                    Notify?.Invoke(_stavka);
-                }
-            }
-
-            public double Account
-            {
-                get { return _account; }
-                set
-                {
-                    _account = value;
-                    double res = Math.Round(_account, 2);
-                    Check($"On Account {res}");
-                }
-            }
-
         }
     }
 }
