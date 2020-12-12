@@ -1,5 +1,6 @@
 ﻿using Labs216.MirasovEG;
 using Labs216.MirasovEG.Strategy;
+using Labs216.Bank;
 
 namespace Labs216
 {
@@ -7,8 +8,8 @@ namespace Labs216
     {
         public static void Main(string[] args)
         {
-            ArrayListTest test = new ArrayListTest();
-            test.Collection();
+            StartBank start = new StartBank();
+            start.Start();
         }
     }
 }
