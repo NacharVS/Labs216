@@ -9,7 +9,7 @@ namespace Labs216.ArslanovTI
         public string _name;
 
 
-        public Dictionary1(Dictionary<int, Setid1> NameOfId, string name)
+        public Dictionary1(Dictionary<int>, string name)
         {
 
             _name = name;
@@ -45,6 +45,8 @@ namespace Labs216.ArslanovTI
                     }
 
                 }
+                Dictionary<Random,string name> NameOfId
+
                 
                 
 

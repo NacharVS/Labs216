@@ -8,7 +8,7 @@ namespace Labs216
 
         public void Main(string[] args)
         {
-            DateTime.Date();
+            
         }
 
             
