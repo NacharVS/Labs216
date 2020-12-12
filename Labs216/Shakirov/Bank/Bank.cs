@@ -132,7 +132,7 @@ namespace Labs216.Shakirov
                     _account += sum * _cashbackRateOrganizationOne;
                     Check?.Invoke($"Кэшбэк: {sum * _cashbackRateOrganizationTwo}; Кэшбэк на счете: {_account}");
                 }
-                if (nameOrganization == "Three")
+                else if (nameOrganization == "Three")
                 {
                     _account -= sum;
                     Check?.Invoke($"Купить: {sum}");

@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Labs216.Shakirov
 {
-    class Programm
+    class Program
     {
         public static void Main(string[] args)
         {
