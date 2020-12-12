@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace Labs216
 {
@@ -8,7 +9,7 @@ namespace Labs216
 
         static void Main(string[] args)
         {
-            List<Student> studentList = new List<Student>();
+            List<> BankList = new List<Bank>();
             BankList.Add(new Bank("Insaf", 14));
             BankList.Add(new Bank("Islam", 32));
             BankList.Add(new Bank("Ilnaz", 17));
@@ -16,7 +17,10 @@ namespace Labs216
             BankList.Add(new Bank("Ilgz", 18));
             BankList.Add(new Bank("Indira", 11));
             foreach (Bank item in BankList)
+            {
+
+            }
+            Console.WriteLine(item.Name);
         }
-        Console.Writeline(item.Name);
     }
 }

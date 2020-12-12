@@ -1,39 +1,42 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace _216Labs2020.Faskhutdinov.Bank_class;
+﻿namespace _216Labs2020.Faskhutdinov.Bank_class
 {
     class Bank
-{
-    abstract class BankPerson
     {
-        public static string Name { get; set; }
-        public BankPerson(string name)
+        public Bank()
         {
-            Name = name;
+            
+       
+          
         }
-    }
-    class User : BankPerson
-    {
-        public int Sum { get; set; }
-
-        public User(string name, int sum)
-            : base(name)
+            
+        class BankPerson
         {
-            Sum = sum;
+            public static string Name { get; set; }
+            public BankPerson(string name)
+            {
+                Name = name;
+            }
         }
-    }
-    class Worker : BankPerson
-    {
-        public string Position { get; set; }
-
-        public Worker(string name, string position)
-            : base(name)
+        class User : BankPerson
         {
-            Position = position;
-        }
-    }
+            public int Sum { get; set; }
 
-   }
+            public User(string name, int sum)
+                : base(name)
+            {
+                Sum = sum;
+            }
+        }
+        class Worker : BankPerson
+        {
+            public string Position { get; set; }
+
+            public Worker(string name, string position)
+                : base(name)
+            {
+                Position = position;
+            }
+        }
+
+    }
 }
