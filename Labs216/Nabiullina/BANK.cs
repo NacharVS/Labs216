@@ -19,13 +19,13 @@ namespace Labs216.Nabiullina
         public int Age => _age;
         public string Id => _id;
         public DateTime BerthDay => _dayofbirth;
-        public Person (string name, string surname, DateTime datarogdeniya, string telephone, string id)
+        public Person (string name, string surname/*, DateTime datarogdeniya, string telephone, string id*/)
         {
             _name = name;
             _surname = surname;
-            _dayofbirth = datarogdeniya;
+           /* _dayofbirth = datarogdeniya;
             _telephone = telephone;
-            _id = id;
+            _id = id;*/
             _age = DateTime.Today.Year - _dayofbirth.Year;
         }
         //public void SetVozrast()
@@ -61,6 +61,34 @@ namespace Labs216.Nabiullina
         public void ChangSurname(string newSurname)
         {
             _surname = newSurname;
+        }
+        static void ChangeAge(List<Person> list, string Setid, DateTime newBerthDay)
+        {
+            foreach (var item in list)
+            {
+                if (item.Id == Setid)
+                    item.ChangAge(newBerthDay);
+            }
+
+        }
+
+        static void ChangeName(List<Person> list, string Setid, string newName)
+        {
+            foreach (var item in list)
+            {
+                if (item.Id == Setid)
+                    item.ChangName(newName);
+            }
+
+        }
+        static void ChangeSurname(List<Person> list, string Setid, string newSurname)
+        {
+            foreach (var item in list)
+            {
+                if (item.Id == Setid)
+                    item.ChangSurname(newSurname);
+            }
+
         }
     }
     class BANK 
