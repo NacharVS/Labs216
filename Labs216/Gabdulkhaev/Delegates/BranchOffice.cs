@@ -13,7 +13,7 @@ namespace Labs216.Gabdulkhaev.Delegates
         {
        //     IM lab = GeneralOffice.Sortirovka;
      //       lab += GeneralOffice.Summa;
-   //         lab += GeneralOffice.Max;1
+   //         lab += GeneralOffice.Max;
             int a = Convert.ToInt32(Console.ReadLine());
             int[] massiff = new int[a];
             Random rnd = new Random();
