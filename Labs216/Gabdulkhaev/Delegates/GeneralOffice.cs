@@ -52,7 +52,7 @@ namespace Labs216.Gabdulkhaev.Delegates
             {
                 massiff[b] = rnd.Next(1, 100);
             }
-//            Console.WriteLine(massiff.Max);
+//            Console.WriteLine(massiff.Max);1
         }
         public static void Summatwomassives()
         {

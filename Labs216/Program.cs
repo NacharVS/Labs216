@@ -6,5 +6,6 @@ namespace Labs216
 {
     class Program
     {
+        //
         }
 }
