@@ -9,8 +9,8 @@ namespace Labs216
     {
         public static void Main(string[] args)
         {
-            DictionaryWork work = new DictionaryWork();
-            work.DictionaryFill();
+            StackWork work = new StackWork();
+            work.Work();
         }
     }
 }
