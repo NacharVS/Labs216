@@ -162,7 +162,7 @@ namespace Labs216.Gabdulkhaev
     }
     class Progr
     {
-        static void Main(string[] args) // через ctrl + F искал, больше точек входа нет
+        public static void BList()
         {
             List<Bank> Banklist = new List<Bank>();
             Banklist.Add(new Bank("Имя1", "Фамилия1", 20, 1, new DateTime(2000,1,1)));
