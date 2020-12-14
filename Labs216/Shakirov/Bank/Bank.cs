@@ -140,4 +140,32 @@ namespace Labs216.Shakirov
                     Check?.Invoke($"Кэшбэк: {sum * _cashbackRateOrganizationThree}; Кэшбэк на счете: {_account}");
                 }
 
-    }
+            }
+            public override void GetInform()
+            {
+                Console.WriteLine($"Ваше имя: {Name} {Surname}");
+                Console.WriteLine($"Ваше ID: {GenerationId()}");
+                Console.WriteLine($"Ваше аккаунт: {Account}");
+                Console.WriteLine($"Ваша интересующая ставка: {Stavka}");
+            }
+            public string GeneationId()
+            {
+                _id = Name + Surname + _count;
+                _count += 1;
+                return _id;
+            }
+            public void Deposit()
+            {
+                Console.WriteLine("Как хотите внести депзит");
+                int value = int.Parse(Console.ReadLine());
+
+                if (value < _minPut)
+                    Console.WriteLine("значние меньше минимального");
+                else
+                    Account += value;
+            }
+            public void Withdraw()
+            {
+                Console.WriteLine()
+            }
+        }
