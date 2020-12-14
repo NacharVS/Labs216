@@ -6,13 +6,13 @@ namespace Labs216
     class Program {
 
 
-        public void Main(string[] args)
+        public static void Main(string[] args)
         {
-            DateTime.Date();
+            Books.BookOfRead();
         }
 
             
 
         }
     }
-}
+
