@@ -8,24 +8,25 @@ namespace Labs216.Nabiullina
     {
         public static void Slovarik()
         {
-            Dictionary<int, Person> personList = new Dictionary<int, Person>();
+            Dictionary<int, string> personList = new Dictionary<int, string>();
 
-            personList.Add(1, new Person("Anton", "Petrovich"));
-            personList.Add(2, new Person("Alisa", "Cyclik"));
-            personList.Add(3, new Person("Liza", "Medvedeva"));
-            personList.Add(4, new Person("Misha", "Medvedev"));
-            personList.Add(5, new Person("Masha", "Samoilova"));
-            personList.Add(6, new Person("Petya", "Goroxov"));
-            personList.Add(7, new Person("Vasya", "Pupkin"));
-            personList.Add(8, new Person("Nikita", "Nitochkin"));
-            personList.Add(9, new Person("Nina", "Kyrochkina"));
-            personList.Add(10, new Person("Jake", "Prinsev"));
+            Random rnd = new Random();
 
-            foreach (var item in personList)
+
+            for (int i = 0; i<10;i++)
             {
-                Console.WriteLine(item.Key + " " + item.Value.Name + " " + item.Value.Surname);
+                string name = Console.ReadLine();
+                personList.Add(rnd.Next(0, 5000), name);
+                
             }
 
+            
+
+            foreach (KeyValuePair <int, string> item in personList)
+            {
+                Console.WriteLine(item.Key +" "+ item.Value);
+            }
+            
         }
     }
 }

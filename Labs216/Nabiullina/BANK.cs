@@ -19,13 +19,13 @@ namespace Labs216.Nabiullina
         public int Age => _age;
         public string Id => _id;
         public DateTime BerthDay => _dayofbirth;
-        public Person (string name, string surname/*, DateTime datarogdeniya, string telephone, string id*/)
+        public Person (string name/*, string surname, DateTime datarogdeniya, string telephone, string id*/)
         {
             _name = name;
-            _surname = surname;
-           /* _dayofbirth = datarogdeniya;
-            _telephone = telephone;
-            _id = id;*/
+            /* _surname = surname;
+             _dayofbirth = datarogdeniya;
+             _telephone = telephone;
+             _id = id;*/
             _age = DateTime.Today.Year - _dayofbirth.Year;
         }
         //public void SetVozrast()
