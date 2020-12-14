@@ -11,6 +11,7 @@ namespace Labs216.Bank
         {
 
 
+
             Bank person1 = new Bank("Rim", "Imin", 2000, 2, "89534578543");
             Bank person2 = new Bank("Nim", "IImin", 1999, 12, "89345827412");
             Bank person3 = new Bank("Mim", "IIImin", 2003, 4, "89453596854");

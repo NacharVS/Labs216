@@ -1,6 +1,7 @@
 ﻿using Labs216.MirasovEG;
 using Labs216.MirasovEG.Strategy;
 using Labs216.Bank;
+using System.Collections.Generic;
 
 namespace Labs216
 {
@@ -8,8 +9,8 @@ namespace Labs216
     {
         public static void Main(string[] args)
         {
-            StartBank start = new StartBank();
-            start.Start();
+            DictionaryWork work = new DictionaryWork();
+            work.DictionaryFill();
         }
     }
 }
