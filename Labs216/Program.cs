@@ -6,7 +6,7 @@ namespace Labs216
     {
         static void Main(string[] args)
         {
-            ArrayList1.Collection();
+            DictionaryWork.Dictionary1();
         }
 
      
