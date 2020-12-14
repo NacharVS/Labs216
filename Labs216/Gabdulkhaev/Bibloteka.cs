@@ -9,11 +9,11 @@ namespace Labs216.Gabdulkhaev
         public static void Knigi()
         {
             Queue<string> knigis = new Queue<string>();
-            knigis.Enqueue("Первая книга");
-            knigis.Enqueue("Вторая книга");
-            knigis.Enqueue("Третья книга");
-            knigis.Enqueue("Четвертая книга");
-            knigis.Enqueue("Пятая книга");
+            knigis.Enqueue("Робинзон крузо, Даниель Дефо, 2015, Школьная библиотека");
+            knigis.Enqueue("Остров сокровищ, Роберт Льюис Стивенсон, 2015, Школьная библиотека");
+            knigis.Enqueue("Сказки на все времена, А.С. Пушкин, 2013, Проф пресс");
+            knigis.Enqueue("Веселые стихи о школе, -, 2015, Школьная Библиотека ");
+            knigis.Enqueue("Зеленая миля, Стивен Кинг, 2013, АСТ");
             string a = knigis.Dequeue();
             Console.WriteLine(a);
             foreach (var item in knigis)
