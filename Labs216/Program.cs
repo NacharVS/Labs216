@@ -12,7 +12,7 @@ namespace Labs216
        
         static void Main(string[] args)
         {
-            Slovar_.Slovarik();
+            Book.SStack();
         }
        
     }
