@@ -1,118 +1,113 @@
-﻿//using System;
-//using System.Collections.Generic;
-//using System.Text;
+﻿using System;
+using System.Collections.Generic;
+using System.Text;
 
-//namespace Labs216.Zamaliev
-//{
-//    public class Person
-//    {
-//        public string _name;
-//        private string _surname;
-//        private string _phoneNumber;
-//        private string _id;
-//        private static double _stavka;
-//        private double _Cash;
-//        private static int _count = 1;
-//        private static int _Max = 100000;
-//        private static int _Min = 1000;
-//        private int _age;
+namespace Labs216.Zamaliev
+{
+    class Bank
+    {
+        public delegate void Putin(int sum, string phonenumber);
+        public delegate void Brigada(double stavka);
+        public delegate void Candy(int sum, double cashback);
+        private int _sum;
+        private string _phonenumber;
+        public static double _stavka;
+        static double _cashback = 0.05;
+        public Bank(double stavka)
+        {
+            _stavka = stavka;
+        }
+        public Bank(int sum, double cashback, string phonenumber)
+        {
+            _sum = sum;
+            _cashback = cashback;
+            _phonenumber = phonenumber;
+        }
+        //public Bank(int sum, string phonenumber)
+        //{
+        //    _sum = sum;
+        //    _phonenumber = phonenumber;
+        //}
+        public int Balans
+        {
+            get
+            {
+                return _sum;
+            }
+            private set
+            {
+                _sum = value;
+                Notify?.Invoke(_sum, phonenumber);
+            }
+        }
+        public event Putin Notify;
+        public string phonenumber
+        {
 
-//        public string Name
-//        {
-//            get { return _name; }
-//            private set
-//            {
-//                if (value != "")
-//                {
-//                    value = value.Trim();
-//                    _name = value[0].ToString().ToUpper() + value.Substring(1);
-//                }
-//                else _name = "defualt";
-//            }
-//        }
-//        public string Surname
-//        {
-//            get { return _surname; }
-//            private set
-//            {
-//                if (value != "")
-//                {
-//                    value = value.Trim();
-//                    _surname = value[0].ToString().ToUpper() + value.Substring(1);
-//                }
-//                else _surname = "defualt";
-//            }
-//        }
-//        public int Age
-//        {
-//            get { return _age; }
-//            private set
-//            {
-//                _age = value;
-//            }
-//        }
-//        public string Id
-//        {
-//            get { return _id; }
-//        }
-//        public double Account
-//        {
-//            get { return _Cash; }
-//            private set
-//            {
-//                _Cash = value;
+            get
+            {
+                return _phonenumber;
+            }
 
-//            }
-//        }
-//        public static int Count
-//        {
-//            get { return _count; }
-//        }
-//        private void GetId()
-//        {
-//            _id = _name + _surname + "_" + _count;
-//            _count = _count + 1;
-//        }
-//        private void GetAge()
-//        {
-//            Console.WriteLine("Write you birthday (dd mm yyyy)");
-//            string[] date = new string[3];
-//            date = Console.ReadLine().Split(" ");
-//            int day = int.Parse(date[0]);
-//            int month = int.Parse(date[1]);
-//            int year = DateTime.Now.Year - int.Parse(date[2]) - 1;
-//            {
-//                if (DateTime.Now.Month >= month & DateTime.Now.Day >= day) Age = year + 1;
-//            }
-//        }
+            private set
+            {
+                _phonenumber = value;
+            }
+        }
+        public event Brigada Notify2;
+        public double Stavka
+        {
+            get
+            {
+                return _stavka;
+            }
+            private set
+            {
+                _stavka = value;
+                Notify2?.Invoke(_stavka);
+            }
+        }
+        public void Deposit(int sum)
+        {
+            Balans = sum;
+        }
+        public void Snyat(int sum)
+        {
+            Balans -= sum;
+        }
+        public void StavkaChange(double stavka)
+        {
+            stavka = (stavka * Balans) / 100;
+        }
+        public event Candy Notify3;
+        public double Cashback
+        {
+            get
+            {
+                return _cashback;
+            }
+            set
+            {
+                _cashback = value;
+                Notify3.Invoke(_sum, Cashback);
+            }
+        }
+        public static void Buy(int sum, double cashback)
+        {
+            double PartnerMagnit = 0.08;
+            double PartnerAshan = 0.1;
+            for (double i = 0; i < sum; i++)
+            {
+                if (i < 500)
+                {
+                    cashback = sum * PartnerMagnit;
+                }
+                else
+                {
+                    cashback = sum * PartnerAshan;
+                }
+            }
 
-        
-        
-//            public  Bank()
-//            {
-//                Console.WriteLine("Write you name");
-//                _name = Console.ReadLine();
-//                Console.WriteLine("Write you surname");
-//                Surname = Console.ReadLine();
-//                Console.WriteLine("Write you phone");
-//                _phoneNumber = Console.ReadLine();
-//                GetAge();
-//                GetId();
-//            }
-
-//            public void Deposit(int Value)
-//            {
-
-//            }
-//            public void Withdraw(int Value)
-//            {
-
-//            }
-//            public void Mirror(int Year)
-//            {
-
-//            }
-
-//        }
-//    }
-//}
+        }
+    }
+}
