@@ -9,7 +9,7 @@ namespace Labs216.Shakirov
 
         static void Main(string[] args)
         {
-            Dictionary<int, string> studentList = new Dictionary<int, string>
+            Dictionary<int, string> studentList = new Dictionary<int, string>();
                 Random rnd = new Random();
 
             for(int i = 0; i < 10; i++)
@@ -19,6 +19,10 @@ namespace Labs216.Shakirov
             }
 
             foreach (var item in studentList)
+            {
+                Console.WriteLine(item.Key);
+                Console.WriteLine(item.Value);
+            }
         }
     }
 }
