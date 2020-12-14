@@ -11,7 +11,7 @@ namespace Labs216
     {
         static void Main(string[] args)
         {
-            RunBank.Run();
+            DictionaryRun.Run();
         }
     }
 }
