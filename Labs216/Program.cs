@@ -9,8 +9,7 @@ namespace Labs216
     {
         public static void Main(string[] args)
         {
-            StackWork work = new StackWork();
-            work.Work();
+            Nikak.Collection();
         }
     }
 }
