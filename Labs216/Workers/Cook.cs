@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Labs216.Workers
 {
-    class Cook: CharacteristicsWorkers, ICook
+    class Cook: CharacteristicsWorkers, ICook, IWorkers
     {
         public Cook(int health, int uron, int skilled, int responsibility)
         {

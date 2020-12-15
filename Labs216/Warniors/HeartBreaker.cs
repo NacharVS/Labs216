@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Labs216.Warniors
 {
-    class HeartBreaker: Characteristics, IHeartBreakers
+    class HeartBreaker: Characteristics, IHeartBreakers, IMSh
     {
         public HeartBreaker(int health, int uron, int success, int intuition, int attention, int beauty)
         {

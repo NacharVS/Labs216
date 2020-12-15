@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Labs216.Warniors
 {
-    class Luckyguy: Characteristics, ILuckyguy
+    class Luckyguy: Characteristics, ILuckyguy, IMSh
     {
         public Luckyguy(int health, int uron, int force, int adroitnes, int success, int malice, int intuition, int attention, int beauty)
         {

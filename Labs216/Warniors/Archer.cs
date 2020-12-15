@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Labs216.Warniors
 {
-    class Archer: Characteristics, IArcher
+    class Archer: Characteristics, IArcher, IMSh
     {
         public Archer(int health, int uron, int force, int adroitness, int attention, int malice)
         {

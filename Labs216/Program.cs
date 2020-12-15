@@ -8,6 +8,7 @@ using Labs216.Workers;
 using Labs216.Buildings;
 using System.Collections;
 using System.Collections.Generic;
+using Labs216.December;
 using System;
 
 namespace Labs216
@@ -16,7 +17,7 @@ namespace Labs216
     {
         static void Main(string[] args)
         {
-            NewArraylist.Collection();
+            Nothing.Working();
         }
     }
 }

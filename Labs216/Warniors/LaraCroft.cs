@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Labs216.Warniors
 {
-    class LaraCroft: Characteristics, ILaraCroft
+    class LaraCroft: Characteristics, ILaraCroft, IMSh
     {
         public LaraCroft(int health, int force, int uron, int adroitnes, int malice, int intuition, int attention, int beauty)
         {

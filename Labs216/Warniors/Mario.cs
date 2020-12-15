@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Labs216.Warniors
 {
-    class Mario: Characteristics, IMario
+    class Mario: Characteristics, IMario, IMSh
     {
         public Mario(int health, int uron, int force, int adroitnes, int attention, int success)
         {
