@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 namespace Labs216.Garipova
 {
@@ -19,22 +20,22 @@ namespace Labs216.Garipova
     {
         public static void Library1()
         {
-            Stack <Book> numbers = new Stack<Book>();
-            numbers.Push("Дети капитана Гранта", "Гранта Жюль Верн", "1867");
-            numbers.Push("Джейн Эйр", "Шарлотта Бронте", "1847");
-            numbers.Push("Поллианна", "Элинор Портер", "1913");
-            numbers.Push("Человек, который смеётся", "Виктор Гюго", "1869");
-            numbers.Push("Рубиновая книга", "Керстин Гир", "2009");
-            numbers.Push("Энн из Зелёных Крыш", "Люси Мод Монтгомери", "1908");
+            Stack <Book> book = new Stack<Book>();
+            book.Push(new Book("Дети капитана Гранта", "Гранта Жюль Верн", 1867));
+            book.Push(new Book("Джейн Эйр", "Шарлотта Бронте", 1847));
+            book.Push(new Book("Поллианна", "Элинор Портер", 1913));
+            book.Push(new Book("Человек, который смеётся", "Виктор Гюго", 1869));
+            book.Push(new Book("Рубиновая книга", "Керстин Гир", 2009));
+            book.Push(new Book("Энн из Зелёных Крыш", "Люси Мод Монтгомери", 1908));
 
-            var Book = numbers.Peek();
+            var Book = book.Peek();
 
             Console.WriteLine(Book);
 
-            numbers.Pop();
+            book.Pop();
             Console.WriteLine();
             Console.WriteLine("Rest elements");
-            foreach (var item in numbers)
+            foreach (var item in book)
             {
                 Console.WriteLine(item);
             }
