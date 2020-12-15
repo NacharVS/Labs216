@@ -27,9 +27,10 @@ namespace Labs216.Topunova
             books.Push("После", "Анна Тод", "2014");
 
             books.Pop();
+            foreach (var item in books) 
             {
                 Console.WriteLine();
-                Console.WriteLine($"_books", "_writer", "_year");
+                Console.WriteLine($"_books, _writer, _year");
             }
         }
 
