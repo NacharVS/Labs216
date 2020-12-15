@@ -12,7 +12,7 @@ namespace Labs216
        
         static void Main(string[] args)
         {
-            Book.SStack();
+            ObservableCollection1111.Observable();
         }
        
     }
