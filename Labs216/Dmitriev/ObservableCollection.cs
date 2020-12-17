@@ -9,20 +9,20 @@ namespace Labs216.Dmitriev
     {
         static void Main(string[] args)
         {
-            ObservableCollection<User> users = new ObservableCollection<User>
+            ObservableCollection<Student> students = new ObservableCollection<Student>
             {
-                new User { Name = "Serega"},
-                new User { Name = "Iskander"},
-                new User { Name = "Maksim"}
+                new Student { Name = "Serega"},
+                new Student { Name = "Iskander"},
+                new Student { Name = "Maksim"}
             };
 
-            users.CollectionChanged += Users_CollectionChanged;
+            students.CollectionChanged += Users_CollectionChanged;
 
-            users.Add(new User { Name = "Timur" });
-            users.RemoveAt(1);
-            users[0] = new User { Name = "Aynur" };
+            students.Add(new Student { Name = "Timur" });
+            students.RemoveAt(1);
+            students[0] = new Student { Name = "Aynur" };
 
-            foreach (User user in users)
+            foreach (Student user in students)
             {
                 Console.WriteLine(user.Name);
             }
@@ -34,24 +34,24 @@ namespace Labs216.Dmitriev
         {
             switch (e.Action)
             {
-                case NotifyCollectionChangedAction.Add: 
-                    User newUser = e.NewItems[0] as User;
-                    Console.WriteLine($"dobavlen ob.: {newUser.Name}");
+                case NotifyCollectionChangedAction.Add:
+                    Student newStudent = e.NewItems[0] as Student;
+                    Console.WriteLine($"dobavlen ob.: {newStudent.Name}");
                     break;
-                case NotifyCollectionChangedAction.Remove: 
-                    User oldUser = e.OldItems[0] as User;
-                    Console.WriteLine($"dobavlen ob.: {oldUser.Name}");
+                case NotifyCollectionChangedAction.Remove:
+                    Student oldStudent = e.OldItems[0] as Student;
+                    Console.WriteLine($"dobavlen ob.: {oldStudent.Name}");
                     break;
-                case NotifyCollectionChangedAction.Replace: 
-                    User replacedUser = e.OldItems[0] as User;
-                    User replacingUser = e.NewItems[0] as User;
-                    Console.WriteLine($"ob. {replacedUser.Name} zamena ob. {replacingUser.Name}");
+                case NotifyCollectionChangedAction.Replace:
+                    Student replacedStudent = e.OldItems[0] as Student;
+                    Student replacingStudent = e.NewItems[0] as Student;
+                    Console.WriteLine($"ob. {replacedStudent.Name} zamena ob. {replacingStudent.Name}");
                     break;
             }
         }
     }
 
-    class User
+    class Student
     {
         public string Name { get; set; }
     }
