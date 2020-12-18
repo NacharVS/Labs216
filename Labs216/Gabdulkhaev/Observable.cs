@@ -17,23 +17,26 @@ namespace Labs216.Gabdulkhaev
             };
             bankeers.Add(new Bank("Имя", "Фамилия", 10, 3, new DateTime(1913, 10, 20)));
             bankeers.Add(new Bank("Имя", "Фамилия", 40, 4, new DateTime(1950, 12, 12)));
-            //     bankeers.CollectionChanged +=;
+            bankeers.CollectionChanged += BankCollectionChanged;
             bankeers.Add(new Bank("Имя", "Фамилия", 40, 4, new DateTime(1950, 12, 12)));
             bankeers.Add(new Bank("Имя", "Фамилия", 40, 4, new DateTime(1950, 12, 12)));
             bankeers.Add(new Bank("Имя", "Фамилия", 40, 4, new DateTime(1950, 12, 12)));
             bankeers.RemoveAt(3);
         }
-        //static void BankCollectionChanged(object sender, NotifyCollectionChangedEventArgs e)
-        //{
-        //    switch ()
-        //    {
-        //        case 
-        //            break;
-        //            case
-        //            break;
-        //            case
-        //            break;
-            }
+        static void BankCollectionChanged(object sender, NotifyCollectionChangedEventArgs e)
+        {
+            switch (e.Action)
+            {
+                case NotifyCollectionChangedAction.Add:
+                    Console.WriteLine("Сометхинг аддед");
+                    break;
+                case NotifyCollectionChangedAction.Remove:
+                    Console.WriteLine("Сометхинг ремовед");
+                    break;
+                case NotifyCollectionChangedAction.Replace:
+                    Console.WriteLine("Сометхинг репласед");
+                    break;
+            } //push
         }
     }
 }
