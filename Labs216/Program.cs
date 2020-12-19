@@ -5,11 +5,11 @@ using System.Collections.Generic;
 
 namespace Labs216
 {
-    class Program
-    {
-        public static void Main(string[] args)
-        {
-            Nikak.Collection();
-        }
-    }
+    //class Program
+    //{
+    //    //public static void Main(string[] args)
+    //    //{
+    //    //    Nikak.Collection();
+    //    //}
+    //}
 }
