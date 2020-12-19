@@ -14,19 +14,20 @@ namespace Labs216
        
         static void Main(string[] args)
         {
+            MnogoPotochnoct.Prr();
 
-            Task[] tasks1 = new Task[4]
-            {
-                new Task(()=> MnogoPotochnoct.Thread1()),
-                new Task(()=> MnogoPotochnoct.Thread2()),
-                new Task(()=> MnogoPotochnoct.Thread3()),
-                new Task(()=> MnogoPotochnoct.Thread4())
-            };
-            foreach(var t in tasks1)
-            {
-                t.Start();
-                Console.WriteLine(tasks1);
-            }
+            //Task[] tasks1 = new Task[4]
+            //{
+            //    new Task(()=> MnogoPotochnoct.Thread1()),
+            //    new Task(()=> MnogoPotochnoct.Thread2()),
+            //    new Task(()=> MnogoPotochnoct.Thread3()),
+            //    new Task(()=> MnogoPotochnoct.Thread4())
+            //};
+            //foreach(var t in tasks1)
+            //{
+            //    t.Start();
+            //    Console.WriteLine(tasks1);
+            //}
         }
        
     }
