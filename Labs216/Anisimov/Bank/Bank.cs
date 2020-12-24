@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Threading;
 
 namespace Labs216.Anisimov.Bank
 {
@@ -7,6 +8,7 @@ namespace Labs216.Anisimov.Bank
     {
         List<Account> Accounts = new List<Account>();
         DateTime Time = DateTime.Now;
+        static object locker = new object();
 
         Dictionary<string, double> partners = new Dictionary<string, double>()
         {
@@ -54,7 +56,7 @@ namespace Labs216.Anisimov.Bank
                 throw new Exception($"Birthday is empty");
 
             Account newAccount = new Account(name, surname, phone, AgeCalculate(birthday));
-            newAccount.Open();
+            newAccount.Open(Time);
             Accounts.Add(newAccount);
         }
 
@@ -121,11 +123,14 @@ namespace Labs216.Anisimov.Bank
 
         public void SkipTime(int days)
         {
-            Time += TimeSpan.FromDays(days);
-            for (int i = 0; i < Accounts.Count; i++)
+            lock (locker)
             {
-                Accounts[i].Calculate(Time);
-                Accounts[i].GetCashBack(Time);
+                Time += TimeSpan.FromDays(days);
+                for (int i = 0; i < Accounts.Count; i++)
+                {
+                    Accounts[i].Calculate(Time);
+                    Accounts[i].GetCashBack(Time);
+                }
             }
         }
 

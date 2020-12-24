@@ -21,7 +21,7 @@ namespace Labs216.Anisimov.Bank
         private double _sum;
 
         private static double _interestRate = 0.05;
-        private readonly int _period = 2;
+        private readonly int _period = 1;
 
         private double _cashBack;
         private static readonly double _cahsBackRate = 0.01;
@@ -74,12 +74,12 @@ namespace Labs216.Anisimov.Bank
             Age = age;
         }
 
-        public void Open()
+        public void Open(DateTime time)
         {
             GenId();
-            _accountOpen = DateTime.Now;
-            _lastProfit = _accountOpen;
-            _lastCASHBACK = _accountOpen;
+            _accountOpen = time;
+            _lastProfit = time;
+            _lastCASHBACK = time;
             Notify?.Invoke(PhoneNumber, $"Accoun was opened\nId--{Id}\n");
         }
         public void Put(int sum)
@@ -101,6 +101,11 @@ namespace Labs216.Anisimov.Bank
         }
         public void Calculate(DateTime TimeNow)
         {
+            if (Sum == 0)
+            {
+                _lastProfit = TimeNow;
+                return;
+            }
             while (((TimeNow.Day - _lastProfit.Day) / _period) >= 1 || ((TimeNow.Month - _lastProfit.Month) != 0))
             {
                 _lastProfit += TimeSpan.FromDays(_period);
@@ -111,7 +116,10 @@ namespace Labs216.Anisimov.Bank
         public void GetCashBack(DateTime TimeNow)
         {
             if (_cashBack == 0)
+            {
+                _lastCASHBACK = TimeNow;
                 return;
+            }
 
             if ((TimeNow.Day - _lastCASHBACK.Day) >= _cashBackPeriod || ((TimeNow.Month - _lastCASHBACK.Month) != 0))
             {

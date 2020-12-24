@@ -18,8 +18,7 @@ namespace Labs216.Anisimov
             if (dictionary.ContainsKey(Key))
                 dictionary.Remove(Key);
             else
-                throw new Exception("Wrong key");
-                
+                throw new Exception("Wrong key");             
         }
 
         private static int GenKey<TValue>(Dictionary<int, TValue> dictionary)

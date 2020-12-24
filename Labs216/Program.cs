@@ -11,7 +11,7 @@ namespace Labs216
     {
         static void Main(string[] args)
         {
-            RunBook.Run();
+            RunBank.Run();
         }
     }
 }
