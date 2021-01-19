@@ -146,10 +146,10 @@ namespace Labs216.Anisimov.Bank
         }
         private static void GetInfo(Bank bank)
         {
-            Console.WriteLine("Введите id счета:");
-            int id = int.Parse(Console.ReadLine());
+            //Console.WriteLine("Введите id счета:");
+            //int id = int.Parse(Console.ReadLine());
 
-            bank.GetInfo(id);
+            bank.GetInfo(/*id*/);
         }
 
         private static void ResumeThread(Thread thread)

@@ -1,4 +1,6 @@
-﻿using System;
+﻿using MongoDB.Bson;
+using MongoDB.Bson.Serialization.Attributes;
+using System;
 
 namespace Labs216.Anisimov.Bank
 {
@@ -13,13 +15,15 @@ namespace Labs216.Anisimov.Bank
             Console.ForegroundColor = tmp;
         };
 
+        AccountContext db = new AccountContext();
+
         private string _name;
         private string _surname;
         public string PhoneNumber { get; private set; }
         public int Age { get; private set; }
-        public int Id { get; private set; }
+        public ObjectId Id { get; private set; }
         private double _sum;
-
+        
         private static double _interestRate = 0.05;
         private readonly int _period = 1;
 
@@ -27,6 +31,7 @@ namespace Labs216.Anisimov.Bank
         private static readonly double _cahsBackRate = 0.01;
         private readonly int _cashBackPeriod = 5;
 
+        [BsonIgnore]
         private static int Count;
 
         private DateTime _accountOpen;
@@ -61,10 +66,10 @@ namespace Labs216.Anisimov.Bank
                 Notify?.Invoke(PhoneNumber, $"Acount Change {_sum}");
             }
         }
-        private void GenId()
-        {
-            Id = ++Count;
-        }
+        //private void GenId()
+        //{
+        //    Id = ++Count;
+        //}
 
         public Account(string name, string surname, string phone, int age)
         {
@@ -76,10 +81,11 @@ namespace Labs216.Anisimov.Bank
 
         public void Open(DateTime time)
         {
-            GenId();
+            //GenId();
             _accountOpen = time;
             _lastProfit = time;
             _lastCASHBACK = time;
+            db.AddAccount(this).GetAwaiter().GetResult();
             Notify?.Invoke(PhoneNumber, $"Accoun was opened\nId--{Id}\n");
         }
         public void Put(int sum)
@@ -154,10 +160,15 @@ namespace Labs216.Anisimov.Bank
 
         public void GetInfo()
         {
-            ConsoleColor tmp = Console.ForegroundColor;
-            Console.ForegroundColor = ConsoleColor.Cyan;
-            Console.WriteLine($"name\t{Name}\nsurname\t{Surname}\nphone\t{PhoneNumber}\nage\t{Age}\nid\t{Id}\nsum\t{Sum}");
-            Console.ForegroundColor = tmp;
+            var list = db.GetAccounts().GetAwaiter().GetResult();
+
+            foreach (var item in list)
+            {
+                ConsoleColor tmp = Console.ForegroundColor;
+                Console.ForegroundColor = ConsoleColor.Cyan;
+                Console.WriteLine($"name\t{item.Name}\nsurname\t{item.Surname}\nphone\t{item.PhoneNumber}\nage\t{item.Age}\nid\t{item.Id}\nsum\t{item.Sum}");
+                Console.ForegroundColor = tmp;
+            }
         }
     }
 }

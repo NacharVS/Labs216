@@ -151,19 +151,19 @@ namespace Labs216.Anisimov.Bank
         {
             foreach(Account item in Accounts)
             {
-                if(item.Id == id)
-                {
-                    account = item;
-                }
+                //if(item.Id == id)
+                //{
+                //    account = item;
+                //}
             }
             if (account == null)
                 throw new Exception("Account not found");
         }
 
-        public void GetInfo(int id)
+        public void GetInfo(/*int id*/)
         {
-            Account account = null;
-            FindAccount(id, ref account);
+            Account account = new Account("123","765","12313",12);
+            //FindAccount(id, ref account);
 
             account.GetInfo();
         }
