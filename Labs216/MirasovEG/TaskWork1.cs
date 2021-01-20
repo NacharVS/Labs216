@@ -7,19 +7,19 @@ namespace Labs216.MirasovEG
 {
     class TaskWork1
     {
-        static void Main(string[] args)
-        {
-            int[] array1 = new int[10];
-            int[] array2 = new int[10];
+        //static void Main(string[] args)
+        //{
+        //    int[] array1 = new int[10];
+        //    int[] array2 = new int[10];
 
-            Task full = Task.Factory.StartNew(() => FullArray(array1, array2));
-            full.Wait();
+        //    Task full = Task.Factory.StartNew(() => FullArray(array1, array2));
+        //    full.Wait();
             
 
-            Task sortSum = Task.Factory.StartNew(() => SortSumArray(array1, array2));
-            sortSum.Wait();
-            Console.WriteLine("Завершение метода Main");
-        }
+        //    Task sortSum = Task.Factory.StartNew(() => SortSumArray(array1, array2));
+        //    sortSum.Wait();
+        //    Console.WriteLine("Завершение метода Main");
+        //}
 
 
         public static void FullArray(int[] array1, int[] array2)
