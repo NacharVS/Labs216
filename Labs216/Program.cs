@@ -14,7 +14,8 @@ namespace Labs216
        
         static void Main(string[] args)
         {
-            MnogoPotochnoct.Prr();
+            
+            //MnogoPotochnoct.Prr();
 
             //Task[] tasks1 = new Task[4]
             //{
