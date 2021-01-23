@@ -6,6 +6,7 @@ using Labs216.Nabiullina;
 using Labs216.Nabiullina.StrategyGame;
 using System.Threading;
 using System.Threading.Tasks;
+using Labs216._2_семестр;
 
 namespace Labs216
 {
@@ -14,8 +15,9 @@ namespace Labs216
        
         static void Main(string[] args)
         {
-            
+            Chelovec chel = new Chelovec("qwe");
             //MnogoPotochnoct.Prr();
+            MongoDB1.MongoInsert(chel).GetAwaiter().GetResult();
 
             //Task[] tasks1 = new Task[4]
             //{
