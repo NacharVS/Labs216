@@ -1,5 +1,6 @@
 ﻿using MongoDB.Bson;
 using MongoDB.Bson.Serialization.Attributes;
+using MongoDB.Driver;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -17,15 +18,5 @@ namespace Labs216.Gabdulkhaev
         [BsonIgnoreIfDefault]
         public int age;
     }
-    static void PoiskPoImeni(string searchName)
-    {
-        string connectionString = "mongodb://localhost";
-        var client = new MongoClient(connectionString);
-        var database=client.GetDatabase()
-    }
-    {
-
-    }
        // все, что работает с базами данных
     }
-}
