@@ -6,13 +6,14 @@ using Labs216.Bulatov.Strategy;
 using Labs216.Bulatov.Bank;
 
 
+
 namespace Labs216
 {
     class Program
     {
         static void Main(string[] args)
         {
-            
+            RunBank.Run();
         }
     }
 }

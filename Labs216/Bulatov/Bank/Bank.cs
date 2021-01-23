@@ -1,213 +1,172 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Threading;
 
-namespace Labs216.Bulatov
+namespace Labs216.Bulatov.Bank
 {
     class Bank
     {
-        public delegate void BankAccount(string phoneNumber, string Message);
+        List<Account> Accounts = new List<Account>();
+        DateTime Time = DateTime.Now;
+        static object locker = new object();
 
-        public event BankAccount Notify = (phoneNumber, Message) => Console.WriteLine($"Было отправлено сообщение на номер: {phoneNumber}\nСообщение: {Message}\n");
-
-        private string _name;
-        private string _surname;
-        private string _phoneNumber;
-        private int _age;
-        public string Id { get; private set; }
-        private double _account;
-
-        private static double _interestRate = 0.05;
-        private int _period = 2;
-
-        private double _cashBack;
-        private static double _cahsBackRate = 0.01;
-        private int _cashBackPeriod = 5;
-
-        public static int Count { get; private set; } = 0;
+        Dictionary<string, double> partners = new Dictionary<string, double>()
+        {
+            { "Macdonalds", 0.05 },
+            { "Steam", 0.025},
+            { "Apple", 0.02},
+            { "Paterochka", 0.05}
+        };
 
         private static readonly int _Max = 1000000;
         private static readonly int _Min = 10000;
-        private static readonly int _MinAge = 14;
+        protected static readonly int _MinAge = 14;
 
-        private DateTime _accountOpen;
-        private DateTime _lastProfit;
-        private DateTime _lastCASHBACK;
+        private int AgeCalculate(string birthday)
+        {
+            int age;
 
-        public string Name
-        {
-            get { return _name; }
-            private set
-            {
-                if (value != "")
-                {
-                    value = value.Trim();
-                    _name = value[0].ToString().ToUpper() + value.Substring(1);
-                }
-                else _name = "No data";
-            }
-        }
-        public string Surname
-        {
-            get { return _surname; }
-            private set
-            {
-                if (value != "")
-                {
-                    value = value.Trim();
-                    _surname = value[0].ToString().ToUpper() + value.Substring(1);
-                }
-                else _surname = "No data";
-            }
-        }
-        public int Age
-        {
-            get { return _age; }
-            private set
-            {
-                if (value >= _MinAge)
-                    _age = value;
-                else
-                    Console.WriteLine("Your age does not match the required");
-            }
-        }
-        public double Account
-        {
-            get { return _account; }
-            private set
-            {
-                _account = Math.Round(value, 2);
-                Notify?.Invoke(_phoneNumber, $"Acount Change {_account}");
-            }
-        }
-        private void GenId()
-        {
-            Id = _name + _surname + "_" + Count;
-            Count = Count + 1;
-        }
-        private void GetAge()
-        {
-            Console.WriteLine("Write you birthday (dd.mm.yyyy)");
-            string[] date = new string[3];
-            date = Console.ReadLine().Split(".");
+            string[] date = birthday.Split(".");
+
+            if (date.Length != 3)
+                throw new Exception("Wrong birthday format");
+
             int day = int.Parse(date[0]);
             int month = int.Parse(date[1]);
             int year = DateTime.Now.Year - int.Parse(date[2]) - 1;
             {
-                if (DateTime.Now.Month >= month & DateTime.Now.Day >= day) Age = year + 1;
-                else Age = year;
+                if (DateTime.Now.Month >= month & DateTime.Now.Day >= day) age = year + 1;
+                else age = year;
             }
+
+            if (age < _MinAge)
+                throw new Exception($"Your age does not match the required -- {_MinAge}");
+            return age;
         }
-        public Bank()
+
+        public void Open(string name, string surname, string phone, string birthday)
         {
-            Console.WriteLine("Write you name");
-            Name = Console.ReadLine();
-            Console.WriteLine("Write you surname");
-            Surname = Console.ReadLine();
-            Console.WriteLine("Write you phone");
-            _phoneNumber = Console.ReadLine();
-            GetAge();
-            GenId();
-            _accountOpen = DateTime.Now;
-            _lastProfit = _accountOpen;
-            _lastCASHBACK = _accountOpen;
+            if (name == "" || name == null)
+                throw new Exception($"Name is empty");
+            if (surname == "" || surname == null)
+                throw new Exception($"Surname is empty");
+            if (phone == "" || phone == null)
+                throw new Exception($"Phone is empty");
+            if (birthday == "" || birthday == null)
+                throw new Exception($"Birthday is empty");
+
+            Account newAccount = new Account(name, surname, phone, AgeCalculate(birthday));
+            newAccount.Open(Time);
+            Accounts.Add(newAccount);
         }
-        public Bank(string name, string surname, string phone)
+
+        public void Put(int sum, int id)
         {
-            Name = name;
-            Surname = surname;
-            _phoneNumber = phone;
-            GenId();
-            _accountOpen = DateTime.Now;
-            _lastProfit = _accountOpen;
-            _lastCASHBACK = _accountOpen;
+            Account account = null;
+            FindAccount(id, ref account);
+
+            if (sum < _Min)
+                throw new Exception("You can't add less than 10 000");
+
+            else account.Put(sum);
         }
-        public void Withdraw(int value)
+
+        public void Withdraw(int sum, int id)
         {
-            if (value > _account)
+            Account account = null;
+            FindAccount(id, ref account);
+
+            if (sum > account.Sum)
+                throw new Exception($"You have only: {account.Sum}");
+            if (sum > _Max)
+                throw new Exception("You can't take more than 100 000");
+
+            account.Withdraw(sum);
+        }
+
+        public void Buy(int sum, int id, string organization)
+        {
+            Account account = null;
+            FindAccount(id, ref account);
+
+            Withdraw(sum, id);
+
+            double BonusRate = 0;
+
+            try
             {
-                Notify?.Invoke(_phoneNumber, $"You have only: {Account}");
-                return;
+                BonusRate = partners[organization];
             }
-            if (value <= _Max)
+            finally
             {
-                Account = Account - value;
+                account.Buy(sum, ref BonusRate);
             }
-            else Notify?.Invoke(_phoneNumber, "You can't take more than 100 000");
         }
-        public void Deposit(int value)
+
+        public void ChangeRate(int id, double newValue)
         {
-            if (value >= _Min)
+            Account account = null;
+            FindAccount(id, ref account);
+
+            account.ChangeRate(newValue);
+        }
+
+        public void Close(int id)
+        {
+            Account account = null;
+            FindAccount(id, ref account);
+
+            account.Close();
+
+            Accounts.Remove(account);
+        }
+
+        public void SkipTime(int days)
+        {
+            lock (locker)
             {
-                Account = Account + value;
+                Time += TimeSpan.FromDays(days);
+                for (int i = 0; i < Accounts.Count; i++)
+                {
+                    Accounts[i].Calculate(Time);
+                    Accounts[i].GetCashBack(Time);
+                }
             }
-            else Notify?.Invoke(_phoneNumber, "You can't add less than 10 000");
         }
-        public void ShowProfit(int yaer)
+
+        public void EditInfo(int id, int choose, string newValue)
         {
-            double buff = _account;
-            for (int i = 0; i < yaer; i++)
+            Account account = null;
+            FindAccount(id, ref account);
+
+            if (newValue == null || newValue == "")
+                throw new Exception("Неверное значение");
+            if (choose == 4)
+                newValue = AgeCalculate(newValue).ToString();
+
+            account.EditInfo(choose, newValue);
+        }
+
+        private void FindAccount(int id, ref Account account)
+        {
+            foreach (Account item in Accounts)
             {
-                buff += buff * _interestRate;
+                //if(item.Id == id)
+                //{
+                //    account = item;
+                //}
             }
-            Notify?.Invoke(_phoneNumber, $"Your balance will be {buff} in {yaer} years");
+            if (account == null)
+                throw new Exception("Account not found");
         }
-        public void Buy(int value)
+
+        public void GetInfo(/*int id*/)
         {
-            Withdraw(value);
-            Notify?.Invoke(_phoneNumber, $"Spend cash -- {value}");
-            _cashBack += value * _cahsBackRate;
-        }
-        public void Buy(int value, string organization)
-        {
-            Withdraw(value);
-            switch (organization)
-            {
-                case "Macdonalds":
-                    _cashBack += value * (_cahsBackRate + 0.01);
-                    Notify?.Invoke(_phoneNumber, $"Spend cash {value} in Macdonalds");
-                    break;
-                case "Steam":
-                    _cashBack += value * (_cahsBackRate + 0.025);
-                    Notify?.Invoke(_phoneNumber, $"Spend cash {value} in Steam");
-                    break;
-                case "Apple":
-                    _cashBack += value * (_cahsBackRate + 0.02);
-                    Notify?.Invoke(_phoneNumber, $"Spend cash {value} in Apple");
-                    break;
-                case "Paterochka":
-                    _cashBack += value * (_cahsBackRate + 0.015);
-                    Notify?.Invoke(_phoneNumber, $"Spend cash {value} in Paterochka");
-                    break;
-                default:
-                    _cahsBackRate += value * (_cahsBackRate + 0.01);
-                    Notify?.Invoke(_phoneNumber, $"Spend cash {value}");
-                    break;
-            }
-        }
-        public void CalculateProfit(DateTime timeNow)
-        {
-            while (((timeNow.Day - _lastProfit.Day) / _period) >= 1 || ((timeNow.Month - _lastProfit.Month) != 0))
-            {
-                _lastProfit += TimeSpan.FromDays(_period);
-                Notify?.Invoke(_phoneNumber, $"Profit for {_lastProfit.Date}");
-                Account += _account * _interestRate;
-            }
-        }
-        public void GetCahsBack(DateTime timeNow)
-        {
-            if ((timeNow.Day - _lastCASHBACK.Day) >= _cashBackPeriod || ((timeNow.Month - _lastCASHBACK.Month) != 0))
-            {
-                Notify?.Invoke(_phoneNumber, $"Your get cahback {_cashBack}");
-                Account += _cashBack;
-                _lastCASHBACK = timeNow;
-                _cashBack = 0;
-            }
-        }
-        public void ChangeRate(double value)
-        {
-            _interestRate = value;
-            Notify?.Invoke(_phoneNumber, $"New insert rate -- {_interestRate}");
+            Account account = new Account("123", "765", "12313", 12);
+            //FindAccount(id, ref account);
+
+            account.GetInfo();
         }
     }    
 }

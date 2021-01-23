@@ -4,11 +4,11 @@
     <OutputType>Exe</OutputType>
     <TargetFramework>netcoreapp3.1</TargetFramework>
   </PropertyGroup>
-
+ 
   <ItemGroup>
-    <Compile Remove="KhabibullinaRal\**" />
-    <EmbeddedResource Remove="KhabibullinaRal\**" />
-    <None Remove="KhabibullinaRal\**" />
+    <PackageReference Include="MongoDB.Bson" Version="2.11.6" />
+    <PackageReference Include="MongoDB.Driver" Version="2.11.6" />
+    <PackageReference Include="MongoDB.Driver.Core" Version="2.11.6" />
   </ItemGroup>
 
 </Project>

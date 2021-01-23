@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Threading;
 
 namespace Labs216.Bulatov.Bank
 {
@@ -9,6 +10,9 @@ namespace Labs216.Bulatov.Bank
         public static void Run()
         {
             Bank bank = new Bank();
+            Thread LiveTime = new Thread(new ParameterizedThreadStart(ThreadWait));
+            LiveTime.Start(bank);
+
             bool alive = true;
             while (alive)
             {
@@ -17,7 +21,7 @@ namespace Labs216.Bulatov.Bank
                 Console.WriteLine("1. Открыть счет \t 2. Вывести средства  \t 3. Добавить на счет");
                 Console.WriteLine("4. Купить \t 5. Изменить процентную ставку \t 6. Закрыть счет");
                 Console.WriteLine("7. Подождать \t 8.Посмотреть информацию \t 9. Отредактировать данные");
-                Console.WriteLine("10. Выйти из программы");
+                Console.WriteLine("10. Остановить время \t 11. Возобновить время \t 12. Выйти из программы");
                 Console.WriteLine("Введите номер пункта:");
                 Console.ForegroundColor = tmp;
 
@@ -53,11 +57,17 @@ namespace Labs216.Bulatov.Bank
                             EditInfo(bank);
                             break;
                         case "10":
+                            FreezeThread(LiveTime);
+                            break;
+                        case "11":
+                            ResumeThread(LiveTime);
+                            break;
+                        case "12":
                             alive = false;
                             continue;
                     }
                 }
-                catch(Exception exeprion)
+                catch (Exception exeprion)
                 {
                     ConsoleColor temp = Console.ForegroundColor;
                     Console.ForegroundColor = ConsoleColor.Red;
@@ -66,6 +76,7 @@ namespace Labs216.Bulatov.Bank
                 }
             }
         }
+
         private static void OpenAccount(Bank bank)
         {
             Console.WriteLine("Укажите имя, фамилию, телефон и дату рождения(dd.mm.yyyy)");
@@ -137,10 +148,32 @@ namespace Labs216.Bulatov.Bank
         }
         private static void GetInfo(Bank bank)
         {
-            Console.WriteLine("Введите id счета:");
-            int id = int.Parse(Console.ReadLine());
+            //Console.WriteLine("Введите id счета:");
+            //int id = int.Parse(Console.ReadLine());
 
-            bank.GetInfo(id);
+            bank.GetInfo(/*id*/);
         }
+
+        private static void ResumeThread(Thread thread)
+        {
+            thread.IsBackground = false;
+        }
+        private static void FreezeThread(Thread thread)
+        {
+            thread.IsBackground = true;
+        }
+        private static void ThreadWait(object Object)
+        {
+            while (true)
+            {
+                Thread.Sleep(2000);
+                if (Thread.CurrentThread.IsBackground)
+                    continue;
+
+                Bank bank = (Bank)Object;
+                bank.SkipTime(1);
+            }
+        }
+
     }
 }
