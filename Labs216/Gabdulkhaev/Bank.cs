@@ -17,7 +17,7 @@ namespace Labs216.Gabdulkhaev
         private string _name;
         private int _number;
         private string _surname;
-        private string _id;
+        public string _id;
         private static double _rate;
         private double _paymentAccount;
         private int _SetDATAROZHDENIYA;

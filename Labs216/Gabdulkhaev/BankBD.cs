@@ -1,6 +1,7 @@
 ﻿using MongoDB.Bson;
 using MongoDB.Bson.Serialization.Attributes;
 using MongoDB.Driver;
+using Labs216.Gabdulkhaev;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -24,7 +25,8 @@ namespace Labs216.Gabdulkhaev
     {
         static void Main()
         {
-            Student student1 = new Student { name = "Igor", age = 15 };
+            bank2 prikol = new bank2();
+            Student student1 = new Student { name = "Igor", surname="Familiya", _id=prikol._id, age = 15, };
             Student student2 = new Student { name = "Maksim" };
             MongoInsert(student1).GetAwaiter().GetResult();
         }
