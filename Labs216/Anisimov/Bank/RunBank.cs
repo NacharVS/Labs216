@@ -5,21 +5,23 @@ namespace Labs216.Anisimov.Bank
 {
     class RunBank
     {
+        private static bool alive = true;
+
         public static void Run()
         {
             Bank bank = new Bank();
             Thread LiveTime = new Thread(new ParameterizedThreadStart(ThreadWait));
-            LiveTime.Start(bank);
+            //LiveTime.Start(bank);
 
-            bool alive = true;
             while (alive)
             {
                 ConsoleColor tmp = Console.ForegroundColor;
                 Console.ForegroundColor = ConsoleColor.Green;
-                Console.WriteLine("1. Открыть счет \t 2. Вывести средства  \t 3. Добавить на счет");
-                Console.WriteLine("4. Купить \t 5. Изменить процентную ставку \t 6. Закрыть счет");
-                Console.WriteLine("7. Подождать \t 8.Посмотреть информацию \t 9. Отредактировать данные");
-                Console.WriteLine("10. Остановить время \t 11. Возобновить время \t 12. Выйти из программы");
+                Console.WriteLine("1. Открыть счет \t 2. Вывести средства  \t 3. Внести средства\n" +
+                    "4. Купить \t 5. Изменить процентную ставку \t 6. Закрыть счет\n" +
+                    "7. Подождать \t 8. Вывести список аккаунтов \t 9. Отредактировать данные\n" +
+                    "10.Найти аккаунт \t 11. Остановить время \t 12. Возобновить время\n" +
+                    "13. Выйти из программы");
                 Console.WriteLine("Введите номер пункта:");
                 Console.ForegroundColor = tmp;
 
@@ -49,27 +51,32 @@ namespace Labs216.Anisimov.Bank
                             Wait(bank);
                             break;
                         case "8":
-                            GetInfo(bank);
+                            GetList(bank);
                             break;
                         case "9":
                             EditInfo(bank);
                             break;
                         case "10":
-                            FreezeThread(LiveTime);
+                            Search(bank);
                             break;
                         case "11":
-                            ResumeThread(LiveTime);
+                            FreezeThread(LiveTime);
                             break;
                         case "12":
-                            alive = false;
+                            ResumeThread(LiveTime);
+                            break;
+                        case "13":
+                            {
+                                alive = false;
+                            }
                             continue;
                     }
                 }
-                catch(Exception exeprion)
+                catch(Exception exeption)
                 {
                     ConsoleColor temp = Console.ForegroundColor;
                     Console.ForegroundColor = ConsoleColor.Red;
-                    Console.WriteLine(exeprion.Message);
+                    Console.WriteLine(exeption.Message);
                     Console.ForegroundColor = temp;
                 }
             }
@@ -88,7 +95,7 @@ namespace Labs216.Anisimov.Bank
             Console.WriteLine("Укажите сумму для вывода со счета:");
             int sum = int.Parse(Console.ReadLine());
             Console.WriteLine("Введите id счета:");
-            int id = int.Parse(Console.ReadLine());
+            string id = Console.ReadLine();
 
             bank.Withdraw(sum, id);
         }
@@ -97,14 +104,14 @@ namespace Labs216.Anisimov.Bank
             Console.WriteLine("Укажите сумму, чтобы положить на счет:");
             int sum = int.Parse(Console.ReadLine());
             Console.WriteLine("Введите Id счета:");
-            int id = int.Parse(Console.ReadLine());
+            string id = Console.ReadLine();
 
             bank.Put(sum, id);
         }
         private static void CloseAccount(Bank bank)
         {
             Console.WriteLine("Введите id счета, который надо закрыть:");
-            int id = int.Parse(Console.ReadLine());
+            string id = Console.ReadLine();
 
             bank.Close(id);
         }
@@ -113,7 +120,7 @@ namespace Labs216.Anisimov.Bank
             Console.WriteLine("Укажите сумму покупки:");
             int sum = int.Parse(Console.ReadLine());
             Console.WriteLine("Введите id счета:");
-            int id = int.Parse(Console.ReadLine());
+            string id = Console.ReadLine();
             Console.WriteLine("Укажите организацию в которой покупали");
             string organization = Console.ReadLine();
 
@@ -124,7 +131,7 @@ namespace Labs216.Anisimov.Bank
             Console.WriteLine("Укажите новое значение");
             double newRate = double.Parse(Console.ReadLine());
             Console.WriteLine("Введите id счета:");
-            int id = int.Parse(Console.ReadLine());
+            string id = Console.ReadLine();
 
             bank.ChangeRate(id, newRate);
         }
@@ -137,19 +144,34 @@ namespace Labs216.Anisimov.Bank
         private static void EditInfo(Bank bank)
         {
             Console.WriteLine("Введите id счета:");
-            int id = int.Parse(Console.ReadLine());
+            string id = Console.ReadLine();
+            bank.GetInfo(id);
             Console.WriteLine("Какую информацию вы хотите изменить\n1. Имя\t2. Фамилию\t3.Номер телефона\t4.Дату рождения");
             int choose = int.Parse(Console.ReadLine());
             Console.WriteLine("Введите новое значение");
 
             bank.EditInfo(id, choose, Console.ReadLine());
         }
-        private static void GetInfo(Bank bank)
+        private static void Search(Bank bank)
         {
-            //Console.WriteLine("Введите id счета:");
-            //int id = int.Parse(Console.ReadLine());
+            Console.WriteLine("Введите имя:");
+            var name = Console.ReadLine();
+            Console.WriteLine("Введите фамилию:");
+            var surname = Console.ReadLine();
+            Console.WriteLine("Введите возраст:");
 
-            bank.GetInfo(/*id*/);
+            string input = Console.ReadLine();
+            int? age;
+            if (input == "")
+                age = null;
+            else age = int.Parse(input);
+
+            bank.Search(name, surname, age);
+        }
+
+        private static void GetList(Bank bank)
+        {
+            bank.GetList();
         }
 
         private static void ResumeThread(Thread thread)
@@ -162,7 +184,7 @@ namespace Labs216.Anisimov.Bank
         }
         private static void ThreadWait(object Object)
         {
-            while (true)
+            while (alive)
             {
                 Thread.Sleep(2000);
                 if (Thread.CurrentThread.IsBackground)

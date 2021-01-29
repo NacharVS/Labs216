@@ -7,7 +7,7 @@ namespace Labs216.Anisimov.Bank
     class Account
     {
         public delegate void BankAccount(string phoneNumber, string Message);
-        public event BankAccount Notify = (phoneNumber, Message) =>
+        public static event BankAccount Notify = (phoneNumber, Message) =>
         {
             ConsoleColor tmp = Console.ForegroundColor;
             Console.ForegroundColor = ConsoleColor.Yellow;
@@ -15,28 +15,27 @@ namespace Labs216.Anisimov.Bank
             Console.ForegroundColor = tmp;
         };
 
-        AccountContext db = new AccountContext();
-
         private string _name;
         private string _surname;
         public string PhoneNumber { get; private set; }
         public int Age { get; private set; }
         public ObjectId Id { get; private set; }
         private double _sum;
-        
-        private static double _interestRate = 0.05;
-        private readonly int _period = 1;
 
-        private double _cashBack;
+        public double InterestRate { get; private set; } = 5;
+        private static readonly int _period = 1;
+
+        public double CashBack { get; private set; }
         private static readonly double _cahsBackRate = 0.01;
-        private readonly int _cashBackPeriod = 5;
+        private static readonly int _cashBackPeriod = 5;
 
-        [BsonIgnore]
-        private static int Count;
+        public DateTime AccountOpen { get; private set; }
+        public DateTime LastProfit { get; private set; }
+        public DateTime LastCASHBACK { get; private set; }
 
-        private DateTime _accountOpen;
-        private DateTime _lastProfit;
-        private DateTime _lastCASHBACK;
+        private bool IsNotDBcall; //При получении аккаунта из базы данных, прогоняються все set
+
+        private AccountContext db = AccountContext.getInstanse();
 
         public string Name
         {
@@ -63,13 +62,11 @@ namespace Labs216.Anisimov.Bank
             private set
             {
                 _sum = Math.Round(value, 2);
-                Notify?.Invoke(PhoneNumber, $"Acount Change {_sum}");
+                if(IsNotDBcall)
+                    Notify?.Invoke(PhoneNumber, $"Acount Change {_sum}");
+                IsNotDBcall = true;
             }
         }
-        //private void GenId()
-        //{
-        //    Id = ++Count;
-        //}
 
         public Account(string name, string surname, string phone, int age)
         {
@@ -81,12 +78,12 @@ namespace Labs216.Anisimov.Bank
 
         public void Open(DateTime time)
         {
-            //GenId();
-            _accountOpen = time;
-            _lastProfit = time;
-            _lastCASHBACK = time;
-            db.AddAccount(this).GetAwaiter().GetResult();
-            Notify?.Invoke(PhoneNumber, $"Accoun was opened\nId--{Id}\n");
+            AccountOpen = time;
+            LastProfit = time;
+            LastCASHBACK = time;
+            Notify?.Invoke(PhoneNumber, $"Accoun was opened\n");
+
+            db.Create(this).GetAwaiter().GetResult();
         }
         public void Put(int sum)
         {
@@ -98,41 +95,41 @@ namespace Labs216.Anisimov.Bank
         }
         public void Buy(int sum, ref double BonusRate)
         {
-            _cashBack += sum * (_cahsBackRate + BonusRate);
+            CashBack += sum * (_cahsBackRate + BonusRate);
         }
         public void ChangeRate(double newRate)
         {
-            _interestRate = newRate;
+            InterestRate = newRate;
             Notify?.Invoke(PhoneNumber, $"InterestRate changed -- {newRate}");
         }
         public void Calculate(DateTime TimeNow)
         {
             if (Sum == 0)
             {
-                _lastProfit = TimeNow;
+                LastProfit = TimeNow;
                 return;
             }
-            while (((TimeNow.Day - _lastProfit.Day) / _period) >= 1 || ((TimeNow.Month - _lastProfit.Month) != 0))
+            while (((TimeNow.Day - LastProfit.Day) / _period) >= 1 || ((TimeNow.Month - LastProfit.Month) != 0))
             {
-                _lastProfit += TimeSpan.FromDays(_period);
-                Notify?.Invoke(PhoneNumber, $"Profit for {_lastProfit.Date}");
-                Sum += _sum * _interestRate;
+                LastProfit += TimeSpan.FromDays(_period);
+                Notify?.Invoke(PhoneNumber, $"Profit for {LastProfit.Date}");
+                Sum += _sum * InterestRate/100;
             }
         }
         public void GetCashBack(DateTime TimeNow)
         {
-            if (_cashBack == 0)
+            if (CashBack == 0)
             {
-                _lastCASHBACK = TimeNow;
+                LastCASHBACK = TimeNow;
                 return;
             }
 
-            if ((TimeNow.Day - _lastCASHBACK.Day) >= _cashBackPeriod || ((TimeNow.Month - _lastCASHBACK.Month) != 0))
+            if ((TimeNow.Day - LastCASHBACK.Day) >= _cashBackPeriod || ((TimeNow.Month - LastCASHBACK.Month) != 0))
             {
-                Notify?.Invoke(PhoneNumber, $"Your get cahback {_cashBack}");
-                Sum = _sum +_cashBack;
-                _lastCASHBACK = TimeNow;
-                _cashBack = 0;
+                Notify?.Invoke(PhoneNumber, $"Your get cahback {CashBack}");
+                Sum = _sum +CashBack;
+                LastCASHBACK = TimeNow;
+                CashBack = 0;
             }
         }
         public void Close()
@@ -155,19 +152,6 @@ namespace Labs216.Anisimov.Bank
                 case 4:
                     Age = int.Parse(newValue);
                     break;
-            }
-        }
-
-        public void GetInfo()
-        {
-            var list = db.GetAccounts().GetAwaiter().GetResult();
-
-            foreach (var item in list)
-            {
-                ConsoleColor tmp = Console.ForegroundColor;
-                Console.ForegroundColor = ConsoleColor.Cyan;
-                Console.WriteLine($"name\t{item.Name}\nsurname\t{item.Surname}\nphone\t{item.PhoneNumber}\nage\t{item.Age}\nid\t{item.Id}\nsum\t{item.Sum}");
-                Console.ForegroundColor = tmp;
             }
         }
     }

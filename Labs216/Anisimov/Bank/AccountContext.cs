@@ -9,9 +9,18 @@ namespace Labs216.Anisimov.Bank
 {
     class AccountContext
     {
+        private static AccountContext instanse;
+
+        public static AccountContext getInstanse()
+        {
+            if (instanse == null)
+                instanse = new AccountContext();
+            return instanse;
+        }
+
         IMongoCollection<Account> Accounts;
 
-        public AccountContext()
+        private AccountContext()
         {
             string conect = "mongodb://localhost";
             var client = new MongoClient(conect);
@@ -19,25 +28,33 @@ namespace Labs216.Anisimov.Bank
             Accounts = Bank.GetCollection<Account>("Accounts");
         }
 
-        public async Task<IEnumerable<Account>> GetAccounts()
+        public async Task<ICollection<Account>> GetAccounts()
         {
             var filter = new BsonDocument();
             return await Accounts.Find(filter).ToListAsync();
         }
+        public async Task<ICollection<Account>> GetAccounts(FilterDefinition<Account> filter)
+        {
+            return await Accounts.Find(filter).ToListAsync();
+        }
+
         public async Task<Account> GetAccount(ObjectId id)
         {
             var filter = new BsonDocument { { "_id", id } } ;
             return await Accounts.Find(filter).FirstOrDefaultAsync();
         }
 
-        public async Task AddAccount(Account account)
+        public async Task Create(Account account)
         {
             await Accounts.InsertOneAsync(account);
         }
-
-        public async Task UpdateAccount()
+        public async Task Update(Account account)
         {
-
+            await Accounts.ReplaceOneAsync(new BsonDocument("_id", account.Id), account);
+        }
+        public async Task Remove(ObjectId id)
+        {
+            await Accounts.DeleteOneAsync(new BsonDocument("_id", id));
         }
     }
 }

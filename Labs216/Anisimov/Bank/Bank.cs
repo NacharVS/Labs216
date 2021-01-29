@@ -1,4 +1,6 @@
-﻿using System;
+﻿using MongoDB.Bson;
+using MongoDB.Driver;
+using System;
 using System.Collections.Generic;
 using System.Threading;
 
@@ -6,7 +8,6 @@ namespace Labs216.Anisimov.Bank
 {
     class Bank
     {
-        List<Account> Accounts = new List<Account>();
         DateTime Time = DateTime.Now;
         static object locker = new object();
 
@@ -21,6 +22,8 @@ namespace Labs216.Anisimov.Bank
         private static readonly int _Max = 1000000;
         private static readonly int _Min = 10000;
         protected static readonly int _MinAge = 14;
+
+        private AccountContext db = AccountContext.getInstanse();
 
         private int AgeCalculate(string birthday)
         {
@@ -57,24 +60,23 @@ namespace Labs216.Anisimov.Bank
 
             Account newAccount = new Account(name, surname, phone, AgeCalculate(birthday));
             newAccount.Open(Time);
-            Accounts.Add(newAccount);
         }
 
-        public void Put(int sum, int id)
+        public void Put(int sum, string id)
         {
-            Account account = null;
-            FindAccount(id, ref account);
+            Account account = db.GetAccount(new ObjectId(id)).GetAwaiter().GetResult();
 
             if (sum < _Min)
                 throw new Exception("You can't add less than 10 000");
 
             else account.Put(sum);
+
+            db.Update(account).GetAwaiter().GetResult();
         }
 
-        public void Withdraw(int sum, int id)
+        public void Withdraw(int sum, string id)
         {
-            Account account = null;
-            FindAccount(id, ref account);
+            Account account = db.GetAccount(new ObjectId(id)).GetAwaiter().GetResult();
 
             if (sum > account.Sum)
                 throw new Exception($"You have only: {account.Sum}");
@@ -82,12 +84,13 @@ namespace Labs216.Anisimov.Bank
                 throw new Exception("You can't take more than 100 000");
 
             account.Withdraw(sum);
+
+            db.Update(account).GetAwaiter().GetResult();
         }
 
-        public void Buy(int sum, int id, string organization)
+        public void Buy(int sum, string id, string organization)
         {
-            Account account = null;
-            FindAccount(id, ref account);
+            Account account = db.GetAccount(new ObjectId(id)).GetAwaiter().GetResult();
 
             Withdraw(sum, id);
 
@@ -100,44 +103,47 @@ namespace Labs216.Anisimov.Bank
             finally
             {
                 account.Buy(sum, ref BonusRate);
+                db.Update(account).GetAwaiter().GetResult();
             }
         }
 
-        public void ChangeRate(int id, double newValue)
+        public void ChangeRate(string id, double newValue)
         {
-            Account account = null;
-            FindAccount(id, ref account);
+            Account account = db.GetAccount(new ObjectId(id)).GetAwaiter().GetResult();
 
             account.ChangeRate(newValue);
+
+            db.Update(account).GetAwaiter().GetResult();
         }
 
-        public void Close(int id)
+        public void Close(string id)
         {
-            Account account = null;
-            FindAccount(id, ref account);
+            Account account = db.GetAccount(new ObjectId(id)).GetAwaiter().GetResult();
 
             account.Close();
 
-            Accounts.Remove(account);
+            db.Remove(account.Id).GetAwaiter().GetResult();
         }
 
         public void SkipTime(int days)
         {
             lock (locker)
             {
+                var collection = db.GetAccounts().GetAwaiter().GetResult();
+
                 Time += TimeSpan.FromDays(days);
-                for (int i = 0; i < Accounts.Count; i++)
+                foreach (var item in collection)
                 {
-                    Accounts[i].Calculate(Time);
-                    Accounts[i].GetCashBack(Time);
+                    item.Calculate(Time);
+                    item.GetCashBack(Time);
+                    db.Update(item).GetAwaiter().GetResult();
                 }
             }
         }
 
-        public void EditInfo(int id, int choose, string newValue)
+        public void EditInfo(string id, int choose, string newValue)
         {
-            Account account = null;
-            FindAccount(id, ref account);
+            Account account = db.GetAccount(new ObjectId(id)).GetAwaiter().GetResult();
 
             if (newValue == null || newValue == "")
                 throw new Exception("Неверное значение");
@@ -145,27 +151,54 @@ namespace Labs216.Anisimov.Bank
                 newValue = AgeCalculate(newValue).ToString();
 
             account.EditInfo(choose, newValue);
+
+            db.Update(account).GetAwaiter().GetResult();
         }
 
-        private void FindAccount(int id, ref Account account)
+        public void Search(string name, string surname, int? age)
         {
-            foreach(Account item in Accounts)
+            var builder = new FilterDefinitionBuilder<Account>();
+            var filter = builder.Empty;
+            if (!String.IsNullOrWhiteSpace(name))
+                filter = filter & builder.Regex("Name", new BsonRegularExpression(name));
+            if (!String.IsNullOrWhiteSpace(surname))
+                filter = filter & builder.Regex("Surname", new BsonRegularExpression(surname));
+            if (age.HasValue)
+                filter = filter & builder.Eq("Age", age.Value);
+
+            var collection = db.GetAccounts(filter).GetAwaiter().GetResult();
+
+            foreach (var item in collection)
             {
-                //if(item.Id == id)
-                //{
-                //    account = item;
-                //}
+                ConsoleColor tmp = Console.ForegroundColor;
+                Console.ForegroundColor = ConsoleColor.Cyan;
+                Console.WriteLine($"_______\nname\t{item.Name}\nsurname\t{item.Surname}\nphone\t{item.PhoneNumber}\nage\t{item.Age}\nid\t{item.Id}\nsum\t{item.Sum}\n");
+                Console.ForegroundColor = tmp;
             }
-            if (account == null)
-                throw new Exception("Account not found");
         }
 
-        public void GetInfo(/*int id*/)
+        public void GetInfo(string id)
         {
-            Account account = new Account("123","765","12313",12);
-            //FindAccount(id, ref account);
+            var account = db.GetAccount(new ObjectId(id)).GetAwaiter().GetResult();
 
-            account.GetInfo();
+            ConsoleColor tmp = Console.ForegroundColor;
+            Console.ForegroundColor = ConsoleColor.Cyan;
+            Console.WriteLine($"name\t{account.Name}\nsurname\t{account.Surname}\nphone\t{account.PhoneNumber}\nage\t{account.Age}\nid\t{account.Id}\nsum\t{account.Sum}\n");
+            Console.ForegroundColor = tmp;
         }
+
+        public void GetList()
+        {
+            var collection = db.GetAccounts().GetAwaiter().GetResult();
+
+            foreach (var item in collection)
+            {
+                ConsoleColor tmp = Console.ForegroundColor;
+                Console.ForegroundColor = ConsoleColor.Cyan;
+                Console.WriteLine($"_______\nname\t{item.Name}\nsurname\t{item.Surname}\nphone\t{item.PhoneNumber}\nage\t{item.Age}\nid\t{item.Id}\nsum\t{item.Sum}\n");
+                Console.ForegroundColor = tmp;
+            }
+        }
+
     }
 }
