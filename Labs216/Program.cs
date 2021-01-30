@@ -15,9 +15,11 @@ namespace Labs216
        
         static void Main(string[] args)
         {
-            Chelovec chel = new Chelovec("qwe");
-            //MnogoPotochnoct.Prr();
-            MongoDB1.MongoInsert(chel).GetAwaiter().GetResult();
+            Chelovec chel = new Chelovec("Andrey");
+
+            //Chelovec chel = new Chelovec() ;
+            ////MnogoPotochnoct.Prr();
+            //.GetAwaiter().GetResult();
 
             //Task[] tasks1 = new Task[4]
             //{
@@ -32,6 +34,6 @@ namespace Labs216
             //    Console.WriteLine(tasks1);
             //}
         }
-       
+
     }
 }

@@ -58,5 +58,15 @@ namespace Labs216._2_семестр
                 Console.WriteLine("surname - " + item.surname);
             }
         }
+        static async Task MongoReplaceByName (string searchName, Chelovec newChelovec)
+        {
+            string connectionString = "mongodb://localhost"; //адрес сервера
+            var client = new MongoClient(connectionString);
+            var datebase = client.GetDatabase("KruassanSloyKaMakaroshki");
+            var collection = datebase.GetCollection<Chelovec>("Cheloveci");
+            await collection.ReplaceOneAsync(x => x.name == searchName, newChelovec);
+            //метод обновление данных
+        }
+        
     }
 }
