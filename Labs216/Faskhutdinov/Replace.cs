@@ -1,13 +1,28 @@
-﻿using MongoDB.Driver;
+﻿using MongoDB.Bson.Serialization.Attributes;
+using MongoDB.Driver;
 using System;
 using System.Collections.Generic;
+using System.Text;
 
-namespace Labs216
+namespace Labs216.Faskhutdinov
 {
-    class Program
+    [BsonId]
+    [BsonIgnoreIfDefault]
+    public ObjectId id;
+    [BsonElement("Islam")]
+    public string name;
+    [BsonElement("Ilnaz")]
+    public string sername;
+    [BsonIgnoreIfDefault]
+    public int age;
+    [BsonIgnoreIfDefault]
+    public DataTime dataTime;
+    [BsonIgnoreIfNull]
+    public string Email;
+    class Replace
     {
-         public static void Main(string[] args)
-         {
+        public static void Main(string[] args)
+        {
             string connection = "mongodb://localhost";
             var client = new MongoClient(connection);
             var database = client.GetDatabase("MAret");
@@ -20,6 +35,6 @@ namespace Labs216
             {
                 Console.WriteLine(item.Name);
             }
-         }
+        }
     }
 }
