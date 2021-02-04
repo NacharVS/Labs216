@@ -4,6 +4,8 @@ using System.Text;
 using MongoDB.Bson;
 using MongoDB.Bson.Serialization.Attributes;
 using MongoDB.Driver;
+using System.Threading;
+using System.Threading.Tasks;
 
 namespace Labs216.Tarskih
 {
@@ -37,6 +39,14 @@ namespace Labs216.Tarskih
                 Console.WriteLine("name - " + item.name);
                 Console.WriteLine("surname - " + item.surname);
             }
+        }
+        static async Task MongoReplaceByName(string searchName, User newUser)
+        {
+            string connectionString = "mongodb://localhost";
+            var client = new MongoClient(connectionString);
+            var datebase = client.GetDatabase("CoffeeTime");
+            var collection = datebase.GetCollection<User>("Users");
+            await collection.ReplaceOneAsync(x => x.name == searchName, newUser);
         }
     }
 }
