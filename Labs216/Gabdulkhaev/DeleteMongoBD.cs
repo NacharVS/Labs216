@@ -29,12 +29,12 @@ namespace Labs216.Gabdulkhaev
 
 class Proga
 {
-    static async Task MongoUpdate(string searchName, int age)
+    static async Task MongoDelete(string searchName, int age)
     {
         string connectionString = "mongodb://localhost";
         var client = new MongoClient(connectionString);
-        var database = client.GetDatabase("CosmicCaramel");
-        var collection = database.GetCollection<Student>("PS");
+        var database = client.GetDatabase("216TeamDB");
+        var collection = database.GetCollection<NotStudent>("Students");
         await collection.DeleteOneAsync(cheplovek => cheplovek.name == searchName && cheplovek.age == age);
     }
     static async Task MongoConnect()
@@ -42,8 +42,20 @@ class Proga
         string connectionString = "mongodb://localhost";
         var client = new MongoClient(connectionString);
         var database = client.GetDatabase("216TeamDB");
-        var collection = database.GetCollection<Student>("Students");
+        var collection = database.GetCollection<NotStudent>("Students");
         var student = new BsonDocument();
         var students = await collection.Find(student).ToListAsync();
+    }
+    static async Task MongoInsert(NotStudent student)
+    {
+        string connectionString = "mongodb://localhost";
+        var client = new MongoClient(connectionString);
+        var database = client.GetDatabase("216TeamDB");
+        var collection = database.GetCollection<NotStudent>("Students");
+        await collection.InsertOneAsync(student);
+    }
+    static void Main()
+    {
+        MongoDelete("Ivan", 50).GetAwaiter().GetResult();
     }
 }

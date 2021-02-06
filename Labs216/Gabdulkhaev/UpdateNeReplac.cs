@@ -28,42 +28,42 @@ namespace Labs216.Gabdulkhaev
     }
 
 class Prog
+{
+    static async Task MongoUpdate(string searchName, int newAge)
     {
-        static async Task MongoUpdate(string searchName, int newAge)
+        string connectionString = "mongodb://localhost";
+        var client = new MongoClient(connectionString);
+        var database = client.GetDatabase("CosmicCaramel");
+        var collection = database.GetCollection<NotStudent>("PS");
+        var update = Builders<NotStudent>.Update.Set(a => a.age, newAge);
+        await collection.UpdateOneAsync(x => x.name == searchName, update);
+    }
+    static async Task SearchByName(string searchName, string searchSurname)
+    {
+        string connectionString = "mongodb://localhost";
+        var client = new MongoClient(connectionString);
+        var database = client.GetDatabase("216TeamDB");
+        var collection = database.GetCollection<NotStudent>("Students");
+        var students = await collection.Find(std => std.name == searchName & std.surname == searchSurname).ToListAsync();
+        foreach (var item in students)
         {
-            string connectionString = "mongodb://localhost";
-            var client = new MongoClient(connectionString);
-            var database = client.GetDatabase("CosmicCaramel");
-            var collection = database.GetCollection<Student>("PS");
-            var update = Builders<Student>.Update.Set(a => a.age, newAge);
-            await collection.UpdateOneAsync(x => x.name == searchName, update);
+            Console.WriteLine(item.name);
         }
-        static async Task SearchByName(string searchName, string searchSurname)
-        {
-            string connectionString = "mongodb://localhost";
-            var client = new MongoClient(connectionString);
-            var database = client.GetDatabase("216TeamDB");
-            var collection = database.GetCollection<Student>("Students");
-            var students = await collection.Find(std => std.name == searchName & std.surname == searchSurname).ToListAsync();
-            foreach (var item in students)
-            {
-                Console.WriteLine(item.name);
-            }
-        }
-        static async Task MongoInsert(Student student)
-        {
-            string connectionString = "mongodb://localhost";
-            var client = new MongoClient(connectionString);
-            var database = client.GetDatabase("216TeamDB");
-            var collection = database.GetCollection<Student>("Students");
-            await collection.InsertOneAsync(student);
-        }
+    }
+    static async Task MongoInsert(NotStudent student)
+    {
+        string connectionString = "mongodb://localhost";
+        var client = new MongoClient(connectionString);
+        var database = client.GetDatabase("216TeamDB");
+        var collection = database.GetCollection<NotStudent>("Students");
+        await collection.InsertOneAsync(student);
+    }
     static async Task MongoConnect()
     {
         string connectionString = "mongodb://localhost";
         var client = new MongoClient(connectionString);
         var database = client.GetDatabase("216TeamDB");
-        var collection = database.GetCollection<Student>("Students");
+        var collection = database.GetCollection<NotStudent>("Students");
         var student = new BsonDocument();
         var students = await collection.Find(student).ToListAsync();
         foreach (var item in students)
@@ -73,8 +73,10 @@ class Prog
             Console.WriteLine(item.age);
         }
     }
-    static void Main()
-                {
-                    MongoConnect().GetAwaiter().GetResult();
-                }
-            }
+}
+    //}
+    //static void Main()
+    //            {
+    //                MongoConnect().GetAwaiter().GetResult();
+    //            }
+    //        }

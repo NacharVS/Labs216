@@ -28,12 +28,12 @@ namespace Labs216.Gabdulkhaev
 }
 class Program
 {
-    static async Task MongoReplaceByName(string searchName, Student newStudent)
+    static async Task MongoReplaceByName(string searchName, NotStudent newStudent)
     {
         string connectionString = "mongodb://localhost";
         var client = new MongoClient(connectionString);
         var database = client.GetDatabase("216TeamDB");
-        var collection = database.GetCollection<Student>("Students");
+        var collection = database.GetCollection<NotStudent>("Students");
         await collection.ReplaceOneAsync(x => x.name == searchName, newStudent);
     }
     static async Task SearchByName(string searchName, string searchSurname)
@@ -41,19 +41,19 @@ class Program
         string connectionString = "mongodb://localhost";
         var client = new MongoClient(connectionString);
         var database = client.GetDatabase("216TeamDB");
-        var collection = database.GetCollection<Student>("Students");
+        var collection = database.GetCollection<NotStudent>("Students");
         var students = await collection.Find(std => std.name == searchName & std.surname == searchSurname).ToListAsync();
         foreach (var item in students)
         {
             Console.WriteLine(item.name);
         }
     }
-    static async Task MongoInsert(Student student)
+    static async Task MongoInsert(NotStudent student)
     {
         string connectionString = "mongodb://localhost";
         var client = new MongoClient(connectionString);
         var database = client.GetDatabase("216TeamDB");
-        var collection = database.GetCollection<Student>("Students");
+        var collection = database.GetCollection<NotStudent>("Students");
         await collection.InsertOneAsync(student);
     }
     static async Task MongoConnect()
@@ -61,7 +61,7 @@ class Program
         string connectionString = "mongodb://localhost";
         var client = new MongoClient(connectionString);
         var database = client.GetDatabase("216TeamDB");
-        var collection = database.GetCollection<Student>("Students");
+        var collection = database.GetCollection<NotStudent>("Students");
         var student = new BsonDocument();
         var students = await collection.Find(student).ToListAsync();
         foreach (var item in students)
