@@ -58,23 +58,23 @@ class Prog
             var collection = database.GetCollection<Student>("Students");
             await collection.InsertOneAsync(student);
         }
-        static async Task MongoConnect()
+    static async Task MongoConnect()
+    {
+        string connectionString = "mongodb://localhost";
+        var client = new MongoClient(connectionString);
+        var database = client.GetDatabase("216TeamDB");
+        var collection = database.GetCollection<Student>("Students");
+        var student = new BsonDocument();
+        var students = await collection.Find(student).ToListAsync();
+        foreach (var item in students)
         {
-            string connectionString = "mongodb://localhost";
-            var client = new MongoClient(connectionString);
-            var database = client.GetDatabase("216TeamDB");
-            var collection = database.GetCollection<Student>("Students");
-            var student = new BsonDocument();
-            var students = await collection.Find(student).ToListAsync();
-            foreach (var item in students)
-            {
-                Console.WriteLine(item.name);
-                Console.WriteLine(item._id);
-                Console.WriteLine(item.age);
-                static void Main()
+            Console.WriteLine(item.name);
+            Console.WriteLine(item._id);
+            Console.WriteLine(item.age);
+        }
+    }
+    static void Main()
                 {
                     MongoConnect().GetAwaiter().GetResult();
                 }
             }
-        }
-    }
