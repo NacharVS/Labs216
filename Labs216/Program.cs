@@ -15,8 +15,11 @@ namespace Labs216
        
         static void Main(string[] args)
         {
-            Chelovec chel = new Chelovec("Andrey");
+            
+           
 
+            Chelovec chelo = new Chelovec("Patrick", "Star", 10);
+            Chelovec.MongoReplaceByName("Patrick", chelo).GetAwaiter().GetResult();
             //Chelovec chel = new Chelovec() ;
             ////MnogoPotochnoct.Prr();
             //.GetAwaiter().GetResult();

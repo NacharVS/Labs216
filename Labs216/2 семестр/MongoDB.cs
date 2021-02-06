@@ -29,13 +29,15 @@ namespace Labs216._2_семестр
     }
     public class Chelovec
     {
-        
+        [BsonId]
+        [BsonIgnoreIfDefault]
         public ObjectId _id;
         [BsonElement("Imya")]
         public string name;
         [BsonElement("Familiya")]
+        [BsonIgnoreIfNull]
         public string surname;
-        [BsonIgnore]
+        [BsonIgnoreIfDefault]
         public int age;
         [BsonIgnoreIfDefault]
         public string Email;
@@ -44,7 +46,14 @@ namespace Labs216._2_семестр
         {
             this.name = name;
         }
-        static async Task SearchByName(string searchName, string searchSurname)
+        public Chelovec(string name,string surname, int agee)
+        {
+            this.name = name;
+            this.surname = surname;
+            age = agee;
+
+        }
+        public static async Task SearchByName(string searchName, string searchSurname)
         {
             string connectionString = "mongodb://localhost"; //адрес сервера
             var client = new MongoClient(connectionString);
@@ -57,16 +66,26 @@ namespace Labs216._2_семестр
                 Console.WriteLine("name - " + item.name);
                 Console.WriteLine("surname - " + item.surname);
             }
+            //поиск повторений
         }
-        static async Task MongoReplaceByName (string searchName, Chelovec newChelovec)
+        public static async Task MongoReplaceByName (string searchName, Chelovec newChelovec)
         {
             string connectionString = "mongodb://localhost"; //адрес сервера
             var client = new MongoClient(connectionString);
             var datebase = client.GetDatabase("KruassanSloyKaMakaroshki");
             var collection = datebase.GetCollection<Chelovec>("Cheloveci");
             await collection.ReplaceOneAsync(x => x.name == searchName, newChelovec);
-            //метод обновление данных
+            //метод обновление данных, замена 
         }
-        
+        public static async Task MongoReplaceByName(string searchName)
+        {
+            string connectionString = "mongodb://localhost"; //адрес сервера
+            var client = new MongoClient(connectionString);
+            var datebase = client.GetDatabase("KruassanSloyKaMakaroshki");
+            var collection = datebase.GetCollection<Chelovec>("Cheloveci");
+            await collection.DeleteOneAsync(x => x.name == searchName);
+            //метод удаление
+            // ИЛИ -|| И - &
+        }
     }
 }
